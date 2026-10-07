@@ -151,9 +151,9 @@ p { margin: 0; }
 .gc-h { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; align-items: baseline; }
 .gc-b p { color: var(--muted); font-size: 0.96rem; }
 .conf { font-size: 0.875rem; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); white-space: nowrap; }
-.conf.c0 { color: var(--gA); border-color: color-mix(in srgb, var(--gA) 40%, var(--line)); }
-.conf.c1 { color: var(--gC); border-color: color-mix(in srgb, var(--gC) 40%, var(--line)); }
-.conf.c2 { color: var(--gD); border-style: dashed; }
+.conf.c0 { color: var(--good-ink); border-color: color-mix(in srgb, var(--good-ink) 40%, var(--line)); }
+.conf.c1 { color: var(--muted); border-color: color-mix(in srgb, var(--muted) 40%, var(--line)); }
+.conf.c2 { color: var(--bad-ink); border-style: dashed; }
 
 /* Finding */
 .finding blockquote { margin: 8px 0 0; font-family: var(--display); font-weight: 500; font-size: clamp(1.7rem, 6.4vw, 2.6rem); line-height: 1.18; letter-spacing: -0.015em; padding-left: 18px; border-left: 6px solid var(--mark); text-wrap: pretty; }
@@ -189,6 +189,7 @@ p { margin: 0; }
 .bottom { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; background: var(--surface); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom, 0px); }
 .bottom-in { max-width: 760px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .dots { display: flex; gap: 5px; }
+@media (max-width: 480px) { .bottom .dots { display: none; } .bottom .nextbtn { flex: 1; justify-content: center; text-align: center; line-height: 1.25; } }
 .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); }
 .dot.past { background: color-mix(in srgb, var(--accent) 45%, var(--line)); }
 .dot.on { background: var(--accent); width: 18px; border-radius: 3px; }
@@ -453,7 +454,7 @@ li.done .st { background: var(--accent); -webkit-mask: url("data:image/svg+xml,%
 .jsteps span.past { color: var(--ink); border-color: var(--ink); }
 .soft { background: var(--surface); border: 1px solid var(--line); }
 .pill { display: inline-block; font: 600 0.875rem/1.3 var(--body); padding: 4px 12px; border-radius: 999px; }
-.p-ok { background: var(--gA); color: #fff; } .p-gap { background: var(--gE); color: #fff; }
+.p-ok { background: #2F6B5A; color: #fff; } .p-gap { background: #A93F2A; color: #fff; }
 .p-check { background: transparent; color: var(--ink); border: 2px solid var(--mark-strong); padding: 2px 10px; }
 .polcard { border-color: var(--line); }
 .polcard .mini, .who-nov { color: var(--ink); }
@@ -791,7 +792,7 @@ body.showfloat .floatcta { opacity: 1; transform: none; pointer-events: auto; }
 .pk-head .lede { color: var(--muted); font-size: 1.0625rem; line-height: 1.5; }
 .pk-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .pk-card { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: 12px; padding: 24px; border-radius: 16px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease; font-family: var(--body); }
-.pk-card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(27,36,64,.10); border-color: var(--ink); }
+.pk-card:hover { border-color: var(--ink); }
 .pk-card:focus-visible { outline: 3px solid var(--mark); outline-offset: 3px; }
 .pk-biz { background: #1B2440; color: #F5F0E6; border-color: #1B2440; }
 .pk-biz .pk-d, .pk-biz .pk-n { color: #C9CCDA; }
@@ -1119,7 +1120,7 @@ var PRESETS = [
   mk({ id: 'dinesh', branch: 'biz', ind: 'trading', sig: 'property', sigAction: 'nominations',
     name: { en: 'Dinesh Agarwal', hi: 'दिनेश अग्रवाल', gu: 'દિનેશ અગ્રવાલ' }, first: { en: 'Dinesh', hi: 'दिनेश', gu: 'દિનેશ' },
     place: { en: 'Malad', hi: 'मलाड', gu: 'મલાડ' },
-    card: { en: 'Chemicals trading, joint family', hi: 'केमिकल ट्रेडिंग, संयुक्त परिवार', gu: 'કેમિકલ ટ્રેડિંગ, સંયુક્ત પરિવાર' },
+    card: { en: 'Chemicals trading, Malad', hi: 'केमिकल ट्रेडिंग, मालाड', gu: 'કેમિકલ ટ્રેડિંગ, મલાડ' },
     bizDesc: { en: 'a chemicals trading business held through the family HUF', hi: 'परिवार के HUF के ज़रिए केमिकल ट्रेडिंग', gu: 'પરિવારના HUF દ્વારા કેમિકલ ટ્રેડિંગ' },
     famDesc: { en: 'Joint family: brother, sons 32 and 28, parents 84 and 80', hi: 'संयुक्त परिवार: भाई, बेटे 32 और 28, माता-पिता 84 और 80', gu: 'સંયુક્ત પરિવાર: ભાઈ, દીકરાઓ 32 અને 28, માતા-પિતા 84 અને 80' },
     depends: { en: 'Three generations, four properties, one karta.', hi: 'तीन पीढ़ियाँ, चार प्रॉपर्टी, एक कर्ता।', gu: 'ત્રણ પેઢી, ચાર પ્રોપર્ટી, એક કર્તા.' },
@@ -1266,7 +1267,7 @@ function buildState(p, dials) {
         addFile(s, F('CC_limit_letter.jpg', 'cc', ['loans'], 'Cash credit limit ' + rupeeLine(amt) + ' @ 10.50%')); }
       if (dials.borrow === 'pg') { amt = nice(0.2 * s.turnover); s.loans.push({ k: 'term', amt: amt, rate: 10, mkt: 9.75, biz: true }); s.guarantee = nice(0.1 * s.turnover);
         addFile(s, F('Term_loan_sanction.pdf', 'sanction', ['loans'], 'Term loan ' + rupeeLine(amt) + ' @ 10.00%'));
-        addFile(s, F('Guarantee_deed_Shreeji_Bank.pdf', 'guarantee', ['guarantee'], 'Personal guarantee for ' + rupeeLine(s.guarantee) + ' in favour of Shreeji Co-operative Bank')); }
+        addFile(s, F('Guarantee_deed_Varunika_Bank.pdf', 'guarantee', ['guarantee'], 'Personal guarantee for ' + rupeeLine(s.guarantee) + ' in favour of Varunika Bank')); }
       if (dials.borrow === 'lap') { amt = nice(0.05 * s.turnover); s.loans.push({ k: 'lap', amt: amt, rate: 11.25, mkt: 9.45, biz: false }); s.homePledged = true;
         addFile(s, F('LAP_sanction.pdf', 'lap', ['loans'], 'Loan against property ' + rupeeLine(amt) + ' @ 11.25% · Security: residence')); }
     }
@@ -1389,7 +1390,23 @@ function evaluate(s) {
 var LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
 /* ---------- Sources and confidence ---------- */
-var GRADE_FACTS = { p: ['life', 'health', 'guarantee', 'parents'], b: ['loans', 'guarantee', 'liquid'], lq: ['liquid'], fr: ['will', 'deed', 'nominations', 'parents'], w: ['trad', 'liquid', 'invest'] };
+var GRADE_FACTS = { p: ['life', 'health', 'guarantee', 'parents', 'bizcover', 'income'], b: ['loans', 'guarantee', 'liquid', 'income', 'business'], lq: ['liquid'], fr: ['will', 'deed', 'nominations', 'parents', 'property'], w: ['trad', 'liquid', 'invest', 'property'] };
+/* A fact matters for this household only if the household has it. Will and nominations describe something missing, so no paper is expected. */
+function factRelevant(s, fact) {
+  switch (fact) {
+    case 'life': case 'health': case 'liquid': return true;
+    case 'loans': return s.loans.length > 0;
+    case 'guarantee': return s.guarantee > 0;
+    case 'parents': return !!s.parentsDep;
+    case 'bizcover': case 'business': return s.branch === 'biz';
+    case 'income': return s.branch === 'sal';
+    case 'invest': return s.invest > 0;
+    case 'trad': return !!(s.wealth && s.wealth.trad);
+    case 'property': return s.property > 0;
+    case 'deed': return ['partner', 'llp', 'huf'].indexOf(s.entity) >= 0;
+    default: return false;
+  }
+}
 function factSource(s, fact, deselected, skipped) {
   var prov = s.files.filter(function (x) { return x.facts.indexOf(fact) >= 0; });
   if (!prov.length) return { kind: 'none' };
@@ -1398,10 +1415,28 @@ function factSource(s, fact, deselected, skipped) {
   if (sel.length) return { kind: 'doc', file: sel[0] };
   return { kind: 'est' };
 }
+/* Estimated = a number no ticked paper stands behind: unticked, skipped, or never on paper. */
+function factEstimated(s, fact, deselected, skipped) {
+  if (!factRelevant(s, fact)) return false;
+  return factSource(s, fact, deselected, skipped).kind !== 'doc';
+}
 function confidence(s, g, deselected, skipped) {
   if (skipped) return 2;
-  var est = GRADE_FACTS[g].filter(function (f) { return factSource(s, f, deselected, skipped).kind === 'est'; }).length;
+  var est = GRADE_FACTS[g].filter(function (f) { return factEstimated(s, f, deselected || {}, skipped); }).length;
   return est === 0 ? 0 : est === 1 ? 1 : 2;
+}
+/* What paper each signature finding stands on: file types or facts. */
+var SIG_SRC = { pg: ['guarantee', 'life'], deed: ['t:deed'], bi: ['t:costs'], gold: ['t:block'], pledge: ['loans'], policies: ['t:policies'], reprice: ['loans'],
+  liquidity: ['liquid'], property: ['t:props'], fleet: ['t:trucks'], empHealth: ['health'], loanCover: ['life', 'loans'], twoCovers: ['health'], corpus: ['invest'], trad: ['t:policies', 'trad'] };
+function sigEstimated(sig, s, deselected, skipped) {
+  return (SIG_SRC[sig] || []).some(function (k) {
+    if (k.indexOf('t:') === 0) {
+      var fs = s.files.filter(function (f) { return f.type === k.slice(2); });
+      if (!fs.length) return false;
+      return skipped || fs.every(function (f) { return deselected[f.n]; });
+    }
+    return factRelevant(s, k) && factSource(s, k, deselected, skipped).kind !== 'doc';
+  });
 }
 
 /* ---------- Copy: grades, findings, actions ---------- */
@@ -1459,12 +1494,14 @@ var SIG = {
     sub: { en: 'A personal guarantee is a claim on the family, not just on the business.', hi: 'निजी गारंटी सिर्फ़ बिज़नेस पर नहीं, परिवार पर दावा है।', gu: 'અંગત ગેરંટી માત્ર બિઝનેસ પર નહીં, પરિવાર પર દાવો છે.' },
     ok: function (s) { return s.guarantee > 0 && s.life < s.guarantee; }, v: function (s) { return { g: money(s.guarantee), c: money(s.life) }; } },
   deed: { t: { en: "The 1998 partnership deed says nothing about who takes {first}'s share. {r} of receivables would sit frozen while the family sorts it out.", hi: '1998 की पार्टनरशिप डीड में यह लिखा ही नहीं कि {first} का हिस्सा कौन लेगा। परिवार के मामला सुलझाने तक {r} की उधारी अटकी रहेगी।', gu: '1998 ની ભાગીદારી ડીડમાં લખ્યું જ નથી કે {first} નો હિસ્સો કોણ લેશે. પરિવાર મામલો ઉકેલે ત્યાં સુધી {r} ની ઉઘરાણી અટકી રહેશે.' },
+    tEst: { en: "Most partnership deeds say nothing about who takes a partner's share. If {first}'s does not, {r} of receivables would sit frozen while the family sorts it out.", hi: 'ज़्यादातर पार्टनरशिप डीड में यह नहीं लिखा होता कि पार्टनर का हिस्सा कौन लेगा। अगर {first} की डीड में भी नहीं, तो परिवार के मामला सुलझाने तक {r} की उधारी अटकी रहेगी।', gu: 'મોટાભાગની ભાગીદારી ડીડમાં લખ્યું નથી હોતું કે ભાગીદારનો હિસ્સો કોણ લેશે. જો {first} ની ડીડમાં પણ ન હોય, તો પરિવાર મામલો ઉકેલે ત્યાં સુધી {r} ની ઉઘરાણી અટકી રહેશે.' },
     sub: { en: '{old} of it is already more than 120 days old.', hi: 'इसमें से {old} पहले ही 120 दिन से पुरानी है।', gu: 'તેમાંથી {old} પહેલેથી 120 દિવસથી જૂની છે.' },
     ok: function (s) { return s.entity === 'partner' && s.gaps.succession; }, v: function (s) { return { r: money(s.receivables), old: money(s.receivables * 0.4) }; } },
   bi: { t: { en: 'If a fire shut the unit for three months, {x} of fixed costs keep running. No policy pays for that.', hi: 'अगर आग से यूनिट तीन महीने बंद रहे, तो {x} के फ़िक्स्ड ख़र्च चलते रहेंगे। इसका कोई बीमा नहीं है।', gu: 'જો આગથી યુનિટ ત્રણ મહિના બંધ રહે, તો {x} ના ફિક્સ્ડ ખર્ચ ચાલુ રહેશે. તેનો કોઈ વીમો નથી.' },
     sub: { en: 'The factory is insured. The months without it are not.', hi: 'फ़ैक्ट्री का बीमा है। बंद महीनों का नहीं।', gu: 'ફેક્ટરીનો વીમો છે. બંધ મહિનાઓનો નથી.' },
     ok: function () { return true; }, v: function (s) { return { x: money(s.fixed * 3) }; } },
   gold: { t: { en: 'Your stock is worth about {s} at today’s gold price. Is your cover still at {b}?', hi: 'आज के सोने के भाव पर आपका स्टॉक करीब {s} का है। क्या आपका बीमा अब भी {b} पर है?', gu: 'આજના સોનાના ભાવે તમારો સ્ટોક આશરે {s} નો છે. શું તમારો વીમો હજી {b} પર છે?' },
+    tEst: { en: "Your stock is worth about {s} at today's gold price. Is your block cover keeping up? Send the policy and we will check.", hi: 'आज के सोने के भाव पर आपका स्टॉक करीब {s} का है। क्या आपका ब्लॉक बीमा उतना है? पॉलिसी भेजिए, हम जाँच लेंगे।', gu: 'આજના સોનાના ભાવે તમારો સ્ટોક આશરે {s} નો છે. શું તમારો બ્લોક વીમો એટલો છે? પોલિસી મોકલો, અમે તપાસી લઈશું.' },
     sub: { en: 'Block policies are often set once and renewed at the same number.', hi: 'ब्लॉक पॉलिसी अक्सर एक बार तय होकर उसी रकम पर रिन्यू होती रहती है।', gu: 'બ્લોક પોલિસી ઘણીવાર એક વાર નક્કી થઈને એ જ રકમ પર રિન્યુ થતી રહે છે.' },
     ok: function () { return true; }, v: function (s) { return { s: money(s.stock), b: money(s.block) }; } },
   pledge: { t: { en: '{t} of turnover, {p} of profit, and the family home stands behind {l} of bank limits.', hi: '{t} का टर्नओवर, {p} का मुनाफ़ा, और {l} की बैंक लिमिट के पीछे परिवार का घर खड़ा है।', gu: '{t} નું ટર્નઓવર, {p} નો નફો, અને {l} ની બેંક લિમિટ પાછળ પરિવારનું ઘર ઊભું છે.' },
@@ -1483,6 +1520,7 @@ var SIG = {
     sub: { en: "Wealth that can't be reached or passed on smoothly still leaves the family short.", hi: 'जो संपत्ति न निकाली जा सके, न आसानी से आगे जाए, वह परिवार की मदद नहीं करती।', gu: 'જે સંપત્તિ ન ઉપાડી શકાય, ન સરળતાથી આગળ જાય, તે પરિવારને મદદ કરતી નથી.' },
     ok: function () { return true; }, v: function (s) { return { p: money(s.home + s.property), l: money(s.liquid) }; } },
   fleet: { t: { en: '{x} of your {n} trucks are running without valid cover this month.', hi: 'इस महीने आपके {n} में से {x} ट्रक बिना वैध बीमे के चल रहे हैं।', gu: 'આ મહિને તમારા {n} માંથી {x} ટ્રક માન્ય વીમા વગર ચાલી રહ્યા છે.' },
+    tEst: { en: 'With {n} trucks renewed across five insurers through the year, some are usually running without valid cover. Send the renewals and we will name them.', hi: '{n} ट्रकों के बीमे साल भर पाँच कंपनियों में रिन्यू होते हैं, तो अक्सर कुछ बिना वैध बीमे के चलते हैं। रिन्यूअल भेजिए, हम नाम बता देंगे।', gu: '{n} ટ્રકોના વીમા આખું વર્ષ પાંચ કંપનીઓમાં રિન્યૂ થાય છે, તેથી ઘણીવાર કેટલીક ટ્રક માન્ય વીમા વગર ચાલે છે. રિન્યુઅલ મોકલો, અમે નામ જણાવીશું.' },
     sub: { en: 'Renewals are spread across five insurers through the year.', hi: 'पाँच बीमा कंपनियों में साल भर बिखरे रिन्यूअल।', gu: 'પાંચ વીમા કંપનીઓમાં આખું વર્ષ વેરવિખેર રિન્યુઅલ.' },
     ok: function () { return true; }, v: function (s) { return { x: s.lapsed, n: s.trucks }; } },
   empHealth: { t: { en: 'If you changed jobs tomorrow, you and your parents would have no health cover at all.', hi: 'अगर कल आप नौकरी बदलें, तो आपके और आपके माता-पिता के पास कोई स्वास्थ्य बीमा नहीं रहेगा।', gu: 'જો કાલે તમે નોકરી બદલો, તો તમારી અને તમારા માતા-પિતા પાસે કોઈ આરોગ્ય વીમો નહીં રહે.' },
@@ -1516,11 +1554,18 @@ function worstDim(e) {
   order.forEach(function (g) { if (best === null || e.grades[g] > e.grades[best]) best = g; });
   return best;
 }
-function finding(p, s, e) {
+var EST_PRE = { en: 'Estimate, until we see the papers: ', hi: 'अनुमान, कागज़ देखने तक: ', gu: 'અંદાજ, કાગળો જોઈએ ત્યાં સુધી: ' };
+function finding(p, s, e, deselected, skipped) {
   var sg = SIG[p.sig], first = tx(p.first);
+  if (deselected === undefined) { deselected = (typeof S !== 'undefined' && S.desel) || {}; skipped = typeof S !== 'undefined' && S.skipped; }
   if (sg && sg.ok(s, e)) {
     var v = sg.v(s, e); v.first = first;
     var tt = (p.sig === 'empHealth' && !s.parentsDep && sg.tAlt) ? sg.tAlt : sg.t;
+    if (sigEstimated(p.sig, s, deselected || {}, skipped)) {
+      if (sg.tEst) return { text: t(sg.tEst, v), sub: t(sg.sub, v), sig: true, est: true };
+      var txt = t(tt, v); if (LANG === 'en') txt = txt.charAt(0).toLowerCase() + txt.slice(1);
+      return { text: tx(EST_PRE) + txt, sub: t(sg.sub, v), sig: true, est: true };
+    }
     return { text: t(tt, v), sub: t(sg.sub, v), sig: true };
   }
   var g = worstDim(e);
@@ -1601,7 +1646,8 @@ function actions(p, s, e) {
   var total = (s.bizShare || 0) + s.liquid + s.invest + s.home + s.property;
   if (s.gaps.will) add('will', 0.01 * total, total);
   if (s.gaps.succession) add('succession', 0.1 * ((s.bizShare || 0) + (s.receivables || 0)), (s.bizShare || 0));
-  if (s.wealth.trad) add('trad', s.premium * 5, s.premium);
+  /* Surrender cannot be undone: when rupee impact is close, the reversible step goes first. */
+  if (s.wealth.trad) add('trad', s.premium * 5 * 0.9, s.premium);
   if (s.wealth.conc) add('conc', 0.05 * s.invest + 1 * L, s.invest || s.bizShare || s.liquid);
   if (s.wealth.goal) { if (p.sig === 'corpus' || s.ageBand === '55+') add('retire', 0.03 * (s.liquid + s.invest), s.liquid + s.invest); else add('goal', 1 * L, 0); }
   if (s.gaps.papers || s.gaps.trusted) add('papers', 0.5 * L, 0);
@@ -1701,6 +1747,7 @@ var JU = {
   qIntro: { en: 'A few questions so the fit is right. Answers already known are filled in.', hi: 'सही प्लान के लिए कुछ सवाल। जो पता है, वह पहले से भरा है।', gu: 'સાચા પ્લાન માટે થોડા સવાલ. જે ખબર છે, તે પહેલેથી ભરેલું છે.' },
   seeOptions: { en: 'See three options', hi: 'तीन विकल्प देखें', gu: 'ત્રણ વિકલ્પ જુઓ' },
   cmpIntro: { en: 'Ranked by fit to your answers, then claims record, then price.', hi: 'आपके जवाबों से मेल, फिर क्लेम रिकॉर्ड, फिर कीमत के क्रम में।', gu: 'તમારા જવાબો સાથે મેળ, પછી ક્લેમ રેકોર્ડ, પછી કિંમતના ક્રમમાં.' },
+  cmpIntroBiz: { en: 'Ranked by what you said matters most, then by yearly interest.', hi: 'आपकी सबसे ज़रूरी बात, फिर सालाना ब्याज के क्रम में।', gu: 'તમારી સૌથી મહત્વની વાત, પછી વાર્ષિક વ્યાજના ક્રમમાં.' },
   cmpIntroLoan: { en: 'Ranked by money saved after all costs, then by your answers.', hi: 'सारे ख़र्च के बाद बचत, फिर आपके जवाबों के क्रम में।', gu: 'બધા ખર્ચ પછી બચત, પછી તમારા જવાબોના ક્રમમાં.' },
   commLine: { en: 'November earns a commission on most plans it shows. What it earns never changes the order.', hi: 'November ज़्यादातर दिखाए गए प्लानों पर कमीशन कमाता है। कमाई से क्रम कभी नहीं बदलता।', gu: 'November બતાવેલા મોટાભાગના પ્લાન પર કમિશન કમાય છે. કમાણીથી ક્રમ ક્યારેય બદલાતો નથી.' },
   commLineLoan: { en: 'November earns from some lenders and nothing if you stay where you are. What it earns never changes the order.', hi: 'November कुछ बैंकों से कमाता है, और आप वहीं रहें तो कुछ नहीं। कमाई से क्रम कभी नहीं बदलता।', gu: 'November કેટલીક બેંકો પાસેથી કમાય છે, અને તમે ત્યાં જ રહો તો કંઈ નહીં. કમાણીથી ક્રમ ક્યારેય બદલાતો નથી.' },
@@ -1774,7 +1821,7 @@ var JQ = {
   ],
   biz: [
     { k: 'security', q: { en: 'Can the business offer stock or receivables as security?', hi: 'क्या बिज़नेस स्टॉक या उधारी को गारंटी के तौर पर दे सकता है?', gu: 'શું બિઝનેસ સ્ટોક કે ઉઘરાણીને સિક્યોરિટી તરીકે આપી શકે?' }, o: [['yes', { en: 'Yes', hi: 'हाँ', gu: 'હા' }], ['no', { en: 'No', hi: 'नहीं', gu: 'ના' }]] },
-    { k: 'prio', q: { en: 'What matters most?', hi: 'सबसे ज़रूरी क्या है?', gu: 'સૌથી મહત્વનું શું છે?' }, o: [['rate', { en: 'Lower interest', hi: 'कम ब्याज', gu: 'ઓછું વ્યાજ' }], ['guar', { en: 'Smaller personal guarantee', hi: 'छोटी निजी गारंटी', gu: 'નાની અંગત ગેરંટી' }], ['speed', { en: 'Speed', hi: 'जल्दी', gu: 'ઝડપ' }]] },
+    { k: 'prio', q: { en: 'What matters most?', hi: 'सबसे ज़रूरी क्या है?', gu: 'સૌથી મહત્વનું શું છે?' }, o: [['rate', { en: 'Lower interest', hi: 'कम ब्याज', gu: 'ઓછું વ્યાજ' }], ['guar', { en: 'Less resting on the family (guarantee, home)', hi: 'परिवार पर कम बोझ (गारंटी, घर)', gu: 'પરિવાર પર ઓછો ભાર (ગેરંટી, ઘર)' }], ['speed', { en: 'Speed', hi: 'जल्दी', gu: 'ઝડપ' }]] },
     { k: 'years', q: { en: 'Years left on the loan', hi: 'लोन के कितने साल बाकी', gu: 'લોનના કેટલા વર્ષ બાકી' }, o: [['3', '3'], ['5', '5'], ['7', '7']] }
   ]
 };
@@ -1864,7 +1911,7 @@ function jDefaults(type, s, e) {
   if (type === 'health' || type === 'parents') return { who: type === 'parents' ? 'parents' : 'family', cond: type === 'parents' ? 'bp' : 'none', hosp: 'big', room: 'private', sum: type === 'parents' ? '10' : '25', keep: 'add' };
   if (type === 'term') return { smoke: 'no', till: s.age > 50 ? '70' : '65', payout: 'lump', sum: 'mid' };
   if (type === 'home') return { years: '15', prepay: 'no', service: 'fine', prio: 'cost' };
-  return { security: 'yes', prio: s.guarantee > 0 ? 'guar' : 'rate', years: '5' };
+  return { security: 'yes', prio: s.guarantee > 0 || s.homePledged ? 'guar' : 'rate', years: '5' };
 }
 
 function healthOptions(a, s) {
@@ -1929,13 +1976,16 @@ function homeOptions(a, s) {
   var effYrs = a.prepay === 'yes' ? Math.min(3, yrs) : yrs;
   return defs.map(function (d) {
     var emi = emiOf(P, d.rate, yrs), mSave = emi0 - emi;
-    var saved = round100(mSave * effYrs * 12 - d.fee);
+    /* A rate tied to the lender's own benchmark is assumed to reset 0.5% higher after two years; that cost sits inside the saving. */
+    var months = effYrs * 12, gross = mSave * months;
+    if (d.reset && months > 24) { var emiR = emiOf(P, d.rate + 0.5, yrs); gross = mSave * 24 + (emi0 - emiR) * (months - 24); }
+    var saved = round100(gross - d.fee);
     var be = mSave > 0 ? Math.ceil(d.fee / mSave) : 0;
     var score = saved / L, pros = [], cons = [];
     if (d.id === 'h1') { pros.push(WHY.easy); if (a.service === 'poor') { score -= 3; cons.push(WHY.poorService); } if (a.prio === 'easy') score += 4; }
     else if (a.prio === 'easy') score -= 2;
     if (a.prepay === 'yes' && d.id !== 'h1') cons.push(WHY.prepayFee);
-    if (d.reset) { score -= 1.5; cons.push(LTX.resetRisk); }
+    if (d.reset) cons.push(LTX.resetRisk);
     if (d.id === 'h2') pros.push(WHY.repo);
     return { d: d, P: P, cur: ln, emi0: emi0, emi: emi, saved: saved, be: be, score: score, pros: pros, cons: cons, yrs: yrs };
   }).map(function (o, i, arr) {
@@ -1944,7 +1994,7 @@ function homeOptions(a, s) {
     return o;
   }).sort(function (x, y) { return y.score - x.score; });
 }
-function bizLoan(s) { return s.loans.filter(function (x) { return x.biz; }).sort(function (x, y) { return y.amt - x.amt; })[0]; }
+function bizLoan(s) { return s.loans.filter(function (x) { return x.biz; }).sort(function (x, y) { return (y.rate - y.mkt) * y.amt - (x.rate - x.mkt) * x.amt || y.amt - x.amt; })[0]; }
 function bizOptions(a, s) {
   var ln = bizLoan(s) || { amt: nice(0.1 * (s.turnover || 10 * CR)), rate: 10.5, mkt: 10, k: 'term' }, P = ln.amt, g0 = s.guarantee, sec = a.security === 'yes';
   var defs = [
@@ -1965,7 +2015,7 @@ function bizOptions(a, s) {
     if (d.nbfc) { pros.push(WHY.fastest); cons.push({ en: fill(WHY.costly.en, { x: money(delta) }), hi: fill(WHY.costly.hi, { x: money(delta) }), gu: fill(WHY.costly.gu, { x: money(delta) }) }); }
     if (d.days > 30) cons.push(WHY.slow);
     if (d.id === 'b1') pros.push(WHY.easy);
-    return { d: d, P: P, cur: ln, yearly: yearly, curYearly: cur, delta: delta, score: score, pros: pros, cons: cons };
+    return { d: d, P: P, cur: ln, yearly: yearly, curYearly: cur, delta: delta, score: score, pros: pros, cons: cons, g0: g0, homeNow: s.homePledged };
   }).map(function (o, i, arr) {
     var mn = Math.min.apply(null, arr.map(function (x) { return x.yearly; }));
     if (o.yearly === mn) o.pros.unshift(WHY.cheapest);
@@ -2001,6 +2051,7 @@ function headline(o, type) {
   if (type === 'health' || type === 'parents') return '<div class="bill"><span>' + t(o.pl ? LTX.billQ : LTX.billQs, { b: money(o.B) }) + '</span><strong>' + money(o.famPays) + '</strong></div>';
   if (type === 'term') return '<div class="bill"><span>' + tx(JU.sum) + '</span><strong>' + money(o.sum) + '</strong></div>';
   if (type === 'home') return '<div class="bill"><span>' + tx(LTX.saved) + '</span><strong>' + money(Math.max(0, o.saved)) + '</strong></div>';
+  if (!o.g0 && o.homeNow) return '<div class="bill"><span>' + tx(LTX.homeSec) + '</span><strong>' + (o.d.home ? tx(LTX.yes) : tx(LTX.no)) + '</strong></div>';
   return '<div class="bill"><span>' + tx(LTX.guar) + '</span><strong>' + (o.d.guar ? money(o.d.guar) : tx(LTX.no)) + '</strong></div>';
 }
 
@@ -2146,6 +2197,7 @@ var CU2 = {
   compareT: O('Side by side', 'आमने-सामने', 'સામસામે'),
   cont: O('Continue with this', 'इसी के साथ आगे', 'આની સાથે આગળ'), applyWith: O('Apply with this lender', 'इस बैंक के साथ आवेदन', 'આ બેંક સાથે અરજી'), det: O('Details', 'विवरण', 'વિગત'),
   earns: O('What November earns', 'November की कमाई', 'November ની કમાણી'),
+  stayPut: O("Staying where you are is an option too. If the saving does not justify the paperwork, we will say so.", "जहाँ हैं वहीं रहना भी एक विकल्प है। अगर बचत काग़ज़ी काम के लायक नहीं, तो हम साफ़ बताएँगे।", "જ્યાં છો ત્યાં જ રહેવું પણ એક વિકલ્પ છે. જો બચત કાગળકામ જેટલી ન હોય, તો અમે સ્પષ્ટ કહીશું."),
   dontBuy: O("Not buying is an option too. If the cover you hold already does the job, we will tell you, and you pay nothing.", 'न ख़रीदना भी एक विकल्प है। अगर मौजूदा बीमा काफ़ी है, तो हम बताएँगे, और आप कुछ नहीं भरेंगे।', 'ન ખરીદવું પણ એક વિકલ્પ છે. જો હાલનો વીમો પૂરતો હોય, તો અમે કહીશું, અને તમે કંઈ ભરશો નહીં.'),
   labels: {
     pays: O('You pay on a ₹4 lakh private-room stay', '₹4 लाख की प्राइवेट कमरे वाली भर्ती पर आप देंगे', '₹4 લાખના પ્રાઇવેટ રૂમવાળા દાખલા પર તમે ચૂકવશો'),
@@ -2165,6 +2217,8 @@ var CU2 = {
     healthCheap: O('{plan} fits best and is also the lowest premium, at {p} a year.', '{plan} सबसे सही भी है और सबसे कम प्रीमियम भी, {p} सालाना।', '{plan} સૌથી યોગ્ય પણ છે અને સૌથી ઓછું પ્રીમિયમ પણ, {p} વાર્ષિક.'),
     term: O('{plan} fits best: {c}% of claims paid last year, settled in about {d} days, for {p} a year.', '{plan} सबसे सही है: पिछले साल {c}% क्लेम चुकाए, करीब {d} दिन में, {p} सालाना पर।', '{plan} સૌથી યોગ્ય છે: ગયા વર્ષે {c}% ક્લેમ ચૂકવ્યા, આશરે {d} દિવસમાં, {p} વાર્ષિક પર.'),
     home: O('{plan} saves {s} over the loan after every cost, and pays back its cost in {b} months.', '{plan} हर ख़र्च के बाद पूरे लोन में {s} बचाता है, और {b} महीने में ख़र्च वसूल।', '{plan} દરેક ખર્ચ પછી આખી લોનમાં {s} બચાવે છે, અને {b} મહિનામાં ખર્ચ વસૂલ.'),
+    bizHome: O('{plan} takes the family home out of the loan, at {r}%.', '{plan} परिवार के घर को लोन से बाहर करता है, {r}% पर।', '{plan} પરિવારના ઘરને લોનમાંથી બહાર કરે છે, {r}% પર.'),
+    bizRate: O('{plan} keeps the yearly interest lowest, at {r}%.', '{plan} सालाना ब्याज सबसे कम रखता है, {r}% पर।', '{plan} વાર્ષિક વ્યાજ સૌથી ઓછું રાખે છે, {r}% પર.'),
     biz: O('{plan} fits what you said matters most: personal guarantee {g}, at {r}%.', '{plan} आपकी सबसे ज़रूरी बात पर सही है: निजी गारंटी {g}, {r}% पर।', '{plan} તમારી સૌથી મહત્વની વાત પર યોગ્ય છે: અંગત ગેરંટી {g}, {r}% પર.')
   }
 };
@@ -2191,10 +2245,12 @@ function rowsFor(os, j, s) {
     return [[L.saved, os.map(function (o) { return c(moneyFull(Math.max(0, o.saved)), o.saved === mx ? 'ok' : '', true); })], [L.rate, os.map(function (o) { return c(oneDec(o.d.rate) + '%'); })],
       [L.emi, os.map(function (o) { return c(moneyFull(o.emi)); })], [L.cost, os.map(function (o) { return c(moneyFull(o.d.fee)); })],
       [L.be, os.map(function (o) { return c(o.be ? t(V.months, { x: o.be }) : '—'); })], [L.link, os.map(function (o) { return c(tx(o.d.reset ? V.own : V.repo), o.d.reset ? 'check' : ''); })]]; }
-  return [[L.guar, os.map(function (o) { return c(o.d.guar ? money(o.d.guar) : tx(V.none), o.d.guar === 0 ? 'ok' : o.d.guar < s.guarantee ? 'ok' : (s.guarantee ? 'gap' : ''), true); })],
-    [L.rate, os.map(function (o) { return c(oneDec(o.d.rate) + '%'); })], [L.yearly, os.map(function (o) { return c(moneyFull(o.yearly)); })],
-    [L.homeSec, os.map(function (o) { return c(tx(o.d.home ? V.yes : V.not), o.d.home ? 'gap' : ''); })],
-    [L.time, os.map(function (o) { return c(o.d.days >= 14 ? t(LTX.wk, { x: Math.round(o.d.days / 7) }) : t(LTX.days, { x: o.d.days })); })]];
+  var homeFirst = !s.guarantee && s.homePledged;
+  var gRow = [L.guar, os.map(function (o) { return c(o.d.guar ? money(o.d.guar) : tx(V.none), o.d.guar === 0 ? 'ok' : o.d.guar < s.guarantee ? 'ok' : (s.guarantee ? 'gap' : ''), true); })];
+  var hRow = [L.homeSec, os.map(function (o) { return c(tx(o.d.home ? V.yes : V.not), o.d.home ? 'gap' : (s.homePledged ? 'ok' : ''), homeFirst); })];
+  return (homeFirst ? [hRow] : [gRow]).concat([
+    [L.rate, os.map(function (o) { return c(oneDec(o.d.rate) + '%'); })], [L.yearly, os.map(function (o) { return c(moneyFull(o.yearly)); })]]).concat(homeFirst ? [] : [hRow]).concat([
+    [L.time, os.map(function (o) { return c(o.d.days >= 14 ? t(LTX.wk, { x: Math.round(o.d.days / 7) }) : t(LTX.days, { x: o.d.days })); })]]);
 }
 function optLabel2(o) { var n = optName(o); return n.name ? n.ins + ' ' + n.name : n.ins; }
 function verdict(os, j) {
@@ -2205,6 +2261,8 @@ function verdict(os, j) {
   }
   if (ty === 'term') return t(V.term, { plan: optLabel2(p), c: p.pl.csr, d: p.pl.days, p: moneyFull(p.prem) });
   if (ty === 'home') return t(V.home, { plan: optLabel2(p), s: moneyFull(Math.max(0, p.saved)), b: p.be || 1 });
+  if (!p.g0 && p.homeNow) return t(p.d.home ? V.bizRate : V.bizHome, { plan: optLabel2(p), r: oneDec(p.d.rate) });
+  if (!p.g0) return t(V.bizRate, { plan: optLabel2(p), r: oneDec(p.d.rate) });
   return t(V.biz, { plan: optLabel2(p), g: p.d.guar ? money(p.d.guar) : tx(CU2.v.none), r: oneDec(p.d.rate) });
 }
 
@@ -2212,7 +2270,7 @@ function verdict(os, j) {
 var QA = {
   health: [O('Why not the cheapest?', 'सबसे सस्ता क्यों नहीं?', 'સૌથી સસ્તું કેમ નહીં?'), O('What if we take a shared room?', 'शेयर्ड कमरा लें तो?', 'શેર્ડ રૂમ લઈએ તો?'), O('Do we need this at all?', 'क्या यह ज़रूरी भी है?', 'શું આ જરૂરી પણ છે?')],
   term: [O('Why not the cheapest?', 'सबसे सस्ता क्यों नहीं?', 'સૌથી સસ્તું કેમ નહીં?'), O('How did you arrive at this amount?', 'यह रकम कैसे तय की?', 'આ રકમ કેવી રીતે નક્કી કરી?'), O('Do I need this at all?', 'क्या यह ज़रूरी भी है?', 'શું આ જરૂરી પણ છે?')],
-  home: [O('Why not the biggest saving?', 'सबसे बड़ी बचत क्यों नहीं?', 'સૌથી મોટી બચત કેમ નહીં?'), O('Should I just ask my bank first?', 'क्या पहले अपने बैंक से पूछूँ?', 'શું પહેલાં મારી બેંકને પૂછું?'), O('What if I prepay soon?', 'जल्दी चुका दूँ तो?', 'વહેલું ચૂકવી દઉં તો?')],
+  home: [O('Why not the lowest rate?', 'सबसे कम रेट क्यों नहीं?', 'સૌથી ઓછો દર કેમ નહીં?'), O('Should I just ask my bank first?', 'क्या पहले अपने बैंक से पूछूँ?', 'શું પહેલાં મારી બેંકને પૂછું?'), O('What if I prepay soon?', 'जल्दी चुका दूँ तो?', 'વહેલું ચૂકવી દઉં તો?')],
   biz: [O('Why does the guarantee matter?', 'गारंटी क्यों मायने रखती है?', 'ગેરંટી કેમ મહત્વની છે?'), O('What if speed matters most?', 'अगर जल्दी सबसे ज़रूरी हो?', 'જો ઝડપ સૌથી મહત્વની હોય?'), O('Can the family home be freed?', 'क्या परिवार का घर छूट सकता है?', 'શું પરિવારનું ઘર છૂટી શકે?')]
 };
 var QAA = {
@@ -2225,11 +2283,13 @@ var QAA = {
   tHow: O('Ten to twelve years of family spend, plus loans in your name and any personal guarantees, minus the cover you already hold. That came to {sum}.', 'परिवार के दस-बारह साल का ख़र्च, आपके नाम के लोन और निजी गारंटी जोड़कर, मौजूदा बीमा घटाकर। यह {sum} बना।', 'પરિવારના દસ-બાર વર્ષનો ખર્ચ, તમારા નામની લોન અને અંગત ગેરંટી ઉમેરીને, હાલનો વીમો બાદ કરીને. તે {sum} થયું.'),
   tHowD: O('About fifteen times your yearly income, a common starting point. A family check would make it exact, counting loans, guarantees and cover you already hold.', 'आपकी सालाना आय का करीब पंद्रह गुना, एक आम शुरुआत। परिवार की जाँच से यह सटीक होगा, लोन, गारंटी और मौजूदा बीमा गिनकर।', 'તમારી વાર્ષિક આવકના આશરે પંદર ગણા, એક સામાન્ય શરૂઆત. પરિવારની તપાસથી તે ચોક્કસ થશે, લોન, ગેરંટી અને હાલનો વીમો ગણીને.'),
   tNeed: O('Only if the cover you hold falls short. Send us your existing policies and we will check before you pay anything.', 'तभी, जब मौजूदा बीमा कम पड़े। अपनी पॉलिसियाँ भेजिए, कुछ भरने से पहले हम जाँच लेंगे।', 'ત્યારે જ, જ્યારે હાલનો વીમો ઓછો પડે. તમારી પોલિસીઓ મોકલો, કંઈ ભરતાં પહેલાં અમે તપાસી લઈશું.'),
+  lReset: O("It is the biggest saving after every cost. {c} shows the lowest rate, {r}, but it follows the lender's own benchmark, so we assume it resets 0.5% higher after two years. That cost is already in its saving.", '{c} का रेट सबसे कम, {r}, दिखता है, पर वह लेंडर के अपने बेंचमार्क से चलता है, इसलिए हम मानते हैं कि दो साल बाद वह 0.5% बढ़ेगा। वह ख़र्च उसकी बचत में पहले ही जोड़ा है। हर ख़र्च के बाद सबसे बड़ी बचत यही है।', '{c} નો દર સૌથી ઓછો, {r}, દેખાય છે, પણ તે લેન્ડરના પોતાના બેન્ચમાર્ક પર ચાલે છે, તેથી અમે માનીએ છીએ કે બે વર્ષ પછી તે 0.5% વધશે. એ ખર્ચ તેની બચતમાં પહેલેથી ગણ્યો છે. દરેક ખર્ચ પછી સૌથી મોટી બચત આ જ છે.'),
   lSame: O('It is the biggest saving as well as the best fit.', 'यही सबसे बड़ी बचत भी है और सबसे सही भी।', 'આ જ સૌથી મોટી બચત પણ છે અને સૌથી યોગ્ય પણ.'),
   lBig: O("{c} saves {d} more on paper, but its rate follows the lender's own benchmark, which it can reset at will. A repo-linked rate moves only when the RBI moves.", '{c} कागज़ पर {d} ज़्यादा बचाता है, पर इसका रेट बैंक के अपने बेंचमार्क से चलता है, जिसे वह कभी भी बदल सकता है। रेपो से जुड़ा रेट तभी बदलता है जब RBI बदले।', '{c} કાગળ પર {d} વધુ બચાવે છે, પણ તેનો દર બેંકના પોતાના બેન્ચમાર્કથી ચાલે છે, જે તે ગમે ત્યારે બદલી શકે. રેપો સાથે જોડાયેલો દર ત્યારે જ બદલાય જ્યારે RBI બદલે.'),
   lBank: O('Yes. Your current lender, repriced, saves {s} with no new paperwork. Take the {p} figure with you when you ask.', 'हाँ। आपका मौजूदा बैंक, नए रेट पर, बिना नए कागज़ों के {s} बचाता है। पूछते समय {p} का आँकड़ा साथ ले जाइए।', 'હા. તમારી હાલની બેંક, નવા દરે, નવા કાગળો વગર {s} બચાવે છે. પૂછતી વખતે {p} નો આંકડો સાથે લઈ જાઓ.'),
   lPre: O('If you prepay in three years, switching costs weigh more. {plan} comes out on top, saving {s} in that time.', 'तीन साल में चुका दें तो ट्रांसफ़र का ख़र्च भारी पड़ता है। तब {plan} सबसे ऊपर आता है, उस समय में {s} बचाकर।', 'ત્રણ વર્ષમાં ચૂકવી દો તો ટ્રાન્સફરનો ખર્ચ ભારે પડે. ત્યારે {plan} સૌથી ઉપર આવે છે, એ સમયમાં {s} બચાવીને.'),
   bWhy: O("A personal guarantee lets the lender come to the family's own assets if the business cannot pay. Today it stands at {g}. The best fit brings it to {g2}.", 'निजी गारंटी से, बिज़नेस न चुका पाए तो बैंक परिवार की अपनी संपत्ति तक आ सकता है। आज यह {g} है। सबसे सही विकल्प इसे {g2} पर लाता है।', 'અંગત ગેરંટીથી, બિઝનેસ ન ચૂકવી શકે તો બેંક પરિવારની પોતાની સંપત્તિ સુધી આવી શકે. આજે તે {g} છે. સૌથી યોગ્ય વિકલ્પ તેને {g2} પર લાવે છે.'),
+  bWhyHome: O('There is no personal guarantee, but the family home stands behind this loan. If the business cannot pay, the bank can go to the home. That is the risk worth removing first.', 'निजी गारंटी नहीं है, पर इस लोन के पीछे परिवार का घर खड़ा है। बिज़नेस न चुका पाए तो बैंक घर तक जा सकता है। पहले यही जोखिम हटाना चाहिए।', 'અંગત ગેરંટી નથી, પણ આ લોન પાછળ પરિવારનું ઘર ઊભું છે. બિઝનેસ ન ચૂકવી શકે તો બેંક ઘર સુધી જઈ શકે છે. પહેલાં આ જ જોખમ દૂર કરવું જોઈએ.'),
   bWhy0: O('There is no personal guarantee on this loan today, so the family side is already separate. The choice here is about rate and speed.', 'आज इस लोन पर कोई निजी गारंटी नहीं है, इसलिए परिवार की तरफ़ पहले से अलग है। यहाँ फ़ैसला रेट और जल्दी का है।', 'આજે આ લોન પર કોઈ અંગત ગેરંટી નથી, એટલે પરિવારની બાજુ પહેલેથી અલગ છે. અહીં નિર્ણય દર અને ઝડપનો છે.'),
   bSpeed: O('If speed comes first, {plan} moves to the top: done in about {d} days, at {r}%.', 'अगर जल्दी सबसे पहले है, तो {plan} सबसे ऊपर आता है: करीब {d} दिन में, {r}% पर।', 'જો ઝડપ સૌથી પહેલાં હોય, તો {plan} સૌથી ઉપર આવે છે: આશરે {d} દિવસમાં, {r}% પર.'),
   bHome: O('Yes. {plan} releases the family home if the business offers stock or receivables as security instead.', 'हाँ। अगर बिज़नेस स्टॉक या उधारी गारंटी में दे, तो {plan} परिवार का घर छोड़ देता है।', 'હા. જો બિઝનેસ સ્ટોક કે ઉઘરાણી સિક્યોરિટીમાં આપે, તો {plan} પરિવારનું ઘર છોડી દે છે.'),
@@ -2250,11 +2310,13 @@ function answer(j, m, os, qi) {
     return tx(QAA.tNeed);
   }
   if (ty === 'home') {
-    if (qi === 0) { var big = os.slice().sort(function (a, b) { return b.saved - a.saved; })[0]; if (big === p) return tx(QAA.lSame); return t(QAA.lBig, { c: optLabel2(big), d: moneyFull(big.saved - p.saved) }); }
+    if (qi === 0) { var big = os.slice().sort(function (a, b) { return b.saved - a.saved; })[0]; var lowR = os.slice().sort(function (a, b) { return a.d.rate - b.d.rate; })[0];
+      if (big === p && lowR !== p && lowR.d.reset) return t(QAA.lReset, { c: optLabel2(lowR), r: oneDec(lowR.d.rate) + '%' });
+      if (big === p) return tx(QAA.lSame); return t(QAA.lBig, { c: optLabel2(big), d: moneyFull(big.saved - p.saved) }); }
     if (qi === 1) { var cur = os.filter(function (o) { return o.d.id === 'h1'; })[0]; return t(QAA.lBank, { s: moneyFull(Math.max(0, cur.saved)), p: oneDec(p.d.rate) + '%' }); }
     var pr = homeOptions(Object.assign({}, j.a, { prepay: 'yes' }), m.s)[0]; return t(QAA.lPre, { plan: optLabel2(pr), s: moneyFull(Math.max(0, pr.saved)) });
   }
-  if (qi === 0) return m.s.guarantee ? t(QAA.bWhy, { g: money(m.s.guarantee), g2: p.d.guar ? money(p.d.guar) : tx(CU2.v.none) }) : tx(QAA.bWhy0);
+  if (qi === 0) return m.s.guarantee ? t(QAA.bWhy, { g: money(m.s.guarantee), g2: p.d.guar ? money(p.d.guar) : tx(CU2.v.none) }) : m.s.homePledged ? tx(QAA.bWhyHome) : tx(QAA.bWhy0);
   if (qi === 1) { var sp = bizOptions(Object.assign({}, j.a, { prio: 'speed' }), m.s)[0]; return t(QAA.bSpeed, { plan: optLabel2(sp), d: sp.d.days, r: oneDec(sp.d.rate) }); }
   var fr = os.filter(function (o) { return !o.d.home; })[0];
   return m.s.homePledged && fr ? t(QAA.bHome, { plan: optLabel2(fr) }) : tx(QAA.bHomeNo);
@@ -2277,9 +2339,9 @@ function jCompare(j, m) {
     (j.ask != null ? '<div class="reply"><span class="rmark"><i></i></span><p>' + esc(answer(j, m, os, j.ask)) + '</p></div>' : '') + '</div>';
   return '<div class="verdict"><p class="overline">' + tx(CU2.pick) + '</p><h3>' + esc(optLabel2(p)) + '</h3><p class="vtext">' + esc(verdict(os, j)) + '</p>' +
     '<div class="vact"><button class="primary" data-a="jpick" data-v="0" data-s="3">' + tx(loan ? CU2.applyWith : CU2.cont) + '</button><button class="quiet" data-a="jpick" data-v="0" data-s="2">' + tx(CU2.det) + '</button></div></div>' +
-    ask + '<h3 class="sbs">' + tx(CU2.compareT) + '</h3><p class="hint">' + tx(loan ? JU.cmpIntroLoan : JU.cmpIntro) + ' ' + tx(loan ? JU.commLineLoan : JU.commLine) + '</p>' +
+    ask + '<h3 class="sbs">' + tx(CU2.compareT) + '</h3><p class="hint">' + tx(j.type === 'biz' ? JU.cmpIntroBiz : loan ? JU.cmpIntroLoan : JU.cmpIntro) + ' ' + tx(loan ? JU.commLineLoan : JU.commLine) + '</p>' +
     '<span class="swipe">' + tx(CU2.swipe) + '</span><div class="cmpwrap"><table class="cmp"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>' +
-    (loan ? '' : '<p class="quietnote">' + tx(CU2.dontBuy) + '</p>') + '<p class="fine">' + tx(JU.illus) + '</p>';
+    '<p class="quietnote">' + tx(loan ? CU2.stayPut : CU2.dontBuy) + '</p>' + '<p class="fine">' + tx(JU.illus) + '</p>';
 }
 
 /* November demo: icons, landing page and claim journeys */
@@ -2431,10 +2493,10 @@ var CJ = {
     track: [['nov', O('Claim intimated', 'क्लेम की सूचना दी', 'ક્લેમની જાણ કરી'), O('Insurer told within 40 minutes, with the policy and ID from your file.', '40 मिनट में बीमा कंपनी को सूचना, आपकी फ़ाइल से पॉलिसी और ID के साथ।', '40 મિનિટમાં વીમા કંપનીને જાણ, તમારી ફાઇલમાંથી પોલિસી અને ID સાથે.')],
       ['ins', O('First cashless approval', 'पहली कैशलेस मंज़ूरी', 'પહેલી કેશલેસ મંજૂરી'), O('₹1 lakh approved. The hospital desk has the letter.', '₹1 लाख मंज़ूर। हॉस्पिटल डेस्क के पास लेटर है।', '₹1 લાખ મંજૂર. હોસ્પિટલ ડેસ્ક પાસે લેટર છે.')],
       ['nov', O('Watching the stay', 'भर्ती पर नज़र', 'દાખલ પર નજર'), O('Room category confirmed. Daily estimate ₹62,000, well within cover.', 'कमरे की श्रेणी पक्की। रोज़ का अनुमान ₹62 हज़ार, बीमे के अंदर।', 'રૂમની શ્રેણી પાકી. રોજનો અંદાજ ₹62 હજાર, વીમાની અંદર.')],
-      ['ins', O('Final bill and deductions', 'फ़ाइनल बिल और कटौती', 'ફાઇનલ બિલ અને કપાત'), O('Bill ₹2.6 lakh. Insurer deducts ₹23,000 as non-payable.', 'बिल ₹2.6 लाख। बीमा कंपनी ₹23 हज़ार "देय नहीं" कहकर काटती है।', 'બિલ ₹2.6 લાખ. વીમા કંપની ₹23 હજાર "ચૂકવવાપાત્ર નથી" કહીને કાપે છે.')],
-      ['adv', O('Deduction contested', 'कटौती पर विवाद', 'કપાત સામે વિવાદ'), O('₹16,000 is covered under the consumables clause. Raised with the policy wording attached.', '₹16 हज़ार कंज़्यूमेबल्स क्लॉज़ में कवर हैं। पॉलिसी की शर्त के साथ उठाया।', '₹16 હજાર કન્ઝ્યુમેબલ્સ ક્લોઝમાં કવર છે. પોલિસીની શરત સાથે ઉઠાવ્યું.')],
-      ['ins', O('Paid', 'भुगतान', 'ચુકવણી'), O('₹16,000 more paid. You paid ₹8,000 in total.', '₹16 हज़ार और चुकाए। आपने कुल ₹8 हज़ार दिए।', '₹16 હજાર વધુ ચૂકવ્યા. તમે કુલ ₹8 હજાર ચૂકવ્યા.')]],
-    closed: O('Closed on day 9. ₹16,000 recovered on a wrong deduction.', 'दिन 9 पर बंद। ग़लत कटौती पर ₹16 हज़ार वापस।', 'દિવસ 9 પર બંધ. ખોટી કપાત પર ₹16 હજાર પાછા.') },
+      ['ins', O('Final bill and deductions', 'फ़ाइनल बिल और कटौती', 'ફાઇનલ બિલ અને કપાત'), O('Bill ₹2.6 lakh. Insurer deducts ₹23,400 as non-payable.', 'बिल ₹2.6 लाख। बीमा कंपनी ₹23,400 "देय नहीं" कहकर काटती है।', 'બિલ ₹2.6 લાખ. વીમા કંપની ₹23,400 "ચૂકવવાપાત્ર નથી" કહીને કાપે છે.')],
+      ['adv', O('Deduction contested', 'कटौती पर विवाद', 'કપાત સામે વિવાદ'), O('₹15,600 is covered under the consumables clause. Raised with the policy wording attached.', '₹15,600 कंज़्यूमेबल्स क्लॉज़ में कवर हैं। पॉलिसी की शर्त के साथ उठाया।', '₹15,600 કન્ઝ્યુમેબલ્સ ક્લોઝમાં કવર છે. પોલિસીની શરત સાથે ઉઠાવ્યું.')],
+      ['ins', O('Paid', 'भुगतान', 'ચુકવણી'), O('₹15,600 more paid. You paid ₹7,800 in total.', '₹15,600 और चुकाए। आपने कुल ₹7,800 दिए।', '₹15,600 વધુ ચૂકવ્યા. તમે કુલ ₹7,800 ચૂકવ્યા.')]],
+    closed: O('Closed on day 9. ₹15,600 recovered on a wrong deduction.', 'दिन 9 पर बंद। ग़लत कटौती पर ₹15,600 वापस।', 'દિવસ 9 પર બંધ. ખોટી કપાત પર ₹15,600 પાછા.') },
   life: { icon: 'life', name: O('Life cover claim', 'जीवन बीमा क्लेम', 'જીવન વીમા ક્લેમ'),
     intro: O("We are sorry for your loss. There is no deadline today. Tell us only what you can, and we will handle the rest with you.", 'आपके दुख में हम साथ हैं। आज कोई समय-सीमा नहीं है। जितना बता सकें बताइए, बाकी हम आपके साथ संभालेंगे।', 'તમારા દુઃખમાં અમે સાથે છીએ. આજે કોઈ સમય-મર્યાદા નથી. જેટલું કહી શકો કહો, બાકીનું અમે તમારી સાથે સંભાળીશું.'),
     q: [{ k: 'rel', q: O('Your relationship to the policyholder', 'पॉलिसीधारक से आपका रिश्ता', 'પોલિસીધારક સાથે તમારો સંબંધ'), o: [['spouse', O('Spouse', 'पति/पत्नी', 'પતિ/પત્ની')], ['child', O('Son or daughter', 'बेटा या बेटी', 'દીકરો કે દીકરી')], ['other', O('Other family', 'परिवार में और कोई', 'પરિવારમાં બીજું કોઈ')]] },
@@ -2773,7 +2835,7 @@ function scr4() {
   var net = (s.bizShare || 0) + s.liquid + s.invest + s.home + s.property - e.persLoans;
   var layers;
   if (biz) layers = [
-    ['L_biz', [row(u('bizShare'), s.bizShare, s, 'business')]],
+    ['L_biz', [row(u('bizShare'), s.bizShare, s, 'bizshare')]],
     ['L_per', [row(u('liquid'), s.liquid, s, 'liquid')].concat(s.invest ? [row(u('invest'), s.invest, s, 'invest')] : [])],
     ['L_fam', [row(u('home'), s.home, s, 'home')].concat(s.property ? [row(u('property'), s.property, s, 'property')] : [])]];
   else layers = [
@@ -3035,8 +3097,13 @@ function compactClaim() {
       return '<li><div class="cs-top"><span class="who-chip w-' + x[0] + '">' + tx(CU.actor[x[0]]) + '</span><span class="cs-when">' + tx(CU.when[x[1]]) + '</span></div><p>' + esc(x[2]) + '</p></li>'; }).join('') + '</ol>' : '');
 }
 function vaultPreview() {
-  var cats = [['shield', 'ins', 6, 'ok'], ['bank', 'loan', 2, 'gap'], ['wallet', 'inv', 3, 'check'], ['factory', 'biz', 4, 'ok'], ['folder', 'fam', 3, 'check'], ['id', 'ids', 5, 'ok']];
-  return '<div class="vprev"><div class="vprev-h"><span class="vlogo">' + icon('vault') + '</span><div><b>' + vt('vTitle') + '</b><span>23 ' + vt('vDocs') + '</span></div></div>' +
+  var items = vaultModel(), order = ['ins', 'loan', 'inv', 'biz', 'fam', 'work', 'ids'];
+  var cats = order.filter(function (c) { return items.some(function (i) { return i.cat === c && i.st !== 'missing'; }); }).map(function (c) {
+    var list = items.filter(function (i) { return i.cat === c; }), n = list.filter(function (i) { return i.st !== 'missing'; }).length;
+    var st = list.some(function (i) { return i.st === 'lapsed' || i.st === 'missing'; }) ? 'gap' : list.some(function (i) { return i.st !== 'ok'; }) ? 'check' : 'ok';
+    return [CAT_ICON[c], c, n, st]; }).slice(0, 6);
+  var papers = items.filter(function (i) { return i.st !== 'missing'; }).length;
+  return '<div class="vprev"><div class="vprev-h"><span class="vlogo">' + icon('vault') + '</span><div><b>' + vaultFam() + '</b><span>' + papers + ' ' + vt('vDocs') + '</span></div></div>' +
     '<div class="vshare">' + avs(BRANCH === 'biz' ? ['A', 'M', 'K', 'CA'] : ['N', 'R'], BRANCH) + '<span>' + esc(t(SH.with, { n: BRANCH === 'biz' ? t(SH.andN, { a: tx(FAM.biz[1][1]), n: 2 }) : tx(FAM.sal[1][1]) })) + '</span></div><div class="vgrid">' + cats.map(function (c) { return '<div class="vtile"><span class="vt-i">' + icon(c[0]) + '</span><span class="vt-n">' + tx(V3.cats[c[1]]) + '</span><span class="vt-c">' + c[2] + '</span><i class="sdot s-' + c[3] + '"></i></div>'; }).join('') + '</div></div>';
 }
 function scrLanding() {
@@ -3085,7 +3152,7 @@ function vaultHTML(items, share) {
   var order = ['ins', 'loan', 'inv', 'biz', 'fam', 'work', 'ids'];
   return '<div class="vault">' + order.filter(function (c) { return items.some(function (i) { return i.cat === c; }); }).map(function (c) {
     var list = items.filter(function (i) { return i.cat === c; });
-    return '<div class="vcat"><div class="vcat-h">' + icon(CAT_ICON[c]) + '<b>' + tx(V3.cats[c]) + '</b><span>' + list.length + '</span></div>' + list.map(function (i) {
+    return '<div class="vcat"><div class="vcat-h">' + icon(CAT_ICON[c]) + '<b>' + tx(V3.cats[c]) + '</b><span>' + list.filter(function (i) { return i.st !== 'missing'; }).length + '</span></div>' + list.map(function (i) {
       var bad = i.st !== 'ok';
       return '<div class="vitem' + (i.st === 'missing' ? ' miss' : '') + '"><div class="vi-t"><b>' + esc(i.label) + '</b>' + (i.sub ? '<span>' + esc(i.sub) + '</span>' : '') + '</div>' +
         '<span class="pill p-' + ST_PILL[i.st] + '">' + (i.renew ? t(V3.st.renew, { d: tx(i.renew) }) : tx(V3.st[i.st])) + '</span>' +
@@ -3094,16 +3161,21 @@ function vaultHTML(items, share) {
     }).join('') + '</div>';
   }).join('') + '</div>';
 }
-function scrVault() {
+function vaultModel() {
   var p = PRESETS.filter(function (x) { return x.id === (BRANCH === 'biz' ? 'rajesh' : 'kulkarni'); })[0], s = buildState(p, p.defaults);
   var items = vaultItems(s);
   items.push({ cat: 'ins', label: tx(O('Car insurance', 'कार बीमा', 'કાર વીમો')), sub: 'Ganga Assure · MH 03 AB 4411', st: 'ok', renew: O('2 Dec', '2 दिसं', '2 ડિસે') });
   items.push({ cat: 'ids', label: 'PAN, Aadhaar', sub: tx(O('4 family members', '4 सदस्य', '4 સભ્યો')), st: 'ok' }, { cat: 'ids', label: tx(O('Passports', 'पासपोर्ट', 'પાસપોર્ટ')), sub: tx(O('2 expire in 2027', '2 की मियाद 2027 में', '2 ની મુદત 2027 માં')), st: 'ok' });
   items.push({ cat: 'fam', label: tx(O('Flat, Mulund: sale deed', 'मुलुंड फ़्लैट: सेल डीड', 'મુલુંડ ફ્લેટ: સેલ ડીડ')), sub: 'Sale_deed_2011.pdf', st: 'ok' });
+  return items;
+}
+function vaultFam() { return BRANCH === 'biz' ? vt('vTitle') : tx(O('Kulkarni family vault', 'कुलकर्णी परिवार की तिजोरी', 'કુલકર્ણી પરિવારની તિજોરી')); }
+function scrVault() {
+  var items = vaultModel();
   var fix = items.filter(function (i) { return i.st !== 'ok'; }).length;
-  var fam = BRANCH === 'biz' ? vt('vTitle') : tx(O('Kulkarni family vault', 'कुलकर्णी परिवार की तिजोरी', 'કુલકર્ણી પરિવારની તિજોરી'));
+  var fam = vaultFam(), papers = items.filter(function (i) { return i.st !== 'missing'; }).length;
   return '<section class="vaultpage"><div class="hrow"><h2 class="cj-h">' + icon('vault') + fam + '</h2><button class="ghost sm" data-a="vclose">' + vt('vBack') + '</button></div><p class="hint">' + vt('vSub') + '</p>' +
-    '<div class="vstats"><div><strong>' + items.length + '</strong><span>' + vt('vDocs') + '</span></div><div><strong>2</strong><span>' + vt('vDue') + '</span></div><div class="bad"><strong>' + fix + '</strong><span>' + vt('vFix') + '</span></div></div>' +
+    '<div class="vstats"><div><strong>' + papers + '</strong><span>' + vt('vDocs') + '</span></div><div><strong>2</strong><span>' + vt('vDue') + '</span></div><div class="bad"><strong>' + fix + '</strong><span>' + vt('vFix') + '</span></div></div>' +
     '<div class="vsc">' + V3.vSc.map(function (x, i) { return '<button class="vscb" data-a="' + (i === 1 ? 'claimhub' : 'vt') + '" data-v="toastRemind">' + icon(x[0]) + '<span>' + tx(x[1]) + '</span></button>'; }).join('') + '</div>' +
     accessStrip(BRANCH) + '<div class="block"><h3>' + vt('vUp') + '</h3>' + V3.vUps.map(function (x) { return '<div class="uprow"><span>' + tx(x[0]) + '</span><span class="pill p-' + x[2] + '">' + tx(x[1]) + '</span></div>'; }).join('') + '</div>' +
     vaultHTML(items, BRANCH) + '</section>';
@@ -3133,7 +3205,7 @@ function scr3() {
 function scr4() {
   var m = model(), s = m.s, e = m.e, biz = s.branch === 'biz';
   var net = (s.bizShare || 0) + s.liquid + s.invest + s.home + s.property - e.persLoans;
-  var owns = biz ? [row(u('bizShare'), s.bizShare, s, 'business'), row(u('liquid'), s.liquid, s, 'liquid')].concat(s.invest ? [row(u('invest'), s.invest, s, 'invest')] : []).concat([row(u('home'), s.home, s, 'home')]).concat(s.property ? [row(u('property'), s.property, s, 'property')] : [])
+  var owns = biz ? [row(u('bizShare'), s.bizShare, s, 'bizshare'), row(u('liquid'), s.liquid, s, 'liquid')].concat(s.invest ? [row(u('invest'), s.invest, s, 'invest')] : []).concat([row(u('home'), s.home, s, 'home')]).concat(s.property ? [row(u('property'), s.property, s, 'property')] : [])
     : [row(u('liquid'), s.liquid, s, 'liquid'), row(u('investSal'), s.invest, s, 'invest')].concat(s.home ? [row(u('home'), s.home, s, 'home')] : []);
   var owe = [];
   if (e.persLoans) owe.push(row(u('persLoans'), e.persLoans, s, 'loans'));
@@ -3258,7 +3330,7 @@ render = function () { _render3(); floatCheck(); };
 var PK = {
   eyebrow: O('November demo', 'November डेमो', 'November ડેમો'),
   h: O('Which family should we walk through?', 'किस परिवार के साथ शुरू करें?', 'કયા પરિવાર સાથે શરૂ કરીએ?'),
-  sub: O('Every household here is fictional. Pick the one closest to yours and see what November would tell them.', 'यहाँ हर परिवार काल्पनिक है। जो आपके सबसे करीब हो, उसे चुनें और देखें November उन्हें क्या बताएगा।', 'અહીં દરેક પરિવાર કાલ્પનિક છે. તમારા જેવો સૌથી નજીકનો પસંદ કરો અને જુઓ November તેમને શું કહેશે.'),
+  sub: O('Every household here is fictional, and nothing you type in the demo is stored. Pick the one closest to yours and see what November would tell them.', 'यहाँ हर परिवार काल्पनिक है, और डेमो में आप जो भरते हैं वह सेव नहीं होता। जो आपके सबसे करीब हो, उसे चुनें और देखें November उन्हें क्या बताएगा।', 'અહીં દરેક પરિવાર કાલ્પનિક છે, અને ડેમોમાં તમે જે ભરો છો તે સેવ થતું નથી. તમારા જેવો સૌથી નજીકનો પસંદ કરો અને જુઓ November તેમને શું કહેશે.'),
   biz: { t: O('Business family', 'बिज़नेस परिवार', 'બિઝનેસ પરિવાર'),
     d: O('Textile, gold and trading families where the business, the home and the next generation are tied together.', 'टेक्सटाइल, सोना और ट्रेडिंग वाले परिवार, जहाँ बिज़नेस, घर और अगली पीढ़ी एक साथ बंधे हैं।', 'ટેક્સટાઇલ, સોનું અને ટ્રેડિંગવાળા પરિવારો, જ્યાં બિઝનેસ, ઘર અને આગલી પેઢી એકસાથે જોડાયેલા છે.'),
     n: O('10 households · owners aged 35 to 60', '10 परिवार · मालिक 35 से 60 वर्ष', '10 પરિવાર · માલિક 35 થી 60 વર્ષ'),
@@ -3452,11 +3524,16 @@ function closeTweak() {
   var f = document.querySelector('.close .felt'); if (f) f.remove();
 }
 
+/* keep the prospect's place if the page is reloaded (this tab only) */
+var KEEP = ['screen', 'pid', 'dials', 'desel', 'skipped', 'uploaded', 'lang', 'v', 'pick'];
+(function () { try { var raw = sessionStorage.getItem('nov_state_' + location.pathname); if (!raw) return; var o = JSON.parse(raw); KEEP.forEach(function (k) { if (k in o) S[k] = o[k]; }); } catch (e) {} })();
+function keepState() { try { var o = {}; KEEP.forEach(function (k) { o[k] = S[k]; }); sessionStorage.setItem('nov_state_' + location.pathname, JSON.stringify(o)); } catch (e) {} }
+
 /* screen views and clicks */
 var lastKey = null;
 var _renderAn = render;
 render = function () {
-  _renderAn(); banner(); closeTweak(); placeSurvey();
+  _renderAn(); banner(); closeTweak(); placeSurvey(); keepState();
   var k = screenKey();
   var p = { demo: S.pick ? null : (BRANCH === 'biz' ? 'business' : 'salaried'), lang: S.lang, household: S.pid || null };
   if (window.posthog && !NOV_LOCAL) posthog.register(p);
