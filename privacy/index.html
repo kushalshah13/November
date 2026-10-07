@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How we measure visits · November preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Manrope:wght@400;500;600&family=Noto+Serif+Devanagari:wght@400;500&family=Noto+Serif+Gujarati:wght@400;500&family=Hind:wght@400;500;600&family=Hind+Vadodara:wght@400;500;600&display=swap">
+<style>
+:root { --bg:#F5F0E6; --surface:#FFFFFF; --ink:#1B2440; --muted:#4A5068; --line:#E2DED5; --soft:#ECE6DA;
+  --display:"Newsreader","Noto Serif Devanagari","Noto Serif Gujarati",Georgia,serif; --body:"Manrope","Hind","Hind Vadodara",system-ui,sans-serif; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#1B2440; --surface:#26315A; --ink:#F5F0E6; --muted:#D8DBE5; --line:#3A4672; --soft:#2E3A66; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg:#1B2440; --surface:#26315A; --ink:#F5F0E6; --muted:#D8DBE5; --line:#3A4672; --soft:#2E3A66; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 1rem/1.6 var(--body); }
+header { border-bottom: 1px solid var(--line); }
+.in { max-width: 680px; margin: 0 auto; padding: 0 16px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 72px; }
+.mark { font: 400 2rem/1 var(--display); letter-spacing: -0.02em; color: var(--ink); text-decoration: none; }
+.mark i { display: inline-block; width: 0.17em; height: 0.17em; margin-left: 0.05em; background: #D9A15A; border-radius: 50%; }
+.lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface); }
+.lang button { font: 500 0.875rem var(--body); border: 0; background: none; color: var(--ink); min-width: 40px; min-height: 36px; border-radius: 999px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+main { padding: 36px 0 64px; }
+h1 { font: 500 clamp(2rem, 7vw, 2.8rem)/1.1 var(--display); letter-spacing: -0.02em; margin: 0 0 12px; }
+.lede { color: var(--muted); font-size: 1.0625rem; margin: 0 0 28px; }
+section { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 14px; }
+h2 { font: 500 1.3rem/1.25 var(--display); margin: 0 0 8px; }
+ul { margin: 0; padding-left: 20px; } li + li { margin-top: 6px; }
+p { margin: 0; } p + p { margin-top: 8px; }
+.opt { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.btn { font: 600 1rem var(--body); padding: 12px 20px; min-height: 48px; border-radius: 999px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); cursor: pointer; }
+.btn.off { background: transparent; color: var(--ink); }
+.status { color: var(--muted); font-size: 0.9375rem; }
+.back { display: inline-block; margin-top: 18px; color: var(--ink); font-weight: 600; text-underline-offset: 4px; }
+.fine { color: var(--muted); font-size: 0.875rem; margin-top: 20px; }
+</style>
+</head>
+<body>
+<header><div class="in top"><a class="mark" href="/">november<i></i></a>
+<div class="lang" role="group" aria-label="Language"><button data-l="en">EN</button><button data-l="hi">हिं</button><button data-l="gu">ગુ</button></div></div></header>
+<main class="in" id="m"></main>
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+var LOCAL = /^(localhost|127\.|)$/.test(location.hostname);
+if (!LOCAL) posthog.init('phc_mepPsrAKFJXe8MhjqEBy7NuymhamCzUvzxE4YXyWFFHX', { api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only', capture_pageview: false, disable_session_recording: true, autocapture: false });
+function optedOut() { try { return localStorage.getItem('nov_optout') === '1'; } catch (e) { return false; } }
+
+var T = {
+  en: { title: 'How we measure visits', lede: 'This is a preview of November, a product we are still building for Indian families. Every family, insurer, lender and number in it is made up. We measure how people use the preview so we can make it better.',
+    s: [
+      ['What we record', ['Which screens you open and which buttons you tap.', 'A replay of the screen as you move through it, so we can see where people get stuck. Anything you type is hidden in the replay.', 'Your device type, browser, language choice and the ad or link that brought you here.', 'Your answers to the short survey at the end, if you choose to fill it in.']],
+      ['What we do not record', ['Your name, phone number, email or any document. The preview never asks for them.', 'Your IP address. We drop it before anything is stored.', 'Anything you type into the demo itself.']],
+      ['Who handles it', ['PostHog, our analytics service, stores the visit data on our behalf.', 'Meta (Facebook and Instagram) is told when someone visits and when they reach a key step, such as finishing the survey, so we can measure our ads. Meta does not see your survey answers or the screen replays.', 'We do not sell or share this data with anyone else.']],
+      ['How long we keep it', ['Screen replays are deleted after 30 days.', 'Visit counts and survey answers are kept for up to a year, without anything that identifies you.']]
+    ],
+    optH: 'Your choice', optP: 'You can switch off measurement on this device at any time. The preview works the same either way.',
+    off: 'Turn off measurement', on: 'Turn measurement back on', isOff: 'Measurement is off on this device.', isOn: 'Measurement is on.',
+    back: 'Back to the preview', fine: 'This notice covers demo.november.finance. Updated 7 October 2026.' },
+  hi: { title: 'हम विज़िट कैसे मापते हैं', lede: 'यह November का प्रीव्यू है, एक प्रोडक्ट जो हम भारतीय परिवारों के लिए बना रहे हैं। इसमें हर परिवार, बीमा कंपनी, लेंडर और नंबर काल्पनिक है। हम देखते हैं कि लोग प्रीव्यू कैसे इस्तेमाल करते हैं, ताकि इसे बेहतर बना सकें।',
+    s: [
+      ['हम क्या रिकॉर्ड करते हैं', ['आप कौन सी स्क्रीन खोलते हैं और कौन से बटन दबाते हैं।', 'स्क्रीन का रीप्ले, ताकि हम देख सकें लोग कहाँ अटकते हैं। आप जो भी टाइप करते हैं, वह रीप्ले में छिपा रहता है।', 'आपका डिवाइस, ब्राउज़र, चुनी गई भाषा और वह विज्ञापन या लिंक जिससे आप आए।', 'आख़िर में छोटे सर्वे के जवाब, अगर आप भरना चाहें।']],
+      ['हम क्या रिकॉर्ड नहीं करते', ['आपका नाम, फ़ोन नंबर, ईमेल या कोई डॉक्यूमेंट। प्रीव्यू कभी ये नहीं माँगता।', 'आपका IP एड्रेस। सेव होने से पहले ही हम इसे हटा देते हैं।', 'डेमो में आप जो भी टाइप करते हैं।']],
+      ['डेटा कौन संभालता है', ['PostHog, हमारी एनालिटिक्स सेवा, हमारी ओर से विज़िट का डेटा रखती है।', 'Meta (Facebook और Instagram) को बताया जाता है कि कोई आया और किसी अहम क़दम तक पहुँचा, जैसे सर्वे पूरा करना, ताकि हम अपने विज्ञापन माप सकें। Meta आपके सर्वे के जवाब या स्क्रीन रीप्ले नहीं देखता।', 'हम यह डेटा किसी और को न बेचते हैं, न देते हैं।']],
+      ['हम इसे कितने समय रखते हैं', ['स्क्रीन रीप्ले 30 दिन बाद मिटा दिए जाते हैं।', 'विज़िट की गिनती और सर्वे के जवाब एक साल तक रखे जाते हैं, बिना ऐसी किसी जानकारी के जिससे आपकी पहचान हो।']]
+    ],
+    optH: 'आपकी मर्ज़ी', optP: 'आप इस डिवाइस पर कभी भी मापना बंद कर सकते हैं। प्रीव्यू दोनों तरह से एक जैसा चलता है।',
+    off: 'मापना बंद करें', on: 'मापना फिर से चालू करें', isOff: 'इस डिवाइस पर मापना बंद है।', isOn: 'मापना चालू है।',
+    back: 'प्रीव्यू पर वापस जाएँ', fine: 'यह सूचना demo.november.finance के लिए है। 7 अक्टूबर 2026 को अपडेट की गई।' },
+  gu: { title: 'અમે મુલાકાત કેવી રીતે માપીએ છીએ', lede: 'આ November નો પ્રીવ્યૂ છે, એક પ્રોડક્ટ જે અમે ભારતીય પરિવારો માટે બનાવી રહ્યા છીએ. તેમાં દરેક પરિવાર, વીમા કંપની, લેન્ડર અને આંકડો કાલ્પનિક છે. લોકો પ્રીવ્યૂ કેવી રીતે વાપરે છે તે અમે જોઈએ છીએ, જેથી તેને વધુ સારું બનાવી શકીએ.',
+    s: [
+      ['અમે શું રેકોર્ડ કરીએ છીએ', ['તમે કઈ સ્ક્રીન ખોલો છો અને કયા બટન દબાવો છો.', 'સ્ક્રીનનો રીપ્લે, જેથી લોકો ક્યાં અટકે છે તે અમે જોઈ શકીએ. તમે જે ટાઇપ કરો છો તે રીપ્લેમાં છુપાયેલું રહે છે.', 'તમારું ડિવાઇસ, બ્રાઉઝર, પસંદ કરેલી ભાષા અને જે જાહેરાત કે લિંકથી તમે આવ્યા.', 'છેલ્લે નાના સર્વેના જવાબ, જો તમે ભરવા માંગો.']],
+      ['અમે શું રેકોર્ડ નથી કરતા', ['તમારું નામ, ફોન નંબર, ઈમેલ કે કોઈ દસ્તાવેજ. પ્રીવ્યૂ ક્યારેય આ માંગતો નથી.', 'તમારું IP એડ્રેસ. સેવ થાય તે પહેલાં જ અમે તેને કાઢી નાખીએ છીએ.', 'ડેમોમાં તમે જે કંઈ ટાઇપ કરો છો.']],
+      ['ડેટા કોણ સંભાળે છે', ['PostHog, અમારી એનાલિટિક્સ સેવા, અમારા વતી મુલાકાતનો ડેટા રાખે છે.', 'Meta (Facebook અને Instagram) ને જણાવાય છે કે કોઈ આવ્યું અને કોઈ મહત્વના પગલા સુધી પહોંચ્યું, જેમ કે સર્વે પૂરો કરવો, જેથી અમે અમારી જાહેરાતો માપી શકીએ. Meta તમારા સર્વેના જવાબ કે સ્ક્રીન રીપ્લે જોતું નથી.', 'અમે આ ડેટા કોઈને વેચતા નથી કે આપતા નથી.']],
+      ['અમે તેને કેટલો સમય રાખીએ છીએ', ['સ્ક્રીન રીપ્લે 30 દિવસ પછી ડિલીટ થાય છે.', 'મુલાકાતની ગણતરી અને સર્વેના જવાબ એક વર્ષ સુધી રખાય છે, તમારી ઓળખ થાય એવી કોઈ માહિતી વગર.']]
+    ],
+    optH: 'તમારી મરજી', optP: 'તમે આ ડિવાઇસ પર ગમે ત્યારે માપવાનું બંધ કરી શકો છો. પ્રીવ્યૂ બંને રીતે એકસરખો ચાલે છે.',
+    off: 'માપવાનું બંધ કરો', on: 'માપવાનું ફરી ચાલુ કરો', isOff: 'આ ડિવાઇસ પર માપવાનું બંધ છે.', isOn: 'માપવાનું ચાલુ છે.',
+    back: 'પ્રીવ્યૂ પર પાછા જાઓ', fine: 'આ સૂચના demo.november.finance માટે છે. 7 ઓક્ટોબર 2026 એ અપડેટ કરી.' }
+};
+function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+var L = (location.search.match(/[?&]lang=(en|hi|gu)/) || [])[1] || 'en';
+function draw() {
+  var t = T[L], off = optedOut();
+  document.documentElement.lang = L;
+  document.querySelectorAll('.lang button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-l') === L); });
+  document.getElementById('m').innerHTML = '<h1>' + esc(t.title) + '</h1><p class="lede">' + esc(t.lede) + '</p>' +
+    t.s.map(function (s) { return '<section><h2>' + esc(s[0]) + '</h2><ul>' + s[1].map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></section>'; }).join('') +
+    '<section class="opt"><h2>' + esc(t.optH) + '</h2><p>' + esc(t.optP) + '</p><p class="status">' + esc(off ? t.isOff : t.isOn) + '</p>' +
+    '<button class="btn' + (off ? '' : ' off') + '" id="tog">' + esc(off ? t.on : t.off) + '</button></section>' +
+    '<a class="back" href="/">' + esc(t.back) + '</a><p class="fine">' + esc(t.fine) + '</p>';
+  document.getElementById('tog').onclick = function () {
+    var nowOff = !optedOut();
+    try { localStorage.setItem('nov_optout', nowOff ? '1' : '0'); } catch (e) {}
+    if (!LOCAL) { if (nowOff) posthog.opt_out_capturing(); else posthog.opt_in_capturing(); }
+    draw();
+  };
+}
+document.querySelectorAll('.lang button').forEach(function (b) { b.onclick = function () { L = b.getAttribute('data-l'); try { history.replaceState(null, '', '?lang=' + L); } catch (e) {} draw(); }; });
+draw();
+</script>
+</body>
+</html>
