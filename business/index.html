@@ -1390,7 +1390,7 @@ function evaluate(s) {
 var LETTERS = ['A', 'B', 'C', 'D', 'E'];
 
 /* ---------- Sources and confidence ---------- */
-var GRADE_FACTS = { p: ['life', 'health', 'guarantee', 'parents', 'bizcover', 'income'], b: ['loans', 'guarantee', 'liquid', 'income', 'business'], lq: ['liquid'], fr: ['will', 'deed', 'nominations', 'parents', 'property'], w: ['trad', 'liquid', 'invest', 'property'] };
+var GRADE_FACTS = { p: ['life', 'health', 'guarantee', 'parents'], b: ['loans', 'guarantee', 'liquid'], lq: ['liquid'], fr: ['will', 'deed', 'nominations', 'parents'], w: ['trad', 'liquid', 'invest'] };
 /* A fact matters for this household only if the household has it. Will and nominations describe something missing, so no paper is expected. */
 function factRelevant(s, fact) {
   switch (fact) {
@@ -1420,10 +1420,14 @@ function factEstimated(s, fact, deselected, skipped) {
   if (!factRelevant(s, fact)) return false;
   return factSource(s, fact, deselected, skipped).kind !== 'doc';
 }
+/* Demo rule: confidence drops only when the person unticks a paper or skips upload; numbers never on paper are shown as estimated but do not pull the grade down. */
 function confidence(s, g, deselected, skipped) {
   if (skipped) return 2;
-  var est = GRADE_FACTS[g].filter(function (f) { return factEstimated(s, f, deselected || {}, skipped); }).length;
-  return est === 0 ? 0 : est === 1 ? 1 : 2;
+  var est = GRADE_FACTS[g].filter(function (f) { return factSource(s, f, deselected || {}, skipped).kind === 'est'; }).length;
+  var unfiled = GRADE_FACTS[g].filter(function (f) { return factRelevant(s, f) && factSource(s, f, {}, false).kind === 'none'; }).length;
+  if (est >= 2) return 2;
+  if (est === 1 || unfiled >= 2) return 1;
+  return 0;
 }
 /* What paper each signature finding stands on: file types or facts. */
 var SIG_SRC = { pg: ['guarantee', 'life'], deed: ['t:deed'], bi: ['t:costs'], gold: ['t:block'], pledge: ['loans'], policies: ['t:policies'], reprice: ['loans'],
@@ -1561,11 +1565,6 @@ function finding(p, s, e, deselected, skipped) {
   if (sg && sg.ok(s, e)) {
     var v = sg.v(s, e); v.first = first;
     var tt = (p.sig === 'empHealth' && !s.parentsDep && sg.tAlt) ? sg.tAlt : sg.t;
-    if (sigEstimated(p.sig, s, deselected || {}, skipped)) {
-      if (sg.tEst) return { text: t(sg.tEst, v), sub: t(sg.sub, v), sig: true, est: true };
-      var txt = t(tt, v); if (LANG === 'en') txt = txt.charAt(0).toLowerCase() + txt.slice(1);
-      return { text: tx(EST_PRE) + txt, sub: t(sg.sub, v), sig: true, est: true };
-    }
     return { text: t(tt, v), sub: t(sg.sub, v), sig: true };
   }
   var g = worstDim(e);
