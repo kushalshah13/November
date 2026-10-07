@@ -766,6 +766,22 @@ body.showfloat .floatcta { opacity: 1; transform: none; pointer-events: auto; }
 }
 @media (prefers-reduced-motion: reduce) { .sheet { animation: none; } li.now .st { animation: none; } }
 
+
+/* hosted: preview bar + survey */
+#pvbar { background: var(--accent-soft); color: var(--ink); font-size: 0.875rem; line-height: 1.4; text-align: center; padding: 8px 16px; }
+.nsurvey { margin-top: 28px; padding: 22px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 14px; }
+.nsurvey .ns-h { font: 500 1.4rem/1.2 var(--display); }
+.nsurvey .ns-sub { color: var(--muted); margin-top: -8px; }
+.ns-q { display: flex; flex-direction: column; gap: 8px; }
+.ns-q > p { font-weight: 600; }
+.ns-o { display: flex; flex-wrap: wrap; gap: 8px; }
+.ns-o button { font: inherit; font-size: 0.9375rem; padding: 9px 14px; min-height: 44px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; }
+.ns-o button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.nsurvey textarea { font: inherit; font-size: 1rem; padding: 10px 12px; border-radius: var(--r); border: 1px solid var(--line); background: var(--bg); color: var(--ink); resize: vertical; }
+.nsurvey .primary { align-self: flex-start; }
+.ns-err { color: var(--bad-ink); font-size: 0.9375rem; }
+.nsurvey.done { text-align: center; }
+
 /* demo chooser */
 .wrap.spick { padding-top: 28px; }
 .pick { display: flex; flex-direction: column; gap: 28px; }
@@ -3330,5 +3346,114 @@ window.addEventListener('hashchange', function () {
   var b = hashBranch(); if (!b || (b === BRANCH && !S.pick)) return;
   BRANCH = b; S.pick = false; S.screen = 0; S.j = null; S.c = null; S.v = false; S.pid = null; render(); window.scrollTo(0, 0);
 });
+
+/* Hosted-site analytics: PostHog, screen tracking, preview banner, end-of-journey survey. Only in the hosted build. */
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+var NOV_LOCAL = /^(localhost|127\.|file)/.test(location.hostname || 'file');
+if (!NOV_LOCAL) posthog.init('phc_mepPsrAKFJXe8MhjqEBy7NuymhamCzUvzxE4YXyWFFHX', {
+  api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only', capture_pageview: false, capture_pageleave: true,
+  session_recording: { maskAllInputs: true }
+});
+function ph() { if (window.posthog && !NOV_LOCAL) posthog.capture.apply(posthog, arguments); }
+
+var SCR_NAME = ['landing', 'pick-household', 'adjust', 'send-papers', 'household', 'financial-health-check', 'finding', 'actions', 'note', 'close'];
+function screenKey() {
+  if (S.pick) return 'choose-demo';
+  if (S.v) return 'vault';
+  if (S.c) return S.c === 'hub' ? 'claim-hub' : 'claim-' + S.c.type + '-' + S.c.step;
+  if (S.j) return (S.j.direct ? 'buy-' : 'compare-') + S.j.type + '-' + (S.j.done ? 'done' : S.j.step);
+  return SCR_NAME[S.screen] || 'screen-' + S.screen;
+}
+
+/* preview banner */
+var PV = {
+  t: O('Product preview. Fictional families, insurers and lenders. Nothing you enter is saved.', 'प्रोडक्ट प्रीव्यू। परिवार, बीमा कंपनियाँ और लेंडर काल्पनिक हैं। आप जो भरते हैं वह सेव नहीं होता।', 'પ્રોડક્ટ પ્રીવ્યૂ. પરિવાર, વીમા કંપનીઓ અને લેન્ડર કાલ્પનિક છે. તમે જે ભરો છો તે સેવ થતું નથી.')
+};
+function banner() {
+  var b = document.getElementById('pvbar');
+  if (!b) { b = document.createElement('div'); b.id = 'pvbar'; b.setAttribute('role', 'note'); document.body.insertBefore(b, document.getElementById('app')); }
+  b.textContent = tx(PV.t);
+}
+
+/* survey */
+var SQ = {
+  h: O('Two minutes for us?', 'हमें दो मिनट देंगे?', 'અમને બે મિનિટ આપશો?'),
+  sub: O('Anonymous. It helps us decide what to build.', 'नाम नहीं पूछेंगे। इससे हमें तय करने में मदद मिलती है कि क्या बनाएँ।', 'નામ નહીં પૂછીએ. તેનાથી અમને નક્કી કરવામાં મદદ મળે છે કે શું બનાવવું.'),
+  q: [
+    { k: 'use', t: O('Would you use something like this for your family?', 'क्या आप अपने परिवार के लिए ऐसा कुछ इस्तेमाल करेंगे?', 'શું તમે તમારા પરિવાર માટે આવું કંઈક વાપરશો?'),
+      o: [['yes', O('Yes', 'हाँ', 'હા')], ['maybe', O('Maybe', 'शायद', 'કદાચ')], ['no', O('No', 'नहीं', 'ના')]] },
+    { k: 'putoff', multi: true, t: O('Anything that put you off?', 'कुछ ऐसा जो अच्छा नहीं लगा?', 'કંઈ એવું જે ગમ્યું નહીં?'),
+      o: [['nothing', O('Nothing', 'कुछ नहीं', 'કંઈ નહીં')], ['confusing', O('Confusing', 'उलझन भरा', 'ગૂંચવણભર્યું')], ['too_long', O('Too much to read', 'पढ़ने को बहुत ज़्यादा', 'વાંચવાનું બહુ વધારે')], ['trust', O('Not sure I’d trust it', 'भरोसा नहीं होगा', 'ભરોસો નહીં થાય')], ['not_for_me', O('Not relevant to me', 'मेरे काम का नहीं', 'મારા કામનું નથી')], ['have_advisor', O('I already have someone', 'मेरे पास पहले से कोई है', 'મારી પાસે પહેલેથી કોઈ છે')]] },
+    { k: 'who', t: O('You are', 'आप हैं', 'તમે છો'),
+      o: [['business', O('Business owner', 'बिज़नेस मालिक', 'બિઝનેસ માલિક')], ['family_business', O('In the family business', 'पारिवारिक बिज़नेस में', 'પારિવારિક બિઝનેસમાં')], ['salaried', O('Salaried', 'नौकरीपेशा', 'નોકરિયાત')], ['professional', O('Professional (CA, doctor…)', 'प्रोफ़ेशनल (CA, डॉक्टर…)', 'પ્રોફેશનલ (CA, ડૉક્ટર…)')], ['other', O('Other', 'अन्य', 'અન્ય')]] },
+    { k: 'age', t: O('Age', 'उम्र', 'ઉંમર'),
+      o: [['u30', O('Under 30', '30 से कम', '30 થી ઓછી')], ['30s', O('30 to 39', '30 से 39', '30 થી 39')], ['40s', O('40 to 49', '40 से 49', '40 થી 49')], ['50s', O('50 to 59', '50 से 59', '50 થી 59')], ['60p', O('60+', '60+', '60+')]] }
+  ],
+  note: O('Anything else? (optional)', 'और कुछ? (वैकल्पिक)', 'બીજું કંઈ? (વૈકલ્પિક)'),
+  send: O('Send', 'भेजें', 'મોકલો'),
+  need: O('Please answer the first question', 'कृपया पहला सवाल चुनें', 'કૃપા કરીને પહેલો સવાલ પસંદ કરો'),
+  thanks: O('Thank you. That really helps.', 'धन्यवाद। इससे सच में मदद मिलती है।', 'આભાર. આનાથી ખરેખર મદદ મળે છે.')
+};
+var SV = { a: { putoff: {} }, note: '', done: false, shown: false, err: false };
+try { SV.done = sessionStorage.getItem('nov_survey_done') === '1'; } catch (e) {}
+function surveySpot() {
+  if (S.pick || S.v) return false;
+  if (S.c && S.c !== 'hub') return S.c.step === 3;
+  if (S.j) return !!S.j.done;
+  return S.screen === 9;
+}
+function surveyHTML() {
+  if (SV.done) return '<section class="nsurvey done"><p class="ns-h">' + tx(SQ.thanks) + '</p></section>';
+  return '<section class="nsurvey" aria-label="Survey"><p class="ns-h">' + tx(SQ.h) + '</p><p class="ns-sub">' + tx(SQ.sub) + '</p>' +
+    SQ.q.map(function (q) {
+      return '<div class="ns-q"><p>' + tx(q.t) + '</p><div class="ns-o">' + q.o.map(function (o) {
+        var on = q.multi ? !!SV.a.putoff[o[0]] : SV.a[q.k] === o[0];
+        return '<button type="button" data-sv="' + q.k + '" data-v="' + o[0] + '" aria-pressed="' + on + '">' + tx(o[1]) + '</button>'; }).join('') + '</div></div>'; }).join('') +
+    '<label class="ns-q"><p>' + tx(SQ.note) + '</p><textarea data-svnote rows="2" maxlength="400">' + esc(SV.note) + '</textarea></label>' +
+    (SV.err ? '<p class="ns-err">' + tx(SQ.need) + '</p>' : '') +
+    '<button type="button" class="primary" data-svsend>' + tx(SQ.send) + '</button></section>';
+}
+function placeSurvey() {
+  var old = document.querySelector('.nsurvey'); if (old) old.remove();
+  if (!surveySpot()) return;
+  var main = document.querySelector('main.wrap'); if (!main) return;
+  main.insertAdjacentHTML('beforeend', surveyHTML());
+  if (!SV.shown && !SV.done) { SV.shown = true; ph('survey shown', { at: screenKey() }); }
+}
+document.addEventListener('click', function (ev) {
+  var b = ev.target.closest('[data-sv],[data-svsend]'); if (!b) return;
+  ev.stopPropagation(); ev.preventDefault();
+  var ta = document.querySelector('[data-svnote]'); if (ta) SV.note = ta.value;
+  if (b.hasAttribute('data-svsend')) {
+    if (!SV.a.use) { SV.err = true; placeSurvey(); return; }
+    ph('survey submitted', { use: SV.a.use, putoff: Object.keys(SV.a.putoff), who: SV.a.who || null, age: SV.a.age || null, note: SV.note.trim() || null, at: screenKey() });
+    SV.done = true; try { sessionStorage.setItem('nov_survey_done', '1'); } catch (e) {}
+  } else {
+    var k = b.getAttribute('data-sv'), v = b.getAttribute('data-v');
+    if (k === 'putoff') { if (SV.a.putoff[v]) delete SV.a.putoff[v]; else SV.a.putoff[v] = true; if (v === 'nothing') SV.a.putoff = SV.a.putoff.nothing ? { nothing: true } : {}; else delete SV.a.putoff.nothing; }
+    else SV.a[k] = v;
+    SV.err = false;
+  }
+  placeSurvey();
+}, true);
+
+/* screen views and clicks */
+var lastKey = null;
+var _renderAn = render;
+render = function () {
+  _renderAn(); banner(); placeSurvey();
+  var k = screenKey();
+  var p = { demo: S.pick ? null : (BRANCH === 'biz' ? 'business' : 'salaried'), lang: S.lang, household: S.pid || null };
+  if (window.posthog && !NOV_LOCAL) posthog.register(p);
+  if (k !== lastKey) {
+    lastKey = k;
+    try { history.replaceState(history.state, '', location.pathname + location.search + '#' + k); } catch (e) {}
+    ph('$pageview', { screen: k, $current_url: location.href });
+  }
+};
+window.addEventListener('click', function (ev) {
+  var el = ev.target.closest && ev.target.closest('[data-a]'); if (!el) return;
+  ph('cta clicked', { action: el.getAttribute('data-a'), value: el.getAttribute('data-v'), screen: screenKey(), label: (el.textContent || '').trim().slice(0, 60) });
+}, true);
 
 </script>
