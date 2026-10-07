@@ -3442,11 +3442,21 @@ document.addEventListener('click', function (ev) {
   placeSurvey();
 }, true);
 
+/* close screen in the hosted preview: honest fake door, one question set only */
+U.waToast = O('We are not live yet, so nothing is sent. Your tap tells us you would want this, and that helps.', 'हम अभी लाइव नहीं हैं, इसलिए कुछ नहीं भेजा जाता। आपका टैप बताता है कि आपको यह चाहिए, और इससे मदद मिलती है।', 'અમે હજી લાઇવ નથી, એટલે કંઈ મોકલાતું નથી. તમારો ટૅપ જણાવે છે કે તમને આ જોઈએ છે, અને તેનાથી મદદ મળે છે.');
+U.talkToastPv = O('We are not live yet. In November, an advisor is a tap away whenever you want one.', 'हम अभी लाइव नहीं हैं। November में, जब चाहें सलाहकार एक टैप दूर होगा।', 'અમે હજી લાઇવ નથી. November માં, જ્યારે જોઈએ ત્યારે સલાહકાર એક ટૅપ દૂર હશે.');
+function closeTweak() {
+  if (S.pick || S.v || S.j || S.c || S.screen !== 9) return;
+  var w = document.querySelector('.close .wa'); if (w) w.setAttribute('data-v', 'waToast');
+  var t = document.querySelector('.close [data-v="talkToast"]'); if (t) t.setAttribute('data-v', 'talkToastPv');
+  var f = document.querySelector('.close .felt'); if (f) f.remove();
+}
+
 /* screen views and clicks */
 var lastKey = null;
 var _renderAn = render;
 render = function () {
-  _renderAn(); banner(); placeSurvey();
+  _renderAn(); banner(); closeTweak(); placeSurvey();
   var k = screenKey();
   var p = { demo: S.pick ? null : (BRANCH === 'biz' ? 'business' : 'salaried'), lang: S.lang, household: S.pid || null };
   if (window.posthog && !NOV_LOCAL) posthog.register(p);
@@ -3457,6 +3467,7 @@ render = function () {
   }
 };
 window.addEventListener('click', function (ev) {
+  if (ev.target.closest && ev.target.closest('#pvbar a')) { ph('privacy link clicked', { screen: screenKey() }); return; }
   var el = ev.target.closest && ev.target.closest('[data-a]'); if (!el) return;
   ph('cta clicked', { action: el.getAttribute('data-a'), value: el.getAttribute('data-v'), screen: screenKey(), label: (el.textContent || '').trim().slice(0, 60) });
 }, true);
