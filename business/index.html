@@ -971,30 +971,30 @@ function mk(o) { var b = JSON.parse(JSON.stringify(B0)); for (var k in o.base) b
 
 var PRESETS = [
   mk({ id: 'rajesh', branch: 'biz', ind: 'textile', sig: 'pg', sigAction: 'lifeGap',
-    name: { en: 'Rajesh Mehta', hi: 'राजेश मेहता', gu: 'રાજેશ મહેતા' }, first: { en: 'Rajesh', hi: 'राजेश', gu: 'રાજેશ' },
+    name: { en: 'Arjun Mehta', hi: 'अर्जुन मेहता', gu: 'અર્જુન મહેતા' }, first: { en: 'Arjun', hi: 'अर्जुन', gu: 'અર્જુન' },
     place: { en: 'Mulund', hi: 'मुलुंड', gu: 'મુલુંડ' },
     card: { en: 'Textile processing, Bhiwandi', hi: 'टेक्सटाइल प्रोसेसिंग, भिवंडी', gu: 'ટેક્સટાઇલ પ્રોસેસિંગ, ભિવંડી' },
     bizDesc: { en: 'a textile dyeing and processing unit in Bhiwandi, with his brother', hi: 'भाई के साथ भिवंडी में टेक्सटाइल डाइंग और प्रोसेसिंग यूनिट', gu: 'ભાઈ સાથે ભિવંડીમાં ટેક્સટાઇલ ડાઇંગ અને પ્રોસેસિંગ યુનિટ' },
     famDesc: { en: 'Wife Meera, children 17 and 13, father 74 at home', hi: 'पत्नी मीरा, बच्चे 17 और 13, पिता 74 साथ रहते हैं', gu: 'પત્ની મીરા, બાળકો 17 અને 13, પિતા 74 સાથે રહે છે' },
-    depends: { en: 'The bank, his brother and the family all rest on Rajesh signing.', hi: 'बैंक, भाई और परिवार, सब राजेश के दस्तख़त पर टिके हैं।', gu: 'બેંક, ભાઈ અને પરિવાર, બધા રાજેશની સહી પર ટકેલા છે.' },
+    depends: { en: 'The bank, his brother and the family all rest on Arjun signing. If anything happened, Meera would be the one making the calls.', hi: 'बैंक, भाई और परिवार, सब अर्जुन के दस्तख़त पर टिके हैं। कुछ हो जाए, तो फ़ोन मीरा को ही करने होंगे।', gu: 'બેંક, ભાઈ અને પરિવાર, બધા અર્જુનની સહી પર ટકેલા છે. કંઈ થાય, તો ફોન મીરાએ જ કરવા પડશે.' },
     defaults: { age: '46-55', turn: '30-60', entity: 'pvt', family: 'parents', borrow: 'pg', cover: 'basic' },
     base: { age: 48, ageBand: '46-55', turnover: 30 * CR, entity: 'pvt', spend: 2.5 * L, life: 1 * CR, health: 5 * L, parentsDep: true, parentsIns: false,
       guarantee: 6 * CR, cash: 6 * L, liquid: 28 * L, bizShare: 6 * CR, home: 3.5 * CR, loans: [{ k: 'term', amt: 6 * CR, rate: 10, mkt: 9.75, biz: true }],
       bizGap: true, bizExposure: 3 * CR, gaps: { will: true }, wealth: { goal: true } },
     files: [F('scan0007.pdf', 'term', ['life'], 'Sum assured ₹1,00,00,000 · Commencement 14-02-2014'),
-      F('IMG_20240312_WA0041.jpg', 'sanction', ['loans', 'guarantee'], 'Term loan ₹6,00,00,000 @ 10.00% · Personal guarantee: Rajesh Mehta'),
+      F('IMG_20240312_WA0041.jpg', 'sanction', ['loans', 'guarantee'], 'Term loan ₹6,00,00,000 @ 10.00% · Personal guarantee: Arjun Mehta'),
       F('Policy_Final_new (2).pdf', 'floater', ['health'], 'Family floater · Sum insured ₹5,00,000 · Members: 4'),
       F('Fire_renewal_factory.pdf', 'fire', ['bizcover'], 'Sum insured ₹4,00,00,000 · Basis of valuation: book value'),
       F('CAS_Mar2026.pdf', 'cas', ['liquid', 'nominations'], 'Total value ₹22,14,580 · Nominee: Mahesh Mehta'),
       F('GSTR3B_FY26.pdf', 'gst', ['business'], 'Total taxable value ₹29,86,40,112')] }),
 
   mk({ id: 'mahendra', branch: 'biz', ind: 'textile', sig: 'deed', sigAction: 'succession',
-    name: { en: 'Mahendra Shah', hi: 'महेंद्र शाह', gu: 'મહેન્દ્ર શાહ' }, first: { en: 'Mahendra', hi: 'महेंद्र', gu: 'મહેન્દ્ર' },
+    name: { en: 'Vikram Shah', hi: 'विक्रम शाह', gu: 'વિક્રમ શાહ' }, first: { en: 'Vikram', hi: 'विक्रम', gu: 'વિક્રમ' },
     place: { en: 'Ghatkopar', hi: 'घाटकोपर', gu: 'ઘાટકોપર' },
     card: { en: 'Textile wholesale, Kalbadevi', hi: 'कपड़ा होलसेल, कालबादेवी', gu: 'કાપડ હોલસેલ, કાલબાદેવી' },
     bizDesc: { en: 'a textile wholesale firm in Kalbadevi with his cousin', hi: 'चचेरे भाई के साथ कालबादेवी में कपड़े का होलसेल', gu: 'પિતરાઈ ભાઈ સાથે કાલબાદેવીમાં કાપડનો હોલસેલ' },
     famDesc: { en: 'Wife, son Rohan 29 now joining the firm, mother 80', hi: 'पत्नी, बेटा रोहन 29 जो अब फ़र्म में आ रहा है, माँ 80', gu: 'પત્ની, દીકરો રોહન 29 જે હવે ફર્મમાં જોડાય છે, માતા 80' },
-    depends: { en: "Buyers pay on Mahendra's word. Most of the trade lives in his head.", hi: 'ख़रीदार महेंद्र की ज़ुबान पर पैसा देते हैं। ज़्यादातर हिसाब उन्हीं के दिमाग़ में है।', gu: 'ખરીદનારા મહેન્દ્રના શબ્દ પર પૈસા આપે છે. મોટાભાગનો હિસાબ તેમના મગજમાં છે.' },
+    depends: { en: "Buyers pay on Vikram's word. Most of the trade lives in his head.", hi: 'ख़रीदार विक्रम की ज़ुबान पर पैसा देते हैं। ज़्यादातर हिसाब उन्हीं के दिमाग़ में है।', gu: 'ખરીદનારા વિક્રમના શબ્દ પર પૈસા આપે છે. મોટાભાગનો હિસાબ તેમના મગજમાં છે.' },
     defaults: { age: '56-60', turn: '15-30', entity: 'partner', family: 'parents', borrow: 'wc', cover: 'agent' },
     base: { age: 56, ageBand: '56-60', turnover: 20 * CR, entity: 'partner', spend: 2 * L, life: 50 * L, health: 10 * L, parentsDep: true, parentsIns: true,
       cash: 4 * L, liquid: 10 * L, invest: 30 * L, bizShare: 4 * CR, home: 4 * CR, loans: [{ k: 'od', amt: 1.2 * CR, rate: 11.5, mkt: 10, biz: true }],
@@ -1008,12 +1008,12 @@ var PRESETS = [
       F('OD_statement_Aug.pdf', 'od', ['loans', 'liquid'], 'OD limit ₹1,20,00,000 · Rate 11.50%')] }),
 
   mk({ id: 'vipul', branch: 'biz', ind: 'textile', sig: 'bi', sigAction: 'bizCover',
-    name: { en: 'Vipul Desai', hi: 'विपुल देसाई', gu: 'વિપુલ દેસાઈ' }, first: { en: 'Vipul', hi: 'विपुल', gu: 'વિપુલ' },
-    place: { en: 'Surat', hi: 'सूरत', gu: 'સુરત' },
+    name: { en: 'Rina and Vipul Desai', hi: 'रीना और विपुल देसाई', gu: 'રીના અને વિપુલ દેસાઈ' }, first: { en: 'Rina and Vipul', hi: 'रीना और विपुल', gu: 'રીના અને વિપુલ' },
+    ageText: '42, 44', place: { en: 'Surat', hi: 'सूरत', gu: 'સુરત' },
     card: { en: 'Saree manufacturing, Surat', hi: 'साड़ी मैन्युफैक्चरिंग, सूरत', gu: 'સાડી મેન્યુફેક્ચરિંગ, સુરત' },
     bizDesc: { en: 'a saree and fabric manufacturing unit in Surat', hi: 'सूरत में साड़ी और कपड़ा बनाने की यूनिट', gu: 'સુરતમાં સાડી અને કાપડ બનાવવાનું યુનિટ' },
-    famDesc: { en: 'Wife, two children, parents at home', hi: 'पत्नी, दो बच्चे, माता-पिता साथ', gu: 'પત્ની, બે બાળકો, માતા-પિતા સાથે' },
-    depends: { en: 'Vipul runs buying and sales himself. 140 workers wait on his calls.', hi: 'ख़रीद और बिक्री विपुल ख़ुद संभालते हैं। 140 कारीगर उन्हीं पर निर्भर हैं।', gu: 'ખરીદી અને વેચાણ વિપુલ પોતે સંભાળે છે. 140 કારીગરો તેમના પર નિર્ભર છે.' },
+    famDesc: { en: "Two children, Vipul's parents at home", hi: 'दो बच्चे, विपुल के माता-पिता साथ', gu: 'બે બાળકો, વિપુલના માતા-પિતા સાથે' },
+    depends: { en: 'Vipul runs the factory floor, Rina runs finance and exports. 140 workers depend on the two of them.', hi: 'फ़ैक्ट्री विपुल संभालते हैं, फ़ाइनेंस और एक्सपोर्ट रीना। 140 कारीगर इन्हीं दोनों पर निर्भर हैं।', gu: 'ફેક્ટરી વિપુલ સંભાળે છે, ફાઇનાન્સ અને એક્સપોર્ટ રીના. 140 કારીગરો આ બંને પર નિર્ભર છે.' },
     defaults: { age: '35-45', turn: '30-60', entity: 'pvt', family: 'parents', borrow: 'pg', cover: 'basic' },
     base: { age: 44, ageBand: '35-45', turnover: 45 * CR, entity: 'pvt', spend: 3 * L, life: 2 * CR, health: 10 * L, parentsDep: true, parentsIns: true,
       guarantee: 3 * CR, cash: 5 * L, liquid: 15 * L, bizShare: 15 * CR, home: 4 * CR, loans: [{ k: 'mach', amt: 8 * CR, rate: 9.75, mkt: 9.5, biz: true }],
@@ -1026,12 +1026,12 @@ var PRESETS = [
       F('GSTR3B_FY26.pdf', 'gst', ['business'], 'Total taxable value ₹44,72,18,960')] }),
 
   mk({ id: 'ketan', branch: 'biz', ind: 'gold', sig: 'gold', sigAction: 'stockCover',
-    name: { en: 'Ketan Soni', hi: 'केतन सोनी', gu: 'કેતન સોની' }, first: { en: 'Ketan', hi: 'केतन', gu: 'કેતન' },
-    place: { en: 'Borivali', hi: 'बोरीवली', gu: 'બોરીવલી' },
-    card: { en: 'Jewellery showroom, Borivali', hi: 'ज्वेलरी शोरूम, बोरीवली', gu: 'જ્વેલરી શોરૂમ, બોરીવલી' },
-    bizDesc: { en: 'a jewellery showroom in Borivali with his brother', hi: 'भाई के साथ बोरीवली में ज्वेलरी शोरूम', gu: 'ભાઈ સાથે બોરીવલીમાં જ્વેલરી શોરૂમ' },
-    famDesc: { en: 'Wife and two children', hi: 'पत्नी और दो बच्चे', gu: 'પત્ની અને બે બાળકો' },
-    depends: { en: "Customers come for Ketan. The stock is the family's biggest asset.", hi: 'ग्राहक केतन के भरोसे आते हैं। स्टॉक ही परिवार की सबसे बड़ी संपत्ति है।', gu: 'ગ્રાહકો કેતનના ભરોસે આવે છે. સ્ટોક જ પરિવારની સૌથી મોટી સંપત્તિ છે.' },
+    name: { en: 'Anahita Bharucha', hi: 'अनाहिता भरूचा', gu: 'અનાહિતા ભરૂચા' }, first: { en: 'Anahita', hi: 'अनाहिता', gu: 'અનાહિતા' },
+    place: { en: 'Bandra', hi: 'बांद्रा', gu: 'બાંદ્રા' },
+    card: { en: 'Designer jewellery store, Bandra', hi: 'डिज़ाइनर ज्वेलरी स्टोर, बांद्रा', gu: 'ડિઝાઇનર જ્વેલરી સ્ટોર, બાંદ્રા' },
+    bizDesc: { en: 'a designer jewellery store in Bandra, run with her brother', hi: 'भाई के साथ बांद्रा में डिज़ाइनर ज्वेलरी स्टोर', gu: 'ભાઈ સાથે બાંદ્રામાં ડિઝાઇનર જ્વેલરી સ્ટોર' },
+    famDesc: { en: 'Husband and two children', hi: 'पति और दो बच्चे', gu: 'પતિ અને બે બાળકો' },
+    depends: { en: "Clients come for Anahita's designs. The stock is the family's biggest asset.", hi: 'ग्राहक अनाहिता के डिज़ाइन के लिए आते हैं। स्टॉक ही परिवार की सबसे बड़ी संपत्ति है।', gu: 'ગ્રાહકો અનાહિતાની ડિઝાઇન માટે આવે છે. સ્ટોક જ પરિવારની સૌથી મોટી સંપત્તિ છે.' },
     defaults: { age: '46-55', turn: '30-60', entity: 'partner', family: 'nuclear', borrow: 'wc', cover: 'basic' },
     base: { age: 46, ageBand: '46-55', turnover: 40 * CR, entity: 'partner', spend: 2.4 * L, life: 1.5 * CR, health: 10 * L,
       cash: 8 * L, liquid: 8 * L, bizShare: 8 * CR, home: 3 * CR, loans: [{ k: 'cc', amt: 1.2 * CR, rate: 11.25, mkt: 10, biz: true }],
@@ -1063,12 +1063,12 @@ var PRESETS = [
       F('ITR_AY26.pdf', 'itr', ['business', 'liquid'], 'Net profit ₹2,21,48,000')] }),
 
   mk({ id: 'hasmukh', branch: 'biz', ind: 'trading', sig: 'policies', sigAction: 'trad',
-    name: { en: 'Hasmukh Gala', hi: 'हसमुख गाला', gu: 'હસમુખ ગાલા' }, first: { en: 'Hasmukh', hi: 'हसमुख', gu: 'હસમુખ' },
+    name: { en: 'Nidhi Gala', hi: 'निधि गाला', gu: 'નિધિ ગાલા' }, first: { en: 'Nidhi', hi: 'निधि', gu: 'નિધિ' },
     place: { en: 'Kandivali', hi: 'कांदिवली', gu: 'કાંદિવલી' },
     card: { en: 'Steel trading, Kandivali', hi: 'स्टील ट्रेडिंग, कांदिवली', gu: 'સ્ટીલ ટ્રેડિંગ, કાંદિવલી' },
-    bizDesc: { en: 'a steel trading business', hi: 'स्टील ट्रेडिंग का बिज़नेस', gu: 'સ્ટીલ ટ્રેડિંગનો બિઝનેસ' },
-    famDesc: { en: 'Wife. Two daughters, both married', hi: 'पत्नी। दो बेटियाँ, दोनों की शादी हो चुकी', gu: 'પત્ની. બે દીકરીઓ, બંને પરણેલી' },
-    depends: { en: 'Six agents call him every March. None has looked at all 14 policies together.', hi: 'हर मार्च छह एजेंट फ़ोन करते हैं। किसी ने 14 पॉलिसियाँ एक साथ नहीं देखीं।', gu: 'દર માર્ચે છ એજન્ટ ફોન કરે છે. કોઈએ 14 પોલિસીઓ એકસાથે જોઈ નથી.' },
+    bizDesc: { en: 'the steel trading business her father built', hi: 'पिता का खड़ा किया स्टील ट्रेडिंग बिज़नेस', gu: 'પિતાએ ઊભો કરેલો સ્ટીલ ટ્રેડિંગનો બિઝનેસ' },
+    famDesc: { en: 'Husband. Two daughters, both married', hi: 'पति। दो बेटियाँ, दोनों की शादी हो चुकी', gu: 'પતિ. બે દીકરીઓ, બંને પરણેલી' },
+    depends: { en: 'Six agents call her every March. None has looked at all 14 policies together.', hi: 'हर मार्च छह एजेंट फ़ोन करते हैं। किसी ने 14 पॉलिसियाँ एक साथ नहीं देखीं।', gu: 'દર માર્ચે છ એજન્ટ ફોન કરે છે. કોઈએ 14 પોલિસીઓ એકસાથે જોઈ નથી.' },
     defaults: { age: '46-55', turn: '30-60', entity: 'prop', family: 'nuclear', borrow: 'none', cover: 'agent' },
     base: { age: 54, ageBand: '46-55', turnover: 48 * CR, entity: 'prop', spend: 2.5 * L, life: 72 * L, health: 3 * L,
       cash: 20 * L, liquid: 20 * L, invest: 45 * L, bizShare: 10 * CR, home: 3 * CR, policies: 14, premium: 4.5 * L,
@@ -1153,12 +1153,12 @@ var PRESETS = [
 
   /* ---------- Salaried ---------- */
   mk({ id: 'arjun', branch: 'sal', sig: 'empHealth', sigAction: 'empHealth',
-    name: { en: 'Arjun Iyer', hi: 'अर्जुन अय्यर', gu: 'અર્જુન ઐયર' }, first: { en: 'Arjun', hi: 'अर्जुन', gu: 'અર્જુન' },
+    name: { en: 'Ananya Iyer', hi: 'अनन्या अय्यर', gu: 'અનન્યા ઐયર' }, first: { en: 'Ananya', hi: 'अनन्या', gu: 'અનન્યા' },
     place: { en: 'Powai', hi: 'पवई', gu: 'પવઈ' },
     card: { en: 'Tech product manager, Powai', hi: 'टेक प्रोडक्ट मैनेजर, पवई', gu: 'ટેક પ્રોડક્ટ મેનેજર, પવઈ' },
     job: { en: 'A product manager at a tech company', hi: 'टेक कंपनी में प्रोडक्ट मैनेजर', gu: 'ટેક કંપનીમાં પ્રોડક્ટ મેનેજર' },
-    famDesc: { en: 'Single. Sends money to his parents in Chennai', hi: 'अकेले रहते हैं। चेन्नई में माता-पिता को पैसे भेजते हैं', gu: 'એકલા રહે છે. ચેન્નઈમાં માતા-પિતાને પૈસા મોકલે છે' },
-    depends: { en: 'Counts unvested ESOPs as wealth already.', hi: 'जो ESOP अभी मिले नहीं, उन्हें भी संपत्ति मानते हैं।', gu: 'જે ESOP હજી મળ્યા નથી, તેને પણ સંપત્તિ માને છે.' },
+    famDesc: { en: 'Single. Sends money to her parents in Chennai', hi: 'सिंगल। चेन्नई में माता-पिता को पैसे भेजती हैं', gu: 'સિંગલ. ચેન્નઈમાં માતા-પિતાને પૈસા મોકલે છે' },
+    depends: { en: 'Counts unvested ESOPs as wealth already.', hi: 'जो ESOP अभी मिले नहीं, उन्हें भी संपत्ति मानती हैं।', gu: 'જે ESOP હજી મળ્યા નથી, તેને પણ સંપત્તિ માને છે.' },
     defaults: { age: '25-34', income: '25-50', family: 'parents', home: 'none', health: 'employer', mix: 'esop' },
     base: { age: 29, ageBand: '25-34', income: 38 * L, spend: 1 * L, needSpend: 40000, life: 20 * L, health: 0, empHealth: 5 * L, parentsDep: true, parentsIns: false,
       cash: 3 * L, liquid: 8 * L, invest: 60 * L, home: 0, gaps: { will: true, trusted: true }, wealth: { conc: true, goal: true } },
@@ -1169,18 +1169,18 @@ var PRESETS = [
       F('CAS_Mar2026.pdf', 'cas', ['liquid', 'nominations'], 'Total value ₹5,12,800 · Nominee: Lakshmi Iyer')] }),
 
   mk({ id: 'kulkarni', branch: 'sal', sig: 'loanCover', sigAction: 'lifeGap',
-    name: { en: 'Neha and Rahul Kulkarni', hi: 'नेहा और राहुल कुलकर्णी', gu: 'નેહા અને રાહુલ કુલકર્ણી' }, first: { en: 'Neha and Rahul', hi: 'नेहा और राहुल', gu: 'નેહા અને રાહુલ' },
-    ageText: '40, 42', place: { en: 'Thane', hi: 'ठाणे', gu: 'થાણે' },
+    name: { en: 'Neha Kulkarni', hi: 'नेहा कुलकर्णी', gu: 'નેહા કુલકર્ણી' }, first: { en: 'Neha', hi: 'नेहा', gu: 'નેહા' },
+    place: { en: 'Thane', hi: 'ठाणे', gu: 'થાણે' },
     card: { en: 'Bank branch head, Thane', hi: 'बैंक ब्रांच हेड, ठाणे', gu: 'બેંક બ્રાન્ચ હેડ, થાણે' },
-    job: { en: 'Rahul heads a bank branch and Neha teaches', hi: 'राहुल बैंक ब्रांच हेड हैं और नेहा पढ़ाती हैं', gu: 'રાહુલ બેંક બ્રાન્ચ હેડ છે અને નેહા ભણાવે છે' },
-    famDesc: { en: 'Children 10 and 6', hi: 'बच्चे 10 और 6', gu: 'બાળકો 10 અને 6' },
+    job: { en: 'Neha heads a bank branch and Rahul teaches', hi: 'नेहा बैंक ब्रांच हेड हैं और राहुल पढ़ाते हैं', gu: 'નેહા બેંક બ્રાન્ચ હેડ છે અને રાહુલ ભણાવે છે' },
+    famDesc: { en: 'Husband Rahul, children 10 and 6', hi: 'पति राहुल, बच्चे 10 और 6', gu: 'પતિ રાહુલ, બાળકો 10 અને 6' },
     depends: { en: 'The term plan was bought the week the home loan was signed.', hi: 'टर्म प्लान उसी हफ़्ते लिया, जब होम लोन साइन हुआ।', gu: 'ટર્મ પ્લાન એ જ અઠવાડિયે લીધો, જ્યારે હોમ લોન સાઇન થઈ.' },
     defaults: { age: '35-44', income: '25-50', family: 'kids', home: '50-100', health: 'employer', mix: 'fd' },
     base: { age: 42, ageBand: '35-44', income: 32 * L, spend: 1.6 * L, life: 85 * L, health: 0, empHealth: 5 * L,
       cash: 4 * L, liquid: 7 * L, invest: 12 * L, home: 1.4 * CR, emi: 0.42,
       loans: [{ k: 'home', amt: 85 * L, rate: 9.75, mkt: 8.5, biz: false }, { k: 'car', amt: 8 * L, rate: 11, mkt: 9.5, biz: false }],
       gaps: { will: true, papers: true }, wealth: { trad: true, goal: true } },
-    files: [F('Payslip_Rahul.pdf', 'payslip', ['income'], 'Gross ₹2,66,000 · Net ₹1,94,300'),
+    files: [F('Payslip_Neha.pdf', 'payslip', ['income'], 'Gross ₹2,66,000 · Net ₹1,94,300'),
       F('Home_loan_stmt.pdf', 'homeloan', ['loans'], 'Outstanding ₹85,02,300 · Rate 9.75% · EMI ₹90,210'),
       F('Term_85L.pdf', 'term', ['life'], 'Sum assured ₹85,00,000 · Commencement 2019'),
       F('Group_health.pdf', 'groupcard', ['health'], 'Group health ₹5,00,000 · Valid while employed'),
@@ -1455,7 +1455,7 @@ function whyLine(g, s, e) {
 }
 
 var SIG = {
-  pg: { t: { en: 'If something happened to {first} tomorrow, the bank can call {g} from the family. His cover pays {c}.', hi: 'अगर कल {first} को कुछ हो जाए, तो बैंक परिवार से {g} माँग सकता है। उनका बीमा {c} देता है।', gu: 'જો કાલે {first} ને કંઈ થઈ જાય, તો બેંક પરિવાર પાસેથી {g} માંગી શકે છે. તેમનો વીમો {c} આપે છે.' },
+  pg: { t: { en: 'If something happened to {first} tomorrow, the bank can call {g} from the family. The cover in place pays {c}.', hi: 'अगर कल {first} को कुछ हो जाए, तो बैंक परिवार से {g} माँग सकता है। उनका बीमा {c} देता है।', gu: 'જો કાલે {first} ને કંઈ થઈ જાય, તો બેંક પરિવાર પાસેથી {g} માંગી શકે છે. તેમનો વીમો {c} આપે છે.' },
     sub: { en: 'A personal guarantee is a claim on the family, not just on the business.', hi: 'निजी गारंटी सिर्फ़ बिज़नेस पर नहीं, परिवार पर दावा है।', gu: 'અંગત ગેરંટી માત્ર બિઝનેસ પર નહીં, પરિવાર પર દાવો છે.' },
     ok: function (s) { return s.guarantee > 0 && s.life < s.guarantee; }, v: function (s) { return { g: money(s.guarantee), c: money(s.life) }; } },
   deed: { t: { en: "The 1998 partnership deed says nothing about who takes {first}'s share. {r} of receivables would sit frozen while the family sorts it out.", hi: '1998 की पार्टनरशिप डीड में यह लिखा ही नहीं कि {first} का हिस्सा कौन लेगा। परिवार के मामला सुलझाने तक {r} की उधारी अटकी रहेगी।', gu: '1998 ની ભાગીદારી ડીડમાં લખ્યું જ નથી કે {first} નો હિસ્સો કોણ લેશે. પરિવાર મામલો ઉકેલે ત્યાં સુધી {r} ની ઉઘરાણી અટકી રહેશે.' },
@@ -1626,12 +1626,12 @@ if (typeof module !== 'undefined') module.exports = { PRESETS: PRESETS, buildSta
 
 /* ---------- Claim frame ---------- */
 var CLAIM_WHO = {
-  rajesh: { en: 'Meera', hi: 'मीरा', gu: 'મીરા' }, mahendra: { en: "Mahendra's mother", hi: 'महेंद्र की माँ', gu: 'મહેન્દ્રના માતા' },
-  vipul: { en: "Vipul's father", hi: 'विपुल के पिता', gu: 'વિપુલના પિતા' }, ketan: { en: "Ketan's wife", hi: 'केतन की पत्नी', gu: 'કેતનના પત્ની' },
-  pankaj: { en: "Pankaj's wife", hi: 'पंकज की पत्नी', gu: 'પંકજના પત્ની' }, hasmukh: { en: "Hasmukh's wife", hi: 'हसमुख की पत्नी', gu: 'હસમુખના પત્ની' },
+  rajesh: { en: 'Meera', hi: 'मीरा', gu: 'મીરા' }, mahendra: { en: "Vikram's mother", hi: 'विक्रम की माँ', gu: 'વિક્રમના માતા' },
+  vipul: { en: "Vipul's father", hi: 'विपुल के पिता', gu: 'વિપુલના પિતા' }, ketan: { en: "Anahita's husband", hi: 'अनाहिता के पति', gu: 'અનાહિતાના પતિ' },
+  pankaj: { en: "Pankaj's wife", hi: 'पंकज की पत्नी', gu: 'પંકજના પત્ની' }, hasmukh: { en: "Nidhi's husband", hi: 'निधि के पति', gu: 'નિધિના પતિ' },
   nilesh: { en: "Nilesh's wife", hi: 'नीलेश की पत्नी', gu: 'નીલેશના પત્ની' }, sunita: { en: 'Amit', hi: 'अमित', gu: 'અમિત' },
   dinesh: { en: "Dinesh's younger son", hi: 'दिनेश का छोटा बेटा', gu: 'દિનેશનો નાનો દીકરો' }, anil: { en: "Anil's wife", hi: 'अनिल की पत्नी', gu: 'અનિલના પત્ની' },
-  arjun: { en: 'Arjun', hi: 'अर्जुन', gu: 'અર્જુન' }, kulkarni: { en: 'Rahul', hi: 'राहुल', gu: 'રાહુલ' }, menon: { en: 'Karthik', hi: 'कार्तिक', gu: 'કાર્તિક' },
+  arjun: { en: 'Ananya', hi: 'अनन्या', gu: 'અનન્યા' }, kulkarni: { en: 'Rahul', hi: 'राहुल', gu: 'રાહુલ' }, menon: { en: 'Karthik', hi: 'कार्तिक', gu: 'કાર્તિક' },
   sanjay: { en: "Sanjay's wife", hi: 'संजय की पत्नी', gu: 'સંજયના પત્ની' }, sunil: { en: "Sunil's wife", hi: 'सुनील की पत्नी', gu: 'સુનીલના પત્ની' }
 };
 var CU = {
@@ -2613,16 +2613,16 @@ var U = {
   thanks: { en: 'Thank you. That helps.', hi: 'धन्यवाद। इससे मदद मिलती है।', gu: 'આભાર. આનાથી મદદ મળે છે.' },
   startOver: { en: 'Start over', hi: 'फिर से शुरू', gu: 'ફરી શરૂ કરો' },
   close: { en: 'Close', hi: 'बंद करें', gu: 'બંધ કરો' },
-  fam: { nuclear: { en: 'Lives with wife and children', hi: 'पत्नी और बच्चों के साथ रहते हैं', gu: 'પત્ની અને બાળકો સાથે રહે છે' },
-    parents: { en: 'Lives with wife, children and parents who depend on him', hi: 'पत्नी, बच्चों और आश्रित माता-पिता के साथ रहते हैं', gu: 'પત્ની, બાળકો અને આશ્રિત માતા-પિતા સાથે રહે છે' },
+  fam: { nuclear: { en: 'Lives with spouse and children', hi: 'जीवनसाथी और बच्चों के साथ', gu: 'જીવનસાથી અને બાળકો સાથે' },
+    parents: { en: 'Lives with spouse, children and dependent parents', hi: 'जीवनसाथी, बच्चों और आश्रित माता-पिता के साथ', gu: 'જીવનસાથી, બાળકો અને આશ્રિત માતા-પિતા સાથે' },
     joint: { en: 'Joint family, three generations under one roof', hi: 'संयुक्त परिवार, तीन पीढ़ियाँ एक छत के नीचे', gu: 'સંયુક્ત પરિવાર, ત્રણ પેઢી એક છત નીચે' },
-    single: { en: 'Single', hi: 'अकेले रहते हैं', gu: 'એકલા રહે છે' },
+    single: { en: 'Single', hi: 'सिंगल', gu: 'સિંગલ' },
     couple: { en: 'Married, no children yet', hi: 'शादीशुदा, अभी बच्चे नहीं', gu: 'પરિણીત, હજી બાળકો નથી' },
     kids: { en: 'Married with children', hi: 'शादीशुदा, बच्चे हैं', gu: 'પરિણીત, બાળકો છે' } },
   famParentsSal: { en: 'Supports parents who depend on them', hi: 'आश्रित माता-पिता का सहारा', gu: 'આશ્રિત માતા-પિતાનો આધાર' },
   ent: { prop: { en: 'a proprietorship', hi: 'प्रोप्राइटरशिप', gu: 'પ્રોપ્રાઇટરશિપ' }, partner: { en: 'a partnership', hi: 'पार्टनरशिप', gu: 'ભાગીદારી' }, llp: { en: 'an LLP', hi: 'LLP', gu: 'LLP' },
     pvt: { en: 'a private limited company', hi: 'प्राइवेट लिमिटेड कंपनी', gu: 'પ્રાઇવેટ લિમિટેડ કંપની' }, huf: { en: 'an HUF', hi: 'HUF', gu: 'HUF' } },
-  runs: { en: 'Runs {biz}, set up as {ent}, about {t} a year.', hi: '{biz} चलाते हैं, {ent} के रूप में, सालाना करीब {t}।', gu: '{biz} ચલાવે છે, {ent} તરીકે, વાર્ષિક આશરે {t}.' },
+  runs: { en: 'Runs {biz}, set up as {ent}, about {t} a year.', hi: '{biz}, {ent} के रूप में, सालाना करीब {t}।', gu: '{biz} ચલાવે છે, {ent} તરીકે, વાર્ષિક આશરે {t}.' },
   works: { en: '{job}, earning about {i} a year.', hi: '{job}, सालाना करीब {i} की आय।', gu: '{job}, વાર્ષિક આશરે {i} ની આવક.' },
   bNone: { en: 'No business loans.', hi: 'कोई बिज़नेस लोन नहीं।', gu: 'કોઈ બિઝનેસ લોન નથી.' },
   bWc: { en: 'Runs on bank limits of {x}.', hi: '{x} की बैंक लिमिट पर काम चलता है।', gu: '{x} ની બેંક લિમિટ પર કામ ચાલે છે.' },
@@ -3037,7 +3037,7 @@ function compactClaim() {
 function vaultPreview() {
   var cats = [['shield', 'ins', 6, 'ok'], ['bank', 'loan', 2, 'gap'], ['wallet', 'inv', 3, 'check'], ['factory', 'biz', 4, 'ok'], ['folder', 'fam', 3, 'check'], ['id', 'ids', 5, 'ok']];
   return '<div class="vprev"><div class="vprev-h"><span class="vlogo">' + icon('vault') + '</span><div><b>' + vt('vTitle') + '</b><span>23 ' + vt('vDocs') + '</span></div></div>' +
-    '<div class="vshare">' + avs(BRANCH === 'biz' ? ['R', 'M', 'K', 'CA'] : ['R', 'N'], BRANCH) + '<span>' + esc(t(SH.with, { n: BRANCH === 'biz' ? t(SH.andN, { a: tx(FAM.biz[1][1]), n: 2 }) : tx(FAM.sal[1][1]) })) + '</span></div><div class="vgrid">' + cats.map(function (c) { return '<div class="vtile"><span class="vt-i">' + icon(c[0]) + '</span><span class="vt-n">' + tx(V3.cats[c[1]]) + '</span><span class="vt-c">' + c[2] + '</span><i class="sdot s-' + c[3] + '"></i></div>'; }).join('') + '</div></div>';
+    '<div class="vshare">' + avs(BRANCH === 'biz' ? ['A', 'M', 'K', 'CA'] : ['N', 'R'], BRANCH) + '<span>' + esc(t(SH.with, { n: BRANCH === 'biz' ? t(SH.andN, { a: tx(FAM.biz[1][1]), n: 2 }) : tx(FAM.sal[1][1]) })) + '</span></div><div class="vgrid">' + cats.map(function (c) { return '<div class="vtile"><span class="vt-i">' + icon(c[0]) + '</span><span class="vt-n">' + tx(V3.cats[c[1]]) + '</span><span class="vt-c">' + c[2] + '</span><i class="sdot s-' + c[3] + '"></i></div>'; }).join('') + '</div></div>';
 }
 function scrLanding() {
   var insK = ['health', 'parents', 'term'], loanK = BRANCH === 'biz' ? ['home', 'biz'] : ['home'];
@@ -3089,7 +3089,7 @@ function vaultHTML(items, share) {
       var bad = i.st !== 'ok';
       return '<div class="vitem' + (i.st === 'missing' ? ' miss' : '') + '"><div class="vi-t"><b>' + esc(i.label) + '</b>' + (i.sub ? '<span>' + esc(i.sub) + '</span>' : '') + '</div>' +
         '<span class="pill p-' + ST_PILL[i.st] + '">' + (i.renew ? t(V3.st.renew, { d: tx(i.renew) }) : tx(V3.st[i.st])) + '</span>' +
-        (share && i.st !== 'missing' ? '<div class="vi-s">' + avs(SHARE[share][i.cat] || ['R'], share) + '<span>' + esc(sharedLine(SHARE[share][i.cat] || ['R'], share)) + '</span></div>' : '') + '<div class="vi-a">' + (i.st === 'missing' ? '' : '<button class="vbtn" data-a="vt" data-v="toastView" aria-label="' + esc(tx(V3.sc.view)) + '">' + icon('eye', 'sm') + '<span class="vl">' + tx(V3.sc.view) + '</span></button><button class="vbtn" data-a="vt" data-v="toastShare">' + icon('share', 'sm') + '<span class="vl">' + tx(V3.sc.share) + '</span></button>') +
+        (share && i.st !== 'missing' ? '<div class="vi-s">' + avs(SHARE[share][i.cat] || [famOf(share)[0][0]], share) + '<span>' + esc(sharedLine(SHARE[share][i.cat] || [famOf(share)[0][0]], share)) + '</span></div>' : '') + '<div class="vi-a">' + (i.st === 'missing' ? '' : '<button class="vbtn" data-a="vt" data-v="toastView" aria-label="' + esc(tx(V3.sc.view)) + '">' + icon('eye', 'sm') + '<span class="vl">' + tx(V3.sc.view) + '</span></button><button class="vbtn" data-a="vt" data-v="toastShare">' + icon('share', 'sm') + '<span class="vl">' + tx(V3.sc.share) + '</span></button>') +
         (bad ? '<button class="vbtn strong" data-a="vt" data-v="toastRemind">' + icon('bell', 'sm') + tx(V3.sc.fix) + '</button>' : '<button class="vbtn" data-a="vt" data-v="toastRemind">' + icon('bell', 'sm') + tx(V3.sc.remind) + '</button>') + '</div></div>';
     }).join('') + '</div>';
   }).join('') + '</div>';
@@ -3224,11 +3224,11 @@ function topbar() {
 }
 
 var FAM = {
-  biz: [['R', O('Rajesh', 'राजेश', 'રાજેશ'), O('Owner', 'मालिक', 'માલિક'), O('Sees everything', 'सब कुछ देखते हैं', 'બધું જુએ છે')], ['M', O('Meera', 'मीरा', 'મીરા'), O('Wife', 'पत्नी', 'પત્ની'), O('Insurance, savings, IDs, family papers', 'बीमा, बचत, ID, परिवार के कागज़', 'વીમો, બચત, ID, પરિવારના કાગળો')],
+  biz: [['A', O('Arjun', 'अर्जुन', 'અર્જુન'), O('Owner', 'मालिक', 'માલિક'), O('Sees everything', 'सब कुछ देखते हैं', 'બધું જુએ છે')], ['M', O('Meera', 'मीरा', 'મીરા'), O('Wife', 'पत्नी', 'પત્ની'), O('Insurance, savings, IDs, family papers', 'बीमा, बचत, ID, परिवार के कागज़', 'વીમો, બચત, ID, પરિવારના કાગળો')],
     ['K', O('Kiran', 'किरण', 'કિરણ'), O('Brother, partner', 'भाई, पार्टनर', 'ભાઈ, ભાગીદાર'), O('Loans and business', 'लोन और बिज़नेस', 'લોન અને બિઝનેસ')], ['CA', O('Shah & Co.', 'शाह एंड कं.', 'શાહ એન્ડ કં.'), O('CA', 'CA', 'CA'), O('Business papers only', 'सिर्फ़ बिज़नेस के कागज़', 'માત્ર બિઝનેસના કાગળો')]],
-  sal: [['R', O('Rahul', 'राहुल', 'રાહુલ'), O('Self', 'स्वयं', 'પોતે'), O('Sees everything', 'सब कुछ देखते हैं', 'બધું જુએ છે')], ['N', O('Neha', 'नेहा', 'નેહા'), O('Wife', 'पत्नी', 'પત્ની'), O('Sees everything', 'सब कुछ देखती हैं', 'બધું જુએ છે')]]
+  sal: [['N', O('Neha', 'नेहा', 'નેહા'), O('Self', 'स्वयं', 'પોતે'), O('Sees everything', 'सब कुछ देखती हैं', 'બધું જુએ છે')], ['R', O('Rahul', 'राहुल', 'રાહુલ'), O('Husband', 'पति', 'પતિ'), O('Sees everything', 'सब कुछ देखते हैं', 'બધું જુએ છે')]]
 };
-var SHARE = { biz: { ins: ['R', 'M'], loan: ['R', 'K'], inv: ['R', 'M'], biz: ['R', 'K', 'CA'], fam: ['R', 'M', 'K'], ids: ['R', 'M'], work: ['R'] }, sal: { ins: ['R', 'N'], loan: ['R', 'N'], inv: ['R', 'N'], biz: ['R'], fam: ['R', 'N'], ids: ['R', 'N'], work: ['R'] } };
+var SHARE = { biz: { ins: ['A', 'M'], loan: ['A', 'K'], inv: ['A', 'M'], biz: ['A', 'K', 'CA'], fam: ['A', 'M', 'K'], ids: ['A', 'M'], work: ['A'] }, sal: { ins: ['N', 'R'], loan: ['N', 'R'], inv: ['N', 'R'], biz: ['N'], fam: ['N', 'R'], ids: ['N', 'R'], work: ['N'] } };
 V3.toastInvite = O('In November, an invite goes on WhatsApp, and you choose exactly what they see.', 'November में WhatsApp पर न्योता जाता है, और आप तय करते हैं कि वे क्या देखें।', 'November માં WhatsApp પર આમંત્રણ જાય છે, અને તમે નક્કી કરો છો કે તેઓ શું જુએ.');
 var SH = { access: O('Family access', 'परिवार की पहुँच', 'પરિવારની પહોંચ'), invite: O('Invite a family member', 'परिवार के सदस्य को जोड़ें', 'પરિવારના સભ્યને ઉમેરો'),
   with: O('Shared with {n}', '{n} के साथ साझा', '{n} સાથે શેર'), only: O('Only you', 'सिर्फ़ आप', 'માત્ર તમે'), andN: O('{a} and {n} more', '{a} और {n} अन्य', '{a} અને {n} વધુ'),
@@ -3236,7 +3236,7 @@ var SH = { access: O('Family access', 'परिवार की पहुँच
 function famOf(br) { return FAM[br] || FAM.biz; }
 function avs(ids, br) { var f = famOf(br); return '<span class="avs">' + ids.map(function (id) { return '<i class="av av-' + id + '" title="' + esc(tx((f.filter(function (x) { return x[0] === id; })[0] || [0, O(id, id, id)])[1])) + '">' + id + '</i>'; }).join('') + '</span>'; }
 function sharedLine(ids, br) {
-  var f = famOf(br), others = ids.filter(function (id) { return id !== 'R'; }).map(function (id) { var m = f.filter(function (x) { return x[0] === id; })[0]; return m ? tx(m[1]) : id; });
+  var f = famOf(br), others = ids.filter(function (id) { return id !== f[0][0]; }).map(function (id) { var m = f.filter(function (x) { return x[0] === id; })[0]; return m ? tx(m[1]) : id; });
   if (!others.length) return tx(SH.only);
   return t(SH.with, { n: others.length > 2 ? t(SH.andN, { a: others[0], n: others.length - 1 }) : others.join(', ') });
 }
