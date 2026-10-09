@@ -3279,7 +3279,7 @@ function v3Click(ev) {
   else if (a === 'aa') { S.aa = S.aa || { sel: { 0: true, 2: true, 3: BRANCH === 'biz' }, linked: false }; S.aa.open = true; render(); }
   else if (a === 'aaclose') { if (S.aa) S.aa.open = false; render(); }
   else if (a === 'aaok') { S.aa.linked = true; render(); }
-  else if (a === 'aago') { S.aa.open = false; if (S.uploaded || S.skipped) { S.sheet = null; go(4); } else startReading(); }
+  else if (a === 'aago') { S.aa.open = false; S.sheet = null; if (!S.uploaded) { S.uploaded = true; S.skipped = false; } go(4); }
   else if (a === 'aasel') { return; }
   else if (a === 'home' || a === 'reset') { S.v = false; S.aa = null; hit = false; }
   else if (a === 'claimhub' && S.v) { S.v = false; hit = false; }
