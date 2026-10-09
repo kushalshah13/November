@@ -3056,6 +3056,7 @@ var V3 = {
   aaFor: O('Consent valid for', 'सहमति कब तक', 'સંમતિ ક્યાં સુધી'), aaForV: O('6 months, and you can revoke it any time', '6 महीने, और कभी भी वापस ले सकते हैं', '6 મહિના, અને ક્યારેય પણ પાછી લઈ શકો'),
   aaOtp: O('Approve with OTP', 'OTP से मंज़ूर करें', 'OTP થી મંજૂર કરો'),
   aaDone: O('Linked. Statements arrive in about a minute and go straight into the family file.', 'जुड़ गया। स्टेटमेंट करीब एक मिनट में आते हैं और सीधे परिवार की फ़ाइल में जाते हैं।', 'જોડાઈ ગયું. સ્ટેટમેન્ટ આશરે એક મિનિટમાં આવે છે અને સીધા પરિવારની ફાઇલમાં જાય છે.'),
+  aaGo: O('Continue with linked accounts', 'जुड़े खातों के साथ आगे बढ़ें', 'જોડાયેલાં ખાતાં સાથે આગળ વધો'),
   aaDemo: O('Demo. No real account is contacted.', 'डेमो। किसी असली खाते से संपर्क नहीं होता।', 'ડેમો. કોઈ સાચા ખાતાનો સંપર્ક થતો નથી.'),
   owns: O('What the family owns', 'परिवार के पास क्या है', 'પરિવાર પાસે શું છે'), owes: O('What the family owes', 'परिवार को क्या देना है', 'પરિવારે શું ચૂકવવાનું છે'), coverH: O('Cover in place', 'मौजूदा बीमा', 'હાલનો વીમો'),
   whereT: O('What is where', 'क्या कहाँ है', 'શું ક્યાં છે'),
@@ -3251,7 +3252,7 @@ function aaSheet() {
   if (!S.aa || !S.aa.open) return '';
   var banks = [['bank', 'Sahyadri Bank · savings ••4417'], ['bank', 'Indus Valley Bank · current ••0921'], ['wallet', tx(O('Mutual funds (CAS)', 'म्यूचुअल फंड (CAS)', 'મ્યુચ્યુઅલ ફંડ (CAS)'))], ['factory', tx(O('GST returns', 'GST रिटर्न', 'GST રિટર્ન'))]];
   var body;
-  if (S.aa.linked) body = '<div class="status ok">' + icon('check') + vt('aaDone') + '</div><button class="primary xl" data-a="aaclose">' + u('done') + '</button>';
+  if (S.aa.linked) body = '<div class="status ok">' + icon('check') + vt('aaDone') + '</div><button class="primary xl" data-a="aago">' + vt('aaGo') + icon('arrow') + '</button>';
   else body = '<p class="overline">' + vt('aaPick') + '</p><ul class="files">' + banks.map(function (b, i) {
     return '<li><label><input type="checkbox" data-a="aasel" data-v="' + i + '"' + (S.aa.sel[i] ? ' checked' : '') + '>' + icon(b[0]) + '<span class="fn">' + esc(b[1]) + '</span></label></li>'; }).join('') + '</ul>' +
     '<dl class="facts"><div><dt>' + vt('aaPurpose') + '</dt><dd>' + vt('aaPurposeV') + '</dd></div><div><dt>' + vt('aaRange') + '</dt><dd>' + vt('aaRangeV') + '</dd></div><div><dt>' + vt('aaFor') + '</dt><dd>' + vt('aaForV') + '</dd></div></dl>' +
@@ -3278,6 +3279,7 @@ function v3Click(ev) {
   else if (a === 'aa') { S.aa = S.aa || { sel: { 0: true, 2: true, 3: BRANCH === 'biz' }, linked: false }; S.aa.open = true; render(); }
   else if (a === 'aaclose') { if (S.aa) S.aa.open = false; render(); }
   else if (a === 'aaok') { S.aa.linked = true; render(); }
+  else if (a === 'aago') { S.aa.open = false; if (S.uploaded || S.skipped) { S.sheet = null; go(4); } else startReading(); }
   else if (a === 'aasel') { return; }
   else if (a === 'home' || a === 'reset') { S.v = false; S.aa = null; hit = false; }
   else if (a === 'claimhub' && S.v) { S.v = false; hit = false; }
