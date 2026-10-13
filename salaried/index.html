@@ -824,6 +824,30 @@ body.showfloat .floatcta { opacity: 1; transform: none; pointer-events: auto; }
 @media (max-width: 400px) { .top-r { gap: 6px !important; } .demo-pill { padding-inline: 8px; } }
 @media (min-width: 760px) { .pk-grid { grid-template-columns: 1fr 1fr; gap: 20px; } .pk-card { padding: 32px; } .pk-go { margin-top: auto; } .wrap.spick { padding-top: 56px; } }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pk-biz { background: #F5F0E6; color: #1B2440; border-color: #F5F0E6; } :root:not([data-theme="light"]) .pk-biz .pk-d, :root:not([data-theme="light"]) .pk-biz .pk-n { color: #4A5068; } :root:not([data-theme="light"]) .pk-biz .pk-ic, :root:not([data-theme="light"]) .pk-biz .pk-tags i { background: #ECE6DA; color: #1B2440; } :root:not([data-theme="light"]) .pk-biz .pk-go { background: #1B2440; color: #F5F0E6; } }
+
+/* Scorecard: Paper page, finding first, grades on a Night card */
+.hc .finding { margin: 18px 0 22px; }
+.hc .finding blockquote { font-size: clamp(1.5rem, 5.6vw, 2.2rem); }
+.gradecard { background: var(--bg); color: var(--ink); border-radius: var(--r); padding: 18px 16px 16px; }
+.hc .fsub { margin-top: 12px; }
+.gradecard > .hint { color: var(--muted); margin: 0 0 14px; }
+/* Comparison on phones: row label on its own line, every option side by side under it */
+@media (max-width: 600px) {
+  .cmpwrap { overflow: visible; }
+  table.cmp { min-width: 0; font-size: 0.875rem; }
+  .cmp thead tr, .cmp tbody tr { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); }
+  .cmp thead tr { border-bottom: 1px solid var(--line); }
+  .cmp th, .cmp td { padding: 10px 8px; border-bottom: 0; min-width: 0; overflow-wrap: anywhere; }
+  .cmp th.lab { position: static; grid-column: 1 / -1; width: auto; min-width: 0; border-right: 0; padding: 10px 8px 0; background: transparent; font-size: 0.8125rem; }
+  .cmp thead th.lab, .cmp .actrow th.lab { display: none; }
+  .cmp tbody tr { border-top: 1px solid var(--line); }
+  .cmp thead b { font-size: 1rem; }
+  .cmp .fig { font-size: 1.2rem; }
+  .cmp td .pill { font-size: 0.75rem; padding: 2px 8px; }
+  .cmp .actrow td button { width: 100%; white-space: normal; line-height: 1.2; padding: 10px 6px; font-size: 0.8125rem; min-height: 44px; }
+  .cmp .actrow td button.quiet { min-height: 36px; padding: 6px; }
+  .swipe { display: none; }
+}
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -2344,7 +2368,7 @@ function jCompare(j, m) {
   return '<div class="verdict"><p class="overline">' + tx(CU2.pick) + '</p><h3>' + esc(optLabel2(p)) + '</h3><p class="vtext">' + esc(verdict(os, j)) + '</p>' +
     '<div class="vact"><button class="primary" data-a="jpick" data-v="0" data-s="3">' + tx(loan ? CU2.applyWith : CU2.cont) + '</button><button class="quiet" data-a="jpick" data-v="0" data-s="2">' + tx(CU2.det) + '</button></div></div>' +
     ask + '<h3 class="sbs">' + tx(CU2.compareT) + '</h3><p class="hint">' + tx(j.type === 'biz' ? JU.cmpIntroBiz : loan ? JU.cmpIntroLoan : JU.cmpIntro) + ' ' + tx(loan ? JU.commLineLoan : JU.commLine) + '</p>' +
-    '<span class="swipe">' + tx(CU2.swipe) + '</span><div class="cmpwrap"><table class="cmp"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>' +
+    '<span class="swipe">' + tx(CU2.swipe) + '</span><div class="cmpwrap"><table class="cmp" style="--n:' + os.length + '"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>' +
     '<p class="quietnote">' + tx(loan ? CU2.stayPut : CU2.dontBuy) + '</p>' + '<p class="fine">' + tx(JU.illus) + '</p>';
 }
 
@@ -2863,12 +2887,14 @@ function scr4() {
 function scr5() {
   var m = model(), s = m.s, e = m.e;
   var dims = ['p', 'b', 'lq', 'fr', 'w'];
-  return '<section><div class="hrow"><h2>' + u('checkT') + '</h2>' + adjustChip() + '</div><p class="hint">' + u('checkSub') + ' ' + u('tryDial') + '</p>' +
-    '<div class="grades">' + dims.map(function (g) {
+  var f = finding(m.p, s, e);
+  return '<section class="hc"><div class="hrow"><h2>' + u('checkT') + '</h2>' + adjustChip() + '</div>' +
+    '<div class="finding"><p class="eyebrow">' + u('stands') + '</p><blockquote>' + esc(f.text) + '</blockquote>' + (f.sub ? '<p class="fsub">' + esc(f.sub) + '</p>' : '') + '</div>' +
+    '<div class="gradecard night"><p class="hint">' + u('checkSub') + ' ' + u('tryDial') + '</p><div class="grades">' + dims.map(function (g) {
       var c = confidence(s, g, S.desel, S.skipped);
       var name = g === 'b' && s.branch === 'sal' ? tx(C.dims.bSal) : tx(C.dims[g]);
       return '<div class="gcard">' + gradeTile(e.grades[g]) + '<div class="gc-b"><div class="gc-h"><h3>' + name + '</h3><span class="conf c' + c + '">' + tx(U.conf[c]) + '</span></div><p>' + esc(whyLine(g, s, e)) + '</p></div></div>';
-    }).join('') + '</div></section>';
+    }).join('') + '</div></div></section>';
 }
 function scr6() {
   var m = model(), f = finding(m.p, m.s, m.e);
@@ -2945,7 +2971,7 @@ var root;
 function render() {
   setLang(S.lang);
   document.documentElement.lang = S.lang;
-  document.body.classList.toggle('nightmode', S.screen === 5 && !S.j && !S.c);
+  document.body.classList.remove('nightmode');
   root.innerHTML = topbar() + '<main class="wrap s' + S.screen + '">' + (S.c ? (S.c === 'hub' ? scrClaimHub() : scrClaimJ()) : S.j ? scrJourney() : SCR[S.screen]()) + '</main>' + bottombar() + sheetHTML() +
     (S.toast ? '<div class="toast" role="status">' + u(S.toast) + '</div>' : '');
 }
@@ -3045,7 +3071,7 @@ var V3 = {
   sampleT: O('How one claim went', 'एक क्लेम कैसे चला', 'એક ક્લેમ કેવી રીતે ચાલ્યો'),
   startA: O('Start a claim', 'क्लेम शुरू करें', 'ક્લેમ શરૂ કરો'),
   next: { 1: O('Meet this family', 'इस परिवार से मिलिए', 'આ પરિવારને મળો'), 2: O('Send their papers', 'इनके कागज़ भेजें', 'તેમના કાગળો મોકલો'), 3: O('See the household', 'परिवार देखें', 'પરિવાર જુઓ'), 4: O('See the Financial Health Check', 'फ़ाइनेंशियल हेल्थ चेक देखें', 'ફાઇનાન્શિયલ હેલ્થ ચેક જુઓ'),
-    5: O('See what stands out', 'ख़ास बात देखें', 'ખાસ વાત જુઓ'), 6: O('See three things to do', 'तीन काम देखें', 'ત્રણ કામ જુઓ'), 7: O("Read November's note", 'November का नोट पढ़ें', 'November ની નોંધ વાંચો'), 8: O('Finish', 'पूरा करें', 'પૂરું કરો') },
+    5: O('See three things to do', 'तीन काम देखें', 'ત્રણ કામ જુઓ'), 6: O('See three things to do', 'तीन काम देखें', 'ત્રણ કામ જુઓ'), 7: O("Read November's note", 'November का नोट पढ़ें', 'November ની નોંધ વાંચો'), 8: O('Finish', 'पूरा करें', 'પૂરું કરો') },
   pickFirst: O('Pick a family to continue', 'आगे बढ़ने के लिए परिवार चुनिए', 'આગળ વધવા પરિવાર પસંદ કરો'),
   sendFirst: O('Upload or skip to continue', 'आगे बढ़ने के लिए अपलोड करें या छोड़ें', 'આગળ વધવા અપલોડ કરો અથવા છોડો'),
   tiles: { family: O('Family', 'परिवार', 'પરિવાર'), biz: O('Business', 'बिज़नेस', 'બિઝનેસ'), work: O('Work', 'नौकरी', 'નોકરી'), loans: O('Loans', 'लोन', 'લોન'), cover: O('Cover', 'बीमा', 'વીમો'), cash: O('Cash in reach', 'हाथ में पैसा', 'હાથવગા પૈસા'), dep: O('Who it rests on', 'किस पर टिका है', 'કોના પર ટકેલું છે') },
@@ -3248,9 +3274,9 @@ function bottombar() {
   if (S.screen === 0) return '<div class="floatcta"><button class="primary big" data-a="go" data-v="1"><span><b>' + vt('float') + '</b><small>' + vt('floatSub') + '</small></span>' + icon('arrow') + '</button></div>';
   var can = S.screen === 1 ? !!S.pid : S.screen === 3 ? (S.uploaded || S.skipped) : S.screen < 9;
   var lab = !can ? (S.screen === 1 ? vt('pickFirst') : vt('sendFirst')) : tx(V3.next[S.screen]);
-  var dots = ''; for (var i = 1; i <= 9; i++) dots += '<span class="dot' + (i === S.screen ? ' on' : i < S.screen ? ' past' : '') + '"></span>';
+  var pos = S.screen > 6 ? S.screen - 1 : S.screen, dots = ''; for (var i = 1; i <= 8; i++) dots += '<span class="dot' + (i === pos ? ' on' : i < pos ? ' past' : '') + '"></span>';
   return '<nav class="bottom"><div class="bottom-in"><button class="secondary" data-a="back" aria-label="' + esc(u('back')) + '">' + icon('arrow', 'back') + '</button>' +
-    '<div class="dots" aria-label="' + esc(t(O('{n} of 9', '9 में से {n}', '9 માંથી {n}'), { n: S.screen })) + '">' + dots + '</div>' +
+    '<div class="dots" aria-label="' + esc(t(O('{n} of 8', '8 में से {n}', '8 માંથી {n}'), { n: pos })) + '">' + dots + '</div>' +
     (S.screen < 9 ? '<button class="primary nextbtn" data-a="next"' + (can ? '' : ' disabled') + '>' + lab + (can ? icon('arrow') : '') + '</button>' : '<span class="spacer"></span>') + '</div></nav>';
 }
 function aaSheet() {
@@ -3264,15 +3290,15 @@ function aaSheet() {
     '<button class="primary xl" data-a="aaok">' + icon('lock') + vt('aaOtp') + '</button>';
   return '<div class="scrim" data-a="aaclose"></div><div class="sheet" role="dialog" aria-modal="true"><div class="sh-h"><h3>' + vt('aaT') + '</h3><button class="secondary sm" data-a="aaclose">' + u('close') + '</button></div>' + body + '<p class="fine">' + vt('aaDemo') + '</p></div>';
 }
-function render() {
+function render() { if (S.screen === 6) S.screen = 5;
   setLang(S.lang);
   document.documentElement.lang = S.lang;
-  document.body.classList.toggle('nightmode', S.screen === 5 && !S.j && !S.c && !S.v);
+  document.body.classList.remove('nightmode');
   var main = S.v ? scrVault() : S.c ? (S.c === 'hub' ? scrClaimHub() : scrClaimJ()) : S.j ? scrJourney() : SCR[S.screen]();
   root.innerHTML = topbar() + '<main class="wrap s' + (S.v ? 'v' : S.screen) + '">' + main + '</main>' + bottombar() + sheetHTML() + aaSheet() +
     (S.toast ? '<div class="toast" role="status">' + (V3[S.toast] ? vt(S.toast) : u(S.toast)) + '</div>' : '');
 }
-function go(n) { S.j = null; S.c = null; S.v = false; S.screen = Math.max(0, Math.min(9, n)); S.sheet = null; S.inlineDials = false; render(); window.scrollTo(0, 0); }
+function go(n) { if (n === 6) n = S.screen >= 7 ? 5 : 7; S.j = null; S.c = null; S.v = false; S.screen = Math.max(0, Math.min(9, n)); S.sheet = null; S.inlineDials = false; render(); window.scrollTo(0, 0); }
 function v3Click(ev) {
   var el = ev.target.closest('[data-a]'); if (!el || el.disabled) return;
   var a = el.getAttribute('data-a'), v = el.getAttribute('data-v'), hit = true;
