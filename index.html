@@ -1086,18 +1086,18 @@ function mk(o) { var b = JSON.parse(JSON.stringify(B0)); for (var k in o.base) b
 
 var PRESETS = [
   mk({ id: 'rajesh', branch: 'biz', ind: 'textile', sig: 'pg', sigAction: 'lifeGap',
-    name: { en: 'Arjun Mehta', hi: 'अर्जुन मेहता', gu: 'અર્જુન મહેતા' }, first: { en: 'Arjun', hi: 'अर्जुन', gu: 'અર્જુન' },
+    name: { en: 'Kabir Mehta', hi: 'कबीर मेहता', gu: 'કબીર મહેતા' }, first: { en: 'Kabir', hi: 'कबीर', gu: 'કબીર' },
     place: { en: 'Mulund', hi: 'मुलुंड', gu: 'મુલુંડ' },
     card: { en: 'Textile processing, Bhiwandi', hi: 'टेक्सटाइल प्रोसेसिंग, भिवंडी', gu: 'ટેક્સટાઇલ પ્રોસેસિંગ, ભિવંડી' },
     bizDesc: { en: 'a textile dyeing and processing unit in Bhiwandi, with his brother', hi: 'भाई के साथ भिवंडी में टेक्सटाइल डाइंग और प्रोसेसिंग यूनिट', gu: 'ભાઈ સાથે ભિવંડીમાં ટેક્સટાઇલ ડાઇંગ અને પ્રોસેસિંગ યુનિટ' },
     famDesc: { en: 'Wife Meera, children 17 and 13, father 74 at home', hi: 'पत्नी मीरा, बच्चे 17 और 13, पिता 74 साथ रहते हैं', gu: 'પત્ની મીરા, બાળકો 17 અને 13, પિતા 74 સાથે રહે છે' },
-    depends: { en: 'The bank, his brother and the family all rest on Arjun signing. If anything happened, Meera would be the one making the calls.', hi: 'बैंक, भाई और परिवार, सब अर्जुन के दस्तख़त पर टिके हैं। कुछ हो जाए, तो फ़ोन मीरा को ही करने होंगे।', gu: 'બેંક, ભાઈ અને પરિવાર, બધા અર્જુનની સહી પર ટકેલા છે. કંઈ થાય, તો ફોન મીરાએ જ કરવા પડશે.' },
+    depends: { en: 'The bank, his brother and the family all rest on Kabir signing. If anything happened, Meera would be the one making the calls.', hi: 'बैंक, भाई और परिवार, सब कबीर के दस्तख़त पर टिके हैं। कुछ हो जाए, तो फ़ोन मीरा को ही करने होंगे।', gu: 'બેંક, ભાઈ અને પરિવાર, બધા કબીરની સહી પર ટકેલા છે. કંઈ થાય, તો ફોન મીરાએ જ કરવા પડશે.' },
     defaults: { age: '46-55', turn: '30-60', entity: 'pvt', family: 'parents', borrow: 'pg', cover: 'basic' },
     base: { age: 48, ageBand: '46-55', turnover: 30 * CR, entity: 'pvt', spend: 2.5 * L, life: 1 * CR, health: 5 * L, parentsDep: true, parentsIns: false,
       guarantee: 6 * CR, cash: 6 * L, liquid: 28 * L, bizShare: 6 * CR, home: 3.5 * CR, loans: [{ k: 'term', amt: 6 * CR, rate: 10, mkt: 9.75, biz: true }],
       bizGap: true, bizExposure: 3 * CR, gaps: { will: true }, wealth: { goal: true } },
     files: [F('scan0007.pdf', 'term', ['life'], 'Sum assured ₹1,00,00,000 · Commencement 14-02-2014'),
-      F('IMG_20240312_WA0041.jpg', 'sanction', ['loans', 'guarantee'], 'Term loan ₹6,00,00,000 @ 10.00% · Personal guarantee: Arjun Mehta'),
+      F('IMG_20240312_WA0041.jpg', 'sanction', ['loans', 'guarantee'], 'Term loan ₹6,00,00,000 @ 10.00% · Personal guarantee: Kabir Mehta'),
       F('Policy_Final_new (2).pdf', 'floater', ['health'], 'Family floater · Sum insured ₹5,00,000 · Members: 4'),
       F('Fire_renewal_factory.pdf', 'fire', ['bizcover'], 'Sum insured ₹4,00,00,000 · Basis of valuation: book value'),
       F('CAS_Mar2026.pdf', 'cas', ['liquid', 'nominations'], 'Total value ₹22,14,580 · Nominee: Mahesh Mehta'),
@@ -3413,8 +3413,8 @@ function topbar() {
 }
 
 var FAM = {
-  biz: [['A', O('Arjun', 'अर्जुन', 'અર્જુન'), O('Owner', 'मालिक', 'માલિક'), O('Sees everything', 'सब कुछ देखते हैं', 'બધું જુએ છે')], ['M', O('Meera', 'मीरा', 'મીરા'), O('Wife', 'पत्नी', 'પત્ની'), O('Insurance, savings, IDs, family papers', 'बीमा, बचत, ID, परिवार के कागज़', 'વીમો, બચત, ID, પરિવારના કાગળો')],
-    ['K', O('Kiran', 'किरण', 'કિરણ'), O('Brother, partner', 'भाई, पार्टनर', 'ભાઈ, ભાગીદાર'), O('Loans and business', 'लोन और बिज़नेस', 'લોન અને બિઝનેસ')], ['CA', O('Shah & Co.', 'शाह एंड कं.', 'શાહ એન્ડ કં.'), O('CA', 'CA', 'CA'), O('Business papers only', 'सिर्फ़ बिज़नेस के कागज़', 'માત્ર બિઝનેસના કાગળો')]],
+  biz: [['A', O('Kabir', 'कबीर', 'કબીર'), O('Owner', 'मालिक', 'માલિક'), O('Sees everything', 'सब कुछ देखते हैं', 'બધું જુએ છે')], ['M', O('Meera', 'मीरा', 'મીરા'), O('Wife', 'पत्नी', 'પત્ની'), O('Insurance, savings, IDs, family papers', 'बीमा, बचत, ID, परिवार के कागज़', 'વીમો, બચત, ID, પરિવારના કાગળો')],
+    ['K', O('Sameer', 'समीर', 'સમીર'), O('Brother, partner', 'भाई, पार्टनर', 'ભાઈ, ભાગીદાર'), O('Loans and business', 'लोन और बिज़नेस', 'લોન અને બિઝનેસ')], ['CA', O('Shah & Co.', 'शाह एंड कं.', 'શાહ એન્ડ કં.'), O('CA', 'CA', 'CA'), O('Business papers only', 'सिर्फ़ बिज़नेस के कागज़', 'માત્ર બિઝનેસના કાગળો')]],
   sal: [['N', O('Neha', 'नेहा', 'નેહા'), O('Self', 'स्वयं', 'પોતે'), O('Sees everything', 'सब कुछ देखती हैं', 'બધું જુએ છે')], ['R', O('Rahul', 'राहुल', 'રાહુલ'), O('Husband', 'पति', 'પતિ'), O('Sees everything', 'सब कुछ देखते हैं', 'બધું જુએ છે')]]
 };
 var SHARE = { biz: { ins: ['A', 'M'], loan: ['A', 'K'], inv: ['A', 'M'], biz: ['A', 'K', 'CA'], fam: ['A', 'M', 'K'], ids: ['A', 'M'], work: ['A'] }, sal: { ins: ['N', 'R'], loan: ['N', 'R'], inv: ['N', 'R'], biz: ['N'], fam: ['N', 'R'], ids: ['N', 'R'], work: ['N'] } };
@@ -3510,7 +3510,7 @@ render = function () { _render3(); floatCheck(); };
   function v4(o, v) { return t(o, v); }
 
   /* Copy changes */
-  LP.h1 = A4.h1; LP.sub = A4.sub; LP.ctaCap = A4.ctaCap;
+  LP.sub = O("Insurance, loans, investments, property, the business. November's agents read it all, keep it current and tell you straight.", 'बीमा, लोन, निवेश, प्रॉपर्टी, बिज़नेस। November के एजेंट सब पढ़ते हैं, उसे ताज़ा रखते हैं और सीधी बात बताते हैं।', 'વીમો, લોન, રોકાણ, પ્રોપર્ટી, બિઝનેસ. November ના એજન્ટ બધું વાંચે છે, તેને તાજું રાખે છે અને સીધી વાત કહે છે.');
   U.reading = O('Keeper is reading {n} documents', 'Keeper {n} दस्तावेज़ पढ़ रहा है', 'Keeper {n} દસ્તાવેજો વાંચે છે');
   U.readDone = O('Keeper read {n} documents · {m} facts filed', 'Keeper ने {n} दस्तावेज़ पढ़े · {m} बातें फ़ाइल कीं', 'Keeper એ {n} દસ્તાવેજો વાંચ્યા · {m} બાબતો ફાઇલ કરી');
   CS.nov = O('Claims agent', 'Claims एजेंट', 'Claims એજન્ટ');
@@ -3529,7 +3529,7 @@ render = function () { _render3(); floatCheck(); };
       ['checkup', 'flag', O("Father's health cover is ₹5 lakh. At 74 he needs at least ₹15 lakh.", 'पिता का हेल्थ कवर ₹5 लाख है। 74 की उम्र में कम से कम ₹15 लाख चाहिए।', 'પિતાનો હેલ્થ કવર ₹5 લાખ છે. 74 વર્ષે ઓછામાં ઓછા ₹15 લાખ જોઈએ.')],
       ['credit', 'you', O('Factory loan is 1.6% above market. File ready for 2 lenders.', 'फ़ैक्ट्री लोन बाज़ार से 1.6% महँगा। 2 बैंकों के लिए फ़ाइल तैयार।', 'ફેક્ટરી લોન બજાર કરતાં 1.6% મોંઘી. 2 બેંકો માટે ફાઇલ તૈયાર.')],
       ['claims', 'done', O("Meera's cashless claim started. Papers sent.", 'मीरा का कैशलेस क्लेम शुरू। कागज़ भेज दिए।', 'મીરાનો કેશલેસ ક્લેમ શરૂ. કાગળો મોકલ્યા.')],
-      ['cover', 'live', O('Comparing three term options for Arjun', 'अर्जुन के लिए तीन टर्म विकल्प मिला रहा है', 'અર્જુન માટે ત્રણ ટર્મ વિકલ્પ સરખાવે છે')]
+      ['cover', 'live', O('Comparing three term options for Kabir', 'कबीर के लिए तीन टर्म विकल्प मिला रहा है', 'કબીર માટે ત્રણ ટર્મ વિકલ્પ સરખાવે છે')]
     ];
     return '<div class="aconsole" role="img" aria-label="' + esc(tx(A4.live)) + '"><div class="acn-top"><span class="acn-mark">november<i></i></span><span class="acn-live">' + pd() + tx(A4.live) + '</span></div>' +
       rows.map(function (r, i) {
