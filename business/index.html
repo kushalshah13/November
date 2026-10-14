@@ -933,6 +933,21 @@ body.showfloat .floatcta { opacity: 1; transform: none; pointer-events: auto; }
 
 @media (max-width: 480px) { .primary.heroBtn { white-space: normal; text-align: left; } }
 
+
+/* Hero with the agents panel: headline keeps two lines on desktop, panel slimmer; panel goes below the copy on iPad portrait */
+.aconsole { box-sizing: border-box; }
+@media (min-width: 720px) {
+  .wrap > section.hero { grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 36px; }
+  .aconsole { max-width: 360px; padding: 14px 14px 10px; }
+  .acn-row { grid-template-columns: 1fr auto; row-gap: 4px; }
+  .acn-row .acn-t { grid-column: 1 / -1; grid-row: 2; }
+  .hero h1 { font-size: clamp(2.6rem, 4.6vw, 3.6rem); }
+}
+@media (min-width: 720px) and (max-width: 959px) {
+  .wrap > section.hero { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 3.2rem; }
+  .aconsole { max-width: 520px; justify-self: start; }
+}
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
