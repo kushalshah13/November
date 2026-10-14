@@ -848,6 +848,91 @@ body.showfloat .floatcta { opacity: 1; transform: none; pointer-events: auto; }
   .cmp .actrow td button.quiet { min-height: 36px; padding: 6px; }
   .swipe { display: none; }
 }
+
+/* ---------- v4: agents ---------- */
+.wrap > section.hero.night { background-color: #1B2440; background-image: linear-gradient(rgba(216,219,229,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(216,219,229,.06) 1px, transparent 1px); background-size: 28px 28px; }
+.hero h1 mark { background: none; box-shadow: none; color: #D9A15A; }
+@keyframes pring { 0% { box-shadow: 0 0 0 0 rgba(61,138,115,.6) } 70% { box-shadow: 0 0 0 8px rgba(61,138,115,0) } 100% { box-shadow: 0 0 0 0 rgba(61,138,115,0) } }
+@keyframes pringA { 0% { box-shadow: 0 0 0 0 rgba(217,161,90,.6) } 70% { box-shadow: 0 0 0 8px rgba(217,161,90,0) } 100% { box-shadow: 0 0 0 0 rgba(217,161,90,0) } }
+@keyframes rin { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+@keyframes tb { 0%, 80%, 100% { opacity: .25 } 40% { opacity: 1 } }
+@keyframes scan { from { transform: translateX(-120%) } to { transform: translateX(320%) } }
+.pdot { width: 8px; height: 8px; border-radius: 50%; background: #3D8A73; flex: none; display: inline-block; animation: pring 1.8s infinite; }
+.pdot.amber { background: #D9A15A; animation-name: pringA; }
+.pdot.off { background: transparent; border: 1.5px solid currentColor; animation: none; opacity: .6; }
+.pdot.done { animation: none; }
+.tdots { display: inline-flex; gap: 3px; margin-left: 4px; vertical-align: middle; }
+.tdots i { width: 4px; height: 4px; border-radius: 50%; background: currentColor; animation: tb 1.2s infinite; }
+.tdots i:nth-child(2) { animation-delay: .2s } .tdots i:nth-child(3) { animation-delay: .4s }
+
+/* Hero console */
+.aconsole { width: 100%; max-width: 460px; justify-self: center; background: #26315A; border: 1px solid #3A4672; border-radius: 16px; padding: 16px 16px 12px; color: #F5F0E6; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+.acn-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid #3A4672; }
+.acn-mark { font: 400 1.35rem/1 "Newsreader", Georgia, serif; letter-spacing: -0.02em; }
+.acn-mark i { display: inline-block; width: .17em; height: .17em; border-radius: 50%; background: #D9A15A; margin-left: .05em; }
+.acn-live { display: inline-flex; align-items: center; gap: 8px; font: 600 .75rem/1 var(--body); letter-spacing: 1.5px; text-transform: uppercase; color: #D8DBE5; }
+.acn-row { display: grid; grid-template-columns: 84px 1fr auto; gap: 10px; align-items: start; padding: 11px 0; border-bottom: 1px solid #3A4672; opacity: 0; animation: rin .5s ease forwards; animation-delay: calc(var(--i) * .5s); }
+.acn-n { display: inline-flex; gap: 7px; align-items: center; font: 600 .875rem/1.3 var(--body); }
+.acn-t { font-size: .875rem; line-height: 1.4; color: #F5F0E6; min-width: 0; }
+.acn-s { font: 600 .75rem/1.2 var(--body); padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.st-done { background: #2F6B5A; color: #fff; } .st-flag { border: 1px solid #3A4672; color: #D8DBE5; } .st-you { border: 1.5px solid #D9A15A; color: #D9A15A; } .st-live { color: #D8DBE5; padding-right: 0; } .st-watch { color: #D8DBE5; border: 1px dashed #3A4672; }
+.acn-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-top: 12px; font-size: .8125rem; color: #D8DBE5; }
+.acn-foot b { color: #D9A15A; font-weight: 600; }
+
+/* Agents section */
+.agentsec .lead { max-width: 40em; }
+.agrid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.acard { position: relative; overflow: hidden; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.acard::before { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 35%; background: linear-gradient(90deg, transparent, #3D8A73, transparent); animation: scan 3.2s linear infinite; animation-delay: calc(var(--i) * .6s); }
+.acard-h { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.acard-i { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; background: var(--bg); border: 1px solid var(--line); }
+.acard-st { display: inline-flex; align-items: center; gap: 6px; font: 600 .8125rem/1 var(--body); color: var(--gA); }
+.acard b { font: 500 1.35rem/1.1 var(--display); }
+.acard-role { font: 600 .75rem/1.3 var(--body); letter-spacing: 1.5px; text-transform: uppercase; color: var(--mark-strong); }
+.acard-d { color: var(--muted); font-size: .9375rem; line-height: 1.45; }
+.acard-w { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); font-size: .875rem; }
+.acard-w span { color: var(--muted); }
+.anext { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--muted); font-size: .9375rem; }
+.anext span.ch { border: 1.5px dashed var(--line); border-radius: 999px; padding: 5px 12px; font-weight: 600; font-size: .875rem; }
+@media (min-width: 720px) { .agrid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .agrid { grid-template-columns: repeat(5, 1fr); } }
+
+/* Agent bar under the header */
+.abar { border-top: 1px solid var(--line); }
+.abar-in { max-width: 1040px; margin: 0 auto; padding: 8px 16px; display: flex; gap: 8px; align-items: center; overflow-x: auto; scrollbar-width: none; }
+.abar-in::-webkit-scrollbar { display: none; }
+.abar-l { font: 600 .75rem/1 var(--body); letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); white-space: nowrap; margin-right: 2px; }
+.abi { display: inline-flex; gap: 7px; align-items: center; font: 600 .8125rem/1 var(--body); padding: 6px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); white-space: nowrap; }
+.abi.you { border-color: var(--mark-strong); }
+.abar .see { margin-left: auto; white-space: nowrap; font: 600 .8125rem/1 var(--body); color: var(--ink); background: none; border: 0; text-decoration: underline; text-underline-offset: 4px; padding: 6px 2px; }
+
+/* Agent chip and strips */
+.agchip { display: inline-flex; align-items: center; gap: 7px; font: 600 .8125rem/1 var(--body); padding: 5px 11px; border-radius: 999px; background: var(--ink); color: var(--bg); white-space: nowrap; }
+.astrip { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: .9375rem; color: var(--muted); padding: 10px 12px; border: 1px dashed var(--line); border-radius: var(--r); }
+.aby { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: .875rem; color: var(--muted); }
+
+/* Activity sheet */
+.alog { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.alog li { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.alog .al-n { display: inline-flex; gap: 7px; align-items: center; font-weight: 600; font-size: .9375rem; }
+.alog .al-t { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.alog .al-t p { font-size: .9375rem; line-height: 1.5; }
+.alog .acn-s { align-self: flex-start; }
+.alog .st-done { background: var(--gA); } .alog .st-flag, .alog .st-watch { border-color: var(--line); color: var(--muted); } .alog .st-you { border-color: var(--mark-strong); color: var(--mark-strong); } .alog .st-live { color: var(--muted); }
+
+/* Ask November */
+.asknov { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.typing { display: inline-flex; gap: 4px; padding: 8px 0; color: var(--muted); }
+.typing i { width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: tb 1.2s infinite; }
+.typing i:nth-child(2) { animation-delay: .2s } .typing i:nth-child(3) { animation-delay: .4s }
+
+@media (prefers-reduced-motion: reduce) {
+  .pdot, .acard::before, .tdots i, .typing i { animation: none; }
+  .acn-row { animation: none; opacity: 1; }
+}
+
+@media (max-width: 480px) { .primary.heroBtn { white-space: normal; text-align: left; } }
+
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -3357,6 +3442,247 @@ function floatCheck() {
 window.addEventListener('scroll', floatCheck, { passive: true });
 var _render3 = render;
 render = function () { _render3(); floatCheck(); };
+
+/* v4: November as a team of agents (Keeper, Checkup, Cover, Credit, Claims). Merged from the November Brainstorm build. */
+/* November demo v4: the agent layer. One November you talk to, five agents doing the work. */
+(function () {
+  var A4 = {
+    eyebrow: LP.eyebrow,
+    h1: O('Financial <mark>agents</mark> for your family.', 'आपके परिवार के फ़ाइनेंशियल <mark>AI एजेंट</mark>।', 'તમારા પરિવારના ફાઇનાન્શિયલ <mark>AI એજન્ટ</mark>.'),
+    sub: O('You talk to one. A team works behind it: keeping track, checking, fixing insurance and loans, and chasing claims. Every day, not once a year.',
+      'आप एक से बात करते हैं। पीछे पूरी टीम काम करती है: हिसाब रखना, जाँचना, बीमा और लोन ठीक करना, और क्लेम के पीछे लगना। हर दिन, साल में एक बार नहीं।',
+      'તમે એક સાથે વાત કરો છો. પાછળ આખી ટીમ કામ કરે છે: હિસાબ રાખવો, તપાસવું, વીમો અને લોન સુધારવા, અને ક્લેમ પાછળ લાગવું. દરરોજ, વર્ષમાં એક વાર નહીં.'),
+    ctaCap: O('Free · about 10 minutes · the agents do the reading', 'मुफ़्त · करीब 10 मिनट · पढ़ने का काम एजेंट करते हैं', 'મફત · આશરે 10 મિનિટ · વાંચવાનું કામ એજન્ટ કરે છે'),
+    live: O('Agents · live', 'एजेंट · लाइव', 'એજન્ટ · લાઇવ'),
+    needs: O('Needs your OK', 'आपकी मंज़ूरी चाहिए', 'તમારી મંજૂરી જોઈએ'),
+    family: O('Mehta family', 'मेहता परिवार', 'મહેતા પરિવાર'),
+    st: { done: O('Done', 'हो गया', 'થઈ ગયું'), flag: O('Flagged', 'ध्यान दें', 'ધ્યાન આપો'), you: O('Needs you', 'आपकी ज़रूरत', 'તમારી જરૂર'), live: O('Working', 'काम पर', 'કામ પર'), watch: O('Watching', 'नज़र में', 'નજરમાં'), wait: O('Waiting', 'इंतज़ार', 'રાહ') },
+    secEy: O('Your agents', 'आपके एजेंट', 'તમારા એજન્ટ'),
+    secT: O('One November you talk to. Five agents doing the work.', 'आप एक November से बात करते हैं। पाँच एजेंट काम करते हैं।', 'તમે એક November સાથે વાત કરો છો. પાંચ એજન્ટ કામ કરે છે.'),
+    secSub: O('Each one acts on its own trigger, not only when asked. Anything that commits money waits for you.', 'हर एजेंट अपने समय पर ख़ुद काम करता है, सिर्फ़ पूछने पर नहीं। पैसे से जुड़ा हर फ़ैसला आपकी मंज़ूरी का इंतज़ार करता है।', 'દરેક એજન્ટ પોતાના સમયે જાતે કામ કરે છે, માત્ર પૂછવાથી નહીં. પૈસા સાથે જોડાયેલો દરેક નિર્ણય તમારી મંજૂરીની રાહ જુએ છે.'),
+    acts: O('Acts when', 'कब काम करता है', 'ક્યારે કામ કરે'),
+    next: O('Next on the team', 'टीम में आगे', 'ટીમમાં આગળ'),
+    later: [O('Invest', 'निवेश', 'રોકાણ'), O('Legacy: wills and succession', 'विरासत: वसीयत और उत्तराधिकार', 'વારસો: વસિયત અને ઉત્તરાધિકાર')],
+    barL: O('Agents on this family', 'इस परिवार पर एजेंट', 'આ પરિવાર પર એજન્ટ'),
+    see: O('What they did', 'उन्होंने क्या किया', 'તેમણે શું કર્યું'),
+    logT: O('Agent activity', 'एजेंट की गतिविधि', 'એજન્ટની પ્રવૃત્તિ'),
+    rule: O('Agents prepare. You approve. Insurers and lenders decide.', 'एजेंट तैयारी करते हैं। मंज़ूरी आप देते हैं। फ़ैसला बीमा कंपनी और बैंक का।', 'એજન્ટ તૈયારી કરે છે. મંજૂરી તમે આપો છો. નિર્ણય વીમા કંપની અને બેંકનો.'),
+    kRead: O('Read {n} documents and filed {m} facts.', '{n} दस्तावेज़ पढ़े और {m} बातें फ़ाइल कीं।', '{n} દસ્તાવેજો વાંચ્યા અને {m} બાબતો ફાઇલ કરી.'),
+    kEst: O('No papers yet. Built the picture from estimates.', 'अभी कागज़ नहीं। अनुमान से तस्वीर बनाई।', 'હજી કાગળો નથી. અંદાજથી ચિત્ર બનાવ્યું.'),
+    kWait: O('Waiting for papers.', 'कागज़ों का इंतज़ार।', 'કાગળોની રાહ.'),
+    kAA: O('Linked {n} accounts through the Account Aggregator.', 'अकाउंट एग्रीगेटर से {n} खाते जोड़े।', 'એકાઉન્ટ એગ્રીગેટર દ્વારા {n} ખાતાં જોડ્યાં.'),
+    cGrades: O('Graded five areas: {g}.', 'पाँच बातों को ग्रेड दिया: {g}।', 'પાંચ બાબતોને ગ્રેડ આપ્યા: {g}.'),
+    cFlag: O('Flagged: {f}', 'ध्यान दें: {f}', 'ધ્યાન આપો: {f}'),
+    cWait: O('Starts once the household picture is ready.', 'परिवार की तस्वीर बनते ही शुरू।', 'પરિવારનું ચિત્ર બને કે તરત શરૂ.'),
+    covReady: O('Ready to compare three options: {a}.', 'तीन विकल्प मिलाने को तैयार: {a}।', 'ત્રણ વિકલ્પ સરખાવવા તૈયાર: {a}.'),
+    covNone: O('No insurance gap to act on right now.', 'अभी कोई बीमा कमी नहीं।', 'હાલ કોઈ વીમા ખામી નથી.'),
+    crGap: O('Found about {x} a year in extra interest. Lender file ready for your OK.', 'हर साल करीब {x} फ़ालतू ब्याज मिला। बैंक की फ़ाइल आपकी मंज़ूरी के लिए तैयार।', 'દર વર્ષે આશરે {x} વધારાનું વ્યાજ મળ્યું. બેંકની ફાઇલ તમારી મંજૂરી માટે તૈયાર.'),
+    crWatch: O('Watching your loan rates against the market, every quarter.', 'हर तिमाही आपके लोन के रेट को बाज़ार से मिला रहा है।', 'દર ત્રિમાસિક તમારી લોનના દરને બજાર સાથે સરખાવે છે.'),
+    crNone: O('No loans to watch.', 'देखने को कोई लोन नहीं।', 'જોવા માટે કોઈ લોન નથી.'),
+    clStand: O('Standing by. Knows {n} papers and which policy pays for what.', 'तैयार है। {n} कागज़ और कौन-सी पॉलिसी किसका भुगतान करती है, सब पता है।', 'તૈયાર છે. {n} કાગળો અને કઈ પોલિસી શેની ચુકવણી કરે છે, બધું ખબર છે.'),
+    takes: O('{a} can take this on', '{a} यह काम संभाल सकता है', '{a} આ કામ સંભાળી શકે'),
+    onIt: O('{a} is on this. You approve before anything is sent.', '{a} इस पर काम कर रहा है। कुछ भेजने से पहले मंज़ूरी आपकी।', '{a} આ પર કામ કરે છે. કંઈ મોકલતાં પહેલાં મંજૂરી તમારી.'),
+    builtDocs: O('Built by Keeper from {n} documents.', 'Keeper ने {n} दस्तावेज़ों से बनाया।', 'Keeper એ {n} દસ્તાવેજો પરથી બનાવ્યું.'),
+    builtEst: O('Built by Keeper from estimates. Papers make it exact.', 'Keeper ने अनुमान से बनाया। कागज़ों से यह सटीक होगा।', 'Keeper એ અંદાજથી બનાવ્યું. કાગળોથી તે ચોક્કસ થશે.'),
+    graded: O('Graded by Checkup, from the family file.', 'Checkup ने परिवार की फ़ाइल से ग्रेड दिए।', 'Checkup એ પરિવારની ફાઇલ પરથી ગ્રેડ આપ્યા.'),
+    spotted: O('Spotted by Checkup', 'Checkup ने पकड़ा', 'Checkup એ પકડ્યું'),
+    askT: O('Ask November', 'November से पूछिए', 'November ને પૂછો'),
+    qs: [O('What should I do first?', 'पहले क्या करूँ?', 'પહેલાં શું કરું?'), O('Can you sort it out for me?', 'क्या आप यह मेरे लिए कर देंगे?', 'શું તમે આ મારા માટે કરી આપશો?'), O('What happens when I am busy?', 'जब मैं व्यस्त रहूँ तब क्या?', 'જ્યારે હું વ્યસ્ત હોઉં ત્યારે શું?')],
+    a0: O('Start with this: {a}. {w} After that: {b}.', 'शुरुआत इससे: {a}। {w} उसके बाद: {b}।', 'શરૂઆત આનાથી: {a}. {w} પછી: {b}.'),
+    a1: O('Yes. {ag} will line up three options for {first}, show what we earn on each, and fill in the papers. You approve with one OTP. Nothing is bought or signed without you.',
+      'हाँ। {ag} {first} के लिए तीन विकल्प तैयार करेगा, हर एक पर हमारी कमाई दिखाएगा, और कागज़ भरेगा। आप एक OTP से मंज़ूरी देंगे। आपके बिना कुछ ख़रीदा या साइन नहीं होता।',
+      'હા. {ag} {first} માટે ત્રણ વિકલ્પ તૈયાર કરશે, દરેક પર અમારી કમાણી બતાવશે, અને કાગળો ભરશે. તમે એક OTP થી મંજૂરી આપશો. તમારા વગર કંઈ ખરીદાતું કે સહી થતું નથી.'),
+    a2: O('Keeper watches every renewal and statement. Credit checks your loan rates every quarter. Claims steps in the moment you send one line. You get one note a week, only about the things that need you.',
+      'Keeper हर रिन्यूअल और स्टेटमेंट पर नज़र रखता है। Credit हर तिमाही लोन के रेट जाँचता है। Claims आपकी एक लाइन पर तुरंत काम शुरू करता है। आपको हफ़्ते में एक नोट मिलता है, सिर्फ़ उन बातों का जिनमें आपकी ज़रूरत है।',
+      'Keeper દરેક રિન્યુઅલ અને સ્ટેટમેન્ટ પર નજર રાખે છે. Credit દર ત્રિમાસિક લોનના દર તપાસે છે. Claims તમારી એક લાઇન પર તરત કામ શરૂ કરે છે. તમને અઠવાડિયે એક નોંધ મળે છે, માત્ર એ બાબતોની જેમાં તમારી જરૂર છે.')
+  };
+  var AG = {
+    keeper: { n: 'Keeper', ic: 'doc', role: O('Keeps track', 'हिसाब रखता है', 'હિસાબ રાખે છે'), d: O('Reads every policy, loan paper and statement. Keeps the family file current.', 'हर पॉलिसी, लोन का कागज़ और स्टेटमेंट पढ़ता है। परिवार की फ़ाइल ताज़ा रखता है।', 'દરેક પોલિસી, લોનનો કાગળ અને સ્ટેટમેન્ટ વાંચે છે. પરિવારની ફાઇલ તાજી રાખે છે.'), w: O('A new paper arrives', 'नया कागज़ आए', 'નવો કાગળ આવે') },
+    checkup: { n: 'Checkup', ic: 'grade', role: O('Checks', 'जाँचता है', 'તપાસે છે'), d: O('Finds gaps, overpricing and overlaps. Grades five areas, A to E.', 'कमियाँ, महँगे प्लान और दोहराव पकड़ता है। पाँच बातों को A से E ग्रेड देता है।', 'ખામીઓ, મોંઘા પ્લાન અને બેવડાપણું પકડે છે. પાંચ બાબતોને A થી E ગ્રેડ આપે છે.'), w: O('Every year, every life event', 'हर साल, हर बड़े बदलाव पर', 'દર વર્ષે, દરેક મોટા ફેરફાર પર') },
+    cover: { n: 'Cover', ic: 'shield', role: O('Fixes insurance', 'बीमा ठीक करता है', 'વીમો સુધારે છે'), d: O('Compares three options, shows what we earn, pre-fills the proposal for the insurer.', 'तीन विकल्प मिलाता है, हमारी कमाई दिखाता है, बीमा कंपनी के लिए प्रस्ताव पहले से भरता है।', 'ત્રણ વિકલ્પ સરખાવે છે, અમારી કમાણી બતાવે છે, વીમા કંપની માટે પ્રસ્તાવ પહેલેથી ભરે છે.'), w: O('A gap is found, a renewal is due', 'कमी मिले, रिन्यूअल आए', 'ખામી મળે, રિન્યુઅલ આવે') },
+    credit: { n: 'Credit', ic: 'bank', role: O('Fixes loans', 'लोन ठीक करता है', 'લોન સુધારે છે'), d: O('Watches every rate against the market, flags repricing, packages the lender file.', 'हर रेट को बाज़ार से मिलाता है, रेट घटवाने का मौका बताता है, बैंक की फ़ाइल तैयार करता है।', 'દરેક દરને બજાર સાથે મેળવે છે, દર ઘટાડવાની તક બતાવે છે, બેંકની ફાઇલ તૈયાર કરે છે.'), w: O('A rate gap crosses the line', 'रेट का फ़र्क हद पार करे', 'દરનો ફરક હદ વટાવે') },
+    claims: { n: 'Claims', ic: 'heart', role: O('Chases claims', 'क्लेम के पीछे लगता है', 'ક્લેમ પાછળ લાગે છે'), d: O('Files, tracks and chases the insurer. Contests every wrong cut.', 'फ़ाइल करता है, नज़र रखता है, बीमा कंपनी के पीछे लगता है। हर ग़लत कटौती पर लड़ता है।', 'ફાઇલ કરે છે, નજર રાખે છે, વીમા કંપની પાછળ લાગે છે. દરેક ખોટી કપાત સામે લડે છે.'), w: O('The moment you message', 'जैसे ही आप मैसेज करें', 'જેવો તમે મેસેજ કરો') }
+  };
+  var ORDER = ['keeper', 'checkup', 'cover', 'credit', 'claims'];
+  var ACT_AGENT = { lifeGap: 'cover', bizCover: 'cover', stockCover: 'cover', fleet: 'cover', health: 'cover', parents: 'cover', empHealth: 'cover',
+    reprice: 'credit', pledge: 'credit', nominations: 'keeper', will: 'keeper', papers: 'keeper', succession: 'keeper' };
+  function agentOf(k) { return ACT_AGENT[k] || 'checkup'; }
+  function v4(o, v) { return t(o, v); }
+
+  /* Copy changes */
+  LP.h1 = A4.h1; LP.sub = A4.sub; LP.ctaCap = A4.ctaCap;
+  U.reading = O('Keeper is reading {n} documents', 'Keeper {n} दस्तावेज़ पढ़ रहा है', 'Keeper {n} દસ્તાવેજો વાંચે છે');
+  U.readDone = O('Keeper read {n} documents · {m} facts filed', 'Keeper ने {n} दस्तावेज़ पढ़े · {m} बातें फ़ाइल कीं', 'Keeper એ {n} દસ્તાવેજો વાંચ્યા · {m} બાબતો ફાઇલ કરી');
+  CS.nov = O('Claims agent', 'Claims एजेंट', 'Claims એજન્ટ');
+  CU.actor.nov = O('Claims agent', 'Claims एजेंट', 'Claims એજન્ટ');
+
+  function pd(cls) { return '<i class="pdot' + (cls ? ' ' + cls : '') + '"></i>'; }
+  function chip(k) { return '<span class="agchip">' + pd() + AG[k].n + '</span>'; }
+  function stPill(s) { return '<span class="acn-s st-' + s + '">' + (s === 'live' ? tx(A4.st.live) + '<span class="tdots"><i></i><i></i><i></i></span>' : tx(A4.st[s])) + '</span>'; }
+
+  /* Hero: live agent console instead of the static card */
+  var _heroArt = heroArt;
+  heroArt = function () {
+    if (BRANCH !== 'biz') return _heroArt();
+    var rows = [
+      ['keeper', 'done', O('Read 6 papers from email and WhatsApp. Family file updated.', 'ईमेल और WhatsApp से 6 कागज़ पढ़े। परिवार की फ़ाइल अपडेट।', 'ઇમેલ અને WhatsApp માંથી 6 કાગળો વાંચ્યા. પરિવારની ફાઇલ અપડેટ.')],
+      ['checkup', 'flag', O("Father's health cover is ₹5 lakh. At 74 he needs at least ₹15 lakh.", 'पिता का हेल्थ कवर ₹5 लाख है। 74 की उम्र में कम से कम ₹15 लाख चाहिए।', 'પિતાનો હેલ્થ કવર ₹5 લાખ છે. 74 વર્ષે ઓછામાં ઓછા ₹15 લાખ જોઈએ.')],
+      ['credit', 'you', O('Factory loan is 1.6% above market. File ready for 2 lenders.', 'फ़ैक्ट्री लोन बाज़ार से 1.6% महँगा। 2 बैंकों के लिए फ़ाइल तैयार।', 'ફેક્ટરી લોન બજાર કરતાં 1.6% મોંઘી. 2 બેંકો માટે ફાઇલ તૈયાર.')],
+      ['claims', 'done', O("Meera's cashless claim started. Papers sent.", 'मीरा का कैशलेस क्लेम शुरू। कागज़ भेज दिए।', 'મીરાનો કેશલેસ ક્લેમ શરૂ. કાગળો મોકલ્યા.')],
+      ['cover', 'live', O('Comparing three term options for Arjun', 'अर्जुन के लिए तीन टर्म विकल्प मिला रहा है', 'અર્જુન માટે ત્રણ ટર્મ વિકલ્પ સરખાવે છે')]
+    ];
+    return '<div class="aconsole" role="img" aria-label="' + esc(tx(A4.live)) + '"><div class="acn-top"><span class="acn-mark">november<i></i></span><span class="acn-live">' + pd() + tx(A4.live) + '</span></div>' +
+      rows.map(function (r, i) {
+        return '<div class="acn-row" style="--i:' + i + '"><span class="acn-n">' + pd(r[1] === 'you' ? 'amber' : r[1] === 'live' ? '' : 'done') + AG[r[0]].n + '</span><span class="acn-t">' + esc(tx(r[2])) + '</span>' + stPill(r[1]) + '</div>';
+      }).join('') +
+      '<div class="acn-foot"><span>' + tx(A4.family) + '</span><span>' + tx(A4.needs) + ': <b>1</b></span></div></div>';
+  };
+
+  function agentsSection() {
+    return '<section class="land agentsec"><p class="overline">' + tx(A4.secEy) + '</p><h2>' + tx(A4.secT) + '</h2><p class="lead">' + tx(A4.secSub) + '</p>' +
+      '<div class="agrid">' + ORDER.map(function (k, i) {
+        var a = AG[k];
+        return '<div class="acard" style="--i:' + i + '"><div class="acard-h"><span class="acard-i">' + icon(a.ic) + '</span><span class="acard-st">' + pd() + tx(A4.st.live) + '</span></div>' +
+          '<b>' + a.n + '</b><span class="acard-role">' + tx(a.role) + '</span><p class="acard-d">' + tx(a.d) + '</p><p class="acard-w"><span>' + tx(A4.acts) + ':</span> ' + tx(a.w) + '</p></div>';
+      }).join('') + '</div>' +
+      '<div class="anext"><span>' + tx(A4.next) + ':</span>' + A4.later.map(function (x) { return '<span class="ch">' + tx(x) + '</span>'; }).join('') + '</div></section>';
+  }
+  var _land = SCR[0];
+  SCR[0] = function () { return _land().replace('<section class="land know">', agentsSection() + '<section class="land know">'); };
+
+  /* Agent status per family */
+  function states() {
+    var up = S.uploaded || S.skipped || (S.aa && S.aa.linked), m = model(), a = S.screen >= 7 ? actions(m.p, m.s, m.e) : [];
+    var hasCov = a.some(function (x) { return agentOf(x.k) === 'cover'; }), hasCr = a.some(function (x) { return agentOf(x.k) === 'credit'; });
+    var jt = S.j && S.j.type, covJ = jt && ['term', 'health', 'parents'].indexOf(jt) >= 0, crJ = jt === 'home' || jt === 'biz';
+    return {
+      keeper: up ? 'done' : S.screen === 3 ? 'live' : 'wait',
+      checkup: S.screen >= 5 ? 'done' : up ? 'live' : 'wait',
+      cover: covJ ? 'live' : hasCov ? 'you' : S.screen >= 5 ? 'watch' : 'wait',
+      credit: crJ ? 'live' : hasCr ? 'you' : m.s.loans.length ? 'watch' : 'wait',
+      claims: S.c && S.c !== 'hub' ? 'live' : 'watch'
+    };
+  }
+  function dotFor(s) { return s === 'done' ? pd('done') : s === 'live' ? pd() : s === 'you' ? pd('amber') : pd('off'); }
+  function abarHTML() {
+    if (!S.pid || S.v || !(S.screen >= 2 || S.j || S.c)) return '';
+    var st = states();
+    return '<div class="abar"><div class="abar-in"><span class="abar-l">' + tx(A4.barL) + '</span>' + ORDER.map(function (k) {
+      return '<span class="abi' + (st[k] === 'you' ? ' you' : '') + '">' + dotFor(st[k]) + AG[k].n + '</span>'; }).join('') +
+      '<button class="see" data-a="agents">' + tx(A4.see) + '</button></div></div>';
+  }
+  var _top = topbar;
+  topbar = function () { var h = _top(); return h.slice(0, h.lastIndexOf('</header>')) + abarHTML() + '</header>'; };
+
+  /* Activity sheet */
+  function logHTML() {
+    var m = model(), s = m.s, e = m.e, st = states(), sel = selFiles(s), rows = [];
+    var kt = S.uploaded ? v4(A4.kRead, { n: sel.length, m: factCount(sel) }) : S.skipped ? tx(A4.kEst) : tx(A4.kWait);
+    if (S.aa && S.aa.linked) kt += ' ' + v4(A4.kAA, { n: Object.keys(S.aa.sel).filter(function (k) { return S.aa.sel[k]; }).length });
+    rows.push(['keeper', st.keeper, kt]);
+    if (S.screen >= 5) {
+      var g = ['p', 'b', 'lq', 'fr', 'w'].map(function (d) { return tx(d === 'b' && s.branch === 'sal' ? C.dims.bSal : C.dims[d]) + ' ' + LETTERS[e.grades[d]]; }).join(' · ');
+      rows.push(['checkup', 'done', v4(A4.cGrades, { g: g }) + ' ' + v4(A4.cFlag, { f: finding(m.p, s, e).text })]);
+    } else rows.push(['checkup', st.checkup, tx(A4.cWait)]);
+    var acts = actions(m.p, s, e), cov = acts.filter(function (x) { return agentOf(x.k) === 'cover'; });
+    rows.push(['cover', st.cover, S.screen < 5 ? tx(A4.cWait) : cov.length ? v4(A4.covReady, { a: cov.map(function (x) { return x.title; }).join('; ') }) : tx(A4.covNone)]);
+    rows.push(['credit', st.credit, e.leakage > 50000 ? v4(A4.crGap, { x: money(e.leakage) }) : s.loans.length ? v4(A4.crWatch, { n: s.loans.length }) : tx(A4.crNone)]);
+    rows.push(['claims', st.claims, v4(A4.clStand, { n: s.files.length })]);
+    return '<div class="scrim" data-a="agentsclose"></div><div class="sheet" role="dialog" aria-modal="true"><div class="sh-h"><h3>' + tx(A4.logT) + '</h3><button class="secondary sm" data-a="agentsclose">' + u('close') + '</button></div>' +
+      '<p class="sh-who">' + whoLine(m.p, s) + '</p><ul class="alog">' + rows.map(function (r) {
+        return '<li><span class="al-n">' + dotFor(r[1]) + AG[r[0]].n + '</span><div class="al-t"><p>' + esc(r[2]) + '</p>' + stPill(r[1]) + '</div></li>'; }).join('') + '</ul>' +
+      '<p class="fine">' + tx(A4.rule) + '</p></div>';
+  }
+
+  /* Agent attribution on the family flow */
+  var _s4 = SCR[4], _s5 = SCR[5], _s6 = SCR[6], _s8 = SCR[8];
+  SCR[4] = function () {
+    var sel = selFiles(model().s), line = S.uploaded ? v4(A4.builtDocs, { n: sel.length }) : tx(A4.builtEst);
+    return _s4().replace('<div class="nethero">', '<div class="astrip">' + chip('keeper') + '<span>' + esc(line) + '</span></div><div class="nethero">');
+  };
+  SCR[5] = function () { return _s5().replace('<blockquote>', '<p class="aby">' + chip('checkup') + '<span>' + tx(A4.spotted) + '</span></p><blockquote>'); };
+  SCR[6] = function () { return _s6().replace('<blockquote>', '<p class="aby">' + chip('checkup') + '<span>' + tx(A4.spotted) + '</span></p><blockquote>'); };
+  SCR[7] = function () {
+    var m = model(), a = actions(m.p, m.s, m.e);
+    return '<section><h2>' + u('actT') + '</h2><p class="hint">' + u('actSub') + '</p><ol class="acts">' + a.map(function (x, i) {
+      return '<li class="act"><span class="rank">' + (i + 1) + '</span><div class="act-b"><h3>' + esc(x.title) + '</h3><p>' + esc(x.why) + '</p>' +
+        '<dl>' + (x.impact ? '<div class="imp"><dt class="sr">₹</dt><dd>' + esc(x.impact) + '</dd></div>' : '') +
+        '<div><dt>' + u('effort') + '</dt><dd>' + tx(U.efforts[x.effort]) + '</dd></div><div><dt>' + u('time') + '</dt><dd>' + tx(U.times[x.time]) + '</dd></div></dl>' +
+        (x.irreversible ? '<p class="irrev">' + u('irrev') + '</p>' : '') +
+        '<p class="aby">' + chip(agentOf(x.k)) + '<span>' + v4(A4.takes, { a: AG[agentOf(x.k)].n }) + '</span></p>' +
+        (journeyFor(x.k, m.s) ? '<button class="secondary sm" data-a="journey" data-v="' + journeyFor(x.k, m.s) + '">' + u('cmpOpts') + '</button>' : '<button class="secondary sm" data-a="toast" data-v="demoToast">' + u('addPlan') + '</button>') + '</div></li>';
+    }).join('') + '</ol></section>';
+  };
+  function askHTML() {
+    var m = model(), a = actions(m.p, m.s, m.e), first = tx(m.p.first);
+    var lead = a.filter(function (x) { var g = agentOf(x.k); return g === 'cover' || g === 'credit'; })[0], ag = AG[lead ? agentOf(lead.k) : 'cover'].n;
+    var ans = '';
+    if (S.askT != null) ans = '<div class="reply"><span class="rmark"><i></i></span><p class="typing"><i></i><i></i><i></i></p></div>';
+    else if (S.ask != null) {
+      var txt = S.ask === 0 ? v4(A4.a0, { a: a[0].title, w: a[0].why, b: a[1] ? a[1].title : '' }) : S.ask === 1 ? v4(A4.a1, { ag: ag, first: first }) : tx(A4.a2);
+      ans = '<div class="reply"><span class="rmark"><i></i></span><p>' + esc(txt) + '</p></div>';
+    }
+    return '<div class="asknov"><p class="overline">' + tx(A4.askT) + '</p><div class="askq">' + A4.qs.map(function (q, i) {
+      return '<button class="chip" data-a="askq" data-v="' + i + '" aria-pressed="' + (S.ask === i || S.askT === i) + '">' + tx(q) + '</button>'; }).join('') + '</div>' + ans + '</div>';
+  }
+  SCR[8] = function () { return _s8().replace('<p class="sign-pre">', askHTML() + '<p class="sign-pre">'); };
+
+  /* Journeys and claims: name the agent on the job */
+  var _sj = scrJourney;
+  scrJourney = function () {
+    var ty = S.j.type, k = (ty === 'home' || ty === 'biz') ? 'credit' : 'cover';
+    return _sj().replace('</div><div class="jsteps">', '</div><p class="aby">' + chip(k) + '<span>' + v4(A4.onIt, { a: AG[k].n }) + '</span></p><div class="jsteps">');
+  };
+  var _scj = scrClaimJ;
+  scrClaimJ = function () { return _scj().replace('</div><div class="jsteps">', '</div><p class="aby">' + chip('claims') + '<span>' + v4(A4.onIt, { a: AG.claims.n }) + '</span></p><div class="jsteps">'); };
+
+  /* Places keep their names; the agent that runs each place is credited on it */
+  A4.keptBy = O('Kept current by Keeper. You hear before anything lapses.', 'Keeper इसे ताज़ा रखता है। कुछ बंद होने से पहले आपको पता चलता है।', 'Keeper તેને તાજું રાખે છે. કંઈ બંધ થાય તે પહેલાં તમને ખબર પડે છે.');
+  A4.knowCov = O('Cover lines up three options', 'Cover तीन विकल्प सामने रखता है', 'Cover ત્રણ વિકલ્પ સામે મૂકે છે');
+  A4.knowCr = O('Credit checks your rate against today', 'Credit आपके रेट को आज के रेट से मिलाता है', 'Credit તમારા દરને આજના દર સાથે સરખાવે છે');
+  function aby(k, line) { return '<p class="aby">' + chip(k) + '<span>' + tx(line) + '</span></p>'; }
+  var _vp = vaultPreview;
+  vaultPreview = function () { return _vp().replace('<div class="vshare">', aby('keeper', A4.keptBy) + '<div class="vshare">'); };
+  var _sv = scrVault;
+  scrVault = function () { return _sv().replace('<div class="vstats">', '<div class="astrip">' + chip('keeper') + '<span>' + tx(A4.keptBy) + '</span></div><div class="vstats">'); };
+  var _land2 = SCR[0];
+  SCR[0] = function () {
+    return _land2()
+      .replace('<p class="overline">' + vt('clEy') + '</p></div>', chip('claims') + '</div>')
+      .replace('<p class="overline">' + vt('insG') + '</p>', '<p class="overline">' + vt('insG') + '</p>' + aby('cover', A4.knowCov))
+      .replace('<p class="overline">' + vt('loanG') + '</p>', '<p class="overline">' + vt('loanG') + '</p>' + aby('credit', A4.knowCr));
+  };
+  var _hub = scrClaimHub;
+  A4.hubLine = O('Claims takes it from here: files, chases and contests. A person steps in when it gets hard.', 'Claims यहाँ से संभालता है: फ़ाइल करना, पीछे लगना, विवाद उठाना। मुश्किल हो तो कोई व्यक्ति साथ आता है।', 'Claims અહીંથી સંભાળે છે: ફાઇલ કરવું, પાછળ લાગવું, વિવાદ ઉઠાવવો. મુશ્કેલ હોય તો કોઈ વ્યક્તિ સાથે આવે છે.');
+  scrClaimHub = function () { return _hub().replace('<p class="hint">', aby('claims', A4.hubLine) + '<p class="hint">'); };
+  /* Avatars show the person's initial */
+  function avL(id, br) { if (id === 'CA') return 'CA'; var m = famOf(br).filter(function (x) { return x[0] === id; })[0]; return m ? m[1].en.charAt(0) : id; }
+  avs = function (ids, br) { var f = famOf(br); return '<span class="avs">' + ids.map(function (id) { var m = f.filter(function (x) { return x[0] === id; })[0]; return '<i class="av av-' + id + '" title="' + esc(m ? tx(m[1]) : id) + '">' + avL(id, br) + '</i>'; }).join('') + '</span>'; };
+  accessStrip = function (br) {
+    return '<div class="access"><div class="ac-h"><h3>' + tx(SH.access) + '</h3><button class="secondary sm" data-a="invite">' + icon('share', 'sm') + tx(SH.invite) + '</button></div><p class="hint">' + tx(SH.accessSub) + '</p>' +
+      '<div class="members">' + famOf(br).map(function (m) { return '<div class="member"><i class="av big av-' + m[0] + '">' + avL(m[0], br) + '</i><div><b>' + tx(m[1]) + '</b><span>' + tx(m[2]) + '</span><small>' + tx(m[3]) + '</small></div></div>'; }).join('') + '</div></div>';
+  };
+
+  /* Render and events */
+  S.ask = null; S.askT = null; S.agentSheet = false;
+  var _r4 = render, askTimer = null;
+  render = function () { _r4(); if (S.agentSheet && S.pid) root.insertAdjacentHTML('beforeend', logHTML()); };
+  document.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-a]'); if (!el || el.disabled) return;
+    var a = el.getAttribute('data-a'), v = el.getAttribute('data-v'), hit = true;
+    if (a === 'agents') { S.agentSheet = true; render(); }
+    else if (a === 'agentsclose') { S.agentSheet = false; render(); }
+    else if (a === 'askq') {
+      clearTimeout(askTimer); S.ask = null; S.askT = +v; render();
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      askTimer = setTimeout(function () { S.ask = +v; S.askT = null; render(); }, reduce ? 50 : 900);
+    }
+    else { hit = false; if (a === 'home' || a === 'reset' || a === 'pickp' || a === 'next' || a === 'back' || a === 'go') { S.agentSheet = false; S.ask = null; S.askT = null; } }
+    if (hit) { ev.stopPropagation(); ev.preventDefault(); }
+  }, true);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && S.agentSheet) { S.agentSheet = false; render(); } });
+  if (root) render();
+})();
 
 /* Demo chooser: one link for both demos. Deep links: #business or #salaried */
 var PK = {
