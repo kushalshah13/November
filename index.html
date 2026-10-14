@@ -3525,7 +3525,7 @@ render = function () { _render3(); floatCheck(); };
   function v4(o, v) { return t(o, v); }
 
   /* Copy changes */
-  LP.sub = O("Insurance, loans, investments, property, the business. November's agents read it all, keep it current and tell you straight.", 'बीमा, लोन, निवेश, प्रॉपर्टी, बिज़नेस। November के एजेंट सब पढ़ते हैं, उसे ताज़ा रखते हैं और सीधी बात बताते हैं।', 'વીમો, લોન, રોકાણ, પ્રોપર્ટી, બિઝનેસ. November ના એજન્ટ બધું વાંચે છે, તેને તાજું રાખે છે અને સીધી વાત કહે છે.');
+  var SUB_BIZ = O("Insurance, loans, investments, property, the business. November's agents read it all, keep it current and tell you straight.", 'बीमा, लोन, निवेश, प्रॉपर्टी, बिज़नेस। November के एजेंट सब पढ़ते हैं, उसे ताज़ा रखते हैं और सीधी बात बताते हैं।', 'વીમો, લોન, રોકાણ, પ્રોપર્ટી, બિઝનેસ. November ના એજન્ટ બધું વાંચે છે, તેને તાજું રાખે છે અને સીધી વાત કહે છે.');
   U.reading = O('Keeper is reading {n} documents', 'Keeper {n} दस्तावेज़ पढ़ रहा है', 'Keeper {n} દસ્તાવેજો વાંચે છે');
   U.readDone = O('Keeper read {n} documents · {m} facts filed', 'Keeper ने {n} दस्तावेज़ पढ़े · {m} बातें फ़ाइल कीं', 'Keeper એ {n} દસ્તાવેજો વાંચ્યા · {m} બાબતો ફાઇલ કરી');
   CS.nov = O('Claims agent', 'Claims एजेंट', 'Claims એજન્ટ');
@@ -3536,10 +3536,14 @@ render = function () { _render3(); floatCheck(); };
   function stPill(s) { return '<span class="acn-s st-' + s + '">' + (s === 'live' ? tx(A4.st.live) + '<span class="tdots"><i></i><i></i><i></i></span>' : tx(A4.st[s])) + '</span>'; }
 
   /* Hero: live agent console instead of the static card */
-  var _heroArt = heroArt;
   heroArt = function () {
-    if (BRANCH !== 'biz') return _heroArt();
-    var rows = [
+    var rows = BRANCH === 'sal' ? [
+      ['keeper', 'done', O('Read 5 papers from email and WhatsApp. Family file updated.', 'ईमेल और WhatsApp से 5 कागज़ पढ़े। परिवार की फ़ाइल अपडेट।', 'ઇમેલ અને WhatsApp માંથી 5 કાગળો વાંચ્યા. પરિવારની ફાઇલ અપડેટ.')],
+      ['checkup', 'flag', O("Health cover is only through Neha's company. It stops the day she changes jobs.", 'हेल्थ कवर सिर्फ़ नेहा की कंपनी से है। नौकरी बदलते ही यह बंद हो जाएगा।', 'હેલ્થ કવર માત્ર નેહાની કંપની દ્વારા છે. નોકરી બદલતાં જ તે બંધ થઈ જશે.')],
+      ['credit', 'you', O('Home loan is 0.9% above market. File ready for 2 lenders.', 'होम लोन बाज़ार से 0.9% महँगा। 2 बैंकों के लिए फ़ाइल तैयार।', 'હોમ લોન બજાર કરતાં 0.9% મોંઘી. 2 બેંકો માટે ફાઇલ તૈયાર.')],
+      ['claims', 'done', O("Rahul's car claim filed. Garage papers sent.", 'राहुल का कार क्लेम दर्ज। गैराज के कागज़ भेज दिए।', 'રાહુલનો કાર ક્લેમ દાખલ. ગેરેજના કાગળો મોકલ્યા.')],
+      ['cover', 'live', O('Comparing three term options for Neha', 'नेहा के लिए तीन टर्म विकल्प मिला रहा है', 'નેહા માટે ત્રણ ટર્મ વિકલ્પ સરખાવે છે')]
+    ] : [
       ['keeper', 'done', O('Read 6 papers from email and WhatsApp. Family file updated.', 'ईमेल और WhatsApp से 6 कागज़ पढ़े। परिवार की फ़ाइल अपडेट।', 'ઇમેલ અને WhatsApp માંથી 6 કાગળો વાંચ્યા. પરિવારની ફાઇલ અપડેટ.')],
       ['checkup', 'flag', O("Father's health cover is ₹5 lakh. At 74 he needs at least ₹15 lakh.", 'पिता का हेल्थ कवर ₹5 लाख है। 74 की उम्र में कम से कम ₹15 लाख चाहिए।', 'પિતાનો હેલ્થ કવર ₹5 લાખ છે. 74 વર્ષે ઓછામાં ઓછા ₹15 લાખ જોઈએ.')],
       ['credit', 'you', O('Factory loan is 1.6% above market. File ready for 2 lenders.', 'फ़ैक्ट्री लोन बाज़ार से 1.6% महँगा। 2 बैंकों के लिए फ़ाइल तैयार।', 'ફેક્ટરી લોન બજાર કરતાં 1.6% મોંઘી. 2 બેંકો માટે ફાઇલ તૈયાર.')],
@@ -3550,7 +3554,7 @@ render = function () { _render3(); floatCheck(); };
       rows.map(function (r, i) {
         return '<div class="acn-row" style="--i:' + i + '"><span class="acn-n">' + pd(r[1] === 'you' ? 'amber' : r[1] === 'live' ? '' : 'done') + AG[r[0]].n + '</span><span class="acn-t">' + esc(tx(r[2])) + '</span>' + stPill(r[1]) + '</div>';
       }).join('') +
-      '<div class="acn-foot"><span>' + tx(A4.family) + '</span><span>' + tx(A4.needs) + ': <b>1</b></span></div></div>';
+      '<div class="acn-foot"><span>' + tx(BRANCH === 'sal' ? O('Kulkarni family', 'कुलकर्णी परिवार', 'કુલકર્ણી પરિવાર') : A4.family) + '</span><span>' + tx(A4.needs) + ': <b>1</b></span></div></div>';
   };
 
   function agentsSection() {
@@ -3681,7 +3685,8 @@ render = function () { _render3(); floatCheck(); };
   /* Render and events */
   S.ask = null; S.askT = null; S.agentSheet = false;
   var _r4 = render, askTimer = null;
-  render = function () { _r4(); if (S.agentSheet && S.pid) root.insertAdjacentHTML('beforeend', logHTML()); };
+  var SUB_SAL = O("Insurance, loans, savings, the home. November's agents read it all, keep it current and tell you straight.", 'बीमा, लोन, बचत, घर। November के एजेंट सब पढ़ते हैं, उसे ताज़ा रखते हैं और सीधी बात बताते हैं।', 'વીમો, લોન, બચત, ઘર. November ના એજન્ટ બધું વાંચે છે, તેને તાજું રાખે છે અને સીધી વાત કહે છે.');
+  render = function () { LP.sub = BRANCH === 'sal' ? SUB_SAL : SUB_BIZ; _r4(); if (S.agentSheet && S.pid) root.insertAdjacentHTML('beforeend', logHTML()); };
   document.addEventListener('click', function (ev) {
     var el = ev.target.closest && ev.target.closest('[data-a]'); if (!el || el.disabled) return;
     var a = el.getAttribute('data-a'), v = el.getAttribute('data-v'), hit = true;
