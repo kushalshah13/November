@@ -961,6 +961,26 @@ body.showfloat .floatcta { opacity: 1; transform: none; pointer-events: auto; }
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .acard-st { color: #8FD0B6; } }
 :root[data-theme="dark"] .acard-st, .night .acard-st { color: #8FD0B6; }
+
+/* 19 Oct: agents panel is atmosphere, not a focal point. Quieter surface, no motion, three rows, smaller type. */
+.aconsole { background: rgba(255,255,255,.035); border-color: rgba(216,219,229,.16); padding: 12px 14px 8px; }
+@media (min-width: 720px) { .aconsole { max-width: 320px; } }
+.aconsole .pdot, .aconsole .tdots i { animation: none; }
+.acn-mark { font-size: 1.05rem; opacity: .8; }
+.acn-live { font-size: .6875rem; color: #AEB3C6; }
+.acn-row { padding: 8px 0; border-bottom-color: rgba(216,219,229,.12); }
+.acn-row:nth-child(4), .acn-row:nth-child(5) { display: none; }
+.acn-n { font-size: .8125rem; color: #D8DBE5; }
+.acn-t { font-size: .8125rem; color: #B9BED0; }
+.aconsole .acn-s { font-size: .6875rem; padding: 2px 8px; }
+.aconsole .st-done { background: transparent; border: 1px solid rgba(143,208,182,.45); color: #A9D9C6; }
+.aconsole .st-you { border-color: rgba(217,161,90,.6); color: #E2BC8A; }
+.aconsole .st-flag { color: #B9BED0; }
+.acn-foot { font-size: .75rem; color: #AEB3C6; padding-top: 8px; }
+.acn-foot b { color: #E2BC8A; }
+.aconsole .acn-row { animation: none; opacity: 1; }
+.aconsole .acn-row { grid-template-columns: 1fr auto; row-gap: 4px; }
+.aconsole .acn-row .acn-t { grid-column: 1 / -1; grid-row: 2; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -3570,9 +3590,9 @@ render = function () { _render3(); floatCheck(); };
     var rows = BRANCH === 'sal' ? [
       ['keeper', 'done', O('Read 5 papers from email and WhatsApp. Family file updated.', 'ईमेल और WhatsApp से 5 कागज़ पढ़े। परिवार की फ़ाइल अपडेट।', 'ઇમેલ અને WhatsApp માંથી 5 કાગળો વાંચ્યા. પરિવારની ફાઇલ અપડેટ.')],
       ['checkup', 'flag', O("Health cover is only through Neha's company. It stops the day she changes jobs.", 'हेल्थ कवर सिर्फ़ नेहा की कंपनी से है। नौकरी बदलते ही यह बंद हो जाएगा।', 'હેલ્થ કવર માત્ર નેહાની કંપની દ્વારા છે. નોકરી બદલતાં જ તે બંધ થઈ જશે.')],
-      ['credit', 'you', O('Home loan is 0.9% above market. File ready for 2 lenders.', 'होम लोन बाज़ार से 0.9% महँगा। 2 बैंकों के लिए फ़ाइल तैयार।', 'હોમ લોન બજાર કરતાં 0.9% મોંઘી. 2 બેંકો માટે ફાઇલ તૈયાર.')],
+      ['cover', 'live', O('Comparing three term options for Neha', 'नेहा के लिए तीन टर्म विकल्प मिला रहा है', 'નેહા માટે ત્રણ ટર્મ વિકલ્પ સરખાવે છે')],
       ['claims', 'done', O("Rahul's car claim filed. Garage papers sent.", 'राहुल का कार क्लेम दर्ज। गैराज के कागज़ भेज दिए।', 'રાહુલનો કાર ક્લેમ દાખલ. ગેરેજના કાગળો મોકલ્યા.')],
-      ['cover', 'live', O('Comparing three term options for Neha', 'नेहा के लिए तीन टर्म विकल्प मिला रहा है', 'નેહા માટે ત્રણ ટર્મ વિકલ્પ સરખાવે છે')]
+      ['credit', 'you', O('Home loan is 0.9% above market. File ready for 2 lenders.', 'होम लोन बाज़ार से 0.9% महँगा। 2 बैंकों के लिए फ़ाइल तैयार।', 'હોમ લોન બજાર કરતાં 0.9% મોંઘી. 2 બેંકો માટે ફાઇલ તૈયાર.')]
     ] : [
       ['keeper', 'done', O('Read 6 papers from email and WhatsApp. Family file updated.', 'ईमेल और WhatsApp से 6 कागज़ पढ़े। परिवार की फ़ाइल अपडेट।', 'ઇમેલ અને WhatsApp માંથી 6 કાગળો વાંચ્યા. પરિવારની ફાઇલ અપડેટ.')],
       ['checkup', 'flag', O('No health cover found for father, 74. He needs at least ₹15 lakh.', 'पिता (74) का कोई हेल्थ कवर नहीं मिला। कम से कम ₹15 लाख चाहिए।', 'પિતા (74) નો કોઈ હેલ્થ કવર મળ્યો નથી. ઓછામાં ઓછા ₹15 લાખ જોઈએ.')],
