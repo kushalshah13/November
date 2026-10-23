@@ -982,132 +982,16 @@ body.showfloat .floatcta { opacity: 1; transform: none; pointer-events: auto; }
 .aconsole .acn-row { grid-template-columns: 1fr auto; row-gap: 4px; }
 .aconsole .acn-row .acn-t { grid-column: 1 / -1; grid-row: 2; }
 
-/* ===== 23 Oct: v5 focus layer. One focus per screen; detail behind a tap. ===== */
-.f-meet .fm-lead { font: 400 1.35rem/1.4 var(--display); margin: 14px 0 0; max-width: 34ch; }
-.f-meet .fm-fam { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); margin: 18px 0 0; }
-.f-meet .fm-fam svg { flex: none; width: 20px; height: 20px; margin-top: 2px; }
-.f-meet .fm-rest { margin: 22px 0 8px; padding: 2px 0 2px 16px; border-left: 3px solid var(--mark); font-size: 1.02rem; line-height: 1.55; max-width: 44ch; }
-.f-meet .fm-dial, .f-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; }
-.f-link { margin-top: 22px; font-weight: 600; }
-.f-link svg:last-child { width: 16px; height: 16px; }
-.f-glance .aby, .f-check .aby { margin: 6px 0 14px; }
-.gnet { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 0 0 14px; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
-.gnet strong { font: 500 2rem/1.1 var(--display); }
-.gtiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.gt { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.gt-l { display: flex; align-items: center; gap: 6px; font-size: 0.875rem; color: var(--muted); font-weight: 600; }
-.gt-l svg { width: 16px; height: 16px; }
-.gt strong { font: 500 1.45rem/1.2 var(--display); }
-.gt-s { font-size: 0.85rem; color: var(--muted); }
-.gt-w { font-size: 0.85rem; color: var(--bad-ink); font-weight: 600; }
-.discs { margin-top: 18px; border-top: 1px solid var(--line); }
-.disc { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 16px 2px; color: var(--ink); font: 600 1rem/1.3 var(--body); text-align: left; cursor: pointer; }
-.disc .d-t { display: flex; flex-direction: column; gap: 2px; }
-.disc .d-t small { font-weight: 500; color: var(--muted); font-size: 0.875rem; }
-.disc.in { border-bottom: 0; border-top: 1px solid var(--line); padding: 12px 0 0; margin-top: 14px; font-size: 0.92rem; }
-.disc-b { padding: 12px 0 18px; border-bottom: 1px solid var(--line); }
-.chev { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); flex: none; }
-.chev svg { width: 14px; height: 14px; }
-.fc-sum { color: var(--muted); margin: 0 0 16px; }
-.fc-sum b { color: var(--ink); font-weight: 600; }
-.fcard { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--bad-ink); border-radius: var(--r); padding: 16px 18px; }
-.fcard.fc-look { border-left-color: var(--mark); }
-.fcard.fc-ok { border-left-color: var(--good-ink); }
-.fc-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-.fc-area { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; }
-.fc-area svg { width: 18px; height: 18px; }
-.fcard blockquote { margin: 4px 0 0; font: 400 1.4rem/1.35 var(--display); }
-.fcard .fsub { color: var(--muted); margin: 10px 0 0; padding: 0; border: 0; }
-.dcard h3, .fcard blockquote { max-width: none; text-wrap: pretty; }
-.f-glance h2 { margin-bottom: 4px; }
-.fc-calm { display: flex; gap: 10px; align-items: center; margin: 0; font-weight: 600; }
-.fc-calm svg { color: var(--good-ink); width: 20px; height: 20px; }
-.fst { font: 600 0.8rem/1.3 var(--body); padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
-.fst-ok { color: var(--good-ink); background: var(--own-bg); }
-.fst-look { color: var(--mark-strong); background: var(--mark-soft); }
-.fst-act { color: #fff; background: #A93F2A; }
-.fdot { width: 10px; height: 10px; border-radius: 50%; flex: none; display: inline-block; }
-.fd-ok { background: #2F6B5A; } .fd-look { background: transparent; border: 2px solid #8A5E22; } .fd-act { background: #B5452F; }
-.frest { margin: 26px 0 8px; }
-.frows { border-top: 1px solid var(--line); }
-.frow { width: 100%; display: flex; align-items: flex-start; gap: 12px; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 14px 2px; text-align: left; color: var(--ink); cursor: pointer; font: inherit; }
-.frow .fdot { margin-top: 6px; }
-.fr-b { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
-.fr-h { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
-.fr-l { color: var(--muted); font-size: 0.92rem; line-height: 1.45; }
-.frow-d { padding: 4px 0 14px 22px; border-bottom: 1px solid var(--line); }
-.fsubs { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
-.fsubs li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.92rem; line-height: 1.45; }
-.fsubs .fdot { margin-top: 6px; width: 8px; height: 8px; }
-.fconf { font-size: 0.85rem; color: var(--muted); margin: 10px 0 0; }
-.fc-tap { margin-top: 12px; }
-.f-do h2 { margin-bottom: 18px; }
-.f-do .overline { margin: 24px 0 10px; }
-.f-do .overline:first-of-type { margin-top: 0; }
-.dcard { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--bad-ink); border-radius: var(--r); padding: 18px; }
-.dcard.dc-look { border-left-color: var(--mark); }
-.dcard h3 { font: 500 1.4rem/1.3 var(--display); margin: 0; }
-.dmeta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-top: 10px; }
-.dimp { font-weight: 600; color: var(--good-ink); }
-.deff { font-size: 0.85rem; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
-.dact { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-top: 14px; }
-.dact .primary.sm, .dact .secondary.sm { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
-.dact .quiet.sm { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; padding: 6px 0; }
-.dact .chev { width: 24px; height: 24px; }
-.dwhy { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
-.dwhy > p:first-child { margin: 0; line-height: 1.55; }
-.dalso { border-top: 1px solid var(--line); }
-.dar { width: 100%; display: flex; align-items: flex-start; gap: 12px; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 14px 2px; text-align: left; color: var(--ink); cursor: pointer; font: inherit; }
-.dar .fdot { margin-top: 7px; }
-.dar-b { flex: 1; display: flex; flex-direction: column; gap: 3px; }
-.dar-b b { font-weight: 600; line-height: 1.4; }
-.dar-b span { font-size: 0.9rem; color: var(--good-ink); font-weight: 600; }
-.dar-d { padding: 0 0 14px 22px; border-bottom: 1px solid var(--line); }
-.dar-d .dwhy { border-top: 0; padding-top: 4px; margin-top: 0; }
-.dleave { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.dleave li { display: flex; gap: 10px; align-items: flex-start; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
-.dleave svg { flex: none; width: 18px; height: 18px; color: var(--good-ink); margin-top: 1px; }
-.dwa { width: 100%; margin-top: 28px; display: flex; align-items: center; gap: 12px; text-align: left; background: var(--accent-soft); border: 0; border-radius: var(--r); padding: 14px 16px; color: var(--ink); cursor: pointer; font: inherit; }
-.dwa > svg { width: 22px; height: 22px; flex: none; }
-.dwa span:not(.dwa-go) { flex: 1; display: flex; flex-direction: column; gap: 2px; }
-.dwa small { color: var(--muted); font-size: 0.875rem; }
-.dwa-go { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; white-space: nowrap; }
-.dwa-go svg { width: 14px; height: 14px; }
-.wabub { background: var(--own-bg); border-radius: 4px 14px 14px 14px; padding: 14px 16px; margin-top: 6px; line-height: 1.5; }
-.wabub p { margin: 0 0 10px; }
-.wa-h { font-weight: 600; }
-.wa-s { color: var(--muted); font-size: 0.9rem; }
-.wa-t { font: 500 1.1rem var(--display); }
+/* 23 Oct: note as a WhatsApp preview; strip fits 360px phones */
+.nwa { width: 100%; margin-top: 24px; display: flex; align-items: center; gap: 12px; text-align: left; background: var(--accent-soft); border: 0; border-radius: var(--r); padding: 14px 16px; color: var(--ink); cursor: pointer; font: inherit; }
+.nwa > svg { width: 22px; height: 22px; flex: none; }
+.nwa span:not(.nwa-go) { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.nwa small { color: var(--muted); font-size: 0.875rem; }
+.nwa-go { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; white-space: nowrap; }
+.nwa-go svg { width: 14px; height: 14px; }
+.nsheet { max-height: 88vh; overflow-y: auto; }
+.nsheet .note8 { padding: 0; }
 .close .asknov { margin: 22px 0 6px; text-align: left; }
-@media (max-width: 380px) { .gtiles { gap: 8px; } .gt { padding: 12px; } .gt strong { font-size: 1.25rem; } }
-
-/* landing agents as a quiet list */
-.alist { border-top: 1px solid var(--line); margin-top: 18px; }
-.arow { width: 100%; display: flex; align-items: center; gap: 14px; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 14px 2px; text-align: left; color: var(--ink); cursor: pointer; font: inherit; }
-.arow .acard-i { flex: none; }
-.ar-b { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
-.ar-h { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
-.ar-h b { font: 500 1.15rem var(--display); }
-.ar-h span { font-size: 0.85rem; color: var(--mark-strong); font-weight: 600; }
-.ar-w { font-size: 0.875rem; color: var(--muted); }
-.ar-d { margin: 0; padding: 0 0 14px 60px; color: var(--muted); border-bottom: 1px solid var(--line); line-height: 1.5; }
-.agentsec .anext { margin-top: 14px; color: var(--muted); font-size: 0.92rem; }
-.agentsec .anext span { font-weight: 600; color: var(--ink); }
-/* vault home */
-.f-vault .fv-sum { color: var(--muted); margin: 0 0 16px; }
-.f-vault .fv-up { margin-bottom: 16px; }
-.f-vault .fv-h { margin: 24px 0 0; }
-.f-vault .fv-cats { margin-top: 8px; }
-.f-vault .vc { justify-content: flex-start; }
-.f-vault .vc .d-t { flex: 1; }
-.f-vault .vc-i { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--accent-soft); flex: none; }
-.f-vault .vc-i svg { width: 18px; height: 18px; }
-.f-vault .vc small em { font-style: normal; color: var(--bad-ink); font-weight: 600; }
-.f-vault .disc-b .vault, .f-vault .disc-b .vcat { border: 0; margin: 0; padding: 0; background: none; }
-.f-vault .fv-acc { margin-top: 10px; border-top: 1px solid var(--line); }
-.f-vault .fv-acc small { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.agentsec .anext { display: block; }
-.f-link { text-align: left; justify-content: flex-start; padding-left: 0; }
 @media (max-width: 374px) { .abar-in { gap: 3px; padding: 6px 8px; } .abi { gap: 3px; padding: 4px 5px; font-size: .6875rem; } }
 </style>
 <div id="app"></div>
@@ -1659,22 +1543,24 @@ function evaluate(s) {
   e.flags = [];
   e.leakage = s.loans.reduce(function (a, l) { return a + (l.rate - l.mkt > 0.5 ? l.amt * (l.rate - l.mkt) / 100 : 0); }, 0);
   e.overpricedAmt = s.loans.reduce(function (a, l) { return a + (l.rate - l.mkt > 0.5 ? l.amt : 0); }, 0);
-  if (s.loans.some(function (l) { return l.rate - l.mkt > 1; })) e.flags.push('overpriced');
+  /* One flag for pricing: big leakage, or a rate well above market */
   if (e.leakage > 2 * L) e.flags.push('leakage');
+  else if (s.loans.some(function (l) { return l.rate - l.mkt > 1; })) e.flags.push('overpriced');
   if (s.guarantee > 0 && s.guarantee > s.liquid) { e.flags.push('guarantee'); if (s.guarantee > 3 * s.liquid) e.flags.push('guarantee2'); }
   if (s.emi > 0.4) e.flags.push('emi');
   if (s.homePledged) e.flags.push('pledge');
   e.b = Math.min(4, e.flags.length);
   e.months = s.liquid / s.spend;
   e.lq = e.months >= 12 ? 0 : e.months >= 6 ? 1 : e.months >= 4 ? 2 : e.months >= 2 ? 3 : 4;
-  e.gaps = GAP_ORDER.filter(function (g) { return g === 'parents' ? (s.parentsDep && !s.parentsIns) : !!s.gaps[g]; });
+  /* Real gaps only: papers in one place is November's job; a will is pressing from 55 */
+  e.gaps = GAP_ORDER.filter(function (g) { if (g === 'papers' || g === 'trusted') return false; if (g === 'will') return !!s.gaps.will && s.age >= 55; return g === 'parents' ? (s.parentsDep && !s.parentsIns) : !!s.gaps[g]; });
   e.fr = Math.min(4, e.gaps.length);
   e.wflags = [];
+  /* Wealth in the business is normal for an owner; an unplanned goal is not a fault */
   if (s.wealth.trad) e.wflags.push('trad');
-  if (s.wealth.conc) e.wflags.push('conc');
+  if (s.wealth.conc && s.branch === 'sal') e.wflags.push('conc');
   if (s.cash > 12 * s.spend) e.wflags.push('idle');
-  if (s.wealth.goal) e.wflags.push('goal');
-  e.w = Math.min(4, e.wflags.length);
+  e.w = Math.min(4, e.wflags.length + (s.wealth.trad && s.policies >= 10 ? 1 : 0));
   e.grades = { p: e.p, b: e.b, lq: e.lq, fr: e.fr, w: e.w };
   return e;
 }
@@ -1754,8 +1640,8 @@ var C = {
     pledge: { en: 'The family home is pledged against loans.', hi: 'परिवार का घर लोन के लिए गिरवी है।', gu: 'પરિવારનું ઘર લોન માટે ગીરવે છે.' },
     none: { en: 'Loans look fairly priced and within reach.', hi: 'लोन ठीक रेट पर और काबू में हैं।', gu: 'લોન યોગ્ય દરે અને કાબૂમાં છે.' } },
   lqWhy: { en: 'About {m} months of family spend within reach.', hi: 'परिवार के करीब {m} महीने के ख़र्च जितना पैसा हाथ में।', gu: 'પરિવારના આશરે {m} મહિનાના ખર્ચ જેટલા પૈસા હાથવગા.' },
-  frWhy: { en: '{n} of 6 basics missing: {list}.', hi: '6 में से {n} बुनियादी चीज़ें नहीं: {list}।', gu: '6 માંથી {n} પાયાની બાબતો નથી: {list}.' },
-  frNone: { en: 'All six basics in place.', hi: 'छहों बुनियादी चीज़ें मौजूद।', gu: 'છએ પાયાની બાબતો હાજર.' },
+  frWhy: { en: 'Missing: {list}.', hi: 'नहीं है: {list}।', gu: 'નથી: {list}.' },
+  frNone: { en: 'Nominees, succession and parents’ cover in order.', hi: 'नॉमिनी, उत्तराधिकार और माता-पिता का बीमा ठीक।', gu: 'નોમિની, વારસો અને માતા-પિતાનો વીમો બરાબર.' },
   gap: { nominations: { en: 'current nominees', hi: 'सही नॉमिनी', gu: 'સાચા નોમિની' },
     will: { en: 'a recent will', hi: 'ताज़ा वसीयत', gu: 'તાજી વસિયત' },
     succession: { en: 'a succession clause', hi: 'उत्तराधिकार की शर्त', gu: 'વારસાની શરત' },
@@ -1935,12 +1821,12 @@ function actions(p, s, e) {
   if (e.months < 6) add('reserve', 6 * s.spend - s.liquid, nice(6 * s.spend - s.liquid));
   if (s.gaps.nominations) add('nominations', 0.15 * (s.liquid + s.invest), s.liquid + s.invest);
   var total = (s.bizShare || 0) + s.liquid + s.invest + s.home + s.property;
-  if (s.gaps.will) add('will', 0.01 * total, total);
+  if (s.gaps.will && s.age >= 55) add('will', 0.01 * total, total);
   if (s.gaps.succession) add('succession', 0.1 * ((s.bizShare || 0) + (s.receivables || 0)), (s.bizShare || 0));
   /* Surrender cannot be undone: when rupee impact is close, the reversible step goes first. */
   if (s.wealth.trad) add('trad', s.premium * 5 * 0.9, s.premium);
-  if (s.wealth.conc) add('conc', 0.05 * s.invest + 1 * L, s.invest || s.bizShare || s.liquid);
-  if (s.wealth.goal) { if (p.sig === 'corpus' || s.ageBand === '55+') add('retire', 0.03 * (s.liquid + s.invest), s.liquid + s.invest); else add('goal', 1 * L, 0); }
+  if (s.wealth.conc && s.branch === 'sal') add('conc', 0.05 * s.invest + 1 * L, s.invest || s.bizShare || s.liquid);
+  if (s.wealth.goal && (p.sig === 'corpus' || s.ageBand === '55+')) add('retire', 0.03 * (s.liquid + s.invest), s.liquid + s.invest);
   if (s.gaps.papers || s.gaps.trusted) add('papers', 0.5 * L, 0);
   if (s.cash > 12 * s.spend) add('idle', 0.03 * s.cash, 0);
   c.sort(function (a, b) { return b.rank - a.rank; });
@@ -2637,9 +2523,9 @@ function jCompare(j, m) {
     (j.ask != null ? '<div class="reply"><span class="rmark"><i></i></span><p>' + esc(answer(j, m, os, j.ask)) + '</p></div>' : '') + '</div>';
   return '<div class="verdict"><p class="overline">' + tx(CU2.pick) + '</p><h3>' + esc(optLabel2(p)) + '</h3><p class="vtext">' + esc(verdict(os, j)) + '</p>' +
     '<div class="vact"><button class="primary" data-a="jpick" data-v="0" data-s="3">' + tx(loan ? CU2.applyWith : CU2.cont) + '</button><button class="quiet" data-a="jpick" data-v="0" data-s="2">' + tx(CU2.det) + '</button></div></div>' +
-    '<h3 class="sbs">' + tx(CU2.compareT) + '</h3><p class="hint">' + tx(j.type === 'biz' ? JU.cmpIntroBiz : loan ? JU.cmpIntroLoan : JU.cmpIntro) + ' ' + tx(loan ? JU.commLineLoan : JU.commLine) + '</p>' +
+    ask + '<h3 class="sbs">' + tx(CU2.compareT) + '</h3><p class="hint">' + tx(j.type === 'biz' ? JU.cmpIntroBiz : loan ? JU.cmpIntroLoan : JU.cmpIntro) + ' ' + tx(loan ? JU.commLineLoan : JU.commLine) + '</p>' +
     '<span class="swipe">' + tx(CU2.swipe) + '</span><div class="cmpwrap"><table class="cmp" style="--n:' + os.length + '"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>' +
-    '<p class="quietnote">' + tx(loan ? CU2.stayPut : CU2.dontBuy) + '</p>' + ask;
+    '<p class="quietnote">' + tx(loan ? CU2.stayPut : CU2.dontBuy) + '</p>' + '<p class="fine">' + tx(JU.illus) + '</p>';
 }
 
 /* November demo: icons, landing page and claim journeys */
@@ -3371,8 +3257,8 @@ var V3 = {
   vSub: O('Sample customer home. Fictional family.', 'उदाहरण ग्राहक होम। काल्पनिक परिवार।', 'ઉદાહરણ ગ્રાહક હોમ. કાલ્પનિક પરિવાર.'),
   vDocs: O('papers in the vault', 'कागज़ तिजोरी में', 'કાગળો તિજોરીમાં'), vDue: O('renewals in 60 days', 'रिन्यूअल 60 दिन में', 'રિન્યુઅલ 60 દિવસમાં'), vFix: O('things to fix', 'चीज़ें ठीक करनी हैं', 'બાબતો સુધારવાની'),
   vUp: O('Coming up', 'आगे आने वाला', 'આગળ આવનારું'),
-  vUps: [[O('Family floater renews', 'फ़ैमिली फ़्लोटर रिन्यू', 'ફેમિલી ફ્લોટર રિન્યુ'), O('14 Nov', '14 नवं', '14 નવે'), 'check'], [O('Car insurance renews', 'कार बीमा रिन्यू', 'કાર વીમો રિન્યુ'), O('2 Dec', '2 दिसं', '2 ડિસે'), 'check'], [O('Senior plan for father: application with the insurer', 'पिता का सीनियर प्लान: आवेदन बीमा कंपनी के पास', 'પિતાનો સિનિયર પ્લાન: અરજી વીમા કંપની પાસે'), O('Waiting', 'इंतज़ार', 'રાહ'), 'check']],
-  vUpsSal: [[O('Car insurance renews', 'कार बीमा रिन्यू', 'કાર વીમો રિન્યુ'), O('2 Dec', '2 दिसं', '2 ડિસે'), 'check'], [O('Home loan rate review', 'होम लोन रेट की जाँच', 'હોમ લોન દરની તપાસ'), O('15 Jan', '15 जन', '15 જાન્યુ'), 'check'], [O('Term cover for Neha: compare three options', 'नेहा का टर्म कवर: तीन विकल्प देखें', 'નેહાનું ટર્મ કવર: ત્રણ વિકલ્પ જુઓ'), O('Needs you', 'आपकी ज़रूरत', 'તમારી જરૂર'), 'gap']],
+  vUps: [[O('Family floater renews', 'फ़ैमिली फ़्लोटर रिन्यू', 'ફેમિલી ફ્લોટર રિન્યુ'), O('14 Nov', '14 नवं', '14 નવે'), 'check'], [O('Car insurance renews', 'कार बीमा रिन्यू', 'કાર વીમો રિન્યુ'), O('2 Dec', '2 दिसं', '2 ડિસે'), 'check'], [O('No health cover found for father', 'पिता का कोई हेल्थ कवर नहीं', 'પિતાનો કોઈ હેલ્થ કવર નથી'), O('Act now', 'अभी करें', 'હમણાં કરો'), 'gap']],
+  vUpsSal: [[O('Car insurance renews', 'कार बीमा रिन्यू', 'કાર વીમો રિન્યુ'), O('2 Dec', '2 दिसं', '2 ડિસે'), 'check'], [O('Home loan rate review', 'होम लोन रेट की जाँच', 'હોમ લોન દરની તપાસ'), O('15 Jan', '15 जन', '15 જાન્યુ'), 'check'], [O('No health cover of your own, only through work', 'अपना हेल्थ कवर नहीं, सिर्फ़ कंपनी का', 'પોતાનો હેલ્થ કવર નથી, માત્ર કંપનીનો'), O('Act now', 'अभी करें', 'હમણાં કરો'), 'gap']],
   vBack: O('Back to home', 'होम पर वापस', 'હોમ પર પાછા'),
   vShortcuts: O('Shortcuts', 'शॉर्टकट', 'શોર્ટકટ'),
   vSc: [['chat', O('Message your advisor', 'सलाहकार को मैसेज', 'સલાહકારને મેસેજ')], ['bed', O('Start a claim', 'क्लेम शुरू करें', 'ક્લેમ શરૂ કરો')], ['doc', O('Send a new paper', 'नया कागज़ भेजें', 'નવો કાગળ મોકલો')], ['share', O('Share with family', 'परिवार से साझा करें', 'પરિવાર સાથે શેર કરો')]],
@@ -3660,9 +3546,9 @@ render = function () { _render3(); floatCheck(); };
     kEst: O('No papers yet. Built the picture from estimates.', 'अभी कागज़ नहीं। अनुमान से तस्वीर बनाई।', 'હજી કાગળો નથી. અંદાજથી ચિત્ર બનાવ્યું.'),
     kWait: O('Waiting for papers.', 'कागज़ों का इंतज़ार।', 'કાગળોની રાહ.'),
     kAA: O('Linked {n} accounts through the Account Aggregator.', 'अकाउंट एग्रीगेटर से {n} खाते जोड़े।', 'એકાઉન્ટ એગ્રીગેટર દ્વારા {n} ખાતાં જોડ્યાં.'),
-    cGrades: O('Checked five areas: {g}.', 'पाँच बातें जाँचीं: {g}।', 'પાંચ બાબતો તપાસી: {g}.'),
+    cGrades: O('Graded five areas: {g}.', 'पाँच बातों को ग्रेड दिया: {g}।', 'પાંચ બાબતોને ગ્રેડ આપ્યા: {g}.'),
     cFlag: O('Flagged: {f}', 'ध्यान दें: {f}', 'ધ્યાન આપો: {f}'),
-    cWaitCk: O('Checks five areas on the next screen, the Financial Health Check.', 'अगली स्क्रीन, फ़ाइनेंशियल हेल्थ चेक, पर पाँच बातें जाँचेगा।', 'આગલી સ્ક્રીન, ફાઇનાન્શિયલ હેલ્થ ચેક, પર પાંચ બાબતો તપાસશે.'),
+    cWaitCk: O('Grades five areas on the next screen, the Financial Health Check.', 'अगली स्क्रीन, फ़ाइनेंशियल हेल्थ चेक, पर पाँच बातों को ग्रेड देगा।', 'આગલી સ્ક્રીન, ફાઇનાન્શિયલ હેલ્થ ચેક, પર પાંચ બાબતોને ગ્રેડ આપશે.'),
     cWaitCov: O('Lines up options once the Financial Health Check shows a gap.', 'फ़ाइनेंशियल हेल्थ चेक में कमी दिखते ही विकल्प तैयार करेगा।', 'ફાઇનાન્શિયલ હેલ્થ ચેકમાં ખામી દેખાતાં જ વિકલ્પ તૈયાર કરશે.'),
     cWait: O('Starts once the household picture is ready.', 'परिवार की तस्वीर बनते ही शुरू।', 'પરિવારનું ચિત્ર બને કે તરત શરૂ.'),
     covReady: O('Ready to compare three options: {a}.', 'तीन विकल्प मिलाने को तैयार: {a}।', 'ત્રણ વિકલ્પ સરખાવવા તૈયાર: {a}.'),
@@ -3692,7 +3578,7 @@ render = function () { _render3(); floatCheck(); };
   };
   var AG = {
     keeper: { n: 'Keeper', ic: 'doc', role: O('Keeps track', 'हिसाब रखता है', 'હિસાબ રાખે છે'), d: O('Reads every policy, loan paper and statement. Keeps the family file current.', 'हर पॉलिसी, लोन का कागज़ और स्टेटमेंट पढ़ता है। परिवार की फ़ाइल ताज़ा रखता है।', 'દરેક પોલિસી, લોનનો કાગળ અને સ્ટેટમેન્ટ વાંચે છે. પરિવારની ફાઇલ તાજી રાખે છે.'), w: O('A new paper arrives', 'नया कागज़ आए', 'નવો કાગળ આવે') },
-    checkup: { n: 'Checkup', ic: 'grade', role: O('Checks', 'जाँचता है', 'તપાસે છે'), d: O('Finds real gaps and overpricing, and says plainly when something is fine.', 'असली कमियाँ और महँगे प्लान पकड़ता है, और जो ठीक है उसे साफ़ ठीक कहता है।', 'સાચી ખામીઓ અને મોંઘા પ્લાન પકડે છે, અને જે બરાબર છે તેને સાફ બરાબર કહે છે.'), w: O('Every year, every life event', 'हर साल, हर बड़े बदलाव पर', 'દર વર્ષે, દરેક મોટા ફેરફાર પર') },
+    checkup: { n: 'Checkup', ic: 'grade', role: O('Checks', 'जाँचता है', 'તપાસે છે'), d: O('Finds gaps, overpricing and overlaps. Grades five areas, A to E.', 'कमियाँ, महँगे प्लान और दोहराव पकड़ता है। पाँच बातों को A से E ग्रेड देता है।', 'ખામીઓ, મોંઘા પ્લાન અને બેવડાપણું પકડે છે. પાંચ બાબતોને A થી E ગ્રેડ આપે છે.'), w: O('Every year, every life event', 'हर साल, हर बड़े बदलाव पर', 'દર વર્ષે, દરેક મોટા ફેરફાર પર') },
     cover: { n: 'Cover', ic: 'shield', role: O('Fixes insurance', 'बीमा ठीक करता है', 'વીમો સુધારે છે'), d: O('Compares three options, shows what we earn, pre-fills the proposal for the insurer.', 'तीन विकल्प मिलाता है, हमारी कमाई दिखाता है, बीमा कंपनी के लिए प्रस्ताव पहले से भरता है।', 'ત્રણ વિકલ્પ સરખાવે છે, અમારી કમાણી બતાવે છે, વીમા કંપની માટે પ્રસ્તાવ પહેલેથી ભરે છે.'), w: O('A gap is found, a renewal is due', 'कमी मिले, रिन्यूअल आए', 'ખામી મળે, રિન્યુઅલ આવે') },
     credit: { n: 'Credit', ic: 'bank', role: O('Fixes loans', 'लोन ठीक करता है', 'લોન સુધારે છે'), d: O('Watches every rate against the market, flags repricing, packages the lender file.', 'हर रेट को बाज़ार से मिलाता है, रेट घटवाने का मौका बताता है, बैंक की फ़ाइल तैयार करता है।', 'દરેક દરને બજાર સાથે મેળવે છે, દર ઘટાડવાની તક બતાવે છે, બેંકની ફાઇલ તૈયાર કરે છે.'), w: O('A rate gap crosses the line', 'रेट का फ़र्क हद पार करे', 'દરનો ફરક હદ વટાવે') },
     claims: { n: 'Claims', ic: 'heart', role: O('Chases claims', 'क्लेम के पीछे लगता है', 'ક્લેમ પાછળ લાગે છે'), d: O('Files, tracks and chases the insurer. Contests every wrong cut.', 'फ़ाइल करता है, नज़र रखता है, बीमा कंपनी के पीछे लगता है। हर ग़लत कटौती पर लड़ता है।', 'ફાઇલ કરે છે, નજર રાખે છે, વીમા કંપની પાછળ લાગે છે. દરેક ખોટી કપાત સામે લડે છે.'), w: O('The moment you message', 'जैसे ही आप मैसेज करें', 'જેવો તમે મેસેજ કરો') }
@@ -3724,7 +3610,7 @@ render = function () { _render3(); floatCheck(); };
       ['credit', 'you', O('Home loan is 0.9% above market. File ready for 2 lenders.', 'होम लोन बाज़ार से 0.9% महँगा। 2 बैंकों के लिए फ़ाइल तैयार।', 'હોમ લોન બજાર કરતાં 0.9% મોંઘી. 2 બેંકો માટે ફાઇલ તૈયાર.')]
     ] : [
       ['keeper', 'done', O('Read 6 papers from email and WhatsApp. Family file updated.', 'ईमेल और WhatsApp से 6 कागज़ पढ़े। परिवार की फ़ाइल अपडेट।', 'ઇમેલ અને WhatsApp માંથી 6 કાગળો વાંચ્યા. પરિવારની ફાઇલ અપડેટ.')],
-      ['checkup', 'flag', O('No health cover for father, 74. A senior plan is worth a try, with a reserve if it is declined.', 'पिता (74) का कोई हेल्थ कवर नहीं। सीनियर प्लान आज़माएँ, मना हो तो एक रिज़र्व रखें।', 'પિતા (74) નો કોઈ હેલ્થ કવર નથી. સિનિયર પ્લાન અજમાવો, ના પાડે તો એક રિઝર્વ રાખો.')],
+      ['checkup', 'flag', O('No health cover found for father, 74. He needs at least ₹15 lakh.', 'पिता (74) का कोई हेल्थ कवर नहीं मिला। कम से कम ₹15 लाख चाहिए।', 'પિતા (74) નો કોઈ હેલ્થ કવર મળ્યો નથી. ઓછામાં ઓછા ₹15 લાખ જોઈએ.')],
       ['credit', 'watch', O('Factory loan rate checked against the market. Nothing to change this quarter.', 'फ़ैक्ट्री लोन का रेट बाज़ार से मिलाया। इस तिमाही कुछ बदलना नहीं।', 'ફેક્ટરી લોનનો દર બજાર સાથે સરખાવ્યો. આ ત્રિમાસિકમાં કંઈ બદલવાનું નથી.')],
       ['claims', 'done', O("Meera's cashless claim started. Papers sent.", 'मीरा का कैशलेस क्लेम शुरू। कागज़ भेज दिए।', 'મીરાનો કેશલેસ ક્લેમ શરૂ. કાગળો મોકલ્યા.')],
       ['cover', 'you', O('The bank can call ₹6 crore; cover pays ₹1 crore. Three term options ready for Kabir.', 'बैंक ₹6 करोड़ माँग सकता है; कवर ₹1 करोड़ देता है। कबीर के लिए तीन टर्म विकल्प तैयार।', 'બેંક ₹6 કરોડ માગી શકે; કવર ₹1 કરોડ આપે છે. કબીર માટે ત્રણ ટર્મ વિકલ્પ તૈયાર.')]
@@ -3737,14 +3623,13 @@ render = function () { _render3(); floatCheck(); };
   };
 
   function agentsSection() {
-    var fo = S.fo || {};
     return '<section class="land agentsec"><p class="overline">' + tx(A4.secEy) + '</p><h2>' + tx(A4.secT) + '</h2><p class="lead">' + tx(A4.secSub) + '</p>' +
-      '<div class="alist">' + ORDER.map(function (k) {
-        var a = AG[k], op = !!fo['ag_' + k];
-        return '<div class="arow-w"><button class="arow" data-a="fopen" data-v="ag_' + k + '" aria-expanded="' + op + '"><span class="acard-i">' + icon(a.ic) + '</span><span class="ar-b"><span class="ar-h"><b>' + a.n + '</b><span>' + tx(a.role) + '</span></span><span class="ar-w">' + tx(A4.acts) + ': ' + tx(a.w) + '</span></span><span class="chev' + (op ? ' up' : '') + '">' + icon('arrow', op ? 'up' : 'down') + '</span></button>' +
-          (op ? '<p class="ar-d">' + tx(a.d) + '</p>' : '') + '</div>';
+      '<div class="agrid">' + ORDER.map(function (k, i) {
+        var a = AG[k];
+        return '<div class="acard" style="--i:' + i + '"><div class="acard-h"><span class="acard-i">' + icon(a.ic) + '</span><span class="acard-st">' + pd() + tx(A4.st.live) + '</span></div>' +
+          '<b>' + a.n + '</b><span class="acard-role">' + tx(a.role) + '</span><p class="acard-d">' + tx(a.d) + '</p><p class="acard-w"><span>' + tx(A4.acts) + ':</span> ' + tx(a.w) + '</p></div>';
       }).join('') + '</div>' +
-      '<p class="anext"><span>' + tx(A4.next) + ':</span> ' + A4.later.map(function (x) { return tx(x); }).join(' · ') + '</p></section>';
+      '<div class="anext"><span>' + tx(A4.next) + ':</span>' + A4.later.map(function (x) { return '<span class="ch">' + tx(x) + '</span>'; }).join('') + '</div></section>';
   }
   var _land = SCR[0];
   SCR[0] = function () { return _land().replace('<section class="land know">', agentsSection() + '<section class="land know">'); };
@@ -3780,7 +3665,7 @@ render = function () { _render3(); floatCheck(); };
     if (S.aa && S.aa.linked) kt += ' ' + v4(A4.kAA, { n: Object.keys(S.aa.sel).filter(function (k) { return S.aa.sel[k]; }).length });
     rows.push(['keeper', st.keeper, kt]);
     if (S.screen >= 5) {
-      var g = typeof assess === 'function' ? (function (A) { return ['p', 'b', 'lq', 'fr', 'w'].map(function (d) { return areaName(d) + ': ' + tx(FX.st[A[d].st]).toLowerCase(); }).join(' · '); })(assess(m.p, s, e)) : ['p', 'b', 'lq', 'fr', 'w'].map(function (d) { return tx(d === 'b' && s.branch === 'sal' ? C.dims.bSal : C.dims[d]) + ' ' + LETTERS[e.grades[d]]; }).join(' · ');
+      var g = ['p', 'b', 'lq', 'fr', 'w'].map(function (d) { return tx(d === 'b' && s.branch === 'sal' ? C.dims.bSal : C.dims[d]) + ' ' + LETTERS[e.grades[d]]; }).join(' · ');
       rows.push(['checkup', 'done', v4(A4.cGrades, { g: g }) + ' ' + v4(A4.cFlag, { f: finding(m.p, s, e).text })]);
     } else rows.push(['checkup', st.checkup, tx(A4.cWaitCk)]);
     var acts = actions(m.p, s, e), cov = acts.filter(function (x) { return agentOf(x.k) === 'cover'; });
@@ -3881,488 +3766,51 @@ render = function () { _render3(); floatCheck(); };
     if (hit) { ev.stopPropagation(); ev.preventDefault(); }
   }, true);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && S.agentSheet) { S.agentSheet = false; render(); } });
-  window.NOVAG = { chip: chip, AG: AG, A4: A4, agentOf: agentOf, askHTML: askHTML, aby: aby, ACT_AGENT: ACT_AGENT };
+  window.NOVAG = { askHTML: askHTML };
   if (root) render();
 })();
 
-/* v5 focus layer (23 Oct 2026): real-world judgment, plain statuses, one focus per screen.
-   Five areas, each Looks fine / Worth a look / Needs attention. Most families are mostly fine.
-   The agent says when NOT to act, so the one thing it does flag is believable. */
-
-/* ---------- Copy ---------- */
-var FX = {
-  area: { p: O('Insurance', 'बीमा', 'વીમો'), b: O('Loans', 'लोन', 'લોન'), lq: O('Cash within reach', 'हाथ में पैसा', 'હાથવગા પૈસા'), fr: O('Family papers', 'परिवार के कागज़', 'પરિવારના કાગળો'), w: O('Savings', 'बचत', 'બચત') },
-  st: { ok: O('Looks fine', 'ठीक है', 'બરાબર છે'), look: O('Worth a look', 'एक बार देखें', 'એક વાર જુઓ'), act: O('Needs attention', 'ध्यान चाहिए', 'ધ્યાન જોઈએ') },
-  /* insurance */
-  lifeLow: O('Life cover {c} against about {n} the family would need.', 'परिवार की करीब {n} की ज़रूरत के सामने {c} का जीवन बीमा।', 'પરિવારની આશરે {n} ની જરૂર સામે {c} નો જીવન વીમો.'),
-  lifeNone: O('No life cover. The family would need about {n}.', 'कोई जीवन बीमा नहीं। परिवार को करीब {n} चाहिए।', 'કોઈ જીવન વીમો નથી. પરિવારને આશરે {n} જોઈએ.'),
-  lifeOk: O('Life cover {c} is enough for the family’s spend and loans.', '{c} का जीवन बीमा परिवार के ख़र्च और लोन के लिए काफ़ी है।', '{c} નો જીવન વીમો પરિવારના ખર્ચ અને લોન માટે પૂરતો છે.'),
-  hLow: O('Family health cover {h}. One big hospital stay can cost more.', 'परिवार का स्वास्थ्य बीमा {h}। अस्पताल का एक बड़ा बिल इससे ज़्यादा हो सकता है।', 'પરિવારનો આરોગ્ય વીમો {h}. હોસ્પિટલનું એક મોટું બિલ આનાથી વધુ હોઈ શકે.'),
-  hOk: O('Family health cover {h} is enough for most hospital stays.', '{h} का स्वास्थ्य बीमा ज़्यादातर अस्पताल ख़र्च के लिए काफ़ी है।', '{h} નો આરોગ્ય વીમો મોટાભાગના હોસ્પિટલ ખર્ચ માટે પૂરતો છે.'),
-  hJobPar: O('Health cover only through work, and none for parents.', 'स्वास्थ्य बीमा सिर्फ़ नौकरी से, और माता-पिता का कोई नहीं।', 'આરોગ્ય વીમો માત્ર નોકરીથી, અને માતા-પિતાનો કોઈ નહીં.'),
-  hJob: O('Health cover only through work. It ends when the job does.', 'स्वास्थ्य बीमा सिर्फ़ नौकरी से। नौकरी गई तो बीमा भी गया।', 'આરોગ્ય વીમો માત્ર નોકરીથી. નોકરી જાય તો વીમો પણ જાય.'),
-  hOwn: O('Your own health cover of {h} stays with you across jobs.', '{h} का अपना स्वास्थ्य बीमा नौकरी बदलने पर भी साथ रहता है।', '{h} નો પોતાનો આરોગ્ય વીમો નોકરી બદલાય તો પણ સાથે રહે છે.'),
-  par: O('No health cover for {who}, {a}.', '{who} ({a}) का कोई स्वास्थ्य बीमा नहीं।', '{who} ({a}) નો કોઈ આરોગ્ય વીમો નથી.'),
-  parOk: O('{who} have health cover of their own.', '{who} का अपना स्वास्थ्य बीमा है।', '{who} નો પોતાનો આરોગ્ય વીમો છે.'),
-  bizBI: O('The factory is insured. The months it stands shut are not.', 'फ़ैक्ट्री का बीमा है। बंद रहने वाले महीनों का नहीं।', 'ફેક્ટરીનો વીમો છે. બંધ રહેતા મહિનાઓનો નથી.'),
-  bizStock: O('Stock worth about {s}, insured for {b}.', 'करीब {s} का स्टॉक, बीमा सिर्फ़ {b} का।', 'આશરે {s} નો સ્ટોક, વીમો માત્ર {b} નો.'),
-  bizFleet: O('{x} of {n} trucks running without valid cover.', '{n} में से {x} ट्रक बिना वैध बीमे के चल रहे हैं।', '{n} માંથી {x} ટ્રક માન્ય વીમા વગર ચાલે છે.'),
-  bizBook: O('Factory insured at book value, below what a rebuild would cost.', 'फ़ैक्ट्री का बीमा बुक वैल्यू पर है, दोबारा बनाने की लागत से कम।', 'ફેક્ટરીનો વીમો બુક વેલ્યુ પર છે, ફરી બનાવવાના ખર્ચ કરતાં ઓછો.'),
-  bizOk: O('Business insurance matches what is there.', 'बिज़नेस का बीमा मौजूदा संपत्ति के हिसाब से है।', 'બિઝનેસનો વીમો હાલની સંપત્તિ મુજબ છે.'),
-  /* loans */
-  lnHigh: O('{l} at {r}%, about {g}% above today. Costs {y} a year extra.', '{l} {r}% पर, आज से करीब {g}% ज़्यादा। हर साल {y} फ़ालतू।', '{l} {r}% પર, આજ કરતાં આશરે {g}% વધુ. દર વર્ષે {y} વધારાના.'),
-  lnClose: O('{l}: {g}% above today. Switching would cost more than it saves.', '{l}: आज से {g}% ज़्यादा। बदलने का ख़र्च बचत से ज़्यादा होगा।', '{l}: આજ કરતાં {g}% વધુ. બદલવાનો ખર્ચ બચત કરતાં વધુ થશે.'),
-  lnFair: O('{l} is at a fair rate.', '{l} ठीक रेट पर है।', '{l} યોગ્ય દરે છે.'),
-  lnPledge: O('The family home is security for business limits.', 'परिवार का घर बिज़नेस लिमिट के लिए गिरवी है।', 'પરિવારનું ઘર બિઝનેસ લિમિટ માટે ગીરવે છે.'),
-  lnEmi: O('EMIs take about {p}% of income.', 'EMI आय का करीब {p}% ले जाती है।', 'EMI આવકના આશરે {p}% લઈ જાય છે.'),
-  lnNone: O('No loans.', 'कोई लोन नहीं।', 'કોઈ લોન નથી.'),
-  /* cash */
-  cash: O('About {m} months of family spend within reach.', 'परिवार के करीब {m} महीने के ख़र्च जितना पैसा हाथ में।', 'પરિવારના આશરે {m} મહિનાના ખર્ચ જેટલા પૈસા હાથવગા.'),
-  /* papers */
-  nom: O('Nominees missing or out of date on some accounts.', 'कुछ खातों में नॉमिनी नहीं हैं या पुराने हैं।', 'કેટલાંક ખાતાંમાં નોમિની નથી અથવા જૂના છે.'),
-  succ: O('Business papers don’t say who steps in for {first}.', 'बिज़नेस के कागज़ों में नहीं लिखा कि {first} की जगह कौन लेगा।', 'બિઝનેસના કાગળોમાં લખ્યું નથી કે {first} ની જગ્યા કોણ લેશે.'),
-  willSoft: O('No recent will. Worth writing, no rush.', 'ताज़ा वसीयत नहीं। लिखनी चाहिए, जल्दी नहीं।', 'તાજી વસિયત નથી. લખવી જોઈએ, ઉતાવળ નથી.'),
-  willDue: O('The will is missing or out of date, and there is a lot to pass on.', 'वसीयत नहीं है या पुरानी है, और आगे देने को बहुत कुछ है।', 'વસિયત નથી અથવા જૂની છે, અને આગળ આપવાનું ઘણું છે.'),
-  papOk: O('Nominees and papers in order.', 'नॉमिनी और कागज़ ठीक हैं।', 'નોમિની અને કાગળો બરાબર છે.'),
-  /* savings */
-  trad: O('{n} traditional policies returning about 5%.', '{n} पारंपरिक पॉलिसियाँ, करीब 5% रिटर्न।', '{n} પરંપરાગત પોલિસીઓ, આશરે 5% વળતર.'),
-  esop: O('Much of the savings is in one company’s stock.', 'बचत का बड़ा हिस्सा एक ही कंपनी के शेयर में है।', 'બચતનો મોટો હિસ્સો એક જ કંપનીના શેરમાં છે.'),
-  corpus: O('A large corpus with no plan yet for monthly income after work.', 'बड़ी जमा पूँजी, पर रिटायरमेंट के बाद मासिक आय का प्लान नहीं।', 'મોટી મૂડી, પણ નિવૃત્તિ પછી માસિક આવકનો પ્લાન નથી.'),
-  idle: O('Cash beyond a year of spend is sitting idle.', 'एक साल के ख़र्च से ज़्यादा कैश खाली पड़ा है।', 'એક વર્ષના ખર્ચથી વધુ રોકડ ખાલી પડી છે.'),
-  wBiz: O('Most wealth is in the business, which is normal for an owner. Savings outside it are steady.', 'ज़्यादातर संपत्ति बिज़नेस में है, मालिक के लिए यह सामान्य है। बाहर की बचत ठीक है।', 'મોટાભાગની સંપત્તિ બિઝનેસમાં છે, માલિક માટે આ સામાન્ય છે. બહારની બચત બરાબર છે.'),
-  wOk: O('Savings sit in a sensible mix.', 'बचत ठीक जगहों पर है।', 'બચત યોગ્ય જગ્યાએ છે.'),
-  /* whos */
-  who: { father: O('father', 'पिता', 'પિતા'), mother: O('mother', 'माँ', 'માતા'), parents: O('parents', 'माता-पिता', 'માતા-પિતા') },
-  whoP: { father: O('your father', 'अपने पिता', 'તમારા પિતા'), mother: O('your mother', 'अपनी माँ', 'તમારી માતા'), parents: O('your parents', 'अपने माता-पिता', 'તમારા માતા-પિતા') },
-  whoCap: { father: O('Father', 'पिता', 'પિતા'), mother: O('Mother', 'माँ', 'માતા'), parents: O('Parents', 'माता-पिता', 'માતા-પિતા') },
-  loanN: { term: O('Term loan', 'टर्म लोन', 'ટર્મ લોન'), od: O('Overdraft', 'ओवरड्राफ़्ट', 'ઓવરડ્રાફ્ટ'), mach: O('Machinery loan', 'मशीनरी लोन', 'મશીનરી લોન'), cc: O('Cash credit', 'कैश क्रेडिट', 'કેશ ક્રેડિટ'), gml: O('Gold metal loan', 'गोल्ड मेटल लोन', 'ગોલ્ડ મેટલ લોન'), lap: O('Loan against property', 'प्रॉपर्टी पर लोन', 'પ્રોપર્ટી પર લોન'), home: O('Home loan', 'होम लोन', 'હોમ લોન'), car: O('Car loan', 'कार लोन', 'કાર લોન'), fleet: O('Fleet loan', 'फ़्लीट लोन', 'ફ્લીટ લોન') },
-  /* screens */
-  glanceT: O('Your family at a glance', 'एक नज़र में आपका परिवार', 'એક નજરમાં તમારો પરિવાર'),
-  owns: O('Owns', 'संपत्ति', 'સંપત્તિ'), ownsSub: O('Business, home and savings', 'बिज़नेस, घर और बचत', 'બિઝનેસ, ઘર અને બચત'), ownsSubSal: O('Home and savings', 'घर और बचत', 'ઘર અને બચત'),
-  netSubL: O('Business, home and savings, less home loans', 'बिज़नेस, घर और बचत, होम लोन घटाकर', 'બિઝનેસ, ઘર અને બચત, હોમ લોન બાદ કરીને'), netSubLSal: O('Home and savings, less loans', 'घर और बचत, लोन घटाकर', 'ઘર અને બચત, લોન બાદ કરીને'),
-  owes: O('Loans', 'लोन', 'લોન'), owesBiz: O('All in the business', 'सब बिज़नेस में', 'બધી બિઝનેસમાં'), owesSplit: O('{b} of it in the business', 'इसमें {b} बिज़नेस में', 'તેમાંથી {b} બિઝનેસમાં'), owesNone: O('None', 'कोई नहीं', 'કોઈ નહીં'),
-  owesGuar: O('Plus {g} personally guaranteed', 'साथ में {g} की निजी गारंटी', 'સાથે {g} ની અંગત ગેરંટી'),
-  lifeT: O('Life cover', 'जीवन बीमा', 'જીવન વીમો'), healthSub: O('Health cover {h}', 'स्वास्थ्य बीमा {h}', 'આરોગ્ય વીમો {h}'), healthSubJob: O('Health cover {h}, through work', 'स्वास्थ्य बीमा {h}, नौकरी से', 'આરોગ્ય વીમો {h}, નોકરીથી'),
-  cashT: O('Cash within reach', 'हाथ में पैसा', 'હાથવગા પૈસા'), cashSub: O('About {m} months of spend', 'करीब {m} महीने का ख़र्च', 'આશરે {m} મહિનાનો ખર્ચ'),
-  breakdown: O('See the breakdown', 'पूरा ब्योरा देखें', 'આખી વિગત જુઓ'), hide: O('Hide', 'छिपाएँ', 'છુપાવો'),
-  papers: O('Papers on file', 'फ़ाइल में कागज़', 'ફાઇલમાં કાગળો'), papersSub: O('{n} read · {m} missing', '{n} पढ़े · {m} नहीं मिले', '{n} વાંચ્યા · {m} મળ્યા નથી'), papersSub0: O('{n} read', '{n} पढ़े', '{n} વાંચ્યા'),
-  sum: O('Checkup looked at five areas.', 'Checkup ने पाँच बातें देखीं।', 'Checkup એ પાંચ બાબતો જોઈ.'),
-  cnt: { ok: O('{n} fine', '{n} ठीक', '{n} બરાબર'), look: O('{n} worth a look', '{n} एक बार देखें', '{n} એક વાર જુઓ'), act: O('{n} needs attention', '{n} पर ध्यान चाहिए', '{n} પર ધ્યાન જોઈએ') },
-  rest: O('The rest', 'बाकी', 'બાકી'), tapRow: O('Tap any area for the reasoning.', 'कारण देखने के लिए किसी भी बात पर टैप करें।', 'કારણ જોવા કોઈ પણ બાબત પર ટૅપ કરો.'),
-  allOk: O('Nothing needs attention. One thing is worth a look.', 'ध्यान देने लायक कुछ नहीं। एक चीज़ एक बार देखें।', 'ધ્યાન આપવા જેવું કંઈ નથી. એક વસ્તુ એક વાર જુઓ.'),
-  allFine: O('Everything looks fine. We will keep watching.', 'सब ठीक है। हम नज़र रखते रहेंगे।', 'બધું બરાબર છે. અમે નજર રાખતા રહીશું.'),
-  doT: O('What to do', 'क्या करें', 'શું કરવું'),
-  first: O('Do this first', 'पहले यह करें', 'પહેલાં આ કરો'),
-  firstSoft: O('Worth doing, nothing urgent', 'करने लायक, जल्दी नहीं', 'કરવા જેવું, ઉતાવળ નથી'),
-  also: O('Also worth doing', 'यह भी करने लायक', 'આ પણ કરવા જેવું'),
-  leave: O('Looked at, no change needed', 'देखा, कुछ बदलना नहीं', 'જોયું, કંઈ બદલવાનું નથી'),
-  why: O('Why', 'क्यों', 'કેમ'), whyHide: O('Hide why', 'कारण छिपाएँ', 'કારણ છુપાવો'),
-  effort: [O('Quick', 'आसान', 'સરળ'), O('Some paperwork', 'थोड़े कागज़', 'થોડા કાગળો'), O('Takes time', 'समय लगेगा', 'સમય લાગશે')],
-  waT: O('This lands on WhatsApp', 'यह WhatsApp पर आता है', 'આ WhatsApp પર આવે છે'),
-  waSub: O('A short note {first} can forward to the family.', 'एक छोटा नोट, जो {first} परिवार को भेज सकें।', 'એક નાની નોંધ, જે {first} પરિવારને મોકલી શકે.'),
-  waBtn: O('Preview', 'देखें', 'જુઓ'),
-  noteFirst: O('First', 'पहले', 'પહેલાં'), noteThen: O('Then', 'फिर', 'પછી'), noteFine: O('Fine as it is', 'जैसा है ठीक है', 'જેમ છે તેમ બરાબર'),
-  info: O('A pointer, not a pitch. We don’t sell investments.', 'सिर्फ़ इशारा, बिक्री नहीं। हम निवेश नहीं बेचते।', 'માત્ર ઇશારો, વેચાણ નહીં. અમે રોકાણ વેચતા નથી.'),
-  meetMore: O('More about them', 'और जानें', 'વધુ જાણો'),
-  linkQ: O('Or link bank and investment accounts', 'या बैंक और निवेश खाते जोड़ें', 'અથવા બેંક અને રોકાણ ખાતાં જોડો'),
-  conf: O('Confidence', 'भरोसा', 'ભરોસો')
-};
-/* Plan copy: titles and the judgment behind each */
-var PX = {
-  lifeGap: { t: O('Add about {x} of term cover', 'करीब {x} का टर्म कवर जोड़ें', 'આશરે {x} નું ટર્મ કવર ઉમેરો'),
-    why: O('Sized to the family’s spend and loans.', 'परिवार के ख़र्च और लोन के हिसाब से।', 'પરિવારના ખર્ચ અને લોન મુજબ.'),
-    whyG: O('Sized to spend and half the {g} guarantee. The factory and stock stand behind the rest, so we would not cover all of it.', 'ख़र्च और {g} की गारंटी के आधे हिस्से के हिसाब से। बाकी के पीछे फ़ैक्ट्री और स्टॉक हैं, इसलिए पूरी रकम का बीमा ज़रूरी नहीं।', 'ખર્ચ અને {g} ની ગેરંટીના અડધા હિસ્સા મુજબ. બાકી પાછળ ફેક્ટરી અને સ્ટોક છે, એટલે આખી રકમનો વીમો જરૂરી નથી.') },
-  health: { t: O('Top up family health cover to ₹25 lakh', 'टॉप-अप से परिवार का स्वास्थ्य बीमा ₹25 लाख करें', 'ટોપ-અપથી પરિવારનો આરોગ્ય વીમો ₹25 લાખ કરો'),
-    why: O('A top-up is the cheap way. It pays only after the first {h}, so the premium stays low.', 'टॉप-अप सस्ता तरीका है। यह पहले {h} के बाद ही भुगतान करता है, इसलिए प्रीमियम कम रहता है।', 'ટોપ-અપ સસ્તો રસ્તો છે. તે પહેલા {h} પછી જ ચૂકવે છે, એટલે પ્રીમિયમ ઓછું રહે છે.') },
-  empHealth: { t: O('Buy health cover you own', 'अपना स्वास्थ्य बीमा लें', 'પોતાનો આરોગ્ય વીમો લો'),
-    why: O('Keep the work cover too. Buying while healthy keeps it affordable and starts the waiting periods now.', 'नौकरी वाला बीमा भी रखें। स्वस्थ रहते लेने से सस्ता पड़ता है और वेटिंग पीरियड अभी से शुरू होता है।', 'નોકરીવાળો વીમો પણ રાખો. સ્વસ્થ હોઈએ ત્યારે લેવાથી સસ્તું પડે છે અને વેઇટિંગ પીરિયડ અત્યારથી શરૂ થાય છે.') },
-  parents: { t: O('Get health cover for {who}', '{who} का स्वास्थ्य बीमा कराएँ', '{who}નો આરોગ્ય વીમો કરાવો'),
-    why: O('At {a}, a senior plan is still available. Each year it gets costlier and harder to get.', '{a} की उम्र में सीनियर प्लान अभी मिल जाता है। हर साल यह महँगा और मुश्किल होता जाता है।', '{a} ની ઉંમરે સિનિયર પ્લાન હજી મળી જાય છે. દર વર્ષે તે મોંઘો અને મુશ્કેલ બનતો જાય છે.') },
-  parentsRes: { t: O('Apply for a senior plan for {who}, with a reserve as backup', '{who} के लिए सीनियर प्लान आज़माएँ, साथ में रिज़र्व रखें', '{who} માટે સિનિયર પ્લાન અજમાવો, સાથે રિઝર્વ રાખો'),
-    why: O('At {a}, a new policy is costly and waits two to three years on illnesses already there. If it is declined, keep {x} aside for hospital bills.', '{a} की उम्र में नई पॉलिसी महँगी है और पहले से मौजूद बीमारियों पर दो-तीन साल का इंतज़ार होता है। मना हो जाए, तो अस्पताल के लिए {x} अलग रखें।', '{a} ની ઉંમરે નવી પોલિસી મોંઘી છે અને પહેલેથી હોય એવી બીમારીઓ પર બે-ત્રણ વર્ષની રાહ હોય છે. ના પાડે, તો હોસ્પિટલ માટે {x} અલગ રાખો.') },
-  bizCover: { t: O('Insure the months the unit could stand shut', 'यूनिट बंद रहने के महीनों का बीमा कराएँ', 'યુનિટ બંધ રહે તે મહિનાઓનો વીમો કરાવો'),
-    why: O('Fixed costs of {f} a month keep running after a fire. A business interruption cover pays for them.', 'आग के बाद भी हर महीने {f} के फ़िक्स्ड ख़र्च चलते रहते हैं। बिज़नेस इंटरप्शन कवर इन्हें देता है।', 'આગ પછી પણ દર મહિને {f} ના ફિક્સ્ડ ખર્ચ ચાલુ રહે છે. બિઝનેસ ઇન્ટરપ્શન કવર તે આપે છે.') },
-  bizBook: { t: O('Move factory cover to rebuild value at renewal', 'रिन्यूअल पर फ़ैक्ट्री का बीमा दोबारा बनाने की लागत पर करें', 'રિન્યુઅલ પર ફેક્ટરીનો વીમો ફરી બનાવવાના ખર્ચ પર કરો'),
-    why: O('No rush. It costs a little more and pays what a rebuild actually costs.', 'जल्दी नहीं। थोड़ा महँगा है, पर दोबारा बनाने का असली ख़र्च देता है।', 'ઉતાવળ નથી. થોડું મોંઘું છે, પણ ફરી બનાવવાનો સાચો ખર્ચ આપે છે.') },
-  stockCover: { t: O('Raise stock cover to today’s gold value', 'स्टॉक का बीमा आज के सोने के भाव तक बढ़ाएँ', 'સ્ટોકનો વીમો આજના સોનાના ભાવ સુધી વધારો'),
-    why: O('Gold has risen since the policy was set. After a theft, the gap falls on the family.', 'पॉलिसी तय होने के बाद सोना महँगा हुआ है। चोरी हो तो कमी परिवार पर पड़ेगी।', 'પોલિસી નક્કી થયા પછી સોનું મોંઘું થયું છે. ચોરી થાય તો ખોટ પરિવાર પર પડશે.') },
-  fleet: { t: O('Renew the {n} lapsed truck covers this week', 'बंद पड़े {n} ट्रक बीमे इसी हफ़्ते रिन्यू करें', 'બંધ પડેલા {n} ટ્રક વીમા આ અઠવાડિયે રિન્યુ કરો'),
-    why: O('Running uninsured is illegal and every accident is on you. Then all renewals go on one calendar.', 'बिना बीमे चलाना ग़ैरक़ानूनी है और हर दुर्घटना आपके सिर। फिर सारे रिन्यूअल एक कैलेंडर पर।', 'વીમા વગર ચલાવવું ગેરકાયદે છે અને દરેક અકસ્માત તમારા માથે. પછી બધા રિન્યુઅલ એક કેલેન્ડર પર.') },
-  reprice: { t: O('Get {a} of loans repriced', '{a} के लोन का रेट घटवाएँ', '{a} ની લોનનો દર ઘટાડાવો'),
-    why: O('Ask the current lender first; most agree. Switching is the fallback. Only loans where the saving beats the switching cost are counted.', 'पहले मौजूदा बैंक से पूछें; ज़्यादातर मान जाते हैं। बदलना आख़िरी रास्ता है। सिर्फ़ वही लोन गिने हैं जहाँ बचत बदलने के ख़र्च से ज़्यादा है।', 'પહેલાં હાલની બેંકને પૂછો; મોટાભાગે માની જાય છે. બદલવું છેલ્લો રસ્તો છે. માત્ર એ જ લોન ગણી છે જ્યાં બચત બદલવાના ખર્ચ કરતાં વધુ છે.') },
-  pledge: { t: O('Plan to move bank limits off the family home', 'बैंक लिमिट को परिवार के घर से हटाने की योजना बनाएँ', 'બેંક લિમિટને પરિવારના ઘરથી અલગ કરવાની યોજના બનાવો'),
-    why: O('Common in the trade and not urgent. At the next limit renewal, offer stock or the workshop instead.', 'इस धंधे में आम है, जल्दी नहीं। अगली लिमिट रिन्यूअल पर स्टॉक या वर्कशॉप गिरवी रखें।', 'આ ધંધામાં સામાન્ય છે, ઉતાવળ નથી. આગલા લિમિટ રિન્યુઅલ પર સ્ટોક કે વર્કશોપ ગીરવે મૂકો.') },
-  reserve: { t: O('Build a family reserve of {x} outside the business', 'बिज़नेस से बाहर {x} का पारिवारिक रिज़र्व बनाएँ', 'બિઝનેસની બહાર {x} નું પારિવારિક રિઝર્વ બનાવો'),
-    tSal: O('Build an emergency reserve of {x}', '{x} का इमरजेंसी फंड बनाएँ', '{x} નું ઇમરજન્સી ફંડ બનાવો'),
-    why: O('Six months of family spend, somewhere it can be reached in a week. Build it over a few months, not at once.', 'परिवार के छह महीने का ख़र्च, जहाँ से हफ़्ते में निकले। एक साथ नहीं, कुछ महीनों में बनाएँ।', 'પરિવારના છ મહિનાનો ખર્ચ, જ્યાંથી અઠવાડિયામાં ઉપડે. એકસાથે નહીં, થોડા મહિનામાં બનાવો.') },
-  nominations: { t: O('Update nominees on every account', 'हर खाते में नॉमिनी अपडेट करें', 'દરેક ખાતામાં નોમિની અપડેટ કરો'),
-    why: O('One form per account. Without it, money reaches the family only through court papers.', 'हर खाते का एक फ़ॉर्म। इसके बिना पैसा कोर्ट के कागज़ों से ही परिवार तक पहुँचता है।', 'દરેક ખાતાનું એક ફોર્મ. તેના વગર પૈસા કોર્ટના કાગળોથી જ પરિવાર સુધી પહોંચે છે.') },
-  succession: { t: O('Add a succession clause to the business papers', 'बिज़नेस के कागज़ों में उत्तराधिकार की शर्त जोड़ें', 'બિઝનેસના કાગળોમાં વારસાની શરત ઉમેરો'),
-    why: O('A lawyer’s afternoon now saves months of frozen receivables later.', 'आज वकील की एक दोपहर, बाद में महीनों अटकी उधारी से बचाती है।', 'આજે વકીલની એક બપોર, પછી મહિનાઓ અટકેલી ઉઘરાણીથી બચાવે છે.') },
-  will: { t: O('Write or refresh the will', 'वसीयत बनाएँ या नई करें', 'વસિયત બનાવો અથવા નવી કરો'),
-    why: O('It should match today’s family and property.', 'यह आज के परिवार और प्रॉपर्टी से मेल खानी चाहिए।', 'તે આજના પરિવાર અને પ્રોપર્ટી સાથે મેળ ખાવી જોઈએ.') },
-  trad: { t: O('Stop adding to old endowment policies', 'पुरानी एंडोमेंट पॉलिसियों में नया पैसा बंद करें', 'જૂની એન્ડોમેન્ટ પોલિસીઓમાં નવા પૈસા બંધ કરો'),
-    why: O('Keep the ones close to maturity. Decide the rest one at a time; surrendering early often loses money.', 'जो पकने के करीब हैं, उन्हें चलने दें। बाकी का फ़ैसला एक-एक करके; जल्दी सरेंडर में अक्सर नुकसान होता है।', 'જે પાકવાની નજીક છે, તેને ચાલવા દો. બાકીનો નિર્ણય એક-એક કરીને; વહેલું સરેન્ડર ઘણીવાર નુકસાન કરે છે.') },
-  esop: { t: O('Talk to your investment advisor about employer stock', 'कंपनी के शेयर के बारे में अपने निवेश सलाहकार से बात करें', 'કંપનીના શેર વિશે તમારા રોકાણ સલાહકાર સાથે વાત કરો'), why: null },
-  corpus: { t: O('Work out the monthly income the corpus can pay', 'जमा पूँजी से हर महीने कितना मिलेगा, यह तय करें', 'મૂડીમાંથી દર મહિને કેટલું મળશે, તે નક્કી કરો'), why: null }
-};
-var LEAVE = {
-  lifeJob: O('Life cover of {c}, through work: enough for now. Get your own term plan before you next change jobs.', 'नौकरी से {c} का जीवन बीमा: अभी के लिए काफ़ी। अगली बार नौकरी बदलने से पहले अपना टर्म प्लान लें।', 'નોકરીથી {c} નો જીવન વીમો: હાલ પૂરતો. આગલી વખતે નોકરી બદલતાં પહેલાં પોતાનો ટર્મ પ્લાન લો.'),
-  life: O('Term cover of {c}: enough for now. Worth a look if loans grow.', '{c} का टर्म कवर: अभी के लिए काफ़ी। लोन बढ़ें तो फिर देखें।', '{c} નું ટર્મ કવર: હાલ પૂરતું. લોન વધે તો ફરી જુઓ.'),
-  health: O('Family health cover of {h}: enough. No need for a bigger plan.', '{h} का स्वास्थ्य बीमा: काफ़ी है। बड़े प्लान की ज़रूरत नहीं।', '{h} નો આરોગ્ય વીમો: પૂરતો છે. મોટા પ્લાનની જરૂર નથી.'),
-  cash: O('Cash within reach, {m} months: no need to hold more.', 'हाथ में {m} महीने का पैसा: इससे ज़्यादा रखने की ज़रूरत नहीं।', 'હાથમાં {m} મહિનાના પૈસા: આનાથી વધુ રાખવાની જરૂર નથી.'),
-  will: O('Will: worth writing when you have an afternoon. No rush.', 'वसीयत: फ़ुर्सत में लिखें। जल्दी नहीं।', 'વસિયત: ફુરસદે લખો. ઉતાવળ નથી.')
-};
-
-/* Parents' ages and who, where the family has dependent parents */
-var PARENT = { rajesh: [74, 'father'], mahendra: [80, 'mother'], vipul: [70, 'parents'], sunita: [68, 'parents'], dinesh: [84, 'parents'], arjun: [61, 'parents'], sanjay: [79, 'parents'], sunil: [72, 'mother'] };
-function parentOf(p, s) { var x = PARENT[p.id]; if (x) return x; return p.branch === 'biz' ? [70, 'parents'] : [66, 'parents']; }
-
-/* ---------- Assessment ---------- */
-var STR = { ok: 0, look: 1, act: 2 }, STS = ['ok', 'look', 'act'];
-function worse(a, b) { return STR[a] >= STR[b] ? a : b; }
-function pct(x) { return (Math.round(x * 100) / 100).toString().replace(/\.?0+$/, ''); }
-function assess(p, s, e) {
-  var first = tx(p.first), A = {};
-    var need = e.need;
-  var subs = { p: [], b: [], lq: [], fr: [], w: [] };
-  function sub(area, k, st, line, extra) { var o = { k: k, st: st, line: line }; for (var q in extra) o[q] = extra[q]; subs[area].push(o); }
-  /* Insurance */
-  var r = need > 0 ? s.life / need : 1;
-  if (s.life === 0) sub('p', 'life', 'act', t(FX.lifeNone, { n: money(need) }), { need: need });
-  else var lg = need - s.life, lst = r < 0.5 ? 'act' : r < 0.7 && lg >= 25 * L ? 'look' : 'ok';
-  sub('p', 'life', lst, lst !== 'ok' ? t(FX.lifeLow, { c: money(s.life), n: money(nice(need)) }) : t(FX.lifeOk, { c: money(s.life) }), { need: need });
-  var pr = parentOf(p, s), parGap = s.parentsDep && !s.parentsIns;
-  if (s.branch === 'sal') {
-    if (s.health === 0) sub('p', 'health', parGap ? 'act' : 'look', tx(parGap ? FX.hJobPar : FX.hJob));
-    else sub('p', 'health', 'ok', t(FX.hOwn, { h: money(s.health) }));
-  } else sub('p', 'health', s.health < 10 * L ? 'look' : 'ok', t(s.health < 10 * L ? FX.hLow : FX.hOk, { h: money(s.health) }));
-  if (parGap) sub('p', 'parents', pr[0] <= 72 ? 'act' : 'look', t(FX.par, { who: tx(FX.who[pr[1]]), a: pr[0] }), { age: pr[0], who: pr[1] });
-  else if (s.parentsDep) sub('p', 'parents', 'ok', t(FX.parOk, { who: tx(FX.whoCap[pr[1]]) }));
-  if (s.branch === 'biz') {
-    if (s.lapsed) sub('p', 'biz', 'act', t(FX.bizFleet, { x: s.lapsed, n: s.trucks }), { a: 'fleet' });
-    else if (s.stock && s.block && s.stock > 1.2 * s.block) sub('p', 'biz', 'act', t(FX.bizStock, { s: money(s.stock), b: money(s.block) }), { a: 'stockCover', x: s.stock - s.block });
-    else if (s.fixed && s.bizGap) sub('p', 'biz', 'act', tx(FX.bizBI), { a: 'bizCover', x: s.fixed * 3 });
-    else if (s.bizGap) sub('p', 'biz', 'look', tx(FX.bizBook), { a: 'bizBook', x: s.bizExposure || 0.05 * s.turnover, low: true });
-    else sub('p', 'biz', 'ok', tx(FX.bizOk));
-  }
-  /* Loans */
-  var worthAmt = 0, worthLeak = 0, bar = s.branch === 'biz' ? 2 * L : Math.max(50000, 0.04 * s.income);
-  s.loans.forEach(function (l) {
-    var g = l.rate - l.mkt, y = l.amt * g / 100, nm = tx(FX.loanN[l.k] || FX.loanN.term);
-    if (g >= 0.75) { worthAmt += l.amt; worthLeak += y; sub('b', 'loan', y >= bar ? 'act' : 'look', t(FX.lnHigh, { l: nm, r: pct(l.rate), g: pct(g), y: money(y) }), { gap: g }); }
-    else if (g > 0) sub('b', 'loan', 'ok', t(FX.lnClose, { l: nm, g: pct(g) }), { gap: g, close: true });
-    else sub('b', 'loan', 'ok', t(FX.lnFair, { l: nm }));
-  });
-  if (s.homePledged && sumLoans(s, true) > 0) sub('b', 'pledge', 'look', tx(FX.lnPledge));
-  if (s.emi > 0.4) sub('b', 'emi', 'look', t(FX.lnEmi, { p: Math.round(s.emi * 100) }));
-  if (!s.loans.length) sub('b', 'none', 'ok', tx(FX.lnNone));
-  /* Cash */
-  var m = s.liquid / s.spend;
-  sub('lq', 'cash', m >= 6 ? 'ok' : m >= 3 ? 'look' : 'act', t(FX.cash, { m: oneDec(m) }), { m: m });
-  /* Family papers */
-  var bigEstate = ((s.bizShare || 0) + s.home + (s.property || 0)) > 8 * CR || s.age >= 55 || s.entity === 'huf';
-  if (s.gaps.succession && ['partner', 'huf'].indexOf(s.entity) >= 0) sub('fr', 'succ', 'act', t(FX.succ, { first: first }));
-  else if (s.gaps.succession) sub('fr', 'succ', 'look', t(FX.succ, { first: first }));
-  if (s.gaps.nominations) sub('fr', 'nom', 'look', tx(FX.nom));
-  if (s.gaps.will) sub('fr', 'will', bigEstate && s.age >= 55 ? 'look' : 'ok', tx(bigEstate && s.age >= 55 ? FX.willDue : FX.willSoft), { soft: !(bigEstate && s.age >= 55) });
-  if (!subs.fr.length) sub('fr', 'none', 'ok', tx(FX.papOk));
-  /* Savings: no investment actions. We point, we don't pitch. */
-  if (s.wealth.trad && s.policies > 3) sub('w', 'trad', s.policies >= 10 ? 'act' : 'look', t(FX.trad, { n: s.policies }));
-  if (s.branch === 'sal' && s.wealth.conc && s.files.some(function (f) { return f.type === 'esop'; })) sub('w', 'esop', 'look', tx(FX.esop), { info: true });
-  if (p.sig === 'corpus' || (s.branch === 'sal' && s.ageBand === '55+')) sub('w', 'corpus', 'look', tx(FX.corpus), { info: true });
-  if (s.cash > 12 * s.spend) sub('w', 'idle', 'look', tx(FX.idle), { info: true });
-  if (!subs.w.length) sub('w', 'none', 'ok', tx(s.branch === 'biz' ? FX.wBiz : FX.wOk));
-  ['p', 'b', 'lq', 'fr', 'w'].forEach(function (k) {
-    var st = subs[k].reduce(function (a, x) { return worse(a, x.st); }, 'ok');
-    var lead = subs[k].filter(function (x) { return x.st === st; })[0];
-    A[k] = { k: k, st: st, line: lead.line, subs: subs[k] };
-  });
-  A.need = need; A.worthAmt = worthAmt; A.worthLeak = worthLeak; A.months = m;
-  return A;
-}
-function areaCounts(A) { var c = { ok: 0, look: 0, act: 0 }; ['p', 'b', 'lq', 'fr', 'w'].forEach(function (k) { c[A[k].st]++; }); return c; }
-function areaName(k) { return tx(FX.area[k]); }
-
-/* Which area the signature finding is about */
-var SIG_AREA = { pg: 'p', deed: 'fr', bi: 'p', gold: 'p', pledge: 'b', policies: 'w', reprice: 'b', liquidity: 'lq', property: 'fr', fleet: 'p', empHealth: 'p', loanCover: 'p', twoCovers: 'p', corpus: 'w', trad: 'p' };
-function focusArea(p, A) {
-  var order = ['p', 'b', 'lq', 'fr', 'w'], sa = SIG_AREA[p.sig];
-  var top = order.filter(function (k) { return A[k].st === 'act'; });
-  if (!top.length) top = order.filter(function (k) { return A[k].st === 'look'; });
-  if (!top.length) return null;
-  return top.indexOf(sa) >= 0 ? sa : top[0];
-}
-function focusFinding(p, s, e, A) {
-  var k = focusArea(p, A); if (!k) return null;
-  var f = finding(p, s, e);
-  if (f.sig && SIG_AREA[p.sig] === k) return { k: k, text: f.text, sub: f.sub };
-  var lead = A[k].subs.filter(function (x) { return x.st === A[k].st; })[0];
-  return { k: k, text: lead.line, sub: '' };
-}
-
-/* ---------- Plan: one thing first, a couple more, and what we left alone ---------- */
-function plan(p, s, e) {
-  var A = assess(p, s, e), items = [], leave = [], first = tx(p.first);
-  function add(k, st, rank, x, v, extra) { var o = { k: k, st: st, rank: rank, x: x, v: v || {} }; for (var q in extra) o[q] = extra[q]; items.push(o); }
-  A.p.subs.forEach(function (x) {
-    if (x.k === 'life') { if (x.st !== 'ok') add('lifeGap', x.st, A.need - s.life, nice(A.need - s.life), { g: money(s.guarantee || 0) }, { g: s.guarantee > 0 }); else leave.push(t(s.branch === 'sal' && !s.files.some(function (f) { return f.type === 'term'; }) ? LEAVE.lifeJob : LEAVE.life, { c: money(s.life) })); }
-    if (x.k === 'health') { if (x.st !== 'ok') add(s.branch === 'sal' ? 'empHealth' : 'health', x.st, 20 * L, s.branch === 'sal' ? 10 * L : 25 * L - s.health, { h: money(s.health) }); else if (s.branch === 'biz') leave.push(t(LEAVE.health, { h: money(s.health) })); }
-    if (x.k === 'parents' && x.st !== 'ok') { var res = x.age > 72; add(res ? 'parentsRes' : 'parents', x.st, 12 * L, 10 * L, { who: tx(FX.whoP[x.who]), a: x.age, x: money(10 * L) }); }
-    if (x.k === 'biz' && x.st !== 'ok') add(x.a, x.st, x.low ? 1 : x.a === 'fleet' ? s.lapsed * 30 * L : x.x, x.a === 'fleet' ? s.lapsed * 30 * L : x.x, { n: s.lapsed, f: money(s.fixed || 0) });
-  });
-  if (A.worthLeak > 0) {
-    var st = A.b.subs.filter(function (x) { return x.k === 'loan'; }).reduce(function (a, x) { return worse(a, x.st); }, 'ok'), sx = A.worthLeak * 5, key = 'saves';
-    if (typeof jOptions === 'function') {
-      var jt = journeyFor('reprice', s), pk = jOptions({ type: jt, a: jDefaults(jt, s, e) }, s, e)[0];
-      if (jt === 'home' && pk.saved > 0) { sx = pk.saved; key = 'savesLoan'; } else if (jt === 'biz' && pk.yearly < pk.curYearly) sx = (pk.curYearly - pk.yearly) * 5;
-    }
-    add('reprice', st, A.worthLeak * 5, sx, { a: money(A.worthAmt) }, { imp: key });
-  }
-  A.b.subs.forEach(function (x) { if (x.close) leave.unshift(x.line.replace(/[.।]$/, '') + (LANG === 'en' ? '. ' : LANG === 'hi' ? '। ' : '. ') + tx(O('Leave it.', 'ऐसे ही रहने दें।', 'એમ જ રહેવા દો.'))); });
-  if (A.b.subs.some(function (x) { return x.k === 'pledge'; })) add('pledge', 'look', 0.05 * s.home, s.home);
-  if (A.lq.st !== 'ok') add('reserve', A.lq.st, 6 * s.spend - s.liquid, nice(6 * s.spend - s.liquid));
-  else leave.push(t(LEAVE.cash, { m: oneDec(A.months) }));
-  A.fr.subs.forEach(function (x) {
-    if (x.k === 'succ') add('succession', x.st, 0.1 * ((s.bizShare || 0) + (s.receivables || 0)), s.bizShare || 0);
-    if (x.k === 'nom') add('nominations', x.st, 0.1 * (s.liquid + s.invest), s.liquid + s.invest);
-    if (x.k === 'will') { if (x.soft) leave.push(tx(LEAVE.will)); else add('will', x.st, 0.005 * (s.home + (s.property || 0)), 0); }
-  });
-  A.w.subs.forEach(function (x) {
-    if (x.k === 'trad') add('trad', x.st, s.premium * 3, s.premium);
-    if (x.k === 'esop' || x.k === 'corpus') add(x.k, 'look', 1, 0, {}, { info: true });
-  });
-  var IMPK = { lifeGap: 'protects', health: 'protects', empHealth: 'protects', parents: 'protects', parentsRes: 'covers', bizCover: 'protects', bizBook: 'protects', stockCover: 'protects', fleet: 'protects', reprice: 'saves', pledge: 'protects', reserve: 'covers', nominations: 'protects', succession: 'protects', will: null, trad: 'frees', esop: null, corpus: null };
-  var EFF = { lifeGap: 1, health: 0, empHealth: 0, parents: 1, parentsRes: 1, bizCover: 1, bizBook: 0, stockCover: 0, fleet: 0, reprice: 1, pledge: 2, reserve: 1, nominations: 0, succession: 1, will: 1, trad: 1 };
-  /* The thing Checkup spotted goes first among equals */
-  var PIN = { retire: 'corpus', pledge: 'reprice' }, pin = PIN[p.sigAction] || p.sigAction;
-  function pinned(a) { return a.k === pin || (pin === 'parents' && a.k === 'parentsRes') ? 1 : 0; }
-  items.sort(function (a, b) { return STR[b.st] - STR[a.st] || pinned(b) - pinned(a) || b.rank - a.rank; });
-  var out = items.map(function (a) {
-    var d = PX[a.k], v = a.v; v.x = v.x || money(a.x); v.first = first;
-    var title = t(a.k === 'reserve' && s.branch === 'sal' ? d.tSal : d.t, { x: money(a.x), n: s.lapsed, a: v.a, who: v.who });
-    var why = d.why ? t(a.k === 'lifeGap' && a.g ? d.whyG : d.why, v) : tx(FX.info);
-    var ik = a.imp || IMPK[a.k];
-    return { k: a.k, st: a.st, title: title, why: why, impact: ik && a.x > 0 ? t(IMP[ik], { x: money(a.x) }) : '', effort: EFF[a.k] || 0, info: !!a.info, irreversible: a.k === 'trad' };
-  });
-  var lead = out.filter(function (x) { return !x.info; })[0] || out[0];
-  var rest = out.filter(function (x) { return x !== lead; }).slice(0, 2);
-  return { A: A, lead: lead || null, also: rest, leave: leave.slice(0, 3), urgent: !!lead && lead.st === 'act' };
-}
-/* Older callers (agents panel, Ask November) read actions(): give them the plan */
-var _actionsOld = actions;
-actions = function (p, s, e) {
-  var pl = plan(p, s, e), a = (pl.lead ? [pl.lead] : []).concat(pl.also).filter(function (x) { return !x.info; });
-  return a.length ? a.map(function (x) { return { k: x.k === 'parentsRes' ? 'parents' : x.k === 'bizBook' ? 'bizCover' : x.k, title: x.title, why: x.why, impact: x.impact, effort: x.effort, time: 'w2', irreversible: x.irreversible }; }) : _actionsOld(p, s, e).slice(0, 1);
-};
-
-/* =================== Screens =================== */
-S.fo = {};
-var AREA_IC = { p: 'shield', b: 'bank', lq: 'wallet', fr: 'folder', w: 'rupee' };
-var FAG = { lifeGap: 'cover', health: 'cover', empHealth: 'cover', parents: 'cover', parentsRes: 'cover', bizCover: 'cover', bizBook: 'cover', stockCover: 'cover', fleet: 'cover', trad: 'cover',
-  reprice: 'credit', pledge: 'credit', reserve: 'checkup', nominations: 'keeper', will: 'keeper', succession: 'keeper', esop: 'checkup', corpus: 'checkup' };
-function fJourney(k, s) { if (k === 'parentsRes') return 'parents'; if (k === 'bizBook' || k === 'trad') return null; return journeyFor(k, s); }
-function fOpen(k) { return !!S.fo[k]; }
-function chev(open) { return '<span class="chev' + (open ? ' up' : '') + '">' + icon('arrow', open ? 'up' : 'down') + '</span>'; }
-function stPill(st) { return '<span class="fst fst-' + st + '">' + tx(FX.st[st]) + '</span>'; }
-function stDot(st) { return '<i class="fdot fd-' + st + '"></i>'; }
-function agLine(k, line) { var G = window.NOVAG; return G ? G.aby(k, line) : ''; }
-
-/* Meet: people first. Numbers wait for the next screen. */
-SCR[2] = function () {
-  var m = model(), p = m.p, s = m.s, Ls = storyLines(p, s, m.e);
-  return '<section class="f-meet"><p class="eyebrow">' + u('meet') + '</p><h2 class="who">' + whoLine(p, s) + '</h2>' +
-    '<p class="fm-lead">' + esc(Ls[1]) + '</p>' +
-    '<p class="fm-fam">' + icon('parents') + '<span>' + esc(Ls[0]) + '</span></p>' +
-    '<blockquote class="fm-rest">' + esc(Ls[5]) + '</blockquote>' +
-    (S.inlineDials ? '<div class="panel">' + dialsHTML(p) + '<button class="secondary" data-a="inline">' + u('done') + '</button></div>'
-      : '<button class="quiet fm-dial" data-a="inline">' + icon('spark', 'sm') + u('likeYours') + '</button>') + '</section>';
-};
-
-/* Send: the link option shrinks to one line; details live in its sheet */
-var _s3 = SCR[3];
-SCR[3] = function () {
-  return _s3().replace(/<div class="aabox">[\s\S]*?<\/div><\/div>/, '<button class="quiet f-link" data-a="aa">' + icon('link', 'sm') + tx(FX.linkQ) + icon('arrow') + '</button>');
-};
-
-/* Glance: four numbers. Breakdown and papers behind a tap. */
-SCR[4] = function () {
-  var m = model(), s = m.s, e = m.e, biz = s.branch === 'biz', G = window.NOVAG;
-  var owns = (s.bizShare || 0) + s.liquid + s.invest + s.home + (s.property || 0), net = owns - e.persLoans, loans = e.persLoans + e.bizLoans;
-  var sel = selFiles(s), nAA = S.aa && S.aa.linked ? Object.keys(S.aa.sel).filter(function (q) { return S.aa.sel[q]; }).length : 0;
-  var built = G ? (S.uploaded ? (S.viaAA && nAA ? t(G.A4.builtAA, { k: nAA, n: sel.length }) : t(G.A4.builtDocs, { n: sel.length })) : tx(G.A4.builtEst)) : '';
-  function tile(ic, lab, v, sub, warn) { return '<div class="gt"><span class="gt-l">' + icon(ic, 'sm') + esc(lab) + '</span><strong>' + v + '</strong>' + (sub ? '<span class="gt-s">' + esc(sub) + '</span>' : '') + (warn ? '<span class="gt-w">' + esc(warn) + '</span>' : '') + '</div>'; }
-  var owesSub = !loans ? '' : e.bizLoans && e.persLoans ? t(FX.owesSplit, { b: money(e.bizLoans) }) : e.bizLoans ? tx(FX.owesBiz) : '';
-  var hSub = biz ? t(FX.healthSub, { h: money(s.health) }) : s.health ? t(FX.healthSub, { h: money(s.health) }) : t(FX.healthSubJob, { h: money(s.empHealth) });
-  var tiles = tile('wallet', u('net'), money(net), tx(e.persLoans ? (biz ? FX.netSubL : FX.netSubLSal) : (biz ? FX.ownsSub : FX.ownsSubSal))) +
-    tile('bank', tx(FX.owes), loans ? money(loans) : tx(FX.owesNone), owesSub, s.guarantee ? t(FX.owesGuar, { g: money(s.guarantee) }) : '') +
-    tile('shield', tx(FX.lifeT), s.life ? money(s.life) : tx(FX.owesNone), hSub) +
-    tile('clock', tx(FX.cashT), money(s.liquid), t(FX.cashSub, { m: oneDec(s.liquid / s.spend) }));
-  /* breakdown */
-  var ownR = biz ? [row(u('bizShare'), s.bizShare, s, 'bizshare'), row(u('liquid'), s.liquid, s, 'liquid')].concat(s.invest ? [row(u('invest'), s.invest, s, 'invest')] : []).concat([row(u('home'), s.home, s, 'home')]).concat(s.property ? [row(u('property'), s.property, s, 'property')] : [])
-    : [row(u('liquid'), s.liquid, s, 'liquid'), row(u('investSal'), s.invest, s, 'invest')].concat(s.home ? [row(u('home'), s.home, s, 'home')] : []);
-  var oweR = [];
-  if (e.persLoans) oweR.push(row(u('persLoans'), e.persLoans, s, 'loans'));
-  if (biz && e.bizLoans) oweR.push(row(u('bizLoans'), e.bizLoans, s, 'loans', 'muted'));
-  if (s.guarantee) oweR.push(row(u('guar'), s.guarantee, s, 'guarantee', 'warn') + '<p class="rnote">' + u('guarNote') + '</p>');
-  var covR = [row(u('life'), s.life, s, 'life')];
-  if (biz) covR.push(row(u('healthC'), s.health, s, 'health'));
-  else { if (s.health) covR.push(row(u('healthOwn'), s.health, s, 'health')); if (s.empHealth) covR.push(row(u('healthEmp'), s.empHealth, s, 'health')); }
-  var bd = fOpen('bd'), pp = fOpen('pp'), items = vaultItems(s), miss = items.filter(function (i) { return i.st === 'missing'; }).length, read = items.length - miss;
-  return '<section class="f-glance"><h2>' + tx(FX.glanceT) + '</h2>' +
-    (G ? '<p class="aby">' + G.chip('keeper') + '<span>' + esc(built) + '</span></p>' : '') +
-    '<div class="gtiles">' + tiles + '</div>' +
-    '<div class="discs"><button class="disc" data-a="fopen" data-v="bd" aria-expanded="' + bd + '"><span class="d-t">' + tx(FX.breakdown) + '</span>' + chev(bd) + '</button>' +
-    (bd ? '<div class="disc-b"><p class="hint">' + u('tapHint') + '</p><div class="tones"><div class="tone t-own"><h3>' + icon('wallet') + vt('owns') + '</h3>' + ownR.join('') + '</div>' +
-      '<div class="tone t-owe"><h3>' + icon('bank') + vt('owes') + '</h3>' + (oweR.length ? oweR.join('') : '<p class="hint">' + u('noLoans') + '</p>') + '</div>' +
-      '<div class="tone t-cov"><h3>' + icon('shield') + vt('coverH') + '</h3>' + covR.join('') + '</div></div></div>' : '') +
-    '<button class="disc" data-a="fopen" data-v="pp" aria-expanded="' + pp + '"><span class="d-t">' + tx(FX.papers) + '<small>' + t(miss ? FX.papersSub : FX.papersSub0, { n: read, m: miss }) + '</small></span>' + chev(pp) + '</button>' +
-    (pp ? '<div class="disc-b">' + vaultHTML(items) + '</div>' : '') + '</div></section>';
-};
-
-/* Health check: one card for what needs attention, quiet rows for the rest */
-function areaDetail(A, k, s, skipLead) {
-  var c = confidence(s, k, S.desel, S.skipped), list = A[k].subs.filter(function (x) { return !skipLead || x.line !== A[k].line; });
-  return (list.length ? '<ul class="fsubs">' + list.map(function (x) { return '<li>' + stDot(x.st) + '<span>' + esc(x.line) + '</span></li>'; }).join('') + '</ul>' : '') +
-    '<p class="fconf">' + tx(FX.conf) + ': ' + tx(U.conf[c]).replace(/^.*?:\s*/, '').replace(/ confidence$/, '') + '</p>';
-}
-SCR[5] = function () {
-  var m = model(), p = m.p, s = m.s, e = m.e, A = assess(p, s, e), ff = focusFinding(p, s, e, A), c = areaCounts(A), G = window.NOVAG;
-  var cnt = ['act', 'look', 'ok'].filter(function (k) { return c[k]; }).map(function (k) { return t(FX.cnt[k], { n: c[k] }); }).join(' · ');
-  var order = ['p', 'b', 'lq', 'fr', 'w'].filter(function (k) { return !ff || k !== ff.k; });
-  order.sort(function (a, b) { return STR[A[b].st] - STR[A[a].st]; });
-  var card = '';
-  if (ff) {
-    var fk = ff.k, op = fOpen('a_' + fk);
-    card = '<div class="fcard fc-' + A[fk].st + '"><div class="fc-top"><span class="fc-area">' + icon(AREA_IC[fk], 'sm') + areaName(fk) + '</span>' + stPill(A[fk].st) + '</div>' +
-      (G ? '<p class="aby">' + G.chip('checkup') + '<span>' + tx(G.A4.spotted) + '</span></p>' : '') +
-      '<blockquote>' + esc(ff.text) + '</blockquote>' + (ff.sub ? '<p class="fsub">' + esc(ff.sub) + '</p>' : '') +
-      '<button class="disc in" data-a="fopen" data-v="a_' + fk + '" aria-expanded="' + op + '"><span class="d-t">' + t(O('All checks in {a}', '{a} की सारी जाँच', '{a}ની બધી તપાસ'), { a: areaName(fk) }) + '</span>' + chev(op) + '</button>' +
-      (op ? areaDetail(A, fk, s) : '') + '</div>';
-  } else card = '<div class="fcard fc-ok"><p class="fc-calm">' + icon('check') + tx(FX.allFine) + '</p></div>';
-  return '<section class="f-check"><div class="hrow"><h2>' + u('checkT') + '</h2>' + adjustChip() + '</div>' +
-    '<p class="fc-sum">' + tx(FX.sum) + ' <b>' + cnt + '</b></p>' + card +
-    '<p class="overline frest">' + tx(FX.rest) + '</p><div class="frows">' + order.map(function (k) {
-      var op = fOpen('a_' + k);
-      return '<div class="frow-w"><button class="frow" data-a="fopen" data-v="a_' + k + '" aria-expanded="' + op + '">' + stDot(A[k].st) + '<span class="fr-b"><span class="fr-h"><b>' + areaName(k) + '</b>' + stPill(A[k].st) + '</span><span class="fr-l">' + esc(A[k].line) + '</span></span>' + chev(op) + '</button>' +
-        (op ? '<div class="frow-d">' + areaDetail(A, k, s, true) + '</div>' : '') + '</div>';
-    }).join('') + '</div><p class="hint fc-tap">' + tx(FX.tapRow) + '</p></section>';
-};
-
-/* What to do: one thing first, a couple more, and what we left alone */
-function doBtns(x, m, primary) {
-  var j = fJourney(x.k, m.s);
-  if (x.info) return '';
-  return j ? '<button class="' + (primary ? 'primary' : 'secondary') + ' sm" data-a="journey" data-v="' + j + '">' + u('cmpOpts') + icon('arrow') + '</button>' : '<button class="secondary sm" data-a="toast" data-v="demoToast">' + u('addPlan') + '</button>';
-}
-function whyBlock(x) {
-  var G = window.NOVAG, ag = FAG[x.k] || 'checkup';
-  return '<div class="dwhy"><p>' + esc(x.why) + '</p>' + (x.irreversible ? '<p class="irrev">' + u('irrev') + '</p>' : '') + (G && !x.info ? '<p class="aby">' + G.chip(ag) + '<span>' + t(G.A4.takes, { a: G.AG[ag].n }) + '</span></p>' : '') + '</div>';
-}
-SCR[7] = function () {
-  var m = model(), pl = plan(m.p, m.s, m.e), first = tx(m.p.first);
-  var h = '<section class="f-do"><h2>' + tx(FX.doT) + '</h2>';
-  if (pl.lead) {
-    var x = pl.lead, op = fOpen('w_lead');
-    h += '<p class="overline">' + tx(pl.urgent ? FX.first : FX.firstSoft) + '</p><div class="dcard dc-' + x.st + '"><h3>' + esc(x.title) + '</h3>' +
-      '<div class="dmeta">' + (x.impact ? '<span class="dimp">' + esc(x.impact) + '</span>' : '') + (x.info ? '' : '<span class="deff">' + tx(FX.effort[x.effort]) + '</span>') + '</div>' +
-      (op ? whyBlock(x) : '') + '<div class="dact">' + doBtns(x, m, true) + '<button class="quiet sm" data-a="fopen" data-v="w_lead" aria-expanded="' + op + '">' + tx(op ? FX.whyHide : FX.why) + chev(op) + '</button></div></div>';
-  } else h += '<div class="fcard fc-ok"><p class="fc-calm">' + icon('check') + tx(FX.allFine) + '</p></div>';
-  if (pl.also.length) h += '<p class="overline">' + tx(FX.also) + '</p><div class="dalso">' + pl.also.map(function (x, i) {
-    var op = fOpen('w_' + i);
-    return '<div class="dar-w"><button class="dar" data-a="fopen" data-v="w_' + i + '" aria-expanded="' + op + '">' + stDot(x.st) + '<span class="dar-b"><b>' + esc(x.title) + '</b>' + (x.impact ? '<span>' + esc(x.impact) + '</span>' : '') + '</span>' + chev(op) + '</button>' +
-      (op ? '<div class="dar-d">' + whyBlock(x) + '<div class="dact">' + doBtns(x, m) + '</div></div>' : '') + '</div>';
-  }).join('') + '</div>';
-  if (pl.leave.length) h += '<p class="overline">' + tx(FX.leave) + '</p><ul class="dleave">' + pl.leave.map(function (l) { return '<li>' + icon('check', 'sm') + '<span>' + esc(l) + '</span></li>'; }).join('') + '</ul>';
-  h += '<button class="dwa" data-a="fnote">' + icon('chat') + '<span><b>' + tx(FX.waT) + '</b><small>' + t(FX.waSub, { first: esc(first) }) + '</small></span><span class="dwa-go">' + tx(FX.waBtn) + icon('arrow') + '</span></button>';
-  return h + '</section>';
-};
-
-/* The note, as it lands on WhatsApp */
-function noteSheet() {
-  var m = model(), p = m.p, s = m.s, e = m.e, pl = plan(p, s, e), ff = focusFinding(p, s, e, pl.A);
-  var lines = (ff ? '<p>' + esc(ff.text) + '</p>' : '<p>' + tx(FX.allFine) + '</p>') +
-    (pl.lead ? '<p><b>' + tx(FX.noteFirst) + ':</b> ' + esc(pl.lead.title) + (pl.lead.impact ? ' (' + esc(pl.lead.impact) + ')' : '') + '.</p>' : '') +
-    pl.also.map(function (x) { return '<p><b>' + tx(FX.noteThen) + ':</b> ' + esc(x.title) + '.</p>'; }).join('') +
-    (pl.leave.length ? '<p><b>' + tx(FX.noteFine) + ':</b> ' + esc(pl.leave[0]) + '</p>' : '');
-  return '<div class="scrim" data-a="closesheet"></div><div class="sheet" role="dialog" aria-modal="true"><div class="sh-h"><h3>' + u('noteT') + '</h3><button class="secondary sm" data-a="closesheet">' + u('close') + '</button></div>' +
-    '<div class="wabub"><p class="wa-h">' + u('greet', { first: esc(tx(p.first)) }) + '</p>' + lines + '<p class="wa-s">' + u('yours') + '</p><span class="wa-t">november</span></div></div>';
-}
-var _sheetF = sheetHTML;
-sheetHTML = function () { return S.sheet === 'fnote' ? noteSheet() : _sheetF(); };
-
-/* Finish: Ask November moves here, where questions come naturally */
-var _s9 = SCR[9];
-SCR[9] = function () { var G = window.NOVAG, h = _s9(); return G ? h.replace('<div class="felt">', G.askHTML() + '<div class="felt">') : h; };
-
-/* Navigation: 1 pick · 2 meet · 3 send · 4 glance · 5 check · 7 do · 9 finish */
-var STEPS = [1, 2, 3, 4, 5, 7, 9];
-var _goF = go;
-go = function (n) {
-  if (n === 6 || n === 8) n = n > S.screen ? n + 1 : n - 1;
-  S.fo = {}; _goF(n);
-};
-V3.next[5] = O('See what to do', 'देखें क्या करना है', 'જુઓ શું કરવું');
-V3.next[7] = O('Finish', 'पूरा करें', 'પૂરું કરો');
-bottombar = function () {
-  if (S.v) return '';
-  if (S.c) return '<nav class="bottom"><div class="bottom-in"><button class="secondary" data-a="cback">' + u('back') + '</button><span class="fine">' + tx(CS.demo) + '</span></div></nav>';
-  if (S.j) return '<nav class="bottom"><div class="bottom-in"><button class="secondary" data-a="jback">' + u('back') + '</button><span class="fine">' + tx(JU.illus) + '</span></div></nav>';
-  if (S.screen === 0) return '<div class="floatcta"><button class="primary big" data-a="go" data-v="1"><span><b>' + vt('float') + '</b><small>' + vt('floatSub') + '</small></span>' + icon('arrow') + '</button></div>';
-  var can = S.screen === 1 ? !!S.pid : S.screen === 3 ? (S.uploaded || S.skipped) : S.screen < 9;
-  var lab = !can ? (S.screen === 1 ? vt('pickFirst') : vt('sendFirst')) : tx(V3.next[S.screen]);
-  var pos = STEPS.indexOf(S.screen) + 1, n = STEPS.length, dots = '';
-  for (var i = 1; i <= n; i++) dots += '<span class="dot' + (i === pos ? ' on' : i < pos ? ' past' : '') + '"></span>';
-  return '<nav class="bottom"><div class="bottom-in"><button class="secondary" data-a="back" aria-label="' + esc(u('back')) + '">' + icon('arrow', 'back') + '</button>' +
-    '<div class="dots" aria-label="' + esc(t(O('{n} of {t}', '{t} में से {n}', '{t} માંથી {n}'), { n: pos, t: n })) + '">' + dots + '</div>' +
-    (S.screen < 9 ? '<button class="primary nextbtn" data-a="next"' + (can ? '' : ' disabled') + '>' + lab + (can ? icon('arrow') : '') + '</button>' : '<span class="spacer"></span>') + '</div></nav>';
-};
-var _renderF = render;
-render = function () { if (S.screen === 8) S.screen = 7; if (S.screen === 6) S.screen = 5; _renderF(); };
-document.addEventListener('click', function (ev) {
-  var el = ev.target.closest && ev.target.closest('[data-a]'); if (!el || el.disabled) return;
-  var a = el.getAttribute('data-a'), v = el.getAttribute('data-v');
-  if (a === 'fopen') { S.fo[v] = !S.fo[v]; render(); }
-  else if (a === 'fnote') { S.sheet = 'fnote'; render(); }
-  else return;
-  ev.stopPropagation(); ev.preventDefault();
-}, true);
-
-/* =================== Other pages =================== */
-/* Landing: the claims band keeps the sample claim and the start tiles; the four-step strip goes */
-var _landF = SCR[0];
-SCR[0] = function () { return _landF().replace(/<ol class="cflow">[\s\S]*?<\/ol>/, ''); };
-
-/* Vault home: what needs you this month first; papers grouped and folded */
-FX.vSum = O('{p} papers · {r} renewals in 60 days · {f} to sort', '{p} कागज़ · 60 दिन में {r} रिन्यूअल · {f} ठीक करने', '{p} કાગળો · 60 દિવસમાં {r} રિન્યુઅલ · {f} સુધારવાના');
-FX.access = O('Shared with {n}', '{n} के साथ साझा', '{n} સાથે શેર');
-FX.manage = O('Who sees what', 'कौन क्या देखता है', 'કોણ શું જુએ');
-FX.vPapers = O('Papers', 'कागज़', 'કાગળો');
-FX.vCat = O('{n} papers', '{n} कागज़', '{n} કાગળો'); FX.vCat1 = O('1 paper', '1 कागज़', '1 કાગળ');
-FX.vFix = O('{n} to sort', '{n} ठीक करना', '{n} સુધારવાનું');
-scrVault = function () {
-  var items = vaultModel(), fix = items.filter(function (i) { return i.st !== 'ok'; }).length, papers = items.filter(function (i) { return i.st !== 'missing'; }).length;
-  var G = window.NOVAG, fam = famOf(BRANCH), others = fam.slice(1).map(function (m) { return tx(m[1]); });
-  var accOpen = fOpen('acc');
-  var shared = others.length > 2 ? t(SH.andN, { a: others[0], n: others.length - 1 }) : others.join(', ');
-  var order = ['ins', 'loan', 'inv', 'biz', 'fam', 'work', 'ids'];
-  var cats = order.filter(function (c) { return items.some(function (i) { return i.cat === c; }); }).map(function (c) {
-    var list = items.filter(function (i) { return i.cat === c; }), n = list.filter(function (i) { return i.st !== 'missing'; }).length, bad = list.filter(function (i) { return i.st !== 'ok'; }).length, op = fOpen('vc_' + c);
-    return '<div class="vc-w"><button class="disc vc" data-a="fopen" data-v="vc_' + c + '" aria-expanded="' + op + '"><span class="vc-i">' + icon(CAT_ICON[c]) + '</span><span class="d-t">' + tx(V3.cats[c]) + '<small>' + t(n === 1 ? FX.vCat1 : FX.vCat, { n: n }) + (bad ? ' · <em>' + t(FX.vFix, { n: bad }) + '</em>' : '') + '</small></span>' + chev(op) + '</button>' +
-      (op ? '<div class="disc-b">' + vaultHTML(list, BRANCH).replace(/<div class="vcat-h">[\s\S]*?<\/div>/, '') + '</div>' : '') + '</div>';
-  }).join('');
-  return '<section class="vaultpage f-vault"><div class="hrow"><h2 class="cj-h">' + icon('vault') + vaultFam() + '</h2><button class="ghost sm" data-a="vclose">' + vt('vBack') + '</button></div>' +
-    (G ? '<p class="aby">' + G.chip('keeper') + '<span>' + tx(G.A4.keptBy) + '</span></p>' : '') +
-    '<p class="fv-sum">' + t(FX.vSum, { p: papers, r: 2, f: fix }) + '</p>' +
-    '<div class="block fv-up"><h3>' + vt('vUp') + '</h3>' + (BRANCH === 'sal' ? V3.vUpsSal : V3.vUps).map(function (x) { return '<div class="uprow"><span>' + tx(x[0]) + '</span><span class="pill p-' + x[2] + '">' + tx(x[1]) + '</span></div>'; }).join('') + '</div>' +
-    '<div class="vsc">' + V3.vSc.map(function (x, i) { return '<button class="vscb" data-a="' + (i === 1 ? 'claimhub' : 'vt') + '" data-v="toastRemind">' + icon(x[0]) + '<span>' + tx(x[1]) + '</span></button>'; }).join('') + '</div>' +
-    '<p class="overline fv-h">' + tx(FX.vPapers) + '</p><div class="discs fv-cats">' + cats + '</div>' +
-    '<button class="disc fv-acc" data-a="fopen" data-v="acc" aria-expanded="' + accOpen + '"><span class="d-t">' + tx(FX.manage) + '<small>' + avs(fam.map(function (m) { return m[0]; }), BRANCH) + ' ' + esc(t(FX.access, { n: shared })) + '</small></span>' + chev(accOpen) + '</button>' +
-    (accOpen ? '<div class="disc-b">' + accessStrip(BRANCH) + '</div>' : '') + '</section>';
-};
-/* "In the vault" on every paper says nothing; only exceptions and renewal dates keep a pill */
-var _vaultHTMLF = vaultHTML;
-vaultHTML = function (items, share) { return _vaultHTMLF(items, share).split('<span class="pill p-ok">' + tx(V3.st.ok) + '</span>').join(''); };
+/* 23 Oct: November's note leaves the flow. It opens from "Three things to do" as what lands on WhatsApp. */
+(function () {
+  var NX = {
+    waT: O('This lands on WhatsApp', 'यह WhatsApp पर आता है', 'આ WhatsApp પર આવે છે'),
+    waSub: O('November’s note, short enough to forward to the family.', 'November का नोट, इतना छोटा कि परिवार को भेज सकें।', 'November ની નોંધ, એટલી નાની કે પરિવારને મોકલી શકાય.'),
+    waBtn: O('Preview', 'देखें', 'જુઓ')
+  };
+  var STEPS = [1, 2, 3, 4, 5, 7, 9];
+  V3.next[7] = O('Finish', 'पूरा करें', 'પૂરું કરો');
+  var _go = go;
+  go = function (n) { if (n === 8) n = n > S.screen ? 9 : 7; _go(n); };
+  var _s7 = SCR[7];
+  SCR[7] = function () {
+    return _s7().replace(/<\/section>\s*$/, '<button class="nwa" data-a="nnote">' + icon('chat') + '<span><b>' + tx(NX.waT) + '</b><small>' + tx(NX.waSub) + '</small></span><span class="nwa-go">' + tx(NX.waBtn) + icon('arrow') + '</span></button></section>');
+  };
+  var _s9 = SCR[9];
+  SCR[9] = function () { var h = _s9(), G = window.NOVAG; return G ? h.replace('<div class="felt">', G.askHTML() + '<div class="felt">') : h; };
+  var _sh = sheetHTML;
+  sheetHTML = function () {
+    if (S.sheet !== 'nnote') return _sh();
+    return '<div class="scrim" data-a="closesheet"></div><div class="sheet nsheet" role="dialog" aria-modal="true"><div class="sh-h"><span></span><button class="secondary sm" data-a="closesheet">' + u('close') + '</button></div>' + scr8() + '</div>';
+  };
+  bottombar = (function (orig) {
+    return function () {
+      if (S.v || S.c || S.j || S.screen === 0) return orig();
+      var can = S.screen === 1 ? !!S.pid : S.screen === 3 ? (S.uploaded || S.skipped) : S.screen < 9;
+      var lab = !can ? (S.screen === 1 ? vt('pickFirst') : vt('sendFirst')) : tx(V3.next[S.screen]);
+      var pos = STEPS.indexOf(S.screen) + 1, n = STEPS.length, dots = '';
+      for (var i = 1; i <= n; i++) dots += '<span class="dot' + (i === pos ? ' on' : i < pos ? ' past' : '') + '"></span>';
+      return '<nav class="bottom"><div class="bottom-in"><button class="secondary" data-a="back" aria-label="' + esc(u('back')) + '">' + icon('arrow', 'back') + '</button>' +
+        '<div class="dots" aria-label="' + esc(t(O('{n} of {t}', '{t} में से {n}', '{t} માંથી {n}'), { n: pos, t: n })) + '">' + dots + '</div>' +
+        (S.screen < 9 ? '<button class="primary nextbtn" data-a="next"' + (can ? '' : ' disabled') + '>' + lab + (can ? icon('arrow') : '') + '</button>' : '<span class="spacer"></span>') + '</div></nav>';
+    };
+  })(bottombar);
+  var _r = render;
+  render = function () { if (S.screen === 8) S.screen = 7; _r(); };
+  document.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-a="nnote"]'); if (!el) return;
+    S.sheet = 'nnote'; render(); ev.stopPropagation(); ev.preventDefault();
+  }, true);
+})();
 
 /* Demo chooser: one link for both demos. Deep links: #business or #salaried */
 var PK = {
