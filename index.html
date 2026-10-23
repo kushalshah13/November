@@ -1014,6 +1014,15 @@ body.showfloat .floatcta { opacity: 1; transform: none; pointer-events: auto; }
 .claimsband .ct-i svg { width: 18px; height: 18px; }
 .claimsband .csum { background: #F5F0E6; }
 @media (min-width: 720px) { .claimsband { padding: 28px 32px; } }
+
+/* top-bar menu: wide screens, home page only */
+.tnav { display: none; }
+@media (min-width: 900px) {
+  .tnav { display: flex; gap: 4px; margin-left: 24px; margin-right: auto; }
+  .tnav button { background: none; border: 0; padding: 8px 12px; border-radius: 999px; font: 600 .9rem/1 var(--body); color: var(--muted); cursor: pointer; }
+  .tnav button:hover { color: var(--ink); background: var(--accent-soft); }
+}
+#s-ins, #s-loans, #s-claims, #s-vault, #s-agents { scroll-margin-top: 84px; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -3841,6 +3850,28 @@ render = function () { _render3(); floatCheck(); };
     if (cb && vs) h = h.replace(cb[0], '\u0000').replace(vs[0], cb[0]).replace('\u0000', vs[0]);
     return h;
   };
+  /* Desktop top-bar menu on the home page only: jumps to sections, hidden inside the flow */
+  var NAV = [['s-ins', O('Insurance', 'बीमा', 'વીમો')], ['s-loans', O('Loans', 'लोन', 'લોન')], ['s-claims', O('Claims', 'क्लेम', 'ક્લેમ')], ['s-vault', O('Vault', 'तिजोरी', 'તિજોરી')], ['s-agents', O('Agents', 'एजेंट', 'એજન્ટ')]];
+  var _s0n = SCR[0];
+  SCR[0] = function () {
+    var h = _s0n().replace('<section class="land agentsec"', '<section id="s-agents" class="land agentsec"').replace('<section class="land know"', '<section id="s-ins" class="land know"')
+      .replace('<section class="claimsband"', '<section id="s-claims" class="claimsband"').replace('<section class="land vaultsec"', '<section id="s-vault" class="land vaultsec"');
+    var i = h.indexOf('<div class="kgroup">'), j = h.indexOf('<div class="kgroup">', i + 1);
+    return j > 0 ? h.slice(0, j) + '<div class="kgroup" id="s-loans">' + h.slice(j + 20) : h;
+  };
+  var _top = topbar;
+  topbar = function () {
+    var h = _top();
+    if (S.screen !== 0 || S.j || S.c || S.v || S.pick) return h;
+    var nav = '<nav class="tnav" aria-label="Sections">' + NAV.map(function (x) { return '<button data-a="tnav" data-v="' + x[0] + '">' + tx(x[1]) + '</button>'; }).join('') + '</nav>';
+    var k = h.indexOf('</button>', h.indexOf('class="mark"')) + 9;
+    return h.slice(0, k) + nav + h.slice(k);
+  };
+  document.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-a="tnav"]'); if (!el) return;
+    var t = document.getElementById(el.getAttribute('data-v')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    ev.stopPropagation(); ev.preventDefault();
+  }, true);
   var _r = render;
   render = function () { if (S.screen === 8) S.screen = 7; _r(); };
   document.addEventListener('click', function (ev) {
