@@ -4026,6 +4026,13 @@ var SQ = {
   thanks: O('Thank you. That really helps.', 'धन्यवाद। इससे सच में मदद मिलती है।', 'આભાર. આનાથી ખરેખર મદદ મળે છે.')
 };
 var SV = { a: { putoff: {} }, note: '', done: false, shown: false, err: false };
+/* PostHog survey "Demo end survey" (type api): answers also land in the Surveys tab */
+var PHS = { id: '01a17cdc-2149-0000-fe74-93c0ff9c8022', sub: null,
+  q: { use: 'dbd78749-a37f-4531-913d-2b1082748fae', putoff: '0a30dde4-0be5-4b6c-8bce-584f515643cb', who: 'a3a5877b-1c5b-41dd-bf6a-a907ffcea643', age: '91c876e3-8350-42d9-a480-def24afaeaf6', note: 'f706d538-b62f-4568-9286-7922aa1d82b2' },
+  text: [['dbd78749-a37f-4531-913d-2b1082748fae', 'Would you use something like this for your family?'], ['0a30dde4-0be5-4b6c-8bce-584f515643cb', 'Anything that put you off?'], ['a3a5877b-1c5b-41dd-bf6a-a907ffcea643', 'You are'], ['91c876e3-8350-42d9-a480-def24afaeaf6', 'Age'], ['f706d538-b62f-4568-9286-7922aa1d82b2', 'Anything else?']],
+  lab: { yes: 'Yes', maybe: 'Maybe', no: 'No', nothing: 'Nothing', confusing: 'Confusing', too_long: 'Too much to read', trust: "Not sure I'd trust it", not_for_me: 'Not relevant to me', have_advisor: 'I already have someone',
+    business: 'Business owner', family_business: 'In the family business', salaried: 'Salaried', professional: 'Professional (CA, doctor…)', other: 'Other', u30: 'Under 30', '30s': '30 to 39', '40s': '40 to 49', '50s': '50 to 59', '60p': '60+' } };
+function phsSub() { if (!PHS.sub) { try { PHS.sub = crypto.randomUUID(); } catch (e) { PHS.sub = 'sv-' + Date.now() + '-' + Math.random().toString(36).slice(2); } } return PHS.sub; }
 try { SV.done = sessionStorage.getItem('nov_survey_done') === '1'; } catch (e) {}
 function surveySpot() {
   if (S.pick || S.v) return false;
@@ -4049,7 +4056,7 @@ function placeSurvey() {
   if (!surveySpot()) return;
   var main = document.querySelector('main.wrap'); if (!main) return;
   main.insertAdjacentHTML('beforeend', surveyHTML());
-  if (!SV.shown && !SV.done) { SV.shown = true; ph('survey shown', { at: screenKey() }); }
+  if (!SV.shown && !SV.done) { SV.shown = true; ph('survey shown', { at: screenKey(), $survey_id: PHS.id }); }
 }
 document.addEventListener('click', function (ev) {
   var b = ev.target.closest('[data-sv],[data-svsend]'); if (!b) return;
@@ -4058,6 +4065,13 @@ document.addEventListener('click', function (ev) {
   if (b.hasAttribute('data-svsend')) {
     if (!SV.a.use) { SV.err = true; placeSurvey(); return; }
     ph('survey submitted', { use: SV.a.use, putoff: Object.keys(SV.a.putoff), who: SV.a.who || null, age: SV.a.age || null, note: SV.note.trim() || null, at: screenKey() });
+    var r = { $survey_id: PHS.id, $survey_submission_id: phsSub(), $survey_completed: true, $survey_questions: PHS.text.map(function (x) { return { id: x[0], question: x[1] }; }), at: screenKey(), lang: S.lang };
+    r['$survey_response_' + PHS.q.use] = PHS.lab[SV.a.use];
+    var po = Object.keys(SV.a.putoff); if (po.length) r['$survey_response_' + PHS.q.putoff] = po.map(function (k) { return PHS.lab[k]; });
+    if (SV.a.who) r['$survey_response_' + PHS.q.who] = PHS.lab[SV.a.who];
+    if (SV.a.age) r['$survey_response_' + PHS.q.age] = PHS.lab[SV.a.age];
+    if (SV.note.trim()) r['$survey_response_' + PHS.q.note] = SV.note.trim();
+    ph('survey sent', r);
     SV.done = true; try { sessionStorage.setItem('nov_survey_done', '1'); } catch (e) {}
   } else {
     var k = b.getAttribute('data-sv'), v = b.getAttribute('data-v');
