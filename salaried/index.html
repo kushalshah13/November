@@ -1152,6 +1152,12 @@ body.v6flow .wrap { padding-block: 20px 120px; }
 .v6two .secondary { font-size: .9375rem; white-space: nowrap; padding-inline: 10px; }
 .v6fact .v6ft { flex-direction: row; font-weight: 600; }
 .v6fact > span { flex: 1; }
+
+.v6lab { font: 600 .8125rem/1.3 var(--body); letter-spacing: 1.2px; text-transform: uppercase; color: var(--muted); margin: 20px 0 0; }
+.v6lab + .v6people { margin-top: 8px; }
+.v6av.ic svg { width: 18px; height: 18px; }
+.v6meet .v6h { margin-bottom: 4px; }
+.v6-leave { border: 1px solid var(--line); color: var(--muted); background: transparent; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -4030,10 +4036,10 @@ render = function () { _render3(); floatCheck(); };
     bdT: O('Every number and paper', 'हर आँकड़ा और कागज़', 'દરેક આંકડો અને કાગળ'),
     runCheck: O('Run the Financial Health Check', 'फ़ाइनेंशियल हेल्थ चेक चलाएँ', 'ફાઇનાન્શિયલ હેલ્થ ચેક ચલાવો'),
     scoreEy: O('{f} score', '{f} का स्कोर', '{f} નો સ્કોર'), outOf: O('out of 100', '100 में से', '100 માંથી'),
-    holds: O('One gap holds it down. Fix it and the score goes to {n}.', 'एक कमी स्कोर नीचे रखती है। इसे ठीक करें तो स्कोर {n} होगा।', 'એક ખામી સ્કોર નીચે રાખે છે. તેને સુધારો તો સ્કોર {n} થશે.'),
-    lift: O('Nothing urgent. The first move takes it to {n}.', 'कुछ ज़रूरी नहीं। पहला कदम इसे {n} तक ले जाता है।', 'કંઈ તાત્કાલિક નથી. પહેલું પગલું તેને {n} સુધી લઈ જાય છે.'),
-    foot: O('From {n} papers. One big gap pulls the score down more than the rest can lift it.', '{n} कागज़ों से। एक बड़ी कमी स्कोर को उतना गिराती है जितना बाकी सब उठा नहीं सकते।', '{n} કાગળો પરથી. એક મોટી ખામી સ્કોરને એટલો નીચે લાવે છે જેટલો બાકી બધું ઉપર લાવી શકતું નથી.'),
-    footEst: O('From estimates: could be {a} to {b} until we see the papers.', 'अनुमान से: कागज़ देखने तक {a} से {b} के बीच।', 'અંદાજથી: કાગળો જોઈએ ત્યાં સુધી {a} થી {b} વચ્ચે.'),
+    holds: O('One gap holds it down. Fix it: {n}.', 'एक कमी स्कोर नीचे रखती है। ठीक करें: {n}।', 'એક ખામી સ્કોર નીચે રાખે છે. સુધારો: {n}.'),
+    lift: O('Nothing urgent. First move: {n}.', 'कुछ ज़रूरी नहीं। पहला कदम: {n}।', 'કંઈ તાત્કાલિક નથી. પહેલું પગલું: {n}.'),
+    foot: O('From {n} papers', '{n} कागज़ों से', '{n} કાગળો પરથી'),
+    footEst: O('Estimate: {a} to {b} until we see papers', 'अनुमान: कागज़ देखने तक {a} से {b}', 'અંદાજ: કાગળો જોઈએ ત્યાં સુધી {a} થી {b}'),
     toN: O('See how to get to {n}', 'देखें {n} तक कैसे पहुँचें', 'જુઓ {n} સુધી કેવી રીતે પહોંચવું'),
     area: { P: O('Protection', 'सुरक्षा', 'સુરક્ષા'), L: O('Loans', 'लोन', 'લોન'), C: O('Cash within reach', 'हाथ में पैसा', 'હાથવગા પૈસા'), F: O('Family papers', 'परिवार के कागज़', 'પરિવારના કાગળો'), W: O('Savings', 'बचत', 'બચત') },
     st: { ok: O('Fine', 'ठीक', 'બરાબર'), look: O('Check', 'देखें', 'જુઓ'), gap: O('Gap', 'कमी', 'ખામી') },
@@ -4179,20 +4185,31 @@ render = function () { _render3(); floatCheck(); };
     sanjay: [['S', N('Sanjay, 52', 'संजय, 52', 'સંજય, 52'), D.exec], ['W', R.wife, ''], ['S', N('Son, 22', 'बेटा, 22', 'દીકરો, 22'), D.college], ['P', R.parents, '79, 75']],
     sunil: [['S', N('Sunil, 46', 'सुनील, 46', 'સુનીલ, 46'), D.psu], ['W', R.wife, ''], ['2', R.kids, '16, 12'], ['M', N('Mother, 72', 'माँ, 72', 'માતા, 72'), D.withThemF]]
   };
+  Q.famL = O('Family', 'परिवार', 'પરિવાર'); Q.bizL = O('Business', 'बिज़नेस', 'બિઝનેસ'); Q.workL = O('Work and home', 'नौकरी और घर', 'નોકરી અને ઘર');
+  Q.tWhat = O('Business', 'बिज़नेस', 'બિઝનેસ'); Q.tWhere = O('Based in', 'जगह', 'જગ્યા'); Q.tTurn = O('Turnover a year', 'सालाना टर्नओवर', 'વાર્ષિક ટર્નઓવર'); Q.tEnt = O('Set up as', 'कंपनी का प्रकार', 'કંપનીનો પ્રકાર');
+  Q.tJob = O('Work', 'नौकरी', 'નોકરી'); Q.tInc = O('Income a year', 'सालाना आय', 'વાર્ષિક આવક'); Q.tLoan = O('Loans', 'लोन', 'લોન'); Q.tCash = O('Cash within reach', 'हाथ में पैसा', 'હાથવગા પૈસા');
+  var ENTS = { prop: O('Proprietorship', 'प्रोप्राइटरशिप', 'પ્રોપ્રાઇટરશિપ'), partner: O('Partnership', 'पार्टनरशिप', 'ભાગીદારી'), llp: O('LLP', 'LLP', 'LLP'), pvt: O('Pvt ltd', 'प्राइवेट लिमिटेड', 'પ્રાઇવેટ લિમિટેડ'), huf: O('HUF', 'HUF', 'HUF') };
+  function bizCard(p, s, e) {
+    var card = tx(p.card).split(', '), what = card[0], where = card[1] || tx(p.place), T;
+    function tile(ic, v, l) { return '<div class="v6p"><span class="v6av ic">' + icon(ic, 'sm') + '</span><span><b>' + esc(v) + '</b><small>' + esc(l) + '</small></span></div>'; }
+    if (s.branch === 'biz') T = tile('factory', what, tx(Q.tWhat)) + tile('home', where, tx(Q.tWhere)) + tile('rupee', money(s.turnover), tx(Q.tTurn)) + tile('scale', tx(ENTS[s.entity]), tx(Q.tEnt));
+    else T = tile('person', what, tx(Q.tJob)) + tile('rupee', money(s.income), tx(Q.tInc)) + tile('bank', e.persLoans ? money(e.persLoans) : tx(Q.none), tx(Q.tLoan)) + tile('wallet', money(s.liquid), tx(Q.tCash));
+    return '<div class="v6people">' + T + '</div>';
+  }
   SCR[2] = function () {
     var m = model(), p = m.p, s = m.s, Ls = storyLines(p, s, m.e), mem = MEM[p.id], same = S.dials.family === p.defaults.family && S.dials.age === p.defaults.age;
     var people = mem && same ? '<div class="v6people">' + mem.map(function (x, i) {
       return '<div class="v6p"><span class="v6av' + (i === 0 ? ' a0' : '') + '">' + x[0] + '</span><span><b>' + esc(tx(x[1])) + '</b>' + (x[2] ? '<small>' + esc(tx(x[2])) + '</small>' : '') + '</span></div>'; }).join('') + '</div>'
       : '<div class="v6card v6fam">' + icon('parents') + '<span>' + esc(Ls[0]) + '</span></div>';
     return '<section class="v6 v6meet"><p class="v6ey">' + tx(Q.meetEy) + '</p><h1 class="v6h">' + esc(famName(p)) + ', ' + esc(tx(p.place)) + '</h1>' +
-      '<p class="v6lead">' + esc(Ls[1]) + '</p>' + people +
-      '<blockquote class="v6quote">' + esc(tx(p.depends)) + '</blockquote>' +
+      '<p class="v6lab">' + tx(Q.famL) + '</p>' + people + '<p class="v6lab">' + tx(s.branch === 'biz' ? Q.bizL : Q.workL) + '</p>' + bizCard(p, s, m.e) +
       (S.inlineDials ? '<div class="panel">' + dialsHTML(p) + '<button class="secondary" data-a="inline">' + u('done') + '</button></div>' : '<button class="v6link" data-a="inline">' + tx(Q.change) + '</button>') + '</section>';
   };
   /* 3 Send: one line, three ways in, and the reading shown as it happens */
   Q.sendH = O('Send their papers', 'इनके कागज़ भेजें', 'તેમના કાગળો મોકલો');
   Q.sendL = O('Upload them, link accounts, or forward them on WhatsApp. Messy is fine.', 'अपलोड करें, खाते जोड़ें, या WhatsApp पर भेजें। बिखरे हों तो भी चलेगा।', 'અપલોડ કરો, ખાતાં જોડો, અથવા WhatsApp પર મોકલો. અવ્યવસ્થિત હોય તો પણ ચાલશે.');
   Q.upl = O('Upload papers', 'कागज़ अपलोड करें', 'કાગળો અપલોડ કરો'); Q.lnk = O('Link accounts', 'खाते जोड़ें', 'ખાતાં જોડો'); Q.wa = O('WhatsApp', 'WhatsApp', 'WhatsApp');
+  Q.sample = O('Sample files only. Nothing on your phone is read.', 'सिर्फ़ नमूना फ़ाइलें। आपके फ़ोन से कुछ नहीं पढ़ा जाता।', 'માત્ર નમૂના ફાઇલો. તમારા ફોનમાંથી કંઈ વંચાતું નથી.');
   Q.skip = O('Skip and use estimates', 'छोड़ें, अनुमान से चलें', 'છોડો, અંદાજથી ચાલો');
   Q.reading = O('Keeper is reading', 'Keeper पढ़ रहा है', 'Keeper વાંચે છે'); Q.read = O('Keeper read {n} papers', 'Keeper ने {n} कागज़ पढ़े', 'Keeper એ {n} કાગળો વાંચ્યા');
   Q.waToast = O('In November you forward papers to our WhatsApp number, just as they are. For this demo, use Upload.', 'November में आप कागज़ हमारे WhatsApp नंबर पर वैसे ही भेजते हैं। इस डेमो में अपलोड इस्तेमाल करें।', 'November માં તમે કાગળો અમારા WhatsApp નંબર પર એમ જ મોકલો છો. આ ડેમોમાં અપલોડ વાપરો.');
@@ -4252,11 +4269,10 @@ render = function () { _render3(); floatCheck(); };
     var leftTxt = left ? t(Q.leftLoan, { l: tx(LN[left.k] || LN.term), g: (Math.round((left.rate - left.mkt) * 100) / 100).toString() }) : sm.A.C.st === 'ok' ? tx(Q.leftCash) : tx(Q.leftNone);
     return '<section class="v6 v6move"><p class="v6ey">' + tx(Q.first) + '</p><div class="v6card v6lead-card"><h1 class="v6h2">' + esc(a.title) + '</h1>' +
       '<div class="v6jump"><span>' + tx(Q.score) + '</span><b class="v6n">' + sm.now + '</b>' + icon('arrow') + '<b class="v6n up">' + a.to + '</b>' + (a.impact ? '<small>' + esc(a.impact) + '</small>' : '') + '</div>' +
-      '<p class="v6sub">' + esc(a.why) + '</p>' +
       (j ? '<button class="primary v6big" data-a="journey" data-v="' + j + '">' + u('cmpOpts') + icon('arrow') + '</button>' : '<button class="primary v6big" data-a="toast" data-v="demoToast">' + u('addPlan') + '</button>') + '</div>' +
       (rest.length ? '<p class="v6ey">' + tx(Q.then) + '</p><div class="v6rows">' + rest.map(function (x) { var jj = journeyFor(x.k, s);
         return '<button class="v6row v6rowbtn" data-a="' + (jj ? 'journey' : 'toast') + '" data-v="' + (jj || 'demoToast') + '"><span><b>' + esc(x.title) + '</b></span><small class="v6pts">' + (x.gain ? t(Q.pts, { n: x.gain }) : '') + '</small></button>'; }).join('') + '</div>' : '') +
-      '<p class="v6ey">' + tx(Q.left) + '</p><p class="v6sub">' + esc(leftTxt) + '</p></section>';
+      (left ? '<p class="v6ey">' + tx(Q.left) + '</p><div class="v6rows"><div class="v6row"><span><b>' + esc(tx(LN[left.k] || LN.term)) + '</b><small>' + t(Q.leftS, { g: (Math.round((left.rate - left.mkt) * 100) / 100).toString() }) + '</small></span><span class="v6pill v6-leave">' + tx(Q.leaveIt) + '</span></div></div>' : '') + '</section>';
   };
   /* 9 What happens next */
   SCR[9] = function () {
@@ -4268,11 +4284,12 @@ render = function () { _render3(); floatCheck(); };
       (fine.length ? '<p>' + t(Q.waFine, { a: esc(fine.join(', ')) }) + '</p>' : '') + (gapK ? '<p>' + t(Q.waNeeds, { a: esc(LANG === 'en' ? A[gapK].line.charAt(0).toLowerCase() + A[gapK].line.slice(1) : A[gapK].line) }) + '</p>' : '') +
       (a ? '<p>' + t(Q.waFirst, { a: esc(a.title) }) + '</p>' : '') + '<small>' + tx(Q.waFwd) + '</small></div>' +
       '<p class="v6ey">' + tx(Q.up) + '</p><div class="v6rows"><div class="v6row"><span><b>' + tx(Q.up1) + '</b></span><em>' + tx(Q.up1d) + '</em></div><div class="v6row"><span><b>' + tx(Q.up2) + '</b></span><small>' + tx(Q.up2d) + '</small></div></div>' +
-      '<button class="primary v6big wa" data-a="toast" data-v="demoToast">' + u('wa') + '</button><p class="v6sub c">' + u('closeSub') + '</p>' +
+      '<button class="primary v6big wa" data-a="toast" data-v="demoToast">' + u('wa') + '</button>' +
       '<button class="v6link" data-a="toast" data-v="talkToast">' + u('talk') + '</button>' + (G ? G.askHTML() : '') + '</section>';
   };
 
   /* ---------- Shell for the flow ---------- */
+  Q.leftS = O('{g}% above today; switching costs more', 'आज से {g}% ज़्यादा; बदलना महँगा', 'આજ કરતાં {g}% વધુ; બદલવું મોંઘું'); Q.leaveIt = O('Leave it', 'रहने दें', 'રહેવા દો');
   var NEXT = { 1: null, 2: O('Send their papers', 'इनके कागज़ भेजें', 'તેમના કાગળો મોકલો'), 3: O('See the family at a glance', 'परिवार एक नज़र में देखें', 'પરિવાર એક નજરમાં જુઓ'), 4: Q.runCheck, 7: Q.finish };
   var _bb = bottombar;
   bottombar = function () {
