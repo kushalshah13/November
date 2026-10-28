@@ -1114,6 +1114,44 @@ body.v6night .lang { background: transparent; border-color: #3A4672; }
 body.v6night .lang button { color: #D8DBE5; }
 body.v6night .lang button[aria-pressed="true"] { background: #F5F0E6; color: #1B2440; }
 body.v6night .restart { background: transparent; border-color: #3A4672; }
+
+/* 28 Oct pm: tighter column, people grid, send screen */
+body.v6flow .top-in, body.v6flow .v6prog-in, body.v6flow .bottom-in { max-width: 528px; }
+body.v6flow .wrap { padding-block: 20px 120px; }
+.v6 { max-width: 496px; padding-top: 4px; }
+.v6ey { margin: 22px 0 6px; }
+.v6h { font-size: clamp(1.85rem, 6.4vw, 2.25rem); line-height: 1.15; margin: 4px 0 0; }
+.v6lead { font-size: 1.0625rem; line-height: 1.55; margin-top: 10px; }
+.v6card { margin-top: 16px; padding: 16px; }
+.v6people { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; margin-top: 18px; }
+.v6p { display: flex; gap: 10px; align-items: center; min-width: 0; }
+.v6p > span:last-child { display: flex; flex-direction: column; min-width: 0; }
+.v6p b { font-size: 1rem; font-weight: 600; line-height: 1.3; }
+.v6p small { font-size: .875rem; color: var(--muted); line-height: 1.3; }
+.v6av { width: 38px; height: 38px; border-radius: 50%; flex: none; display: grid; place-items: center; font: 600 .95rem/1 var(--body); background: var(--accent-soft); color: var(--ink); }
+.v6av.a0 { background: #1B2440; color: #F5F0E6; }
+.v6quote { margin-top: 20px; font-size: 1.2rem; }
+.v6meet .v6link { margin-top: 6px; }
+.v6big svg { width: 18px; height: 18px; }
+.v6two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
+.v6two .secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; align-self: stretch; }
+.v6send .v6big { margin-top: 20px; }
+.v6send .v6link { margin-top: 8px; }
+.v6read { padding-bottom: 6px; }
+.v6read-h { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+.v6read-h span { font-size: .875rem; font-weight: 600; color: var(--muted); }
+.v6fact { padding: 10px 0; }
+.v6fact em { font-style: normal; font-weight: 600; }
+.v6fact.wait { opacity: .55; }
+.v6fact.wait i { background: transparent; border: 2px solid var(--line); width: 8px; height: 8px; }
+.v6fact.now i { background: transparent; border: 2px solid #8A5E22; width: 8px; height: 8px; }
+.v6fact.now { color: var(--ink); }
+
+.v6ft { display: flex; justify-content: space-between; gap: 10px; }
+.v6ft em { white-space: nowrap; }
+.v6two .secondary { font-size: .9375rem; white-space: nowrap; padding-inline: 10px; }
+.v6fact .v6ft { flex-direction: row; font-weight: 600; }
+.v6fact > span { flex: 1; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -4113,22 +4151,73 @@ render = function () { _render3(); floatCheck(); };
   function flow() { return !S.v && !S.j && !S.c && !S.pick && S.screen >= 1 && S.screen <= 9; }
 
   /* 2 Meet: people before numbers */
+  function N(en, hi, gu) { return O(en, hi, gu); }
+  var R = { self: N('', '', ''), wife: N('Wife', 'पत्नी', 'પત્ની'), husband: N('Husband', 'पति', 'પતિ'), kids: N('Children', 'बच्चे', 'બાળકો'), father: N('Father', 'पिता', 'પિતા'), mother: N('Mother', 'माँ', 'માતા'), parents: N('Parents', 'माता-पिता', 'માતા-પિતા'), son: N('Son', 'बेटा', 'દીકરો'), daughter: N('Daughter', 'बेटी', 'દીકરી'), brother: N('Brother', 'भाई', 'ભાઈ'), sons: N('Sons', 'बेटे', 'દીકરાઓ'), daughters: N('Daughters', 'बेटियाँ', 'દીકરીઓ') };
+  var D = {
+    signs: N('Signs for everything', 'हर कागज़ पर दस्तख़त', 'દરેક કાગળ પર સહી'), home: N('Runs the home', 'घर संभालती हैं', 'ઘર સંભાળે છે'), withThem: N('Lives with them', 'साथ रहते हैं', 'સાથે રહે છે'), withThemF: N('Lives with them', 'साथ रहती हैं', 'સાથે રહે છે'),
+    joining: N('Joining the firm', 'फ़र्म में आ रहे हैं', 'ફર્મમાં જોડાય છે'), inBiz: N('In the business', 'बिज़नेस में', 'બિઝનેસમાં'), married: N('Both married', 'दोनों की शादी हो चुकी', 'બંને પરણેલી'),
+    factory: N('Runs the factory', 'फ़ैक्ट्री संभालते हैं', 'ફેક્ટરી સંભાળે છે'), finance: N('Finance and exports', 'फ़ाइनेंस और एक्सपोर्ट', 'ફાઇનાન્સ અને એક્સપોર્ટ'), designs: N('Clients come for her designs', 'ग्राहक उनके डिज़ाइन के लिए आते हैं', 'ગ્રાહકો તેમની ડિઝાઇન માટે આવે છે'),
+    karta: N('Karta of the HUF', 'HUF के कर्ता', 'HUF ના કર્તા'), partner: N('Partner in the business', 'बिज़नेस में पार्टनर', 'બિઝનેસમાં ભાગીદાર'), college: N('At college', 'कॉलेज में', 'કોલેજમાં'),
+    chennai: N('In Chennai, she supports them', 'चेन्नई में, वे सहारा देती हैं', 'ચેન્નઈમાં, તે આધાર આપે છે'), pm: N('Product manager', 'प्रोडक्ट मैनेजर', 'પ્રોડક્ટ મેનેજર'), branch: N('Heads a bank branch', 'बैंक ब्रांच हेड', 'બેંક બ્રાન્ચ હેડ'), teaches: N('Teaches', 'पढ़ाते हैं', 'ભણાવે છે'),
+    consult: N('Consultant', 'कंसल्टेंट', 'કન્સલ્ટન્ટ'), exec: N('Five years from retiring', 'रिटायरमेंट में पाँच साल', 'નિવૃત્તિમાં પાંચ વર્ષ'), psu: N('PSU officer, pension assured', 'PSU अधिकारी, पेंशन पक्की', 'PSU અધિકારી, પેન્શન પાકું'), trade: N('Runs the trade', 'कारोबार संभालते हैं', 'કારોબાર સંભાળે છે'), runs: N('Runs the business', 'बिज़नेस चलाती हैं', 'બિઝનેસ ચલાવે છે'), runsM: N('Runs the business', 'बिज़नेस चलाते हैं', 'બિઝનેસ ચલાવે છે'), fleetD: N('Every fleet loan in his name', 'हर फ़्लीट लोन उनके नाम', 'દરેક ફ્લીટ લોન તેમના નામે')
+  };
+  /* [initial, name, sub] ; sub is an O() or a plain string */
+  var MEM = {
+    rajesh: [['K', N('Kabir, 48', 'कबीर, 48', 'કબીર, 48'), D.signs], ['M', N('Meera', 'मीरा', 'મીરા'), D.home], ['2', R.kids, '17, 13'], ['F', N('Father, 74', 'पिता, 74', 'પિતા, 74'), D.withThem]],
+    mahendra: [['V', N('Vikram, 56', 'विक्रम, 56', 'વિક્રમ, 56'), D.trade], ['W', R.wife, ''], ['R', N('Rohan, 29', 'रोहन, 29', 'રોહન, 29'), D.joining], ['M', N('Mother, 80', 'माँ, 80', 'માતા, 80'), D.withThemF]],
+    vipul: [['R', N('Rina, 42', 'रीना, 42', 'રીના, 42'), D.finance], ['V', N('Vipul, 44', 'विपुल, 44', 'વિપુલ, 44'), D.factory], ['2', R.kids, ''], ['P', R.parents, D.withThem]],
+    ketan: [['A', N('Anahita, 46', 'अनाहिता, 46', 'અનાહિતા, 46'), D.designs], ['H', R.husband, ''], ['2', R.kids, '']],
+    pankaj: [['P', N('Pankaj, 52', 'पंकज, 52', 'પંકજ, 52'), D.runsM], ['W', R.wife, ''], ['S', N('Son, 24', 'बेटा, 24', 'દીકરો, 24'), D.inBiz], ['D', N('Daughter, 21', 'बेटी, 21', 'દીકરી, 21'), '']],
+    hasmukh: [['N', N('Nidhi, 54', 'निधि, 54', 'નિધિ, 54'), D.runs], ['H', R.husband, ''], ['2', R.daughters, D.married]],
+    nilesh: [['N', N('Nilesh, 47', 'नीलेश, 47', 'નીલેશ, 47'), D.runsM], ['W', R.wife, ''], ['S', N('Son, 15', 'बेटा, 15', 'દીકરો, 15'), '']],
+    sunita: [['S', N('Sunita, 39', 'सुनीता, 39', 'સુનીતા, 39'), D.runs], ['A', N('Amit, 41', 'अमित, 41', 'અમિત, 41'), D.partner], ['D', N('Daughter, 8', 'बेटी, 8', 'દીકરી, 8'), ''], ['P', R.parents, D.withThem]],
+    dinesh: [['D', N('Dinesh, 59', 'दिनेश, 59', 'દિનેશ, 59'), D.karta], ['B', R.brother, D.partner], ['2', R.sons, '32, 28'], ['P', R.parents, '84, 80']],
+    anil: [['A', N('Anil, 43', 'अनिल, 43', 'અનિલ, 43'), D.fleetD], ['W', R.wife, ''], ['2', R.kids, '']],
+    arjun: [['A', N('Ananya, 29', 'अनन्या, 29', 'અનન્યા, 29'), D.pm], ['P', R.parents, D.chennai]],
+    kulkarni: [['N', N('Neha, 42', 'नेहा, 42', 'નેહા, 42'), D.branch], ['R', N('Rahul', 'राहुल', 'રાહુલ'), D.teaches], ['2', R.kids, '10, 6']],
+    menon: [['P', N('Priya, 35', 'प्रिया, 35', 'પ્રિયા, 35'), D.consult], ['K', N('Karthik, 34', 'कार्तिक, 34', 'કાર્તિક, 34'), D.consult]],
+    sanjay: [['S', N('Sanjay, 52', 'संजय, 52', 'સંજય, 52'), D.exec], ['W', R.wife, ''], ['S', N('Son, 22', 'बेटा, 22', 'દીકરો, 22'), D.college], ['P', R.parents, '79, 75']],
+    sunil: [['S', N('Sunil, 46', 'सुनील, 46', 'સુનીલ, 46'), D.psu], ['W', R.wife, ''], ['2', R.kids, '16, 12'], ['M', N('Mother, 72', 'माँ, 72', 'માતા, 72'), D.withThemF]]
+  };
   SCR[2] = function () {
-    var m = model(), p = m.p, s = m.s, Ls = storyLines(p, s, m.e);
+    var m = model(), p = m.p, s = m.s, Ls = storyLines(p, s, m.e), mem = MEM[p.id], same = S.dials.family === p.defaults.family && S.dials.age === p.defaults.age;
+    var people = mem && same ? '<div class="v6people">' + mem.map(function (x, i) {
+      return '<div class="v6p"><span class="v6av' + (i === 0 ? ' a0' : '') + '">' + x[0] + '</span><span><b>' + esc(tx(x[1])) + '</b>' + (x[2] ? '<small>' + esc(tx(x[2])) + '</small>' : '') + '</span></div>'; }).join('') + '</div>'
+      : '<div class="v6card v6fam">' + icon('parents') + '<span>' + esc(Ls[0]) + '</span></div>';
     return '<section class="v6 v6meet"><p class="v6ey">' + tx(Q.meetEy) + '</p><h1 class="v6h">' + esc(famName(p)) + ', ' + esc(tx(p.place)) + '</h1>' +
-      '<p class="v6lead">' + esc(Ls[1]) + '</p>' +
-      '<div class="v6card v6fam">' + icon('parents') + '<span>' + esc(Ls[0]) + '</span></div>' +
+      '<p class="v6lead">' + esc(Ls[1]) + '</p>' + people +
       '<blockquote class="v6quote">' + esc(tx(p.depends)) + '</blockquote>' +
       (S.inlineDials ? '<div class="panel">' + dialsHTML(p) + '<button class="secondary" data-a="inline">' + u('done') + '</button></div>' : '<button class="v6link" data-a="inline">' + tx(Q.change) + '</button>') + '</section>';
   };
-  /* 3 Send: one action */
+  /* 3 Send: one line, three ways in, and the reading shown as it happens */
+  Q.sendH = O('Send their papers', 'इनके कागज़ भेजें', 'તેમના કાગળો મોકલો');
+  Q.sendL = O('Upload them, link accounts, or forward them on WhatsApp. Messy is fine.', 'अपलोड करें, खाते जोड़ें, या WhatsApp पर भेजें। बिखरे हों तो भी चलेगा।', 'અપલોડ કરો, ખાતાં જોડો, અથવા WhatsApp પર મોકલો. અવ્યવસ્થિત હોય તો પણ ચાલશે.');
+  Q.upl = O('Upload papers', 'कागज़ अपलोड करें', 'કાગળો અપલોડ કરો'); Q.lnk = O('Link accounts', 'खाते जोड़ें', 'ખાતાં જોડો'); Q.wa = O('WhatsApp', 'WhatsApp', 'WhatsApp');
+  Q.skip = O('Skip and use estimates', 'छोड़ें, अनुमान से चलें', 'છોડો, અંદાજથી ચાલો');
+  Q.reading = O('Keeper is reading', 'Keeper पढ़ रहा है', 'Keeper વાંચે છે'); Q.read = O('Keeper read {n} papers', 'Keeper ने {n} कागज़ पढ़े', 'Keeper એ {n} કાગળો વાંચ્યા');
+  Q.waToast = O('In November you forward papers to our WhatsApp number, just as they are. For this demo, use Upload.', 'November में आप कागज़ हमारे WhatsApp नंबर पर वैसे ही भेजते हैं। इस डेमो में अपलोड इस्तेमाल करें।', 'November માં તમે કાગળો અમારા WhatsApp નંબર પર એમ જ મોકલો છો. આ ડેમોમાં અપલોડ વાપરો.');
+  U.v6wa = Q.waToast;
+  function factOf(f) {
+    var mm = f.line.match(/₹[\d,]+/), v = mm ? money(+mm[0].replace(/[₹,]/g, '')) : '';
+    return { t: tx(FTYPE[f.type]), v: v, f: f.n };
+  }
   SCR[3] = function () {
-    var m = model(), sel = selFiles(m.s), done = S.uploaded || S.skipped;
-    var list = S.uploaded ? '<div class="v6card v6read"><p class="v6sub">' + u('readDone', { n: sel.length, m: factCount(sel) }) + '</p>' + sel.slice(0, 6).map(function (f) {
-      return '<div class="v6fact"><i></i><span>' + esc(tx(FTYPE[f.type])) + '<small>' + esc(f.line.split(' · ')[0]) + '</small></span></div>'; }).join('') + '</div>' : S.skipped ? '<p class="v6sub">' + u('skipped') + '</p>' : '';
-    return '<section class="v6 v6send"><h1 class="v6h">' + u('sendT') + '</h1><p class="v6lead s">' + u('sendSub') + '</p>' +
-      (done ? '' : '<button class="primary v6big" data-a="sheet" data-v="picker">' + u('upload') + '</button><p class="v6note">' + icon('lock', 'sm') + vt('dummyNote') + '</p>') + list +
-      '<div class="v6alt">' + (S.uploaded ? '<button class="v6link" data-a="sheet" data-v="picker">' + u('reupload') + '</button>' : '<button class="v6link" data-a="aa">' + tx(Q.linkOr) + '</button>' + (S.skipped ? '' : '<button class="v6link" data-a="skip">' + tx(Q.skipOr) + '</button>')) + '</div></section>';
+    var m = model(), sel = selFiles(m.s), n = sel.length, k = S.reading ? Math.min(S.readStep, n) : S.uploaded ? n : 0;
+    var list = (S.reading || S.uploaded) ? '<div class="v6card v6read"><div class="v6read-h"><b>' + (S.reading ? tx(Q.reading) : t(Q.read, { n: n })) + '</b><span>' + k + ' / ' + n + '</span></div>' + sel.map(function (f, i) {
+      var st = i < k ? 'done' : i === k && S.reading ? 'now' : 'wait', x = factOf(f);
+      return '<div class="v6fact ' + st + '"><i></i><span><span class="v6ft">' + esc(x.t) + (st === 'done' && x.v ? ' <em>' + esc(x.v) + '</em>' : '') + '</span><small>' + esc(x.f) + '</small></span></div>'; }).join('') + '</div>' : '';
+    var ways = S.reading || S.uploaded ? '' : '<button class="primary v6big" data-a="sheet" data-v="picker">' + icon('doc') + tx(Q.upl) + '</button>' +
+      '<div class="v6two"><button class="secondary" data-a="aa">' + icon('link', 'sm') + tx(Q.lnk) + '</button><button class="secondary" data-a="toast" data-v="v6wa">' + icon('chat', 'sm') + tx(Q.wa) + '</button></div>';
+    return '<section class="v6 v6send"><h1 class="v6h">' + tx(Q.sendH) + '</h1><p class="v6lead s">' + tx(Q.sendL) + '</p>' + ways + list +
+      (S.skipped ? '<p class="v6sub">' + u('skipped') + '</p>' : '') +
+      (S.reading ? '' : S.uploaded ? '<button class="v6link" data-a="sheet" data-v="picker">' + u('reupload') + '</button>' : S.skipped ? '' : '<button class="v6link" data-a="skip">' + tx(Q.skip) + '</button><p class="v6note">' + icon('lock', 'sm') + vt('dummyNote') + '</p>') + '</section>';
+  };
+  /* Reading happens on the page, paper by paper, and stays there */
+  startReading = function () {
+    S.sheet = null; S.reading = true; S.readStep = 0; S.uploaded = false; S.skipped = false; render();
+    var n = selFiles(model().s).length, per = Math.max(380, Math.min(650, 3600 / n)), reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) per = 100;
+    (function tick() { setTimeout(function () { if (!S.reading) return; S.readStep++; if (S.readStep >= n) { S.reading = false; S.uploaded = true; } render(); if (S.reading) tick(); }, per); })();
   };
   /* 4 Glance: four numbers */
   var _oldS4 = SCR[4];
@@ -4188,7 +4277,7 @@ render = function () { _render3(); floatCheck(); };
   var _bb = bottombar;
   bottombar = function () {
     if (!flow() || S.screen === 1) return _bb();
-    var can = S.screen === 3 ? (S.uploaded || S.skipped) : S.screen < 9;
+    var can = S.screen === 3 ? (S.uploaded || S.skipped) && !S.reading : S.screen < 9;
     var lab;
     if (!can) lab = vt('sendFirst');
     else if (S.screen === 5) { var m = model(); lab = t(Q.toN, { n: scoreModel(m.p, m.s, m.e).next }); }
@@ -4208,7 +4297,7 @@ render = function () { _render3(); floatCheck(); };
     return '<div class="scrim" data-a="closesheet"></div><div class="sheet v6sheet" role="dialog" aria-modal="true"><div class="sh-h"><h3>' + tx(Q.bdT) + '</h3><button class="secondary sm" data-a="closesheet">' + u('close') + '</button></div>' + _oldS4() + '</div>';
   };
   var _r = render;
-  render = function () { document.body.classList.toggle('v6flow', flow()); document.body.classList.toggle('v6night', flow() && S.screen === 5 && !S.sheet); _r(); };
+  render = function () { if (S.screen !== 3) S.reading = false; document.body.classList.toggle('v6flow', flow()); document.body.classList.toggle('v6night', flow() && S.screen === 5 && !S.sheet); _r(); };
   document.addEventListener('click', function (ev) {
     var el = ev.target.closest && ev.target.closest('[data-a="v6bd"]'); if (!el) return;
     S.sheet = 'v6bd'; render(); ev.stopPropagation(); ev.preventDefault();
