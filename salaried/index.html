@@ -1023,6 +1023,97 @@ body.showfloat .floatcta { opacity: 1; transform: none; pointer-events: auto; }
   .tnav button:hover { color: var(--ink); background: var(--accent-soft); }
 }
 #s-ins, #s-loans, #s-claims, #s-vault, #s-agents { scroll-margin-top: 84px; }
+
+/* ===== v6 (28 Oct): Financial Health Check flow ===== */
+body.v6flow .abar { display: none; }
+.v6prog { border-top: 1px solid var(--line); }
+.v6prog-in { max-width: 1040px; margin: 0 auto; padding: 8px 16px 10px; display: flex; align-items: center; gap: 12px; }
+.v6prog-in span { font: 600 .875rem/1 var(--body); color: var(--muted); white-space: nowrap; }
+.v6prog-in i { flex: 1; height: 3px; border-radius: 3px; background: var(--line); display: block; }
+.v6prog-in b { display: block; height: 3px; border-radius: 3px; background: var(--ink); }
+.v6 { max-width: 560px; margin: 0 auto; padding-top: 12px; }
+.v6ey { font: 600 .875rem/1.4 var(--body); letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin: 28px 0 8px; }
+.v6 > .v6ey:first-child { margin-top: 8px; }
+.v6h { font: 500 clamp(1.9rem, 7vw, 2.4rem)/1.15 var(--display); margin: 8px 0 0; }
+.v6h2 { font: 500 1.6rem/1.25 var(--display); margin: 0; }
+.v6lead { font-size: 1.125rem; line-height: 1.6; color: var(--muted); margin: 12px 0 0; max-width: 40ch; }
+.v6lead.s { font-size: 1rem; }
+.v6sub { color: var(--muted); font-size: 1rem; line-height: 1.5; margin: 8px 0 0; }
+.v6sub.c { text-align: center; }
+.v6sub em { font-style: normal; font-weight: 600; color: var(--ink); }
+.v6card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; margin-top: 20px; }
+.v6fam { display: flex; gap: 12px; align-items: flex-start; font-size: 1rem; line-height: 1.5; }
+.v6fam svg { width: 22px; height: 22px; flex: none; }
+.v6quote { margin: 24px 0 0; padding: 2px 0 2px 16px; border-left: 3px solid var(--mark); font: 400 1.25rem/1.5 var(--display); max-width: 36ch; }
+.v6link { background: none; border: 0; padding: 12px 0; font: 600 .95rem/1.4 var(--body); color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; display: block; text-align: left; }
+.v6big { width: 100%; min-height: 54px; margin-top: 22px; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 1rem; }
+.v6note { display: flex; gap: 8px; align-items: flex-start; font-size: .875rem; color: var(--muted); margin: 12px 0 0; }
+.v6alt { margin-top: 10px; }
+.v6read .v6sub { margin: 0 0 6px; font-weight: 600; color: var(--ink); }
+.v6fact { display: flex; gap: 12px; align-items: flex-start; padding: 8px 0; border-top: 1px solid var(--line); }
+.v6fact i { width: 10px; height: 10px; border-radius: 50%; background: #2F6B5A; flex: none; margin-top: 7px; }
+.v6fact span { display: flex; flex-direction: column; font-weight: 600; }
+.v6fact small { font-weight: 400; color: var(--muted); font-size: .875rem; }
+.v6rows { border-top: 1px solid var(--line); margin-top: 18px; }
+.v6row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.v6row span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.v6row b { font-weight: 600; font-size: 1rem; }
+.v6row small { color: var(--muted); font-size: .875rem; }
+.v6row strong { font: 500 1.75rem/1.1 var(--display); white-space: nowrap; }
+.v6row em { font-style: normal; font-weight: 600; color: var(--mark-strong); font-size: .875rem; white-space: nowrap; }
+.v6rowbtn { width: 100%; background: none; border: 0; border-bottom: 1px solid var(--line); text-align: left; color: var(--ink); cursor: pointer; font: inherit; }
+.v6pts { color: #2F6B5A !important; font-weight: 600; white-space: nowrap; }
+.v6glance .v6link { margin-top: 8px; }
+body.v6night { background: #1B2440; }
+body.v6night .top { background: #1B2440; border-color: #3A4672; }
+body.v6night .top .mark, body.v6night .top .lang button, body.v6night .top .restart { color: #F5F0E6; }
+body.v6night .v6prog { border-color: #3A4672; }
+body.v6night .v6prog-in span { color: #D8DBE5; }
+body.v6night .v6prog-in i { background: #3A4672; }
+body.v6night .v6prog-in b { background: #F5F0E6; }
+.v6check { background: transparent; color: #F5F0E6; }
+.v6check .v6ey, .v6check .v6sub, .v6check .v6foot, .v6check .v6area small { color: #D8DBE5; }
+.v6check .v6sub em { color: #F5F0E6; }
+.v6score { display: flex; align-items: baseline; gap: 10px; margin-top: 4px; }
+.v6score strong { font: 500 5.5rem/1 var(--display); }
+.v6score span { font-size: 1.125rem; color: #D8DBE5; }
+.v6bar { position: relative; height: 8px; border-radius: 8px; background: #3A4672; margin: 16px 0 4px; }
+.v6bar i { display: block; height: 8px; border-radius: 8px; background: #F5F0E6; }
+.v6bar b { position: absolute; top: -5px; width: 2px; height: 18px; background: #D9A15A; }
+.v6areas { border-top: 1px solid #3A4672; margin-top: 22px; }
+.v6area { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid #3A4672; }
+.v6area span { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.v6area b { font-weight: 600; }
+.v6area small { font-size: .875rem; line-height: 1.4; }
+.v6pill { font: 600 .875rem/1 var(--body); padding: 6px 12px; border-radius: 999px; white-space: nowrap; }
+.v6-ok { background: #3D8A73; color: #fff; } .v6-gap { background: #C9573F; color: #fff; } .v6-look { border: 2px solid #D9A15A; padding: 4px 10px; color: #F5F0E6; }
+.v6foot { font-size: .875rem; line-height: 1.5; margin: 14px 0 0; }
+body.v6night .v6bottom { background: #1B2440; border-color: #3A4672; }
+body.v6night .v6bottom .secondary { color: #F5F0E6; border-color: #F5F0E6; background: transparent; }
+body.v6night .v6bottom .primary { background: #F5F0E6; color: #1B2440; }
+.v6lead-card { margin-top: 0; }
+.v6jump { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.v6jump > span { font-weight: 600; color: var(--muted); font-size: .875rem; }
+.v6jump > svg { width: 18px; height: 18px; }
+.v6n { font: 500 1.6rem/1 var(--display); }
+.v6n.up { color: #2F6B5A; }
+.v6jump small { color: var(--muted); font-size: .875rem; flex-basis: 100%; }
+.v6move .v6lead-card .v6big { margin-top: 16px; }
+.v6wa { background: var(--surface); border: 1px solid var(--line); border-radius: 4px 16px 16px 16px; padding: 16px; margin-top: 18px; line-height: 1.5; }
+.v6wa p { margin: 0 0 8px; }
+.v6wa small { color: var(--muted); font-size: .875rem; }
+.v6close .asknov { margin-top: 18px; }
+.v6sheet { max-height: 88vh; overflow-y: auto; }
+.v6sheet .hrow .chipbtn { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .v6pts, :root:not([data-theme="light"]) .v6n.up { color: #7FC4AE !important; } :root:not([data-theme="light"]) .v6fact i { background: #3D8A73; } }
+
+.v6area > span:first-child { flex: 1; }
+.v6area > .v6pill { flex: none; }
+html:has(body.v6night), body.v6night main { background: #1B2440; }
+body.v6night .lang { background: transparent; border-color: #3A4672; }
+body.v6night .lang button { color: #D8DBE5; }
+body.v6night .lang button[aria-pressed="true"] { background: #F5F0E6; color: #1B2440; }
+body.v6night .restart { background: transparent; border-color: #3A4672; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -3877,6 +3968,250 @@ render = function () { _render3(); floatCheck(); };
   document.addEventListener('click', function (ev) {
     var el = ev.target.closest && ev.target.closest('[data-a="nnote"]'); if (!el) return;
     S.sheet = 'nnote'; render(); ev.stopPropagation(); ev.preventDefault();
+  }, true);
+})();
+
+/* v6 (28 Oct 2026): the Financial Health Check flow, one job per screen, a family score out of 100. */
+(function () {
+  var Q = {
+    step: O('{n} of 6', '6 में से {n}', '6 માંથી {n}'),
+    fam: O('{n} family', '{n} परिवार', '{n} પરિવાર'),
+    meetEy: O('Meet the family', 'परिवार से मिलिए', 'પરિવારને મળો'),
+    change: O('Not like your family? Change it', 'आपके परिवार जैसा नहीं? बदलें', 'તમારા પરિવાર જેવું નથી? બદલો'),
+    linkOr: O('Or link bank accounts', 'या बैंक खाते जोड़ें', 'અથવા બેંક ખાતાં જોડો'),
+    skipOr: O('Or skip and use estimates', 'या छोड़ें, अनुमान से चलें', 'અથવા છોડો, અંદાજથી ચાલો'),
+    glance: O('At a glance', 'एक नज़र में', 'એક નજરમાં'),
+    fromN: O('From {n} papers Keeper read', 'Keeper ने {n} कागज़ पढ़े', 'Keeper એ {n} કાગળો વાંચ્યા'),
+    fromEst: O('From estimates. Papers make it exact.', 'अनुमान से। कागज़ों से यह सटीक होगा।', 'અંદાજથી. કાગળોથી તે ચોક્કસ થશે.'),
+    owns: O('Owns', 'संपत्ति', 'સંપત્તિ'), ownsB: O('Business share, home, savings', 'बिज़नेस का हिस्सा, घर, बचत', 'બિઝનેસનો હિસ્સો, ઘર, બચત'), ownsS: O('Home and savings', 'घर और बचत', 'ઘર અને બચત'),
+    owes: O('Owes', 'देनदारी', 'દેવું'), owesG: O('{first} has guaranteed {g}', '{first} ने {g} की गारंटी दी है', '{first} એ {g} ની ગેરંટી આપી છે'),
+    owesB: O('Business limits and loans', 'बिज़नेस लिमिट और लोन', 'બિઝનેસ લિમિટ અને લોન'), owesP: O('Home and other loans', 'घर और अन्य लोन', 'ઘર અને અન્ય લોન'), none: O('None', 'कोई नहीं', 'કોઈ નહીં'),
+    cov: O('Covered', 'बीमा', 'વીમો'), covL: O('Life {l} · health {h}', 'जीवन {l} · स्वास्थ्य {h}', 'જીવન {l} · આરોગ્ય {h}'), covW: O('Life {l} · health {h} through work', 'जीवन {l} · स्वास्थ्य {h} नौकरी से', 'જીવન {l} · આરોગ્ય {h} નોકરીથી'),
+    cash: O('Cash within reach', 'हाथ में पैसा', 'હાથવગા પૈસા'), cashS: O('About {m} months of spend', 'करीब {m} महीने का ख़र्च', 'આશરે {m} મહિનાનો ખર્ચ'),
+    seeAll: O('See every paper and the breakdown', 'हर कागज़ और पूरा ब्योरा देखें', 'દરેક કાગળ અને આખી વિગત જુઓ'),
+    bdT: O('Every number and paper', 'हर आँकड़ा और कागज़', 'દરેક આંકડો અને કાગળ'),
+    runCheck: O('Run the Financial Health Check', 'फ़ाइनेंशियल हेल्थ चेक चलाएँ', 'ફાઇનાન્શિયલ હેલ્થ ચેક ચલાવો'),
+    scoreEy: O('{f} score', '{f} का स्कोर', '{f} નો સ્કોર'), outOf: O('out of 100', '100 में से', '100 માંથી'),
+    holds: O('One gap holds it down. Fix it and the score goes to {n}.', 'एक कमी स्कोर नीचे रखती है। इसे ठीक करें तो स्कोर {n} होगा।', 'એક ખામી સ્કોર નીચે રાખે છે. તેને સુધારો તો સ્કોર {n} થશે.'),
+    lift: O('Nothing urgent. The first move takes it to {n}.', 'कुछ ज़रूरी नहीं। पहला कदम इसे {n} तक ले जाता है।', 'કંઈ તાત્કાલિક નથી. પહેલું પગલું તેને {n} સુધી લઈ જાય છે.'),
+    foot: O('From {n} papers. One big gap pulls the score down more than the rest can lift it.', '{n} कागज़ों से। एक बड़ी कमी स्कोर को उतना गिराती है जितना बाकी सब उठा नहीं सकते।', '{n} કાગળો પરથી. એક મોટી ખામી સ્કોરને એટલો નીચે લાવે છે જેટલો બાકી બધું ઉપર લાવી શકતું નથી.'),
+    footEst: O('From estimates: could be {a} to {b} until we see the papers.', 'अनुमान से: कागज़ देखने तक {a} से {b} के बीच।', 'અંદાજથી: કાગળો જોઈએ ત્યાં સુધી {a} થી {b} વચ્ચે.'),
+    toN: O('See how to get to {n}', 'देखें {n} तक कैसे पहुँचें', 'જુઓ {n} સુધી કેવી રીતે પહોંચવું'),
+    area: { P: O('Protection', 'सुरक्षा', 'સુરક્ષા'), L: O('Loans', 'लोन', 'લોન'), C: O('Cash within reach', 'हाथ में पैसा', 'હાથવગા પૈસા'), F: O('Family papers', 'परिवार के कागज़', 'પરિવારના કાગળો'), W: O('Savings', 'बचत', 'બચત') },
+    st: { ok: O('Fine', 'ठीक', 'બરાબર'), look: O('Check', 'देखें', 'જુઓ'), gap: O('Gap', 'कमी', 'ખામી') },
+    first: O('Your first move', 'आपका पहला कदम', 'તમારું પહેલું પગલું'), score: O('Score', 'स्कोर', 'સ્કોર'),
+    then: O('Then', 'फिर', 'પછી'), left: O('Left alone', 'ऐसे ही रहने दें', 'એમ જ રહેવા દો'), pts: O('+{n} points', '+{n} अंक', '+{n} અંક'),
+    leftLoan: O('{l} is {g}% above today. Switching costs more than it saves.', '{l} आज से {g}% महँगा है। बदलने का ख़र्च बचत से ज़्यादा है।', '{l} આજ કરતાં {g}% મોંઘી છે. બદલવાનો ખર્ચ બચત કરતાં વધુ છે.'),
+    leftCash: O('Cash within reach is fine. No need to hold more.', 'हाथ में पैसा ठीक है। इससे ज़्यादा रखने की ज़रूरत नहीं।', 'હાથવગા પૈસા બરાબર છે. વધુ રાખવાની જરૂર નથી.'),
+    leftNone: O('Nothing else needs changing today.', 'आज और कुछ बदलने की ज़रूरत नहीं।', 'આજે બીજું કંઈ બદલવાની જરૂર નથી.'),
+    finish: O('Finish', 'पूरा करें', 'પૂરું કરો'),
+    waH: O('This lands on {first}’s WhatsApp', 'यह {first} के WhatsApp पर आता है', 'આ {first} ના WhatsApp પર આવે છે'),
+    waHi: O('{first}, here’s your family’s check.', '{first}, आपके परिवार की जाँच।', '{first}, તમારા પરિવારની તપાસ.'),
+    waScore: O('Family score {s}, and {t} after the first move.', 'परिवार का स्कोर {s}, पहले कदम के बाद {t}।', 'પરિવારનો સ્કોર {s}, પહેલા પગલા પછી {t}.'),
+    waFine: O('Fine: {a}.', 'ठीक: {a}।', 'બરાબર: {a}.'), waNeeds: O('Needs you: {a}.', 'आपकी ज़रूरत: {a}।', 'તમારી જરૂર: {a}.'), waFirst: O('First move: {a}.', 'पहला कदम: {a}।', 'પહેલું પગલું: {a}.'),
+    waFwd: O('Forward to the family · november', 'परिवार को भेजें · november', 'પરિવારને મોકલો · november'),
+    up: O('Coming up', 'आगे', 'આગળ'), up1: O('Health policy renews, Checkup looks again', 'हेल्थ पॉलिसी रिन्यू, Checkup फिर देखेगा', 'હેલ્થ પોલિસી રિન્યુ, Checkup ફરી જોશે'), up1d: O('14 Nov', '14 नवं', '14 નવે'),
+    up2: O('Loan rate check', 'लोन रेट की जाँच', 'લોન દરની તપાસ'), up2d: O('Jan', 'जन', 'જાન્યુ'),
+    /* area reason lines */
+    pG: O('Bank can call {g}; cover pays {c}', 'बैंक {g} माँग सकता है; बीमा {c} देता है', 'બેંક {g} માગી શકે; વીમો {c} આપે છે'),
+    pL: O('Cover {c} against about {n} needed', '{n} की ज़रूरत के सामने {c} का बीमा', '{n} ની જરૂર સામે {c} નો વીમો'),
+    pH: O('Health cover {h} is low for a big hospital bill', '{h} का स्वास्थ्य बीमा बड़े बिल के लिए कम है', '{h} નો આરોગ્ય વીમો મોટા બિલ માટે ઓછો છે'),
+    pW: O('Health cover only through work', 'स्वास्थ्य बीमा सिर्फ़ नौकरी से', 'આરોગ્ય વીમો માત્ર નોકરીથી'),
+    pPar: O('No health cover for parents', 'माता-पिता का स्वास्थ्य बीमा नहीं', 'માતા-પિતાનો આરોગ્ય વીમો નથી'),
+    pBiz: O('Business cover has a gap', 'बिज़नेस बीमे में कमी', 'બિઝનેસ વીમામાં ખામી'),
+    pOk: O('Cover matches what the family needs', 'बीमा परिवार की ज़रूरत के बराबर', 'વીમો પરિવારની જરૂર મુજબ'),
+    lLeak: O('About {x} a year in extra interest', 'हर साल करीब {x} फ़ालतू ब्याज', 'દર વર્ષે આશરે {x} વધારાનું વ્યાજ'),
+    lEmi: O('EMIs take {p}% of income', 'EMI आय का {p}% लेती है', 'EMI આવકના {p}% લે છે'),
+    lPledge: O('Family home pledged for business limits', 'परिवार का घर बिज़नेस लिमिट के लिए गिरवी', 'પરિવારનું ઘર બિઝનેસ લિમિટ માટે ગીરવે'),
+    lGuar: O('Fair rate; {first} guarantees {g}', 'ठीक रेट; {first} की {g} की गारंटी', 'યોગ્ય દર; {first} ની {g} ની ગેરંટી'),
+    lOk: O('Loans at a fair rate', 'लोन ठीक रेट पर', 'લોન યોગ્ય દરે'), lNone: O('No loans', 'कोई लोन नहीं', 'કોઈ લોન નથી'),
+    cM: O('{m} months of spend', '{m} महीने का ख़र्च', '{m} મહિનાનો ખર્ચ'),
+    fSucc: O('No succession clause in business papers', 'बिज़नेस के कागज़ों में उत्तराधिकार की शर्त नहीं', 'બિઝનેસના કાગળોમાં વારસાની શરત નથી'),
+    fNom: O('Nominees missing on some accounts', 'कुछ खातों में नॉमिनी नहीं', 'કેટલાંક ખાતાંમાં નોમિની નથી'),
+    fWill: O('No recent will', 'ताज़ा वसीयत नहीं', 'તાજી વસિયત નથી'), fOk: O('Nominees and papers in order', 'नॉमिनी और कागज़ ठीक', 'નોમિની અને કાગળો બરાબર'),
+    wTrad: O('{n} policies returning about 5%', '{n} पॉलिसियाँ, करीब 5% रिटर्न', '{n} પોલિસીઓ, આશરે 5% વળતર'),
+    wConc: O('Much of savings in one company’s stock', 'बचत का बड़ा हिस्सा एक कंपनी के शेयर में', 'બચતનો મોટો હિસ્સો એક કંપનીના શેરમાં'),
+    wIdle: O('Cash idle beyond a year of spend', 'एक साल के ख़र्च से ज़्यादा कैश खाली', 'એક વર્ષના ખર્ચથી વધુ રોકડ ખાલી'),
+    wGoal: O('No monthly income plan for the corpus yet', 'जमा पूँजी से मासिक आय का प्लान नहीं', 'મૂડીમાંથી માસિક આવકનો પ્લાન નથી'),
+    wOk: O('Savings set up sensibly', 'बचत ठीक जगह पर', 'બચત યોગ્ય જગ્યાએ')
+  };
+  var LN = { term: O('Term loan', 'टर्म लोन', 'ટર્મ લોન'), od: O('Overdraft', 'ओवरड्राफ़्ट', 'ઓવરડ્રાફ્ટ'), mach: O('Machinery loan', 'मशीनरी लोन', 'મશીનરી લોન'), cc: O('Cash credit', 'कैश क्रेडिट', 'કેશ ક્રેડિટ'), gml: O('Gold metal loan', 'गोल्ड मेटल लोन', 'ગોલ્ડ મેટલ લોન'), lap: O('Loan against property', 'प्रॉपर्टी पर लोन', 'પ્રોપર્ટી પર લોન'), home: O('Home loan', 'होम लोन', 'હોમ લોન'), car: O('Car loan', 'कार लोन', 'કાર લોન'), fleet: O('Fleet loan', 'फ़्लीट लोन', 'ફ્લીટ લોન') };
+  var AW = { P: 0.30, L: 0.25, C: 0.15, F: 0.15, W: 0.15 }, AK = ['P', 'L', 'C', 'F', 'W'];
+
+  /* ---------- Scoring model (illustrative weights; calibrate on 50+ families before real use) ---------- */
+  function areasOf(p, s, e) {
+    var first = tx(p.first), A = {};
+    /* Protection: life vs need, health vs a realistic bill, dependent parents, business cover */
+    var lr = e.need > 0 ? Math.min(1, s.life / e.need) : 1;
+    var hs = s.branch === 'biz' ? Math.min(1, s.health / (25 * L)) : (s.health > 0 ? Math.min(1, s.health / (10 * L)) : (s.empHealth ? 0.35 : 0));
+    var par = s.parentsDep && !s.parentsIns ? 0 : 1, bz = s.branch === 'biz' ? ((s.lapsed || s.bizGap) ? 0.5 : 1) : 1;
+    var pw = s.branch === 'biz' ? [0.55, 0.25, 0.1, 0.1] : [0.6, 0.3, 0.1, 0];
+    var parts = [[lr, 0], [hs, 1], [par, 2], [bz, 3]].filter(function (x) { return pw[x[1]] > 0; });
+    var pv = 100 * (pw[0] * lr + pw[1] * hs + pw[2] * par + pw[3] * bz);
+    var worstP = parts.slice().sort(function (a, b) { return pw[b[1]] * (1 - b[0]) - pw[a[1]] * (1 - a[0]); })[0];
+    var pl;
+    if (worstP[0] >= 0.85) pl = tx(Q.pOk);
+    else if (worstP[1] === 0) pl = s.guarantee > s.life ? t(Q.pG, { g: money(s.guarantee), c: money(s.life) }) : t(Q.pL, { c: money(s.life), n: money(nice(e.need)) });
+    else if (worstP[1] === 1) pl = s.branch === 'sal' && !s.health ? tx(Q.pW) : t(Q.pH, { h: money(s.health) });
+    else if (worstP[1] === 2) pl = tx(Q.pPar); else pl = tx(Q.pBiz);
+    A.P = { v: pv, line: pl };
+    /* Loans: extra interest against income, EMI load, guarantees against ready money, home pledged */
+    var inc = s.branch === 'sal' ? s.income : Math.max(s.profit || 0, 24 * s.spend), liq = s.liquid + (s.invest || 0);
+    var leak = Math.min(40, e.leakage / inc * 400), emi = s.emi > 0.4 ? 20 : s.emi > 0.3 ? 10 : 0;
+    var guar = s.guarantee > liq ? Math.min(25, 6 * Math.log(s.guarantee / liq) / Math.LN2) : 0, pledge = s.homePledged ? 15 : 0;
+    var lv = 100 - leak - emi - guar - pledge, ll;
+    if (!s.loans.length) ll = tx(Q.lNone);
+    else if (leak >= 5) ll = t(Q.lLeak, { x: money(e.leakage) });
+    else if (emi) ll = t(Q.lEmi, { p: Math.round(s.emi * 100) });
+    else if (pledge) ll = tx(Q.lPledge);
+    else if (guar) ll = t(Q.lGuar, { first: first, g: money(s.guarantee) });
+    else ll = tx(Q.lOk);
+    A.L = { v: lv, line: ll };
+    /* Cash within reach: six months of spend is full marks */
+    var m = s.liquid / s.spend;
+    A.C = { v: Math.min(100, m / 6 * 100), line: t(Q.cM, { m: oneDec(m) }) };
+    /* Family papers */
+    var succ = s.gaps.succession ? (['partner', 'huf'].indexOf(s.entity) >= 0 ? 35 : 20) : 0, nom = s.gaps.nominations ? 25 : 0, will = s.gaps.will ? (s.age >= 55 ? 25 : 10) : 0;
+    A.F = { v: 100 - succ - nom - will, line: succ ? tx(Q.fSucc) : nom ? tx(Q.fNom) : will >= 25 ? tx(Q.fWill) : tx(Q.fOk) };
+    /* Savings: structure only, never fund or stock quality */
+    var trad = s.wealth.trad ? (s.policies >= 10 ? 40 : 20) : 0, conc = s.wealth.conc && s.branch === 'sal' ? 25 : 0, idle = s.cash > 12 * s.spend ? 15 : 0;
+    var goal = s.wealth.goal && (p.sig === 'corpus' || s.ageBand === '55+') ? 15 : 0;
+    A.W = { v: 100 - trad - conc - idle - goal, line: trad ? t(Q.wTrad, { n: s.policies }) : conc ? tx(Q.wConc) : goal ? tx(Q.wGoal) : idle ? tx(Q.wIdle) : tx(Q.wOk) };
+    AK.forEach(function (k) { A[k].v = Math.max(5, Math.min(100, Math.round(A[k].v))); A[k].st = A[k].v >= 75 ? 'ok' : A[k].v >= 50 ? 'look' : 'gap'; });
+    return A;
+  }
+  function total(A) { var x = 0; AK.forEach(function (k) { x += AW[k] * Math.log(A[k].v); }); return Math.round(Math.exp(x)); }
+  function fix(k, s, e) {
+    var z = JSON.parse(JSON.stringify(s));
+    if (k === 'lifeGap') z.life = Math.max(z.life, e.need);
+    else if (k === 'health') z.health = Math.max(z.health, 25 * L);
+    else if (k === 'empHealth') z.health = 10 * L;
+    else if (k === 'parents') z.parentsIns = true;
+    else if (k === 'bizCover' || k === 'stockCover' || k === 'fleet') { z.bizGap = false; z.lapsed = 0; }
+    else if (k === 'reprice') z.loans.forEach(function (l) { if (l.rate - l.mkt > 0.5) l.rate = l.mkt + 0.25; });
+    else if (k === 'pledge') z.homePledged = false;
+    else if (k === 'reserve') z.liquid = Math.max(z.liquid, 6 * z.spend);
+    else if (k === 'nominations' || k === 'will' || k === 'succession' || k === 'papers') { z.gaps[k] = false; if (k === 'papers') z.gaps.trusted = false; }
+    else if (k === 'trad') z.wealth.trad = false;
+    else if (k === 'conc') z.wealth.conc = false;
+    else if (k === 'retire' || k === 'goal') z.wealth.goal = false;
+    else if (k === 'idle') z.cash = Math.min(z.cash, 12 * z.spend);
+    return z;
+  }
+  function scoreAfter(p, s, k) { var e = evaluate(s), z = fix(k, s, e); return total(areasOf(p, z, evaluate(z))); }
+  function scoreModel(p, s, e) {
+    var A = areasOf(p, s, e), now = total(A), acts = actions(p, s, e).map(function (a) { var to = scoreAfter(p, s, a.k); return Object.assign({}, a, { to: to, gain: Math.max(0, to - now) }); });
+    acts.sort(function (a, b) { return b.gain - a.gain; });
+    return { A: A, now: now, acts: acts, next: acts.length ? acts[0].to : now };
+  }
+  window.NOVSCORE = { model: scoreModel, areas: areasOf, total: total };
+
+  /* ---------- Pieces ---------- */
+  function famName(p) { var n = tx(p.name).split(' '); return t(Q.fam, { n: n[n.length - 1] }); }
+  function stepOf() { var map = { 2: 1, 3: 2, 4: 3, 5: 4, 7: 5, 9: 6 }; return map[S.screen] || 0; }
+  function pill(st) { return '<span class="v6pill v6-' + st + '">' + tx(Q.st[st]) + '</span>'; }
+  function flow() { return !S.v && !S.j && !S.c && !S.pick && S.screen >= 1 && S.screen <= 9; }
+
+  /* 2 Meet: people before numbers */
+  SCR[2] = function () {
+    var m = model(), p = m.p, s = m.s, Ls = storyLines(p, s, m.e);
+    return '<section class="v6 v6meet"><p class="v6ey">' + tx(Q.meetEy) + '</p><h1 class="v6h">' + esc(famName(p)) + ', ' + esc(tx(p.place)) + '</h1>' +
+      '<p class="v6lead">' + esc(Ls[1]) + '</p>' +
+      '<div class="v6card v6fam">' + icon('parents') + '<span>' + esc(Ls[0]) + '</span></div>' +
+      '<blockquote class="v6quote">' + esc(tx(p.depends)) + '</blockquote>' +
+      (S.inlineDials ? '<div class="panel">' + dialsHTML(p) + '<button class="secondary" data-a="inline">' + u('done') + '</button></div>' : '<button class="v6link" data-a="inline">' + tx(Q.change) + '</button>') + '</section>';
+  };
+  /* 3 Send: one action */
+  SCR[3] = function () {
+    var m = model(), sel = selFiles(m.s), done = S.uploaded || S.skipped;
+    var list = S.uploaded ? '<div class="v6card v6read"><p class="v6sub">' + u('readDone', { n: sel.length, m: factCount(sel) }) + '</p>' + sel.slice(0, 6).map(function (f) {
+      return '<div class="v6fact"><i></i><span>' + esc(tx(FTYPE[f.type])) + '<small>' + esc(f.line.split(' · ')[0]) + '</small></span></div>'; }).join('') + '</div>' : S.skipped ? '<p class="v6sub">' + u('skipped') + '</p>' : '';
+    return '<section class="v6 v6send"><h1 class="v6h">' + u('sendT') + '</h1><p class="v6lead s">' + u('sendSub') + '</p>' +
+      (done ? '' : '<button class="primary v6big" data-a="sheet" data-v="picker">' + u('upload') + '</button><p class="v6note">' + icon('lock', 'sm') + vt('dummyNote') + '</p>') + list +
+      '<div class="v6alt">' + (S.uploaded ? '<button class="v6link" data-a="sheet" data-v="picker">' + u('reupload') + '</button>' : '<button class="v6link" data-a="aa">' + tx(Q.linkOr) + '</button>' + (S.skipped ? '' : '<button class="v6link" data-a="skip">' + tx(Q.skipOr) + '</button>')) + '</div></section>';
+  };
+  /* 4 Glance: four numbers */
+  var _oldS4 = SCR[4];
+  SCR[4] = function () {
+    var m = model(), p = m.p, s = m.s, e = m.e, biz = s.branch === 'biz', sel = selFiles(s);
+    var owns = (s.bizShare || 0) + s.liquid + s.invest + s.home + (s.property || 0), loans = e.persLoans + e.bizLoans;
+    function row(lab, sub, v) { return '<div class="v6row"><span><b>' + esc(lab) + '</b><small>' + esc(sub) + '</small></span><strong>' + v + '</strong></div>'; }
+    var oweSub = s.guarantee ? t(Q.owesG, { first: tx(p.first), g: money(s.guarantee) }) : e.bizLoans && !e.persLoans ? tx(Q.owesB) : tx(Q.owesP);
+    var covSub = !biz && !s.health ? t(Q.covW, { l: money(s.life), h: money(s.empHealth) }) : t(Q.covL, { l: money(s.life), h: money(s.health) });
+    return '<section class="v6 v6glance"><p class="v6ey">' + esc(famName(p)) + '</p><h1 class="v6h">' + tx(Q.glance) + '</h1><p class="v6sub">' + (S.uploaded ? t(Q.fromN, { n: sel.length }) : tx(Q.fromEst)) + '</p>' +
+      '<div class="v6rows">' + row(tx(Q.owns), tx(biz ? Q.ownsB : Q.ownsS), money(owns)) + row(tx(Q.owes), loans ? oweSub : '', loans ? money(loans) : tx(Q.none)) +
+      row(tx(Q.cov), covSub, money(s.life)) + row(tx(Q.cash), t(Q.cashS, { m: oneDec(s.liquid / s.spend) }), money(s.liquid)) + '</div>' +
+      '<button class="v6link" data-a="v6bd">' + tx(Q.seeAll) + '</button></section>';
+  };
+  /* 5 Health Check: one score, five plain areas */
+  SCR[5] = function () {
+    var m = model(), p = m.p, s = m.s, sm = scoreModel(p, s, m.e), A = sm.A, sel = selFiles(s), gap = AK.some(function (k) { return A[k].st === 'gap'; });
+    var order = AK.slice().sort(function (a, b) { return A[a].v - A[b].v; });
+    return '<section class="v6 v6check night"><p class="v6ey">' + t(Q.scoreEy, { f: esc(famName(p)) }) + '</p>' +
+      '<div class="v6score"><strong>' + sm.now + '</strong><span>' + tx(Q.outOf) + '</span></div>' +
+      '<div class="v6bar" role="img" aria-label="' + sm.now + ' / 100"><i style="width:' + sm.now + '%"></i>' + (sm.next > sm.now ? '<b style="left:' + sm.next + '%"></b>' : '') + '</div>' +
+      '<p class="v6sub">' + t(gap ? Q.holds : Q.lift, { n: '<em>' + sm.next + '</em>' }) + '</p>' +
+      '<div class="v6areas">' + order.map(function (k) { return '<div class="v6area"><span><b>' + tx(Q.area[k]) + '</b><small>' + esc(A[k].line) + '</small></span>' + pill(A[k].st) + '</div>'; }).join('') + '</div>' +
+      '<p class="v6foot">' + (S.skipped || !S.uploaded ? t(Q.footEst, { a: Math.max(5, sm.now - 6), b: Math.min(100, sm.now + 6) }) : t(Q.foot, { n: sel.length })) + '</p></section>';
+  };
+  /* 7 Your first move */
+  SCR[7] = function () {
+    var m = model(), p = m.p, s = m.s, sm = scoreModel(p, s, m.e), a = sm.acts[0], rest = sm.acts.slice(1, 3);
+    if (!a) return '<section class="v6"><h1 class="v6h">' + tx(Q.leftNone) + '</h1></section>';
+    var j = journeyFor(a.k, s);
+    var left = s.loans.filter(function (l) { var g = l.rate - l.mkt; return g > 0 && g <= 0.5; })[0];
+    var leftTxt = left ? t(Q.leftLoan, { l: tx(LN[left.k] || LN.term), g: (Math.round((left.rate - left.mkt) * 100) / 100).toString() }) : sm.A.C.st === 'ok' ? tx(Q.leftCash) : tx(Q.leftNone);
+    return '<section class="v6 v6move"><p class="v6ey">' + tx(Q.first) + '</p><div class="v6card v6lead-card"><h1 class="v6h2">' + esc(a.title) + '</h1>' +
+      '<div class="v6jump"><span>' + tx(Q.score) + '</span><b class="v6n">' + sm.now + '</b>' + icon('arrow') + '<b class="v6n up">' + a.to + '</b>' + (a.impact ? '<small>' + esc(a.impact) + '</small>' : '') + '</div>' +
+      '<p class="v6sub">' + esc(a.why) + '</p>' +
+      (j ? '<button class="primary v6big" data-a="journey" data-v="' + j + '">' + u('cmpOpts') + icon('arrow') + '</button>' : '<button class="primary v6big" data-a="toast" data-v="demoToast">' + u('addPlan') + '</button>') + '</div>' +
+      (rest.length ? '<p class="v6ey">' + tx(Q.then) + '</p><div class="v6rows">' + rest.map(function (x) { var jj = journeyFor(x.k, s);
+        return '<button class="v6row v6rowbtn" data-a="' + (jj ? 'journey' : 'toast') + '" data-v="' + (jj || 'demoToast') + '"><span><b>' + esc(x.title) + '</b></span><small class="v6pts">' + (x.gain ? t(Q.pts, { n: x.gain }) : '') + '</small></button>'; }).join('') + '</div>' : '') +
+      '<p class="v6ey">' + tx(Q.left) + '</p><p class="v6sub">' + esc(leftTxt) + '</p></section>';
+  };
+  /* 9 What happens next */
+  SCR[9] = function () {
+    var m = model(), p = m.p, s = m.s, sm = scoreModel(p, s, m.e), A = sm.A, first = tx(p.first), a = sm.acts[0], G = window.NOVAG;
+    var fine = AK.filter(function (k) { return A[k].st === 'ok'; }).map(function (k) { return tx(Q.area[k]).toLowerCase(); });
+    var gapK = AK.filter(function (k) { return A[k].st !== 'ok'; }).sort(function (x, y) { return A[x].v - A[y].v; })[0];
+    return '<section class="v6 v6close close"><h1 class="v6h">' + t(Q.waH, { first: esc(first) }) + '</h1>' +
+      '<div class="v6wa"><p><b>' + t(Q.waHi, { first: esc(first) }) + '</b></p><p>' + t(Q.waScore, { s: sm.now, t: sm.next }) + '</p>' +
+      (fine.length ? '<p>' + t(Q.waFine, { a: esc(fine.join(', ')) }) + '</p>' : '') + (gapK ? '<p>' + t(Q.waNeeds, { a: esc(LANG === 'en' ? A[gapK].line.charAt(0).toLowerCase() + A[gapK].line.slice(1) : A[gapK].line) }) + '</p>' : '') +
+      (a ? '<p>' + t(Q.waFirst, { a: esc(a.title) }) + '</p>' : '') + '<small>' + tx(Q.waFwd) + '</small></div>' +
+      '<p class="v6ey">' + tx(Q.up) + '</p><div class="v6rows"><div class="v6row"><span><b>' + tx(Q.up1) + '</b></span><em>' + tx(Q.up1d) + '</em></div><div class="v6row"><span><b>' + tx(Q.up2) + '</b></span><small>' + tx(Q.up2d) + '</small></div></div>' +
+      '<button class="primary v6big wa" data-a="toast" data-v="demoToast">' + u('wa') + '</button><p class="v6sub c">' + u('closeSub') + '</p>' +
+      '<button class="v6link" data-a="toast" data-v="talkToast">' + u('talk') + '</button>' + (G ? G.askHTML() : '') + '</section>';
+  };
+
+  /* ---------- Shell for the flow ---------- */
+  var NEXT = { 1: null, 2: O('Send their papers', 'इनके कागज़ भेजें', 'તેમના કાગળો મોકલો'), 3: O('See the family at a glance', 'परिवार एक नज़र में देखें', 'પરિવાર એક નજરમાં જુઓ'), 4: Q.runCheck, 7: Q.finish };
+  var _bb = bottombar;
+  bottombar = function () {
+    if (!flow() || S.screen === 1) return _bb();
+    var can = S.screen === 3 ? (S.uploaded || S.skipped) : S.screen < 9;
+    var lab;
+    if (!can) lab = vt('sendFirst');
+    else if (S.screen === 5) { var m = model(); lab = t(Q.toN, { n: scoreModel(m.p, m.s, m.e).next }); }
+    else lab = tx(NEXT[S.screen] || V3.next[S.screen]);
+    return '<nav class="bottom v6bottom' + (S.screen === 5 ? ' night' : '') + '"><div class="bottom-in"><button class="secondary" data-a="back" aria-label="' + esc(u('back')) + '">' + icon('arrow', 'back') + '</button>' +
+      (S.screen < 9 ? '<button class="primary nextbtn" data-a="next"' + (can ? '' : ' disabled') + '>' + lab + (can ? icon('arrow') : '') + '</button>' : '<span class="spacer"></span>') + '</div></nav>';
+  };
+  var _tb = topbar;
+  topbar = function () {
+    var h = _tb(), n = stepOf();
+    if (!flow() || !n) return h;
+    return h.slice(0, h.lastIndexOf('</header>')) + '<div class="v6prog"><div class="v6prog-in"><span>' + t(Q.step, { n: n }) + '</span><i><b style="width:' + Math.round(n / 6 * 100) + '%"></b></i></div></div></header>';
+  };
+  var _sh = sheetHTML;
+  sheetHTML = function () {
+    if (S.sheet !== 'v6bd') return _sh();
+    return '<div class="scrim" data-a="closesheet"></div><div class="sheet v6sheet" role="dialog" aria-modal="true"><div class="sh-h"><h3>' + tx(Q.bdT) + '</h3><button class="secondary sm" data-a="closesheet">' + u('close') + '</button></div>' + _oldS4() + '</div>';
+  };
+  var _r = render;
+  render = function () { document.body.classList.toggle('v6flow', flow()); document.body.classList.toggle('v6night', flow() && S.screen === 5 && !S.sheet); _r(); };
+  document.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-a="v6bd"]'); if (!el) return;
+    S.sheet = 'v6bd'; render(); ev.stopPropagation(); ev.preventDefault();
   }, true);
 })();
 
