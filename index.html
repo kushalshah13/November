@@ -1158,6 +1158,24 @@ body.v6flow .wrap { padding-block: 20px 120px; }
 .v6av.ic svg { width: 18px; height: 18px; }
 .v6meet .v6h { margin-bottom: 4px; }
 .v6-leave { border: 1px solid var(--line); color: var(--muted); background: transparent; }
+
+.v6how { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; background: transparent; border: 1px solid #3A4672; border-radius: 999px; padding: 8px 14px; color: #F5F0E6; font: 600 .9375rem/1 var(--body); cursor: pointer; }
+.v6how svg { width: 16px; height: 16px; }
+.v6hs .v6sub { color: var(--muted); }
+.v6wts { display: grid; gap: 14px; margin-top: 16px; }
+.v6wt-h { display: flex; justify-content: space-between; font-size: 1rem; }
+.v6wt-h span { font-weight: 600; }
+.v6wt i { display: block; height: 6px; border-radius: 6px; background: var(--line); margin: 6px 0 4px; }
+.v6wt i b { display: block; height: 6px; border-radius: 6px; background: var(--ink); }
+.v6wt small { color: var(--muted); font-size: .875rem; }
+.v6cmp { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.v6cmp > div { border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+.v6cmp > div.on { background: #1B2440; color: #F5F0E6; border-color: #1B2440; }
+.v6cmp small { font-size: .875rem; opacity: .85; }
+.v6cmp strong { font: 500 2rem/1 var(--display); }
+.v6rules { list-style: none; padding: 0; margin: 18px 0 4px; display: grid; gap: 10px; }
+.v6rules li { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; }
+.v6rules svg { width: 18px; height: 18px; color: #2F6B5A; flex: none; margin-top: 2px; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -1300,6 +1318,7 @@ var FTYPE = {
   groupcard: { en: 'Employer cover', hi: 'कंपनी का कवर', gu: 'કંપનીનું કવર' },
   ppf: { en: 'PPF passbook', hi: 'PPF पासबुक', gu: 'PPF પાસબુક' },
   pf: { en: 'PF passbook', hi: 'PF पासबुक', gu: 'PF પાસબુક' },
+  sha: { en: 'Shareholders’ agreement', hi: 'शेयरहोल्डर्स एग्रीमेंट', gu: 'શેરહોલ્ડર્સ એગ્રીમેન્ટ' },
   guarantee: { en: 'Personal guarantee deed', hi: 'निजी गारंटी डीड', gu: 'અંગત ગેરંટી ડીડ' }
 };
 
@@ -1438,21 +1457,21 @@ var PRESETS = [
       F('Floater_15L.pdf', 'floater', ['health'], 'Sum insured ₹15,00,000 · Members: 3'),
       F('CAS_Mar2026.pdf', 'cas', ['liquid', 'invest'], 'Total value ₹55,40,210')] }),
 
-  mk({ id: 'sunita', branch: 'biz', ind: 'mfg', sig: 'liquidity', sigAction: 'reserve',
-    name: { en: 'Sunita and Amit Rao', hi: 'सुनीता और अमित राव', gu: 'સુનીતા અને અમિત રાવ' }, first: { en: 'Sunita and Amit', hi: 'सुनीता और अमित', gu: 'સુનીતા અને અમિત' },
-    ageText: '39, 41', place: { en: 'Vasai', hi: 'वसई', gu: 'વસઈ' },
-    card: { en: 'Food processing, Vasai', hi: 'फ़ूड प्रोसेसिंग, वसई', gu: 'ફૂડ પ્રોસેસિંગ, વસઈ' },
-    bizDesc: { en: 'a food processing business, growing 40% a year', hi: 'फ़ूड प्रोसेसिंग का बिज़नेस, हर साल 40% बढ़ता हुआ', gu: 'ફૂડ પ્રોસેસિંગનો બિઝનેસ, દર વર્ષે 40% વધતો' },
-    famDesc: { en: "Daughter 8, Amit's parents at home", hi: 'बेटी 8, अमित के माता-पिता साथ', gu: 'દીકરી 8, અમિતના માતા-પિતા સાથે' },
+  mk({ id: 'sunita', branch: 'biz', ind: 'digital', sig: 'liquidity', sigAction: 'reserve',
+    name: { en: 'Tara and Kunal Sethi', hi: 'तारा और कुणाल सेठी', gu: 'તારા અને કુણાલ સેઠી' }, first: { en: 'Tara and Kunal', hi: 'तारा और कुणाल', gu: 'તારા અને કુણાલ' },
+    ageText: '34, 36', place: { en: 'Lower Parel', hi: 'लोअर परेल', gu: 'લોઅર પરેલ' },
+    card: { en: 'D2C skincare brand, Lower Parel', hi: 'D2C स्किनकेयर ब्रांड, लोअर परेल', gu: 'D2C સ્કિનકેર બ્રાન્ડ, લોઅર પરેલ' },
+    bizDesc: { en: 'a skincare brand selling online, growing 40% a year', hi: 'ऑनलाइन बिकने वाला स्किनकेयर ब्रांड, हर साल 40% बढ़ता हुआ', gu: 'ઓનલાઇન વેચાતી સ્કિનકેર બ્રાન્ડ, દર વર્ષે 40% વધતી' },
+    famDesc: { en: "Daughter 4, Kunal's parents at home", hi: 'बेटी 4, कुणाल के माता-पिता साथ', gu: 'દીકરી 4, કુણાલના માતા-પિતા સાથે' },
     depends: { en: 'Every rupee of profit goes back into the business.', hi: 'मुनाफ़े का हर रुपया वापस बिज़नेस में जाता है।', gu: 'નફાનો દરેક રૂપિયો પાછો બિઝનેસમાં જાય છે.' },
-    defaults: { age: '35-45', turn: '5-15', entity: 'llp', family: 'parents', borrow: 'pg', cover: 'basic' },
-    base: { age: 41, ageBand: '35-45', turnover: 12 * CR, entity: 'llp', spend: 3 * L, needSpend: 2 * L, life: 2 * CR, health: 5 * L, parentsDep: true, parentsIns: true,
-      guarantee: 1 * CR, cash: 5 * L, liquid: 5 * L, bizShare: 4 * CR, home: 2 * CR, loans: [{ k: 'mach', amt: 1.6 * CR, rate: 10, mkt: 9.75, biz: true }],
+    defaults: { age: '35-45', turn: '5-15', entity: 'pvt', family: 'parents', borrow: 'pg', cover: 'basic' },
+    base: { age: 36, ageBand: '35-45', turnover: 12 * CR, entity: 'pvt', spend: 3 * L, needSpend: 2 * L, life: 2 * CR, health: 5 * L, parentsDep: true, parentsIns: true,
+      guarantee: 1 * CR, cash: 5 * L, liquid: 5 * L, bizShare: 6 * CR, home: 2 * CR, loans: [{ k: 'cc', amt: 1.5 * CR, rate: 10.5, mkt: 10, biz: true }],
       bizGap: true, gaps: { will: true }, wealth: { conc: true, goal: true } },
-    files: [F('LLP_agreement.pdf', 'llp', ['deed'], 'Clause 22: Successor designated partner named: Amit Rao'),
-      F('Machinery_EMI_schedule.pdf', 'emi', ['loans', 'guarantee'], 'Outstanding ₹1,60,00,000 · Personal guarantee ₹1,00,00,000 (S. Rao, A. Rao)'),
+    files: [F('Shareholders_agreement_2024.pdf', 'sha', ['business'], 'Founders: T. Sethi 45%, K. Sethi 45% · ESOP pool 10%'),
+      F('Inventory_CC_sanction.pdf', 'cc', ['loans', 'guarantee'], 'Cash credit ₹1,50,00,000 @ 10.50% · Personal guarantee ₹1,00,00,000 (T. Sethi, K. Sethi)'),
       F('Savings_stmt.pdf', 'savings', ['liquid'], 'Closing balance ₹5,02,880'),
-      F('Term_Amit_Sunita.pdf', 'term', ['life'], 'Two policies · ₹1,00,00,000 each'),
+      F('Term_Tara_Kunal.pdf', 'term', ['life'], 'Two policies · ₹1,00,00,000 each'),
       F('Health_5L.pdf', 'floater', ['health'], 'Sum insured ₹5,00,000 · Members: 3'),
       F('GSTR3B_FY26.pdf', 'gst', ['business'], 'Total taxable value ₹11,94,22,600')] }),
 
@@ -2023,7 +2042,7 @@ var CLAIM_WHO = {
   rajesh: { en: 'Meera', hi: 'मीरा', gu: 'મીરા' }, mahendra: { en: "Vikram's mother", hi: 'विक्रम की माँ', gu: 'વિક્રમના માતા' },
   vipul: { en: "Vipul's father", hi: 'विपुल के पिता', gu: 'વિપુલના પિતા' }, ketan: { en: "Anahita's husband", hi: 'अनाहिता के पति', gu: 'અનાહિતાના પતિ' },
   pankaj: { en: "Pankaj's wife", hi: 'पंकज की पत्नी', gu: 'પંકજના પત્ની' }, hasmukh: { en: "Nidhi's husband", hi: 'निधि के पति', gu: 'નિધિના પતિ' },
-  nilesh: { en: "Nilesh's wife", hi: 'नीलेश की पत्नी', gu: 'નીલેશના પત્ની' }, sunita: { en: 'Amit', hi: 'अमित', gu: 'અમિત' },
+  nilesh: { en: "Nilesh's wife", hi: 'नीलेश की पत्नी', gu: 'નીલેશના પત્ની' }, sunita: { en: 'Kunal', hi: 'कुणाल', gu: 'કુણાત' },
   dinesh: { en: "Dinesh's younger son", hi: 'दिनेश का छोटा बेटा', gu: 'દિનેશનો નાનો દીકરો' }, anil: { en: "Anil's wife", hi: 'अनिल की पत्नी', gu: 'અનિલના પત્ની' },
   arjun: { en: 'Ananya', hi: 'अनन्या', gu: 'અનન્યા' }, kulkarni: { en: 'Rahul', hi: 'राहुल', gu: 'રાહુલ' }, menon: { en: 'Karthik', hi: 'कार्तिक', gu: 'કાર્તિક' },
   sanjay: { en: "Sanjay's wife", hi: 'संजय की पत्नी', gu: 'સંજયના પત્ની' }, sunil: { en: "Sunil's wife", hi: 'सुनील की पत्नी', gu: 'સુનીલના પત્ની' }
@@ -2943,7 +2962,7 @@ var U = {
   pick: { en: 'Pick a household like yours', hi: 'अपने जैसा परिवार चुनिए', gu: 'તમારા જેવો પરિવાર પસંદ કરો' },
   pickSal: { en: 'Pick a household like yours', hi: 'अपने जैसा परिवार चुनिए', gu: 'તમારા જેવો પરિવાર પસંદ કરો' },
   chips: { all: { en: 'All', hi: 'सभी', gu: 'બધા' }, textile: { en: 'Textile', hi: 'टेक्सटाइल', gu: 'ટેક્સટાઇલ' }, gold: { en: 'Gold', hi: 'सोना', gu: 'સોનું' },
-    trading: { en: 'Trading', hi: 'ट्रेडिंग', gu: 'ટ્રેડિંગ' }, mfg: { en: 'Manufacturing', hi: 'मैन्युफैक्चरिंग', gu: 'મેન્યુફેક્ચરિંગ' }, others: { en: 'Others', hi: 'अन्य', gu: 'અન્ય' } },
+    trading: { en: 'Trading', hi: 'ट्रेडिंग', gu: 'ટ્રેડિંગ' }, mfg: { en: 'Manufacturing', hi: 'मैन्युफैक्चरिंग', gu: 'મેન્યુફેક્ચરિંગ' }, digital: { en: 'Digital', hi: 'डिजिटल', gu: 'ડિજિટલ' }, others: { en: 'Others', hi: 'अन्य', gu: 'અન્ય' } },
   meet: { en: 'Meet the household', hi: 'परिवार से मिलिए', gu: 'પરિવારને મળો' },
   likeYours: { en: 'Make it more like yours', hi: 'इसे अपने जैसा बनाइए', gu: 'તેને તમારા જેવું બનાવો' },
   done: { en: 'Done', hi: 'हो गया', gu: 'થઈ ગયું' },
@@ -3141,7 +3160,7 @@ function scr1() {
   var list = PRESETS.filter(function (p) { return p.branch === BRANCH; });
   var chips = '';
   if (BRANCH === 'biz') {
-    chips = '<div class="chips">' + ['all', 'textile', 'gold', 'trading', 'mfg', 'others'].map(function (c) {
+    chips = '<div class="chips">' + ['all', 'textile', 'gold', 'trading', 'digital', 'others'].map(function (c) {
       return '<button data-a="chip" data-v="' + c + '" aria-pressed="' + (S.chip === c) + '">' + tx(U.chips[c]) + '</button>'; }).join('') + '</div>';
     if (S.chip !== 'all') list = list.filter(function (p) { return p.ind === S.chip; });
   }
@@ -3486,7 +3505,7 @@ function scrLanding() {
 var CAT_OF = { term: 'ins', endow: 'ins', policies: 'ins', floater: 'ins', health: 'ins', groupcard: 'ins', lapsed: 'ins', parentpol: 'ins', premiums: 'ins', block: 'biz', fire: 'biz',
   sanction: 'loan', cc: 'loan', od: 'loan', gml: 'loan', lap: 'loan', homeloan: 'loan', emi: 'loan', fleet: 'loan', mortgage: 'loan', guarantee: 'loan',
   cas: 'inv', fd: 'inv', savings: 'inv', ppf: 'inv', pf: 'inv', esop: 'inv', gst: 'biz', itr: 'biz', debtors: 'biz', costs: 'biz', stock: 'biz', trucks: 'biz',
-  deed: 'fam', llp: 'fam', huf: 'fam', will: 'fam', props: 'fam', payslip: 'work', form16: 'work' };
+  deed: 'fam', llp: 'fam', sha: 'biz', huf: 'fam', will: 'fam', props: 'fam', payslip: 'work', form16: 'work' };
 var CAT_ICON = { ins: 'shield', loan: 'bank', inv: 'wallet', biz: 'factory', fam: 'folder', work: 'person', ids: 'id' };
 function vaultItems(s) {
   var items = s.files.map(function (f) {
@@ -4067,7 +4086,7 @@ render = function () { _render3(); floatCheck(); };
     lLeak: O('About {x} a year in extra interest', 'हर साल करीब {x} फ़ालतू ब्याज', 'દર વર્ષે આશરે {x} વધારાનું વ્યાજ'),
     lEmi: O('EMIs take {p}% of income', 'EMI आय का {p}% लेती है', 'EMI આવકના {p}% લે છે'),
     lPledge: O('Family home pledged for business limits', 'परिवार का घर बिज़नेस लिमिट के लिए गिरवी', 'પરિવારનું ઘર બિઝનેસ લિમિટ માટે ગીરવે'),
-    lGuar: O('Fair rate; {first} guarantees {g}', 'ठीक रेट; {first} की {g} की गारंटी', 'યોગ્ય દર; {first} ની {g} ની ગેરંટી'),
+    lGuar: O('Fair rate; {g} personal guarantee', 'ठीक रेट; {g} की निजी गारंटी', 'યોગ્ય દર; {g} ની અંગત ગેરંટી'),
     lOk: O('Loans at a fair rate', 'लोन ठीक रेट पर', 'લોન યોગ્ય દરે'), lNone: O('No loans', 'कोई लोन नहीं', 'કોઈ લોન નથી'),
     cM: O('{m} months of spend', '{m} महीने का ख़र्च', '{m} મહિનાનો ખર્ચ'),
     fSucc: O('No succession clause in business papers', 'बिज़नेस के कागज़ों में उत्तराधिकार की शर्त नहीं', 'બિઝનેસના કાગળોમાં વારસાની શરત નથી'),
@@ -4163,6 +4182,7 @@ render = function () { _render3(); floatCheck(); };
     signs: N('Signs for everything', 'हर कागज़ पर दस्तख़त', 'દરેક કાગળ પર સહી'), home: N('Runs the home', 'घर संभालती हैं', 'ઘર સંભાળે છે'), withThem: N('Lives with them', 'साथ रहते हैं', 'સાથે રહે છે'), withThemF: N('Lives with them', 'साथ रहती हैं', 'સાથે રહે છે'),
     joining: N('Joining the firm', 'फ़र्म में आ रहे हैं', 'ફર્મમાં જોડાય છે'), inBiz: N('In the business', 'बिज़नेस में', 'બિઝનેસમાં'), married: N('Both married', 'दोनों की शादी हो चुकी', 'બંને પરણેલી'),
     factory: N('Runs the factory', 'फ़ैक्ट्री संभालते हैं', 'ફેક્ટરી સંભાળે છે'), finance: N('Finance and exports', 'फ़ाइनेंस और एक्सपोर्ट', 'ફાઇનાન્સ અને એક્સપોર્ટ'), designs: N('Clients come for her designs', 'ग्राहक उनके डिज़ाइन के लिए आते हैं', 'ગ્રાહકો તેમની ડિઝાઇન માટે આવે છે'),
+    growth: N('Product and growth', 'प्रोडक्ट और ग्रोथ', 'પ્રોડક્ટ અને ગ્રોથ'), ops: N('Operations and money', 'ऑपरेशन्स और पैसा', 'ઓપરેશન્સ અને પૈસા'),
     karta: N('Karta of the HUF', 'HUF के कर्ता', 'HUF ના કર્તા'), partner: N('Partner in the business', 'बिज़नेस में पार्टनर', 'બિઝનેસમાં ભાગીદાર'), college: N('At college', 'कॉलेज में', 'કોલેજમાં'),
     chennai: N('In Chennai, she supports them', 'चेन्नई में, वे सहारा देती हैं', 'ચેન્નઈમાં, તે આધાર આપે છે'), pm: N('Product manager', 'प्रोडक्ट मैनेजर', 'પ્રોડક્ટ મેનેજર'), branch: N('Heads a bank branch', 'बैंक ब्रांच हेड', 'બેંક બ્રાન્ચ હેડ'), teaches: N('Teaches', 'पढ़ाते हैं', 'ભણાવે છે'),
     consult: N('Consultant', 'कंसल्टेंट', 'કન્સલ્ટન્ટ'), exec: N('Five years from retiring', 'रिटायरमेंट में पाँच साल', 'નિવૃત્તિમાં પાંચ વર્ષ'), psu: N('PSU officer, pension assured', 'PSU अधिकारी, पेंशन पक्की', 'PSU અધિકારી, પેન્શન પાકું'), trade: N('Runs the trade', 'कारोबार संभालते हैं', 'કારોબાર સંભાળે છે'), runs: N('Runs the business', 'बिज़नेस चलाती हैं', 'બિઝનેસ ચલાવે છે'), runsM: N('Runs the business', 'बिज़नेस चलाते हैं', 'બિઝનેસ ચલાવે છે'), fleetD: N('Every fleet loan in his name', 'हर फ़्लीट लोन उनके नाम', 'દરેક ફ્લીટ લોન તેમના નામે')
@@ -4176,7 +4196,7 @@ render = function () { _render3(); floatCheck(); };
     pankaj: [['P', N('Pankaj, 52', 'पंकज, 52', 'પંકજ, 52'), D.runsM], ['W', R.wife, ''], ['S', N('Son, 24', 'बेटा, 24', 'દીકરો, 24'), D.inBiz], ['D', N('Daughter, 21', 'बेटी, 21', 'દીકરી, 21'), '']],
     hasmukh: [['N', N('Nidhi, 54', 'निधि, 54', 'નિધિ, 54'), D.runs], ['H', R.husband, ''], ['2', R.daughters, D.married]],
     nilesh: [['N', N('Nilesh, 47', 'नीलेश, 47', 'નીલેશ, 47'), D.runsM], ['W', R.wife, ''], ['S', N('Son, 15', 'बेटा, 15', 'દીકરો, 15'), '']],
-    sunita: [['S', N('Sunita, 39', 'सुनीता, 39', 'સુનીતા, 39'), D.runs], ['A', N('Amit, 41', 'अमित, 41', 'અમિત, 41'), D.partner], ['D', N('Daughter, 8', 'बेटी, 8', 'દીકરી, 8'), ''], ['P', R.parents, D.withThem]],
+    sunita: [['T', N('Tara, 34', 'तारा, 34', 'તારા, 34'), D.growth], ['K', N('Kunal, 36', 'कुणाल, 36', 'કુણાલ, 36'), D.ops], ['D', N('Daughter, 4', 'बेटी, 4', 'દીકરી, 4'), ''], ['P', R.parents, D.withThem]],
     dinesh: [['D', N('Dinesh, 59', 'दिनेश, 59', 'દિનેશ, 59'), D.karta], ['B', R.brother, D.partner], ['2', R.sons, '32, 28'], ['P', R.parents, '84, 80']],
     anil: [['A', N('Anil, 43', 'अनिल, 43', 'અનિલ, 43'), D.fleetD], ['W', R.wife, ''], ['2', R.kids, '']],
     arjun: [['A', N('Ananya, 29', 'अनन्या, 29', 'અનન્યા, 29'), D.pm], ['P', R.parents, D.chennai]],
@@ -4258,6 +4278,7 @@ render = function () { _render3(); floatCheck(); };
       '<div class="v6bar" role="img" aria-label="' + sm.now + ' / 100"><i style="width:' + sm.now + '%"></i>' + (sm.next > sm.now ? '<b style="left:' + sm.next + '%"></b>' : '') + '</div>' +
       '<p class="v6sub">' + t(gap ? Q.holds : Q.lift, { n: '<em>' + sm.next + '</em>' }) + '</p>' +
       '<div class="v6areas">' + order.map(function (k) { return '<div class="v6area"><span><b>' + tx(Q.area[k]) + '</b><small>' + esc(A[k].line) + '</small></span>' + pill(A[k].st) + '</div>'; }).join('') + '</div>' +
+      '<button class="v6how" data-a="v6how">' + icon('spark', 'sm') + tx(Q.howL) + icon('arrow') + '</button>' +
       '<p class="v6foot">' + (S.skipped || !S.uploaded ? t(Q.footEst, { a: Math.max(5, sm.now - 6), b: Math.min(100, sm.now + 6) }) : t(Q.foot, { n: sel.length })) + '</p></section>';
   };
   /* 7 Your first move */
@@ -4314,10 +4335,36 @@ render = function () { _render3(); floatCheck(); };
     return '<div class="scrim" data-a="closesheet"></div><div class="sheet v6sheet" role="dialog" aria-modal="true"><div class="sh-h"><h3>' + tx(Q.bdT) + '</h3><button class="secondary sm" data-a="closesheet">' + u('close') + '</button></div>' + _oldS4() + '</div>';
   };
   var _r = render;
-  render = function () { if (S.screen !== 3) S.reading = false; document.body.classList.toggle('v6flow', flow()); document.body.classList.toggle('v6night', flow() && S.screen === 5 && !S.sheet); _r(); };
+  render = function () { if (S.screen !== 3) S.reading = false; document.body.classList.toggle('v6flow', flow()); document.body.classList.toggle('v6night', flow() && S.screen === 5); _r(); };
   document.addEventListener('click', function (ev) {
     var el = ev.target.closest && ev.target.closest('[data-a="v6bd"]'); if (!el) return;
     S.sheet = 'v6bd'; render(); ev.stopPropagation(); ev.preventDefault();
+  }, true);
+/* How the score works: confidence, in a sheet */
+  Q.howL = O('How the score works', 'स्कोर कैसे बनता है', 'સ્કોર કેવી રીતે બને છે');
+  Q.howLead = O('Five areas, each scored 0 to 100 from your papers.', 'पाँच बातें, हर एक को आपके कागज़ों से 0 से 100 तक।', 'પાંચ બાબતો, દરેકને તમારા કાગળો પરથી 0 થી 100.');
+  Q.hw = { P: O('Life and health cover against what the family needs', 'परिवार की ज़रूरत के सामने जीवन और स्वास्थ्य बीमा', 'પરિવારની જરૂર સામે જીવન અને આરોગ્ય વીમો'),
+    L: O('Rates, EMIs and guarantees', 'रेट, EMI और गारंटी', 'દર, EMI અને ગેરંટી'), C: O('Months of spend you can reach', 'कितने महीने का ख़र्च हाथ में', 'કેટલા મહિનાનો ખર્ચ હાથમાં'),
+    F: O('Nominees, will, succession', 'नॉमिनी, वसीयत, उत्तराधिकार', 'નોમિની, વસિયત, વારસો'), W: O('How savings are set up, not which funds', 'बचत कैसे रखी है, कौन-सा फंड नहीं', 'બચત કેવી રીતે રાખી છે, કયું ફંડ નહીં') };
+  Q.howGap = O('One big gap counts more', 'एक बड़ी कमी ज़्यादा गिनी जाती है', 'એક મોટી ખામી વધુ ગણાય છે');
+  Q.howGapS = O('Areas multiply, they don’t just add. Good savings can’t hide an open risk.', 'बातें जुड़ती नहीं, गुणा होती हैं। अच्छी बचत खुला जोखिम छिपा नहीं सकती।', 'બાબતો ઉમેરાતી નથી, ગુણાય છે. સારી બચત ખુલ્લું જોખમ છુપાવી શકતી નથી.');
+  Q.avg = O('Simple average', 'साधारण औसत', 'સાદી સરેરાશ'); Q.ours = O('Family score', 'परिवार का स्कोर', 'પરિવારનો સ્કોર');
+  Q.rules = [O('Moves only when a fact changes', 'सिर्फ़ तथ्य बदलने पर बदलता है', 'માત્ર હકીકત બદલાય ત્યારે બદલાય છે'), O('Never names a product', 'कभी कोई प्रोडक्ट नहीं सुझाता', 'ક્યારેય કોઈ પ્રોડક્ટ સૂચવતો નથી'), O('Weights checked against our advisors’ grading of 50+ families before launch', 'लॉन्च से पहले 50+ परिवारों पर हमारे सलाहकारों की जाँच से मिलाया जाएगा', 'લોન્ચ પહેલાં 50+ પરિવારો પર અમારા સલાહકારોની તપાસ સાથે મેળવાશે')];
+  U.v6how = Q.howL;
+  function howSheet() {
+    var m = model(), sm = scoreModel(m.p, m.s, m.e), A = sm.A, avg = Math.round(AK.reduce(function (x, k) { return x + AW[k] * A[k].v; }, 0));
+    return '<div class="scrim" data-a="closesheet"></div><div class="sheet v6sheet v6hs" role="dialog" aria-modal="true"><div class="sh-h"><h3>' + tx(Q.howL) + '</h3><button class="secondary sm" data-a="closesheet">' + u('close') + '</button></div>' +
+      '<p class="v6sub">' + tx(Q.howLead) + '</p><div class="v6wts">' + AK.map(function (k) {
+        return '<div class="v6wt"><div class="v6wt-h"><b>' + tx(Q.area[k]) + '</b><span>' + Math.round(AW[k] * 100) + '%</span></div><i><b style="width:' + Math.round(AW[k] * 100 / 0.30) + '%"></b></i><small>' + tx(Q.hw[k]) + '</small></div>'; }).join('') + '</div>' +
+      '<p class="v6lab">' + tx(Q.howGap) + '</p><p class="v6sub">' + tx(Q.howGapS) + '</p>' +
+      '<div class="v6cmp"><div><small>' + tx(Q.avg) + '</small><strong>' + avg + '</strong></div><div class="on"><small>' + tx(Q.ours) + '</small><strong>' + sm.now + '</strong></div></div>' +
+      '<ul class="v6rules">' + Q.rules.map(function (r) { return '<li>' + icon('check', 'sm') + '<span>' + tx(r) + '</span></li>'; }).join('') + '</ul></div>';
+  }
+  var _sh2 = sheetHTML;
+  sheetHTML = function () { return S.sheet === 'v6how' ? howSheet() : _sh2(); };
+  document.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-a="v6how"]'); if (!el) return;
+    S.sheet = 'v6how'; render(); ev.stopPropagation(); ev.preventDefault();
   }, true);
 })();
 
