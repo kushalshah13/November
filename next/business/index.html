@@ -1271,6 +1271,122 @@ body.v6night main .wrap { background-position: 0 6px, 0 11px; }
 
 body.v6night .v6prog { border-bottom: 3px double var(--gold) !important; }
 body.v6night .v6bottom { border-top: 3px double var(--gold) !important; }
+
+/* ===== Brand v2.1 components (30 Oct 2026) ===== */
+:root { --rule: #E3E1DD; --line: #E3E1DD; --score-track: #E3E1DD; --control-border: #857C7A; --focus: #A51C17; --kumkum: #A51C17; --ink-muted: #5C5352; }
+.night, body.v6night, .l6hero { --score-track: #8F1813; --focus: #FFFFFF; --line: #C2463F; }
+*:focus-visible { outline: 2px solid var(--focus) !important; outline-offset: 2px; }
+body { color: #1A1414; }
+h1 { font-size: 34px; line-height: 38px; font-weight: 700; font-stretch: 90%; letter-spacing: -0.3px; }
+h2 { font-size: 24px; line-height: 30px; font-weight: 600; font-stretch: 100%; letter-spacing: 0; }
+
+/* Header: white, rule beneath, outlined logo */
+.top { background: #FFFFFF !important; backdrop-filter: none !important; border-bottom: 1px solid var(--rule); }
+.top-in { min-height: 56px; padding-block: 0; }
+.mark { display: inline-flex; align-items: center; padding: 8px 0; color: #1A1414; }
+.mark .wm { height: 22px; width: auto; display: block; }
+.wm-dot { fill: #8A6510; }
+body.v6night .top { background: #A51C17 !important; border-color: #C2463F; }
+body.v6night .mark { color: #FFFFFF; } body.v6night .wm-dot { fill: #D4A537; }
+@media (min-width: 1024px) { .top-in { min-height: 72px; } .mark .wm { height: 26px; } }
+
+/* Language switch: plain words, active one underlined in kumkum */
+.lang { border: 0 !important; background: none !important; padding: 0; gap: 2px; border-radius: 0; }
+.lang button { background: none !important; color: #5C5352 !important; border-radius: 0 !important; padding: 8px 6px !important; min-width: 0; min-height: 40px; font-weight: 600; font-size: 15px; border-bottom: 2px solid transparent !important; }
+.lang button[aria-pressed="true"] { color: #1A1414 !important; border-bottom-color: #A51C17 !important; }
+.lang button[data-v="hi"] { font-family: "Anek Devanagari", var(--body); } .lang button[data-v="gu"] { font-family: "Anek Gujarati", var(--body); }
+body.v6night .lang button { color: #FBE3E0 !important; } body.v6night .lang button[aria-pressed="true"] { color: #FFFFFF !important; border-bottom-color: #FFFFFF !important; }
+
+/* Buttons */
+.primary { background: #1A1414; color: #FFFFFF; border: 1px solid #1A1414; border-radius: 6px; min-height: 48px; font-weight: 600; font-size: 16px; }
+.secondary { background: #FFFFFF; color: #1A1414; border: 1.5px solid #1A1414; border-radius: 6px; min-height: 48px; font-weight: 600; }
+.primary.sm, .secondary.sm { min-height: 40px; font-size: 15px; }
+.quiet, .v6link, .ghost { text-decoration: underline; text-underline-offset: 4px; }
+.night .primary, body.v6night .primary, .l6hero .heroBtn { background: #FFFFFF !important; color: #A51C17 !important; border-color: #FFFFFF !important; }
+.night .secondary, body.v6night .secondary { background: transparent !important; color: #FFFFFF !important; border-color: #FFFFFF !important; }
+.primary:disabled { background: #E3E1DD; border-color: #E3E1DD; color: #5C5352; }
+
+/* Six-step progress */
+.v6prog { border-bottom: 0 !important; }
+.v6prog-in { display: flex; flex-direction: column; gap: 8px; padding-top: 10px; padding-bottom: 12px; }
+.v6prog-l { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.v6prog-l b { font-weight: 600; font-size: 15px; } .v6prog-l span { font-size: 14px; color: #5C5352; font-variant-numeric: tabular-nums; }
+.v6segs { display: flex; gap: 4px; } .v6segs span { flex: 1; height: 4px; background: var(--score-track); } .v6segs span.on { background: #1A1414; }
+body.v6night .v6segs span.on { background: #FFFFFF; } body.v6night .v6prog-l b { color: #FFFFFF; } body.v6night .v6prog-l span { color: #FBE3E0 !important; }
+
+/* Status tags */
+.v6pill, .pill { font: 600 15px/20px var(--body); padding: 5px 12px; border-radius: 4px; }
+.v6-ok, .p-ok { background: #1F6B45 !important; color: #FFFFFF !important; }
+.v6-gap, .p-gap { background: #B8460B !important; color: #FFFFFF !important; }
+.v6-look { background: transparent !important; border: 1.5px solid #8A6510; color: #1A1414; padding: 3.5px 10.5px; }
+.v6-leave { background: transparent !important; border: 1px dashed #5C5352; color: #5C5352; padding: 4px 11px; }
+.night .v6-ok, body.v6night .v6-ok, .l6hero .v6-ok { background: #1F6B45 !important; color: #FFFFFF !important; }
+.night .v6-gap, body.v6night .v6-gap, .l6hero .v6-gap { background: #FFFFFF !important; color: #A51C17 !important; }
+.night .v6-look, body.v6night .v6-look, .l6hero .v6-look { border-color: #D4A537; color: #FFFFFF; }
+
+/* Family score: flat bar, gold target marker, thread */
+.v6bar { height: 10px !important; border-radius: 0 !important; background: var(--score-track) !important; }
+.v6bar > * { border-radius: 0 !important; }
+.v6bar i { height: 10px; background: #FFFFFF; } .v6bar b { width: 3px; height: 22px; top: -6px; background: #D4A537 !important; }
+.wrap > section.hero.night, .l6hero { background: #A51C17 !important; background-image: linear-gradient(#D4A537, #D4A537), linear-gradient(#D4A537, #D4A537) !important; background-size: 100% 2px !important; background-repeat: no-repeat !important; background-position: 0 12px, 0 calc(100% - 12px) !important; border-radius: 0 !important; }
+body.v6night main .wrap { background-image: linear-gradient(#D4A537, #D4A537); background-size: 100% 2px; background-repeat: no-repeat; background-position: 0 12px; }
+body.v6night .v6prog, body.v6night .v6bottom { border-color: #C2463F !important; border-width: 1px !important; border-style: solid !important; border-left: 0 !important; border-right: 0 !important; }
+body.v6night .v6prog { border-top: 0 !important; } body.v6night .v6bottom { border-top: 2px solid #D4A537 !important; border-bottom: 0 !important; }
+.l6score { background: #8F1813 !important; border-radius: 0 !important; }
+
+/* Ledger, not floating cards */
+.v6people, .v6card, .l6jobs, .l6stats { border-radius: 0 !important; border-left: 0 !important; border-right: 0 !important; background: transparent !important; padding-left: 0 !important; padding-right: 0 !important; }
+.l6stats { border-top: 1px solid var(--rule) !important; border-bottom: 1px solid var(--rule) !important; }
+.v6card.v6lead-card { border: 1px solid var(--rule) !important; border-top: 3px solid #1A1414 !important; padding: 18px 16px !important; }
+.v6card.v6read { background: #F3F3F1 !important; padding: 12px 16px !important; border: 0 !important; border-radius: 6px !important; }
+.l6job { padding-left: 0; padding-right: 0; }
+@media (min-width: 900px) { .l6jobs { border-top: 1px solid var(--rule) !important; border-bottom: 1px solid var(--rule) !important; } .l6job { padding: 18px 18px 18px 0; } .l6job + .l6job { padding-left: 18px; border-top: 0 !important; border-left: 1px solid var(--rule); } }
+
+/* Agent tags: job name, gold-strong square */
+.l6tags i { background: #FFFFFF !important; border: 1px solid var(--rule); border-radius: 4px !important; font: 600 14px/1 var(--body) !important; padding: 5px 8px !important; color: #1A1414; }
+.l6tags i::before { border-radius: 0 !important; background: #8A6510 !important; }
+.l6ic { border-radius: 6px !important; }
+
+/* Earnings band: three flat segments */
+.meter { display: inline-flex; gap: 3px; } .meter i { width: 18px !important; height: 8px !important; border-radius: 0 !important; background: var(--score-track) !important; } .meter i.on { background: #1A1414 !important; }
+.commline { color: #5C5352; font-size: 15px; }
+
+/* Chips: flat, 6px */
+.chip, .l6chip { border-radius: 6px !important; border: 1px solid var(--control-border); background: #FFFFFF; min-height: 44px; font-weight: 600; }
+.chip[aria-pressed="true"], .l6chip.dk { background: #1A1414 !important; color: #FFFFFF !important; border-color: #1A1414 !important; }
+
+/* Sheets and toast */
+.scrim { background: rgba(26, 20, 20, 0.5) !important; }
+.sheet .panel, .v6sheet .panel { border-radius: 6px 6px 0 0 !important; box-shadow: none !important; }
+.toast { background: #1A1414 !important; color: #FFFFFF !important; border-radius: 6px !important; box-shadow: none !important; }
+
+/* Hindi and Gujarati: one size up */
+html[lang="hi"] body { font-family: "Anek Devanagari", "Anek Latin", system-ui, sans-serif; }
+html[lang="gu"] body { font-family: "Anek Gujarati", "Anek Latin", system-ui, sans-serif; }
+
+/* Health Check column */
+@media (min-width: 1024px) { body.v6flow .top-in, body.v6flow .wrap { max-width: 680px; } }
+
+.v6prog-in { align-items: stretch !important; }
+.v6prog-l b { display: inline !important; height: auto !important; background: none !important; color: #1A1414; border-radius: 0 !important; }
+.v6segs span { display: block; }
+body.v6night .v6segs span { background: #8F1813; } body.v6night .v6segs span.on { background: #FFFFFF; }
+.v6meet .v6ey, .v6move .v6ey { display: none; }
+
+.verdict { background: #F3F3F1 !important; border: 0 !important; border-radius: 6px !important; }
+.verdict > .overline { align-self: flex-start; border: 1.5px solid #1A1414; border-radius: 4px; padding: 3px 9px; color: #1A1414; font-size: 14px; font-weight: 600; }
+.cmp th.pickcol, .cmp td.pickcol { background: #F3F3F1 !important; }
+.agchip { background: #FFFFFF !important; color: #1A1414 !important; border: 1px solid var(--rule); border-radius: 4px !important; font: 600 14px/1 var(--body) !important; padding: 5px 8px !important; gap: 6px; }
+.agchip .pdot { width: 6px !important; height: 6px !important; border-radius: 0 !important; background: #8A6510 !important; animation: none !important; box-shadow: none !important; }
+.band-m { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+.pk-card, .pk-biz { background: #FFFFFF !important; color: #1A1414 !important; border: 1px solid var(--rule) !important; }
+.pk-card:hover { border-color: #1A1414 !important; }
+.pk-biz .pk-d, .pk-biz .pk-n { color: #5C5352 !important; }
+.pk-ic, .pk-biz .pk-ic, .pk-biz .pk-ic.sm2, .pk-sal .pk-ic.sm2 { background: #F3F3F1 !important; color: #1A1414 !important; }
+.pk-tags i, .pk-biz .pk-tags i { background: #FFFFFF !important; color: #1A1414 !important; border: 1px solid var(--rule); border-radius: 4px; }
+.pk-go, .pk-biz .pk-go { background: #1A1414 !important; color: #FFFFFF !important; }
+.pk-head h1 { font-weight: 700; font-stretch: 90%; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -4478,7 +4594,7 @@ render = function () { _render3(); floatCheck(); };
     knowH: O('Know what you need?', 'पता है क्या चाहिए?', 'ખબર છે શું જોઈએ?'),
     chips: { health: O('Family health cover', 'परिवार का हेल्थ कवर', 'પરિવારનો હેલ્થ કવર'), parents: O('Parents’ health', 'माता-पिता का हेल्थ कवर', 'માતા-પિતાનો હેલ્થ કવર'), term: O('Term cover', 'टर्म कवर', 'ટર્મ કવર'),
       home: O('Home loan', 'होम लोन', 'હોમ લોન'), biz: O('Business loan', 'बिज़नेस लोन', 'બિઝનેસ લોન'), claim: O('Start a claim', 'क्लेम शुरू करें', 'ક્લેમ શરૂ કરો') },
-    earn: O('Three options each, ranked for you. What we earn never changes the order.', 'हर एक पर तीन विकल्प, आपके लिए क्रम में। हमारी कमाई क्रम नहीं बदलती।', 'દરેક પર ત્રણ વિકલ્પ, તમારા માટે ક્રમમાં. અમારી કમાણી ક્રમ બદલતી નથી.'),
+    earn: O('Three options each, ranked for you. Our earnings don’t change what we recommend.', 'हर एक पर तीन विकल्प, आपके लिए क्रम में। हमारी कमाई हमारी सलाह नहीं बदलती।', 'દરેક પર ત્રણ વિકલ્પ, તમારા માટે ક્રમમાં. અમારી કમાણી અમારી સલાહ બદલતી નથી.'),
     proofH: O('One claim we handled', 'एक क्लेम जो हमने संभाला', 'એક ક્લેમ જે અમે સંભાળ્યો'),
     bill: O('Bill', 'बिल', 'બિલ'), won: O('Won back', 'वापस मिला', 'પાછા મળ્યા'), closed: O('Closed', 'बंद', 'બંધ'), day9: O('Day 9', 'दिन 9', 'દિવસ 9'),
     vault: O('Family vault', 'परिवार की तिजोरी', 'પરિવારની તિજોરી'), vaultS: O('Every paper in one place, shared your way', 'हर कागज़ एक जगह, आपकी मर्ज़ी से साझा', 'દરેક કાગળ એક જગ્યાએ, તમારી મરજીથી શેર'),
@@ -4507,6 +4623,40 @@ render = function () { _render3(); floatCheck(); };
     var vault = '<section class="l6vault" id="s-vault"><span><b>' + tx(W.vault) + '</b><small>' + tx(W.vaultS) + '</small></span><button class="l6go" data-a="vault">' + tx(W.vaultGo) + arrow() + '</button></section>';
     return hero + ag + '<section class="l6sec l6two">' + know + proof + '</section>' + vault + '<p class="l6foot"><span>' + tx(LP.tagline) + '</span><span>' + tx(LP.foot) + '</span></p>';
   };
+})();
+
+/* Brand v2.1 (30 Oct 2026): outlined logo, language switch, six-step progress, earnings bands wording. Loaded last. */
+(function () {
+  var WP = "M610.9017751812935 0.0V-628.8045040369034Q610.9017751812935 -675.1735233068466 600.749507278204 -707.581376105547Q590.5972393751144 -739.9892289042473 566.4176880419254 -757.1337760388851Q542.2381367087364 -774.278323173523 500.3345701098442 -774.278323173523Q465.78741776943207 -774.278323173523 439.42485162615776 -760.5659201145172Q413.06228548288345 -746.8535170555115 395.8722364604473 -723.5560154616833Q378.68218743801117 -700.2585138678551 370.077909052372 -670.4036540389061L318.70229798555374 -801.5848959684372H373.3257731795311Q386.1746197938919 -860.6611899137497 415.5028368830681 -908.3211641311646Q444.83105397224426 -955.9811383485794 497.77809169888496 -984.2456350922585Q550.7251294255257 -1012.5101318359375 633.6703516244888 -1012.5101318359375Q726.3470205664635 -1012.5101318359375 784.5140289962292 -974.9485163092613Q842.6810374259949 -937.3869007825851 870.3030773997307 -863.1200243830681Q897.9251173734665 -788.853147983551 897.9251173734665 -677.2495110034943V0.0ZM86.6090716123581 0.0V-993.6392518877983H371.3568093776703L361.424588739872 -768.521173119545L373.6324138045311 -753.6320490241051V0.0Z M1412.6424307227135 23.59857141971588Q1207.982486128807 23.59857141971588 1104.0858634412289 -85.60997340083122Q1000.1892407536507 -194.81851822137833 1000.1892407536507 -398.575576543808V-592.6766842603683Q1000.1892407536507 -798.322322010994 1104.2530539035797 -907.8528724312782Q1208.3168670535088 -1017.3834228515625 1412.6424307227135 -1017.3834228515625Q1616.940100967884 -1017.3834228515625 1720.685051292181 -907.8528724312782Q1824.430001616478 -798.322322010994 1824.430001616478 -592.6766842603683V-398.575576543808Q1824.430001616478 -194.81851822137833 1720.8522417545319 -85.60997340083122Q1617.2744818925858 23.59857141971588 1412.6424307227135 23.59857141971588ZM1412.6424307227135 -206.51809531450272Q1477.414193868637 -206.51809531450272 1508.1349753439426 -249.52154684066772Q1538.8557568192482 -292.52499836683273 1538.8557568192482 -377.02659171819687V-614.5600500106812Q1538.8557568192482 -700.9223293662071 1508.1349753439426 -744.0945427417755Q1477.414193868637 -787.2667561173439 1412.6424307227135 -787.2667561173439Q1347.6850289702415 -787.2667561173439 1316.7970570325851 -744.0945427417755Q1285.9090850949287 -700.9223293662071 1285.9090850949287 -614.5600500106812V-377.02659171819687Q1285.9090850949287 -292.52499836683273 1316.7970570325851 -249.52154684066772Q1347.6850289702415 -206.51809531450272 1412.6424307227135 -206.51809531450272Z M2312.5154154896736 -189.6846902370453 2443.827557146549 -993.6392518877983H2732.891516983509L2532.096314907074 0.0H2070.0634829998016L1868.2651381492615 -993.6392518877983H2160.1157190799713L2291.3720738887787 -189.6846902370453Z M3230.0586594343185 19.68524134159088Q2999.112644135952 19.68524134159088 2887.6509424448013 -91.92973551154137Q2776.1892407536507 -203.54471236467361 2776.1892407536507 -421.14789497852325V-587.0353903770447Q2776.1892407536507 -796.8663265705109 2876.822923630476 -906.9437375366688Q2977.4566065073013 -1017.0211485028267 3177.4411974549294 -1017.0211485028267Q3308.918249666691 -1017.0211485028267 3395.826575577259 -969.4899736344814Q3482.7349014878273 -921.9587987661362 3525.9662402570248 -831.3969680070877Q3569.1975790262222 -740.8351372480392 3569.1975790262222 -610.8281149864197V-556.4599277377129Q3569.1975790262222 -515.3644080758095 3566.0069965720177 -473.77946266531944Q3562.816414117813 -432.1945172548294 3555.903084039688 -393.47115963697433H3301.478619515896Q3303.107342302799 -468.08358496427536 3303.681713461876 -527.5299939513206Q3304.2560846209526 -586.9764029383659 3304.2560846209526 -632.4033088684082Q3304.2560846209526 -687.0830302834511 3291.3138231635094 -723.2919102609158Q3278.371561706066 -759.5007902383804 3250.5737087130547 -777.8144054710865Q3222.775855720043 -796.1280207037926 3177.4411974549294 -796.1280207037926Q3109.681001365185 -796.1280207037926 3080.263717740774 -754.6802029013634Q3050.8464341163635 -713.2323850989342 3050.8464341163635 -631.4865297675133V-504.6443174481392L3052.7476185560226 -465.74297988414764V-385.1519854068756Q3052.7476185560226 -345.07773345708847 3064.8084258139133 -313.0850714147091Q3076.869233071804 -281.0924093723297 3104.268312692642 -258.86891308426857Q3131.6673923134804 -236.64541679620743 3176.3788646757603 -224.85707119107246Q3221.09033703804 -213.0687255859375 3286.7539415955544 -213.0687255859375Q3360.250372648239 -213.0687255859375 3427.819297224283 -227.9205788075924Q3495.3882218003273 -242.77243202924728 3555.4075089097023 -267.39261132478714L3535.0101707577705 -44.81616497039795Q3478.4248118400574 -15.083833396434784 3400.2596955001354 2.3007039725780487Q3322.0945791602135 19.68524134159088 3230.0586594343185 19.68524134159088ZM2940.816255271435 -393.47115963697433V-580.0983272790909H3496.1181423068047V-393.47115963697433Z M4679.875262022018 0.0V-635.3360567092896Q4679.875262022018 -679.4174790382385 4670.506319314241 -710.522216796875Q4661.137376606464 -741.6269545555115 4638.858856588602 -757.9526388645172Q4616.58033657074 -774.278323173523 4577.8100707530975 -774.278323173523Q4545.495187878609 -774.278323173523 4520.889854580164 -760.7470572888851Q4496.284521281719 -747.2157914042473 4480.617787688971 -723.7371526360512Q4464.951054096222 -700.2585138678551 4457.52341145277 -669.6791053414345L4431.253820240498 -799.4112498760223H4456.168035149574Q4468.642461776733 -857.262019276619 4496.4767516851425 -905.6959499716759Q4524.311041593552 -954.1298806667328 4575.9358440339565 -983.3200062513351Q4627.560646474361 -1012.5101318359375 4709.790322840214 -1012.5101318359375Q4799.432506561279 -1012.5101318359375 4855.493954509497 -975.5073693692684Q4911.555402457714 -938.5046069025993 4938.140180289745 -865.2159098982811Q4964.724958121777 -791.9272128939629 4964.724958121777 -682.1100438833237V0.0ZM3673.609071612358 0.0V-993.6392518877983H3956.1831632852554L3946.250942647457 -763.320160806179L3958.4587677121162 -757.617066860199V0.0ZM4176.8938391804695 0.0V-635.3360567092896Q4176.8938391804695 -679.4174790382385 4167.5248964726925 -710.522216796875Q4158.1559537649155 -741.6269545555115 4136.058570921421 -757.9526388645172Q4113.961188077927 -774.278323173523 4075.5531966090202 -774.278323173523Q4043.2383137345314 -774.278323173523 4018.6329804360867 -760.668184697628Q3994.027647137642 -747.0580462217331 3978.1797763705254 -723.839417219162Q3962.331905603409 -700.6207882165909 3954.904262959957 -670.2459088563919L3906.4268466830254 -801.5848959684372H3958.1521270871162Q3971.2176485061646 -861.3857386112213 3999.457624286413 -909.0457128286362Q4027.697600066662 -956.705687046051 4078.005111068487 -984.6079094409943Q4128.3126220703125 -1012.5101318359375 4206.821045637131 -1012.5101318359375Q4322.950839579105 -1012.5101318359375 4380.916767865419 -949.622466146946Q4438.882696151733 -886.7348004579544 4452.136845827103 -764.8236041069031Q4455.409154355526 -745.6469683647156 4458.424672454596 -718.8738515675068Q4461.440190553665 -692.100734770298 4461.440190553665 -668.3761860728264V0.0Z M5627.106877923012 18.87087994813919Q5551.211429357529 18.87087994813919 5500.919206768274 -8.360856086015701Q5450.62698417902 -35.59259212017059 5421.806411296129 -83.69371327757835Q5392.9858384132385 -131.79483443498611 5380.325773179531 -193.86572766304016H5304.325648963451L5375.093503713608 -379.15713626146317Q5376.168027997017 -328.1953717470169 5391.308822363615 -292.4980443716049Q5406.449616730213 -256.80071699619293 5435.801532059908 -238.26196002960205Q5465.153447389603 -219.72320306301117 5507.356909692287 -219.72320306301117Q5570.7939856648445 -219.72320306301117 5600.311885923147 -262.47796523571014Q5629.82978618145 -305.2327274084091 5629.82978618145 -390.485691010952V-613.0268518924713Q5629.82978618145 -697.7163078784943 5600.731212258339 -739.5438698232174Q5571.632638335228 -781.3714317679405 5507.892217636108 -781.3714317679405Q5472.939609110355 -781.3714317679405 5445.168290883303 -767.505784958601Q5417.39697265625 -753.6401381492615 5398.898635059595 -729.6799475252628Q5380.40029746294 -705.7197569012642 5371.610380470753 -674.6882613301277L5321.483768224716 -801.5848959684372H5385.298032879829Q5397.2924790382385 -861.7759063839912 5425.081862598658 -909.421933889389Q5452.871246159077 -957.0679613947868 5503.369492739439 -984.7890466153622Q5553.867739319801 -1012.5101318359375 5633.036687493324 -1012.5101318359375Q5779.464119195938 -1012.5101318359375 5848.565804481506 -906.5887270867825Q5917.667489767075 -800.6673223376274 5917.667489767075 -593.1530675888062V-398.8635600209236Q5917.667489767075 -192.59088385105133 5848.70967951417 -86.86000195145607Q5779.751869261265 18.87087994813919 5627.106877923012 18.87087994813919ZM5093.609071612358 0.0V-1323.1168212890625H5378.935758531094V-1061.9284089803696L5374.455778062344 -760.8796119093895L5375.093503713608 -734.2900094389915V-258.38354563713074L5368.758969664574 -226.472995698452L5378.35680937767 0.0Z M6457.0586594343185 19.68524134159088Q6226.112644135952 19.68524134159088 6114.650942444801 -91.92973551154137Q6003.189240753651 -203.54471236467361 6003.189240753651 -421.14789497852325V-587.0353903770447Q6003.189240753651 -796.8663265705109 6103.822923630476 -906.9437375366688Q6204.456606507301 -1017.0211485028267 6404.441197454929 -1017.0211485028267Q6535.918249666691 -1017.0211485028267 6622.826575577259 -969.4899736344814Q6709.734901487827 -921.9587987661362 6752.966240257025 -831.3969680070877Q6796.197579026222 -740.8351372480392 6796.197579026222 -610.8281149864197V-556.4599277377129Q6796.197579026222 -515.3644080758095 6793.006996572018 -473.77946266531944Q6789.816414117813 -432.1945172548294 6782.903084039688 -393.47115963697433H6528.478619515896Q6530.107342302799 -468.08358496427536 6530.681713461876 -527.5299939513206Q6531.256084620953 -586.9764029383659 6531.256084620953 -632.4033088684082Q6531.256084620953 -687.0830302834511 6518.313823163509 -723.2919102609158Q6505.371561706066 -759.5007902383804 6477.573708713055 -777.8144054710865Q6449.775855720043 -796.1280207037926 6404.441197454929 -796.1280207037926Q6336.681001365185 -796.1280207037926 6307.263717740774 -754.6802029013634Q6277.8464341163635 -713.2323850989342 6277.8464341163635 -631.4865297675133V-504.6443174481392L6279.747618556023 -465.74297988414764V-385.1519854068756Q6279.747618556023 -345.07773345708847 6291.808425813913 -313.0850714147091Q6303.869233071804 -281.0924093723297 6331.268312692642 -258.86891308426857Q6358.66739231348 -236.64541679620743 6403.37886467576 -224.85707119107246Q6448.09033703804 -213.0687255859375 6513.753941595554 -213.0687255859375Q6587.250372648239 -213.0687255859375 6654.819297224283 -227.9205788075924Q6722.388221800327 -242.77243202924728 6782.407508909702 -267.39261132478714L6762.0101707577705 -44.81616497039795Q6705.424811840057 -15.083833396434784 6627.259695500135 2.3007039725780487Q6549.0945791602135 19.68524134159088 6457.0586594343185 19.68524134159088ZM6167.816255271435 -393.47115963697433V-580.0983272790909H6723.118142306805V-393.47115963697433Z M7183.755673766136 -571.0061049461365 7094.726771295071 -762.3167681694031H7167.092312633991Q7184.849241733551 -875.3666660189629 7243.530426561832 -940.1689438819885Q7302.211611390114 -1004.9712217450142 7414.219365358353 -1004.9712217450142Q7426.927099406719 -1004.9712217450142 7437.978140681982 -1003.5683893561363Q7449.029181957245 -1002.1655569672585 7460.943549990654 -1000.1310717463493L7471.653082609177 -691.4898985028267Q7458.035467505455 -694.6699832677841 7438.389516562223 -696.332825422287Q7418.743565618992 -697.9956675767899 7398.7602271437645 -697.9956675767899Q7318.450625777245 -697.9956675767899 7263.519472002983 -665.2783062160015Q7208.588318228722 -632.5609448552132 7183.755673766136 -571.0061049461365ZM6900.609071612358 0.0V-993.6392518877983H7165.095455408096L7152.81670820713 -693.427150785923L7187.632413804531 -686.1831661462784V0.0Z", DOT = ["7721.7","-170.0","170.0"];
+  function logo(cls) {
+    return '<svg class="wm ' + (cls || '') + '" viewBox="60 -1345 7860 1390" role="img" aria-label="november"><path d="' + WP + '" fill="currentColor"/><circle cx="' + DOT[0] + '" cy="' + DOT[1] + '" r="' + DOT[2] + '" class="wm-dot"/></svg>';
+  }
+  window.NOVLOGO = logo;
+  var STEPS = [O('Meet the family', 'परिवार से मिलिए', 'પરિવારને મળો'), O('Send papers', 'कागज़ भेजिए', 'કાગળો મોકલો'), O('At a glance', 'एक नज़र में', 'એક નજરે'),
+    O('Family score', 'परिवार का स्कोर', 'પરિવારનો સ્કોર'), O('Your first move', 'आपका पहला कदम', 'તમારું પહેલું પગલું'), O('What happens next', 'आगे क्या होगा', 'આગળ શું થશે')];
+  var STEPOF = O('Step {n} of 6', 'चरण {n} / 6', 'પગલું {n} / 6');
+  var _tb = topbar;
+  topbar = function () {
+    var h = _tb();
+    h = h.replace(/(<button class="mark"[^>]*>)november<i><\/i>(<\/button>)/, function (m, a, b) { return a + logo() + b; });
+    h = h.replace(/<div class="v6prog">[\s\S]*?<\/div><\/div>(?=<\/header>)/, function (m) {
+      var w = /width:(\d+)%/.exec(m), n = w ? Math.round(+w[1] * 6 / 100) : 1, segs = '';
+      for (var i = 1; i <= 6; i++) segs += '<span class="' + (i <= n ? 'on' : '') + '"></span>';
+      return '<div class="v6prog"><div class="v6prog-in"><div class="v6prog-l"><b>' + tx(STEPS[n - 1]) + '</b><span>' + t(STEPOF, { n: n }) + '</span></div>' +
+        '<div class="v6segs" role="progressbar" aria-valuenow="' + n + '" aria-valuemin="1" aria-valuemax="6">' + segs + '</div></div></div>';
+    });
+    return h;
+  };
+  /* Earnings: bands only, one line per screen */
+  if (typeof JU !== 'undefined') {
+    JU.comm = O('What we earn', 'हमारी कमाई', 'અમારી કમાણી');
+    JU.commLine = O('Our earnings don’t change what we recommend.', 'हमारी कमाई हमारी सलाह नहीं बदलती।', 'અમારી કમાણી અમારી સલાહ બદલતી નથી.');
+    JU.commLineLoan = JU.commLine;
+  }
+  if (typeof CU2 !== 'undefined') CU2.earns = O('What we earn', 'हमारी कमाई', 'અમારી કમાણી');
+  if (typeof LP !== 'undefined') LP.earnStrip = O('Three options each, ranked for you. Our earnings don’t change what we recommend.', 'हर ज़रूरत पर तीन विकल्प, आपके लिए क्रम में। हमारी कमाई हमारी सलाह नहीं बदलती।', 'દરેક જરૂર માટે ત્રણ વિકલ્પ, તમારા માટે ક્રમમાં. અમારી કમાણી અમારી સલાહ બદલતી નથી.');
+  /* Favicon: the app icon file */
+  try { var l = document.createElement('link'); l.rel = 'icon'; l.type = 'image/svg+xml'; l.href = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048" role="img" aria-label="november"><rect width="2048" height="2048" rx="451" fill="#A51C17"></rect><g transform="translate(420.7 1438.0) scale(0.8177)"><path d="M610.9017751812935 0.0V-628.8045040369034Q610.9017751812935 -675.1735233068466 600.749507278204 -707.581376105547Q590.5972393751144 -739.9892289042473 566.4176880419254 -757.1337760388851Q542.2381367087364 -774.278323173523 500.3345701098442 -774.278323173523Q465.78741776943207 -774.278323173523 439.42485162615776 -760.5659201145172Q413.06228548288345 -746.8535170555115 395.8722364604473 -723.5560154616833Q378.68218743801117 -700.2585138678551 370.077909052372 -670.4036540389061L318.70229798555374 -801.5848959684372H373.3257731795311Q386.1746197938919 -860.6611899137497 415.5028368830681 -908.3211641311646Q444.83105397224426 -955.9811383485794 497.77809169888496 -984.2456350922585Q550.7251294255257 -1012.5101318359375 633.6703516244888 -1012.5101318359375Q726.3470205664635 -1012.5101318359375 784.5140289962292 -974.9485163092613Q842.6810374259949 -937.3869007825851 870.3030773997307 -863.1200243830681Q897.9251173734665 -788.853147983551 897.9251173734665 -677.2495110034943V0.0ZM86.6090716123581 0.0V-993.6392518877983H371.3568093776703L361.424588739872 -768.521173119545L373.6324138045311 -753.6320490241051V0.0Z" fill="#FFFFFF"></path><circle cx="1193.4" cy="-195.5" r="195.5" fill="#D4A537"></circle></g></svg>'); document.head.appendChild(l); } catch (e) {}
 })();
 
 /* Demo chooser: one link for both demos. Deep links: #business or #salaried */
