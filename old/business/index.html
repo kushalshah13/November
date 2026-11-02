@@ -1176,6 +1176,75 @@ body.v6flow .wrap { padding-block: 20px 120px; }
 .v6rules { list-style: none; padding: 0; margin: 18px 0 4px; display: grid; gap: 10px; }
 .v6rules li { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; }
 .v6rules svg { width: 18px; height: 18px; color: #2F6B5A; flex: none; margin-top: 2px; }
+
+/* ===== v6 landing (28 Oct) ===== */
+.l6hero { display: grid !important; grid-template-columns: 1fr; gap: 24px; padding: 28px 22px 24px !important; }
+.l6hero h1 { font: 500 clamp(2.1rem, 8vw, 3.5rem)/1.08 var(--display); letter-spacing: -0.5px; margin: 12px 0 0; max-width: 16ch; }
+.l6sub { font-size: 1.0625rem; line-height: 1.55; color: #D8DBE5; margin: 14px 0 0; max-width: 40ch; }
+.l6hero .cta { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 22px; }
+.l6hero .heroBtn { display: inline-flex; align-items: center; gap: 12px; min-height: 54px; padding: 0 22px; font-size: 1rem; }
+.l6hero .cta-cap { font-size: .875rem; color: #D8DBE5; }
+.l6score { background: #26315A; border-radius: 12px; padding: 18px 20px; color: #F5F0E6; }
+.l6ov { font: 600 .8125rem/1.3 var(--body); letter-spacing: 1.4px; text-transform: uppercase; color: var(--muted); margin: 0; }
+.l6score .l6ov { color: #D8DBE5; }
+.l6num { display: flex; align-items: baseline; gap: 8px; margin-top: 6px; }
+.l6num strong { font: 500 3.6rem/1 var(--display); }
+.l6num span { color: #D8DBE5; }
+.l6score .v6bar { margin: 12px 0 0; }
+.l6rows { border-top: 1px solid #3A4672; margin-top: 14px; }
+.l6rows > div { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid #3A4672; font-weight: 600; font-size: .95rem; }
+.l6rows > div:last-child { border-bottom: 0; }
+.l6small { font-size: .875rem; color: var(--muted); margin: 10px 0 0; }
+.l6score .l6small { color: #D8DBE5; } .l6score .l6small b { color: #7FC4AE; }
+.l6sec { margin-top: 32px; }
+.l6h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.l6adv { font-size: .875rem; color: var(--muted); }
+.l6jobs { margin-top: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); display: grid; grid-template-columns: 1fr; }
+.l6job { display: flex; gap: 14px; align-items: flex-start; padding: 16px; }
+.l6job + .l6job { border-top: 1px solid var(--line); }
+.l6ic { width: 42px; height: 42px; border-radius: 50%; background: var(--accent-soft); display: grid; place-items: center; flex: none; }
+.l6ic svg { width: 19px; height: 19px; } .l6ic.dk { background: #1B2440; color: #F5F0E6; }
+.l6jb { display: flex; flex-direction: column; gap: 3px; }
+.l6jb b { font: 500 1.3rem/1.2 var(--display); }
+.l6jb small { font-size: .9375rem; color: var(--muted); }
+.l6tags { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.l6tags i { font: 600 .8125rem/1 var(--body); font-style: normal; padding: 5px 10px; border-radius: 999px; background: var(--accent-soft); display: inline-flex; align-items: center; gap: 6px; }
+.l6tags i::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #2F6B5A; }
+.l6two { display: grid; grid-template-columns: 1fr; gap: 28px; }
+.l6chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.l6chip { font: 600 .9375rem/1 var(--body); padding: 12px 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.l6chip:hover { border-color: var(--ink); }
+.l6chip.dk { background: #1B2440; color: #F5F0E6; border-color: #1B2440; }
+.l6stats { margin-top: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.l6stats span { display: flex; flex-direction: column; gap: 2px; }
+.l6stats small { font-size: .875rem; color: var(--muted); }
+.l6stats b { font: 500 1.45rem/1.15 var(--display); }
+.l6stats b.g { color: #2F6B5A; }
+.l6vault { margin-top: 32px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 16px 0; display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+.l6vault span { display: flex; flex-direction: column; gap: 2px; }
+.l6vault small { color: var(--muted); font-size: .875rem; }
+.l6go { display: inline-flex; align-items: center; gap: 8px; background: none; border: 0; padding: 8px 0; font: 600 .95rem/1 var(--body); color: var(--ink); cursor: pointer; }
+.l6go svg { width: 16px; height: 16px; }
+.l6foot { display: flex; flex-direction: column; gap: 6px; font-size: .875rem; color: var(--muted); margin: 26px 0 0; }
+@media (min-width: 900px) {
+  .s0.wrap { max-width: 1112px; }
+  .l6hero { grid-template-columns: minmax(0, 1fr) 360px; gap: 56px; align-items: center; padding: 52px 52px 48px !important; }
+  .l6hero .cta { flex-direction: row; align-items: center; gap: 18px; }
+  .l6sec { margin-top: 44px; }
+  .l6jobs { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .l6job + .l6job { border-top: 0; border-left: 1px solid var(--line); }
+  .l6job { padding: 20px 22px; }
+  .l6two { grid-template-columns: minmax(0, 1fr) 420px; gap: 48px; }
+  .l6foot { flex-direction: row; justify-content: space-between; }
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .l6stats b.g { color: #7FC4AE; } :root:not([data-theme="light"]) .l6ic.dk { background: #F5F0E6; color: #1B2440; } :root:not([data-theme="light"]) .l6chip.dk { background: #F5F0E6; color: #1B2440; border-color: #F5F0E6; } }
+
+.wrap > section.l6two { display: grid; grid-template-columns: 1fr; gap: 28px; text-align: left; }
+.wrap > section.l6vault { display: flex; justify-content: space-between; align-items: center; text-align: left; flex-direction: row; }
+.wrap > section.l6sec { text-align: left; }
+@media (min-width: 900px) { .wrap > section.l6two { grid-template-columns: minmax(0, 1fr) 420px; gap: 48px; } .l6hero h1 { max-width: 20ch; font-size: 3.2rem; } }
+
+@media (max-width: 899px) { .l6hero [data-a="go"] { width: 100%; justify-content: space-between; } }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -4167,7 +4236,7 @@ render = function () { _render3(); floatCheck(); };
     acts.sort(function (a, b) { return b.gain - a.gain; });
     return { A: A, now: now, acts: acts, next: acts.length ? acts[0].to : now };
   }
-  window.NOVSCORE = { model: scoreModel, areas: areasOf, total: total };
+  window.NOVSCORE = { model: scoreModel, areas: areasOf, total: total, Q: Q };
 
   /* ---------- Pieces ---------- */
   function famName(p) { var n = tx(p.name).split(' '); return t(Q.fam, { n: n[n.length - 1] }); }
@@ -4366,6 +4435,52 @@ render = function () { _render3(); floatCheck(); };
     var el = ev.target.closest && ev.target.closest('[data-a="v6how"]'); if (!el) return;
     S.sheet = 'v6how'; render(); ev.stopPropagation(); ev.preventDefault();
   }, true);
+})();
+
+/* v6 landing (28 Oct 2026): one promise, one action. Score preview, what the agents do, quick ways in, one proof. */
+(function () {
+  var W = {
+    sub: O('We check it, fix your insurance and loans, and fight your claims.', 'हम सब जाँचते हैं, बीमा और लोन ठीक करते हैं, और क्लेम के लिए लड़ते हैं।', 'અમે બધું તપાસીએ છીએ, વીમો અને લોન સુધારીએ છીએ, અને ક્લેમ માટે લડીએ છીએ.'),
+    cta: O('Get your family score', 'अपने परिवार का स्कोर देखें', 'તમારા પરિવારનો સ્કોર જુઓ'),
+    cap: O('Free · about 10 minutes · nothing to fill in', 'मुफ़्त · करीब 10 मिनट · कुछ भरना नहीं', 'મફત · આશરે 10 મિનિટ · કંઈ ભરવાનું નથી'),
+    one: O('One move takes it to {n}. A sample family.', 'एक कदम से {n}। एक नमूना परिवार।', 'એક પગલાથી {n}. એક નમૂના પરિવાર.'),
+    agH: O('AI agents do the work. You approve.', 'AI एजेंट काम करते हैं। मंज़ूरी आपकी।', 'AI એજન્ટ કામ કરે છે. મંજૂરી તમારી.'),
+    adv: O('A licensed advisor stands behind every decision', 'हर फ़ैसले के पीछे एक लाइसेंसधारी सलाहकार', 'દરેક નિર્ણય પાછળ એક લાઇસન્સધારી સલાહકાર'),
+    jobs: [['check', O('Check', 'जाँच', 'તપાસ'), O('One score for the whole family', 'पूरे परिवार का एक स्कोर', 'આખા પરિવારનો એક સ્કોર'), ['Keeper', 'Checkup']],
+      ['shield', O('Fix', 'सुधार', 'સુધારો'), O('Insurance and loans, three options, earnings shown', 'बीमा और लोन, तीन विकल्प, कमाई के साथ', 'વીમો અને લોન, ત્રણ વિકલ્પ, કમાણી સાથે'), ['Cover', 'Credit']],
+      ['bed', O('Claim', 'क्लेम', 'ક્લેમ'), O('We chase the insurer until you’re paid', 'पैसा मिलने तक बीमा कंपनी के पीछे हम', 'પૈસા મળે ત્યાં સુધી વીમા કંપની પાછળ અમે'), ['Claims']]],
+    knowH: O('Know what you need?', 'पता है क्या चाहिए?', 'ખબર છે શું જોઈએ?'),
+    chips: { health: O('Family health cover', 'परिवार का हेल्थ कवर', 'પરિવારનો હેલ્થ કવર'), parents: O('Parents’ health', 'माता-पिता का हेल्थ कवर', 'માતા-પિતાનો હેલ્થ કવર'), term: O('Term cover', 'टर्म कवर', 'ટર્મ કવર'),
+      home: O('Home loan', 'होम लोन', 'હોમ લોન'), biz: O('Business loan', 'बिज़नेस लोन', 'બિઝનેસ લોન'), claim: O('Start a claim', 'क्लेम शुरू करें', 'ક્લેમ શરૂ કરો') },
+    earn: O('Three options each, ranked for you. What we earn never changes the order.', 'हर एक पर तीन विकल्प, आपके लिए क्रम में। हमारी कमाई क्रम नहीं बदलती।', 'દરેક પર ત્રણ વિકલ્પ, તમારા માટે ક્રમમાં. અમારી કમાણી ક્રમ બદલતી નથી.'),
+    proofH: O('One claim we handled', 'एक क्लेम जो हमने संभाला', 'એક ક્લેમ જે અમે સંભાળ્યો'),
+    bill: O('Bill', 'बिल', 'બિલ'), won: O('Won back', 'वापस मिला', 'પાછા મળ્યા'), closed: O('Closed', 'बंद', 'બંધ'), day9: O('Day 9', 'दिन 9', 'દિવસ 9'),
+    vault: O('Family vault', 'परिवार की तिजोरी', 'પરિવારની તિજોરી'), vaultS: O('Every paper in one place, shared your way', 'हर कागज़ एक जगह, आपकी मर्ज़ी से साझा', 'દરેક કાગળ એક જગ્યાએ, તમારી મરજીથી શેર'),
+    vaultGo: O('Open a sample vault', 'नमूना तिजोरी खोलें', 'નમૂના તિજોરી ખોલો')
+  };
+  function arrow() { return icon('arrow'); }
+  SCR[0] = function () {
+    var NS = window.NOVSCORE, Q = NS.Q, pid = BRANCH === 'biz' ? 'rajesh' : 'kulkarni', p = PRESETS.filter(function (x) { return x.id === pid; })[0];
+    var s = buildState(p, p.defaults), e = evaluate(s), sm = NS.model(p, s, e), A = sm.A;
+    var nm = tx(p.name).split(' '), fam = t(Q.fam, { n: nm[nm.length - 1] });
+    var rows = ['P', 'L', 'C', 'F', 'W'].sort(function (a, b) { return A[a].v - A[b].v; }).slice(0, 3);
+    var card = '<div class="l6score"><p class="l6ov">' + esc(t(Q.scoreEy, { f: fam })) + '</p><div class="l6num"><strong>' + sm.now + '</strong><span>' + tx(Q.outOf) + '</span></div>' +
+      '<div class="v6bar"><i style="width:' + sm.now + '%"></i><b style="left:' + sm.next + '%"></b></div>' +
+      '<div class="l6rows">' + rows.map(function (k) { return '<div><span>' + tx(Q.area[k]) + '</span><span class="v6pill v6-' + A[k].st + '">' + tx(Q.st[A[k].st]) + '</span></div>'; }).join('') + '</div>' +
+      '<p class="l6small">' + t(W.one, { n: '<b>' + sm.next + '</b>' }) + '</p></div>';
+    var hero = '<section class="hero night l6hero"><div class="l6copy"><p class="eyebrow">' + tx(LP.eyebrow[BRANCH]) + '</p><h1>' + tx(LP.h1) + '</h1><p class="l6sub">' + tx(W.sub) + '</p>' +
+      '<div class="cta"><button class="primary heroBtn" data-a="go" data-v="1">' + tx(W.cta) + arrow() + '</button><span class="cta-cap">' + tx(W.cap) + '</span></div></div>' + card + '</section>';
+    var ag = '<section class="l6sec" id="s-agents"><div class="l6h"><p class="l6ov">' + tx(W.agH) + '</p><span class="l6adv">' + tx(W.adv) + '</span></div><div class="l6jobs">' + W.jobs.map(function (j, i) {
+      return '<div class="l6job"><span class="l6ic' + (i === 0 ? ' dk' : '') + '">' + icon(j[0]) + '</span><span class="l6jb"><b>' + tx(j[1]) + '</b><small>' + tx(j[2]) + '</small><span class="l6tags">' + j[3].map(function (a) { return '<i>' + a + '</i>'; }).join('') + '</span></span></div>'; }).join('') + '</div></section>';
+    var chipK = ['health', 'parents', 'term', 'home'].concat(BRANCH === 'biz' ? ['biz'] : []);
+    var c = claimModel(PRESETS.filter(function (x) { return x.id === 'rajesh'; })[0], buildState(PRESETS[0], PRESETS[0].defaults));
+    var know = '<div class="l6know" id="s-ins"><p class="l6ov">' + tx(W.knowH) + '</p><div class="l6chips">' + chipK.map(function (k) {
+      return '<button class="l6chip"' + (k === 'home' ? ' id="s-loans"' : '') + ' data-a="direct" data-v="' + k + '">' + tx(W.chips[k]) + '</button>'; }).join('') +
+      '<button class="l6chip dk" data-a="claimhub">' + tx(W.chips.claim) + '</button></div><p class="l6small">' + tx(W.earn) + '</p></div>';
+    var proof = '<div class="l6proof" id="s-claims"><p class="l6ov">' + tx(W.proofH) + '</p><div class="l6stats"><span><small>' + tx(W.bill) + '</small><b>' + money(c.B) + '</b></span><span><small>' + tx(W.won) + '</small><b class="g">' + money(c.r) + '</b></span><span><small>' + tx(W.closed) + '</small><b>' + tx(W.day9) + '</b></span></div></div>';
+    var vault = '<section class="l6vault" id="s-vault"><span><b>' + tx(W.vault) + '</b><small>' + tx(W.vaultS) + '</small></span><button class="l6go" data-a="vault">' + tx(W.vaultGo) + arrow() + '</button></section>';
+    return hero + ag + '<section class="l6sec l6two">' + know + proof + '</section>' + vault + '<p class="l6foot"><span>' + tx(LP.tagline) + '</span><span>' + tx(LP.foot) + '</span></p>';
+  };
 })();
 
 /* Demo chooser: one link for both demos. Deep links: #business or #salaried */
