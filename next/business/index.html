@@ -1387,6 +1387,58 @@ body.v6night .v6segs span { background: #8F1813; } body.v6night .v6segs span.on 
 .pk-tags i, .pk-biz .pk-tags i { background: #FFFFFF !important; color: #1A1414 !important; border: 1px solid var(--rule); border-radius: 4px; }
 .pk-go, .pk-biz .pk-go { background: #1A1414 !important; color: #FFFFFF !important; }
 .pk-head h1 { font-weight: 700; font-stretch: 90%; }
+
+/* ===== Brand v2.2 (2 Nov 2026): kumkum is the action colour and appears on every screen ===== */
+:root { --kumkum: #A51C17; --kumkum-deep: #7E1411; --kumkum-tint: #FDF5F3; --gold-tint: #F8EFD9; --kumkum-tint-line: #F3D3CF;
+  --action: #A51C17; --on-action: #FFFFFF; --action-hover: #7E1411; --selected: #FDF5F3; --focus: #A51C17;
+  --accent: #A51C17; --accent-ink: #FFFFFF; --accent-soft: #FDF5F3; --mark-soft: #F8EFD9; }
+.claimsband { --accent: #A51C17; }
+#pvbar { background: var(--gold-tint) !important; color: #1A1414; }
+
+/* Primary: kumkum on white, white on kumkum */
+.primary, .pk-go, .pk-biz .pk-go { background: var(--action) !important; color: var(--on-action) !important; border-color: var(--action) !important; }
+.primary:hover, .pk-go:hover { background: var(--action-hover) !important; border-color: var(--action-hover) !important; }
+.primary:disabled, .primary[disabled] { background: #F3F3F1 !important; color: #857C7A !important; border-color: #F3F3F1 !important; }
+.night .primary, body.v6night .primary, body.nightmode .primary, .l6hero .heroBtn { background: #FFFFFF !important; color: #A51C17 !important; border-color: #FFFFFF !important; }
+
+/* Flow header band: kumkum, white logo and controls, gold thread beneath */
+body.v6flow .top { background: #A51C17 !important; border-bottom: 2px solid #D4A537 !important; }
+body.v6flow .mark { color: #FFFFFF; } body.v6flow .wm-dot { fill: #D4A537; }
+body.v6flow .lang button { color: #FBE3E0 !important; }
+body.v6flow .lang button[aria-pressed="true"] { color: #FFFFFF !important; border-bottom-color: #D4A537 !important; }
+body.v6flow .top .secondary, body.v6flow .top .restart { background: transparent !important; color: #FFFFFF !important; border-color: rgba(255,255,255,.7) !important; }
+body.v6flow .v6prog { border-top: 1px solid #C2463F !important; border-bottom: 0 !important; }
+body.v6flow .v6prog-l b { color: #FFFFFF !important; } body.v6flow .v6prog-l span { color: #FBE3E0 !important; }
+body.v6flow .v6segs span { background: #7E1411 !important; } body.v6flow .v6segs span.on { background: #FFFFFF !important; }
+body.v6flow *:focus-visible { outline-color: #FFFFFF; }
+body.v6flow main *:focus-visible { outline-color: #A51C17; }
+body.v6night main *:focus-visible { outline-color: #FFFFFF; }
+body.v6night .v6bottom { border-top: 2px solid #D4A537 !important; }
+/* Landing and other pages keep the white header; active language in kumkum */
+.lang button[aria-pressed="true"] { border-bottom-color: #A51C17; }
+
+/* Selected states */
+.chip[aria-pressed="true"], .chips button[aria-pressed="true"], .seg button[aria-pressed="true"], .l6chip.dk, .tabs button[aria-pressed="true"] { background: #A51C17 !important; color: #FFFFFF !important; border-color: #A51C17 !important; }
+.hcard:hover, .pk-card:hover, .chip:hover, .l6chip:hover { border-color: #A51C17 !important; }
+.hcard.on, .opt.top { border: 2px solid #A51C17 !important; background: var(--kumkum-tint) !important; }
+.hcard .hc-ind { color: #1A1414; }
+
+/* Icon tiles: gold tint, gold-strong icons */
+.pk-ic, .pk-biz .pk-ic, .pk-biz .pk-ic.sm2, .how-i, .pc-i, .l6ic, .v6av.ic, .vt-ic, .cl-ic { background: var(--gold-tint) !important; color: #8A6510 !important; }
+.pk-sal .pk-ic.sm2 { background: #E9F2EC !important; color: #1F6B45 !important; }
+.l6ic.dk { background: var(--gold-tint) !important; color: #8A6510 !important; }
+
+/* Tags and info panels */
+.pk-tags i, .pk-biz .pk-tags i { background: var(--kumkum-tint) !important; border: 1px solid var(--kumkum-tint-line) !important; color: #7E1411 !important; }
+.status, .soft, .v6card.v6read { background: var(--kumkum-tint) !important; }
+.verdict { background: var(--kumkum-tint) !important; border: 1px solid var(--kumkum-tint-line) !important; }
+.verdict > .overline { border-color: #7E1411; color: #7E1411; }
+.cmp th.pickcol, .cmp td.pickcol { background: var(--kumkum-tint) !important; }
+.v6card.v6lead-card { border-top-color: #A51C17 !important; }
+
+/* Eyebrows: kumkum-deep on white, blush on kumkum */
+.eyebrow { color: #7E1411; }
+.night .eyebrow, body.v6night .eyebrow, body.nightmode .eyebrow, .l6hero .eyebrow, .l6hero .l6ov, .l6score .l6ov, body.v6night .v6ey { color: #FBE3E0 !important; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
