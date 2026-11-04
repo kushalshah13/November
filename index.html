@@ -1439,6 +1439,53 @@ body.v6night .v6bottom { border-top: 2px solid #D4A537 !important; }
 /* Eyebrows: kumkum-deep on white, blush on kumkum */
 .eyebrow { color: #7E1411; }
 .night .eyebrow, body.v6night .eyebrow, body.nightmode .eyebrow, .l6hero .eyebrow, .l6hero .l6ov, .l6score .l6ov, body.v6night .v6ey { color: #FBE3E0 !important; }
+
+/* ===== UAT fixes, 4 Nov 2026 ===== */
+/* #1 sheets on the score screen are white: keep their buttons ink and kumkum */
+body.v6night .sheet .secondary, .night .sheet .secondary { background: #FFFFFF !important; color: #1A1414 !important; border-color: #1A1414 !important; }
+body.v6night .sheet .primary, .night .sheet .primary { background: #A51C17 !important; color: #FFFFFF !important; border-color: #A51C17 !important; }
+body.v6night .sheet .quiet, body.v6night .sheet a { color: #1A1414 !important; }
+/* #2 one primary per screen: first move keeps Compare, Finish turns secondary; tables keep the pick in the panel above */
+body:has(.v6move) .v6bottom .nextbtn { background: #FFFFFF !important; color: #1A1414 !important; border: 1.5px solid #1A1414 !important; }
+.cmp .actrow .primary { background: #FFFFFF !important; color: #1A1414 !important; border: 1.5px solid #1A1414 !important; }
+/* #4 household breakdown: ledger rows, no tinted boxes */
+.nethero { background: #FFFFFF !important; color: #1A1414 !important; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); border-radius: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+.nethero * { color: inherit; } .nethero p, .nethero small { color: #5C5352 !important; }
+.tone, .tone.t-own, .tone.t-owe, .tone.t-cov { background: #FFFFFF !important; border: 0 !important; border-top: 1px solid var(--rule) !important; border-radius: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+/* #5 vault: ruled rows, neutral avatars */
+.vstats { gap: 0 !important; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.vstats div { border: 0 !important; border-radius: 0 !important; background: transparent !important; padding: 14px 12px 14px 0 !important; }
+.vstats div + div { border-left: 1px solid var(--rule) !important; padding-left: 12px !important; }
+.vscb, .access, .member, .block, .vcat, .vtile { border-radius: 0 !important; border-left: 0 !important; border-right: 0 !important; background: transparent !important; box-shadow: none !important; }
+.vscb { border-top: 1px solid var(--rule) !important; border-bottom: 0 !important; }
+.member { border-top: 0 !important; border-bottom: 1px solid var(--rule) !important; }
+.av, .av.big, .av-A, .av-M, .av-K, .av-CA { background: #F3F3F1 !important; color: #1A1414 !important; border-color: #FFFFFF !important; }
+.vitem.miss { background: transparent !important; border-style: dashed !important; }
+/* #6 tap targets at least 48px */
+.secondary.sm, .primary.sm, .ghost.sm, .restart, .quiet, .v6link, .vbtn, .chip, .l6chip, .see, .lang button, .mark, .v6how, [data-a="v6how"], [data-a="vault"], [data-a="closesheet"], .sheet .secondary { min-height: 48px !important; }
+.l6vault [data-a], .abar .see, .astrip [data-a] { min-height: 48px; display: inline-flex; align-items: center; }
+/* #7 nothing under 14px */
+.abar-l, .abar .see, .astrip, .astrip *, .agchip, .l6ov, .v6lab, .l6tags i, .acn-live, .acard-role, .abar-in * { font-size: 14px !important; }
+/* #9 Hindi and Gujarati one size up */
+html[lang="hi"], html[lang="gu"] { font-size: 106.25%; }
+html[lang="hi"] p, html[lang="gu"] p, html[lang="hi"] li, html[lang="gu"] li { line-height: 1.65; }
+/* #10 Start a claim is a choice, not a second call to action */
+.l6chip.dk { background: #FFFFFF !important; color: #A51C17 !important; border: 1.5px solid #A51C17 !important; }
+/* #13 a claim settled is a kumkum moment */
+.outcome { background: #A51C17 !important; color: #FFFFFF !important; border: 0 !important; border-radius: 0 !important; padding: 22px 18px !important;
+  background-image: linear-gradient(#D4A537, #D4A537), linear-gradient(#D4A537, #D4A537) !important; background-size: 100% 2px !important; background-repeat: no-repeat !important; background-position: 0 8px, 0 calc(100% - 8px) !important; }
+.outcome p { color: #FBE3E0 !important; }
+/* #16 no gradients */
+.floatcta { background: #FFFFFF !important; border-top: 1px solid var(--rule); }
+
+.tnav button { min-height: 48px; }
+.av:not(.big) { width: 28px !important; height: 28px !important; font-size: 14px !important; }
+
+.nethero .overline, .nethero em { color: #5C5352 !important; }
+.v6cmp .on, .v6how .on { background: #A51C17 !important; color: #FFFFFF !important; border-color: #A51C17 !important; }
+.v6cmp .on *, .v6how .on * { color: #FFFFFF !important; }
+
+body.v6night .sheet, .night .sheet { --bg: #FFFFFF; --surface: #FFFFFF; --ink: #1A1414; --muted: #5C5352; --line: #E3E1DD; --rule: #E3E1DD; --score-track: #E3E1DD; --accent: #A51C17; --accent-ink: #FFFFFF; color: #1A1414; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -2988,7 +3035,7 @@ var IC = {
   factory: '<path d="M3 20V10l5 3V10l5 3V6h4l1 3h3v11z"/><path d="M7 17h2M12 17h2M17 17h1"/>',
   car: '<path d="M4 16v-4l2-5h12l2 5v4z"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/><path d="M4 12h16"/>',
   bed: '<path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="2"/>',
-  life: '<path d="M12 21c-4-3-7-6-7-10a7 7 0 0 1 14 0c0 4-3 7-7 10z"/><circle cx="12" cy="10" r="2.5"/>',
+  life: '<path d="M3 12a9 9 0 0 1 18 0z"/><path d="M12 12v6a2 2 0 0 0 4 0"/><path d="M12 3v0.5"/>',
   chat: '<path d="M4 5h16v11H9l-5 4z"/>',
   check: '<path d="M5 12.5l4.5 4.5L19 7"/>',
   rupee: '<path d="M7 5h10M7 9h10M7 5c4 0 6 1.5 6 4s-2 4-6 4l7 6"/>',
@@ -3661,7 +3708,7 @@ IC.lock = '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4
 IC.id = '<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M5.8 16c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4M14 10h4M14 13.5h3"/>';
 
 var V3 = {
-  float: O("Check my family's finances", 'मेरे परिवार की वित्तीय जाँच', 'મારા પરિવારની નાણાકીય તપાસ'),
+  float: O('Get your family score', 'अपने परिवार का स्कोर देखें', 'તમારા પરિવારનો સ્કોર જુઓ'),
   floatSub: O('Free Financial Health Check · about 10 minutes', 'मुफ़्त फ़ाइनेंशियल हेल्थ चेक · करीब 10 मिनट', 'મફત ફાઇનાન્શિયલ હેલ્થ ચેક · આશરે 10 મિનિટ'),
   knowT: O('Know what you want?', 'पता है क्या चाहिए?', 'ખબર છે શું જોઈએ?'),
   knowSub: O('Go straight to it. Three options ranked for you, with what we earn shown on each.', 'सीधे वहीं जाइए। आपके लिए क्रम में तीन विकल्प, हर एक पर हमारी कमाई के साथ।', 'સીધા ત્યાં જાઓ. તમારા માટે ક્રમમાં ત્રણ વિકલ્પ, દરેક પર અમારી કમાણી સાથે.'),
@@ -4040,8 +4087,8 @@ render = function () { _render3(); floatCheck(); };
   var SUB_BIZ = O("Insurance, loans, investments, property, the business. November's agents read it all, keep it current and tell you straight.", 'बीमा, लोन, निवेश, प्रॉपर्टी, बिज़नेस। November के एजेंट सब पढ़ते हैं, उसे ताज़ा रखते हैं और सीधी बात बताते हैं।', 'વીમો, લોન, રોકાણ, પ્રોપર્ટી, બિઝનેસ. November ના એજન્ટ બધું વાંચે છે, તેને તાજું રાખે છે અને સીધી વાત કહે છે.');
   U.reading = O('Keeper is reading {n} documents', 'Keeper {n} दस्तावेज़ पढ़ रहा है', 'Keeper {n} દસ્તાવેજો વાંચે છે');
   U.readDone = O('Keeper read {n} documents · {m} facts filed', 'Keeper ने {n} दस्तावेज़ पढ़े · {m} बातें फ़ाइल कीं', 'Keeper એ {n} દસ્તાવેજો વાંચ્યા · {m} બાબતો ફાઇલ કરી');
-  CS.nov = O('Claims agent', 'Claims एजेंट', 'Claims એજન્ટ');
-  CU.actor.nov = O('Claims agent', 'Claims एजेंट', 'Claims એજન્ટ');
+  CS.nov = O('Claims', 'Claims', 'Claims');
+  CU.actor.nov = O('Claims', 'Claims', 'Claims');
 
   function pd(cls) { return '<i class="pdot' + (cls ? ' ' + cls : '') + '"></i>'; }
   function chip(k) { return '<span class="agchip">' + pd() + AG[k].n + '</span>'; }
@@ -4326,7 +4373,7 @@ render = function () { _render3(); floatCheck(); };
     area: { P: O('Protection', 'सुरक्षा', 'સુરક્ષા'), L: O('Loans', 'लोन', 'લોન'), C: O('Cash within reach', 'हाथ में पैसा', 'હાથવગા પૈસા'), F: O('Family papers', 'परिवार के कागज़', 'પરિવારના કાગળો'), W: O('Savings', 'बचत', 'બચત') },
     st: { ok: O('Fine', 'ठीक', 'બરાબર'), look: O('Check', 'देखें', 'જુઓ'), gap: O('Gap', 'कमी', 'ખામી') },
     first: O('Your first move', 'आपका पहला कदम', 'તમારું પહેલું પગલું'), score: O('Score', 'स्कोर', 'સ્કોર'),
-    then: O('Then', 'फिर', 'પછી'), left: O('Left alone', 'ऐसे ही रहने दें', 'એમ જ રહેવા દો'), pts: O('+{n} points', '+{n} अंक', '+{n} અંક'),
+    then: O('Then', 'फिर', 'પછી'), left: O('Left alone', 'ऐसे ही रहने दें', 'એમ જ રહેવા દો'), pts: O('{n} points up', '{n} अंक ऊपर', '{n} અંક ઉપર'),
     leftLoan: O('{l} is {g}% above today. Switching costs more than it saves.', '{l} आज से {g}% महँगा है। बदलने का ख़र्च बचत से ज़्यादा है।', '{l} આજ કરતાં {g}% મોંઘી છે. બદલવાનો ખર્ચ બચત કરતાં વધુ છે.'),
     leftCash: O('Cash within reach is fine. No need to hold more.', 'हाथ में पैसा ठीक है। इससे ज़्यादा रखने की ज़रूरत नहीं।', 'હાથવગા પૈસા બરાબર છે. વધુ રાખવાની જરૂર નથી.'),
     leftNone: O('Nothing else needs changing today.', 'आज और कुछ बदलने की ज़रूरत नहीं।', 'આજે બીજું કંઈ બદલવાની જરૂર નથી.'),
@@ -4880,7 +4927,7 @@ function surveyHTML() {
         return '<button type="button" data-sv="' + q.k + '" data-v="' + o[0] + '" aria-pressed="' + on + '">' + tx(o[1]) + '</button>'; }).join('') + '</div></div>'; }).join('') +
     '<label class="ns-q"><p>' + tx(SQ.note) + '</p><textarea data-svnote rows="2" maxlength="400">' + esc(SV.note) + '</textarea></label>' +
     (SV.err ? '<p class="ns-err">' + tx(SQ.need) + '</p>' : '') +
-    '<button type="button" class="primary" data-svsend>' + tx(SQ.send) + '</button></section>';
+    '<button type="button" class="secondary" data-svsend>' + tx(SQ.send) + '</button></section>';
 }
 function placeSurvey() {
   var old = document.querySelector('.nsurvey'); if (old) old.remove();
