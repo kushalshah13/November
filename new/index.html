@@ -1656,6 +1656,15 @@ body.v3pk main.wrap { isolation: isolate; }
 body.v3pk .abar, body.v3pk .abar-in { background: #074951 !important; border-color: #074951 !important; }
 body.v3pk .abar .agchip, body.v3pk .abar span { background: rgba(255, 255, 255, .1) !important; color: #FFFFFF !important; border-color: rgba(255, 255, 255, .18) !important; }
 body.v3pk .abar .pdot { background: #E9D3A0 !important; }
+/* Pending score move after a fix is bought */
+.v3pend { margin: 14px 0 6px; background: #0A6670; color: #FFFFFF; border-radius: 24px; padding: 18px 20px; box-shadow: var(--shadow-hero); }
+.v3pn { display: flex; align-items: center; gap: 14px; }
+.v3pn span { display: flex; flex-direction: column; } .v3pn small { font-size: 13px; color: #CFE3E5; } .v3pn b { font-size: 44px; line-height: 1; letter-spacing: -.04em; color: #FFFFFF; }
+.v3pn span.up b { color: #12201F; background: #E9D3A0; border-radius: 16px; padding: 2px 12px 4px; }
+.v3pn .ic { width: 26px; height: 26px; color: #E9D3A0; margin-top: 16px; }
+.v3pend p { margin: 12px 0 0; color: #CFE3E5; font-size: 15px; line-height: 1.45; } .v3pend p b { color: #FFFFFF; }
+.v3pchip { margin: 12px auto 0; text-align: center; font-size: 14px; color: #12201F; line-height: 1.4; max-width: 300px; }
+.v3pchip span { display: inline-block; margin-right: 6px; padding: 3px 10px; border-radius: 999px; background: #E9F1F2; color: #074951; border: 1px solid #ACCBCE; font-size: 12px; font-weight: 700; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -5286,16 +5295,47 @@ window.addEventListener('click', function (ev) {
     return h.replace('<div class="v6card v6lead-card">', '<span class="v3ring">' + icon(ic) + '</span><div class="v6card v6lead-card">');
   };
 
+  /* ---------- after a fix is bought: the score shows the move, pending until the insurer or lender confirms ---------- */
+  var VP = {
+    on: O('Your score moves to {n} once {ins} issues the policy.', 'पॉलिसी जारी होते ही आपका स्कोर {n} हो जाएगा।', 'પોલિસી જારી થતાં જ તમારો સ્કોર {n} થશે.'),
+    onL: O('Your score moves to {n} once the new rate is live.', 'नया रेट लागू होते ही आपका स्कोर {n} हो जाएगा।', 'નવો દર લાગુ થતાં જ તમારો સ્કોર {n} થશે.'),
+    wa: O('We’ll tell you on WhatsApp the day it does.', 'जिस दिन होगा, हम WhatsApp पर बताएँगे।', 'જે દિવસે થશે, અમે WhatsApp પર જણાવીશું.'),
+    now: O('Now', 'अभी', 'હમણાં'), after: O('On issue', 'जारी होने पर', 'જારી થતાં'), afterL: O('When live', 'लागू होने पर', 'લાગુ થતાં'),
+    prog: O('In progress', 'चल रहा है', 'ચાલુ છે'),
+    home: O('{n} once this goes through', 'यह होते ही {n}', 'આ થતાં જ {n}')
+  };
+  function pendAct(m, type) {
+    var sm = NS.model(m.p, m.s, m.e);
+    return sm.acts.filter(function (a) { return journeyFor(a.k, m.s) === type && a.gain > 0; })[0] || null;
+  }
+  document.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-a="jdone"]'); if (!el || !S.j || el.disabled) return;
+    var m = model(), a = pendAct(m, S.j.type), sm = NS.model(m.p, m.s, m.e);
+    if (a) S.pend = { pid: S.pid, k: a.k, type: S.j.type, from: sm.now, to: a.to, title: a.title };
+  }, true);
+  function pendNow() { return S.pend && S.pend.pid === S.pid ? S.pend : null; }
+  var _jb = jBuy;
+  jBuy = function (j, m) {
+    var h = _jb(j, m), pd = pendNow();
+    if (!j.done || !pd || pd.type !== j.type) return h;
+    var loan = j.type === 'home' || j.type === 'biz', o = jOptions(j, m.s, m.e)[j.pick], ins = o ? optName(o).ins : '';
+    var card = '<div class="v3pend"><div class="v3pn"><span><small>' + tx(VP.now) + '</small><b>' + pd.from + '</b></span>' + icon('arrow') + '<span class="up"><small>' + tx(loan ? VP.afterL : VP.after) + '</small><b>' + pd.to + '</b></span></div>' +
+      '<p><b>' + t(loan ? VP.onL : VP.on, { n: pd.to, ins: esc(ins) }) + '</b> ' + tx(VP.wa) + '</p></div>';
+    var i = h.indexOf('</div>') + 6;
+    return h.slice(0, i) + card + h.slice(i);
+  };
+
   /* ---------- 9 Close: the family's home screen from now on ---------- */
   var _s9 = SCR[9];
   SCR[9] = function () {
-    var m = model(), p = m.p, s = m.s, sm = NS.model(p, s, m.e), A = sm.A, a = sm.acts[0], n = weakOf(A).length, G = window.NOVAG, first = tx(p.first);
+    var m = model(), p = m.p, s = m.s, sm = NS.model(p, s, m.e), A = sm.A, pd = pendNow(), a = sm.acts.filter(function (x) { return !pd || x.k !== pd.k; })[0], n = weakOf(A).length, G = window.NOVAG, first = tx(p.first);
     var j = a ? journeyFor(a.k, s) : null;
     var old = _s9(), wa = (old.match(/<div class="v6wa">[\s\S]*?<\/small><\/div>/) || [''])[0], up = (old.match(/<p class="v6ey">[^<]*<\/p><div class="v6rows">[\s\S]*?<\/div><\/div>/) || [''])[0];
     var card = a ? '<section class="v3move"><svg class="v3deco" width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">' + [0, 72, 144, 216, 288].map(function (r) { return '<ellipse cx="100" cy="60" rx="26" ry="42" transform="rotate(' + r + ' 100 100)"/>'; }).join('') + '</svg>' +
       '<span class="v3mk">' + tx(V.next) + '</span><p class="v3mt">' + esc(a.title) + '</p>' + (a.impact ? '<p class="v3ms">' + esc(a.impact) + '</p>' : '') +
       '<button class="v3wbtn" data-a="' + (j ? 'journey' : 'toast') + '" data-v="' + (j || 'demoToast') + '">' + tx(V.fix) + (a.gain ? ' <span>· ' + t(V.pts, { n: a.gain }) + '</span>' : '') + '</button></section>' : '';
     return '<section class="v6 v6close close v3home"><h1 class="v3ttl">' + t(V.hi, { f: esc(first) }) + '</h1><p class="v6sub">' + tx(V.hiSub) + '</p><div class="v3panel">' + bloom(sm, 250, false) +
+      (pd ? '<p class="v3pchip"><span>' + tx(VP.prog) + '</span>' + esc(pd.title) + ' · <b>' + t(VP.home, { n: pd.to }) + '</b></p>' : '') +
       '<p class="v3cap">' + (n === 1 ? tx(V.sixYou1) : n ? t(V.sixYou, { n: n }) : tx(V.allFine)) + '</p>' + dashPills(A) + '</div>' + card + up +
       '<p class="v6ey">' + t(V.waOn, { f: esc(first) }) + '</p>' + wa +
       '<button class="secondary v6big wa" data-a="toast" data-v="demoToast">' + icon('chat', 'sm') + tx(V.waSend) + '</button>' +
