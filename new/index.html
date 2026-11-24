@@ -1665,6 +1665,7 @@ body.v3pk .abar .pdot { background: #E9D3A0 !important; }
 .v3pend p { margin: 12px 0 0; color: #CFE3E5; font-size: 15px; line-height: 1.45; } .v3pend p b { color: #FFFFFF; }
 .v3pchip { margin: 12px auto 0; text-align: center; font-size: 14px; color: #12201F; line-height: 1.4; max-width: 300px; }
 .v3pchip span { display: inline-block; margin-right: 6px; padding: 3px 10px; border-radius: 999px; background: #E9F1F2; color: #074951; border: 1px solid #ACCBCE; font-size: 12px; font-weight: 700; }
+html[lang="hi"] .v3hero h1, html[lang="gu"] .v3hero h1 { line-height: 1.2; letter-spacing: -.01em; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -5184,7 +5185,10 @@ window.addEventListener('click', function (ev) {
     fix: O('Fix this', 'इसे ठीक करें', 'આ સુધારો'), pts: O('{n} points up', '{n} अंक ऊपर', '{n} અંક ઉપર'),
     waOn: O('This lands on {f}’s WhatsApp', 'यह {f} के WhatsApp पर आता है', 'આ {f} ના WhatsApp પર આવે છે'),
     waSend: O('Send it on WhatsApp', 'WhatsApp पर भेजें', 'WhatsApp પર મોકલો'),
-    h1: O('Does your family know <em>where everything is?</em>', 'क्या आपके परिवार को पता है कि <em>सब कुछ कहाँ है?</em>', 'શું તમારા પરિવારને ખબર છે કે <em>બધું ક્યાં છે?</em>'),
+    h1: O('Has anyone looked at <em>your whole family</em> before?', 'क्या पहले कभी किसी ने <em>आपके पूरे परिवार</em> को देखा है?', 'શું પહેલાં ક્યારેય કોઈએ <em>તમારા આખા પરિવાર</em>ને જોયો છે?'),
+    expl: { biz: O('Insurance, loans, investments, property, the business. November reads it all and tells you straight.', 'बीमा, लोन, निवेश, प्रॉपर्टी, बिज़नेस। November सब पढ़ता है और आपको सीधी बात बताता है।', 'વીમો, લોન, રોકાણ, પ્રોપર્ટી, બિઝનેસ. November બધું વાંચે છે અને તમને સીધી વાત કહે છે.'),
+      sal: O('Insurance, loans, investments, property. November reads it all and tells you straight.', 'बीमा, लोन, निवेश, प्रॉपर्टी। November सब पढ़ता है और आपको सीधी बात बताता है।', 'વીમો, લોન, રોકાણ, પ્રોપર્ટી. November બધું વાંચે છે અને તમને સીધી વાત કહે છે.') },
+    tag: O('Right cover. Right loan. For your whole family.', 'सही बीमा। सही लोन। आपके पूरे परिवार के लिए।', 'સાચો વીમો. સાચી લોન. તમારા આખા પરિવાર માટે.'),
     sub2: O('AI agents do the work; you approve.', 'काम AI एजेंट करते हैं; मंज़ूरी आपकी।', 'કામ AI એજન્ટ કરે છે; મંજૂરી તમારી.'),
     pr: [['5', O('parts of your finances, one score', 'हिस्से आपकी वित्तीय स्थिति के, एक स्कोर', 'ભાગ તમારી નાણાકીય સ્થિતિના, એક સ્કોર')],
       ['3', O('options on every fix, earnings shown', 'विकल्प हर सुधार पर, कमाई के साथ', 'વિકલ્પ દરેક સુધારા પર, કમાણી સાથે')],
@@ -5239,6 +5243,7 @@ window.addEventListener('click', function (ev) {
   function pill(st) { return '<span class="v6pill v6-' + st + '">' + tx(Q.st[st]) + '</span>'; }
   function famName(p) { var n = tx(p.name).split(' '); return t(Q.fam, { n: n[n.length - 1] }); }
   window.NOVBLOOM = bloom;
+  if (typeof LP !== 'undefined') { LP.tagline = V.tag; LP.h1 = O('Has anyone looked at your whole family before?', 'क्या पहले कभी किसी ने आपके पूरे परिवार को देखा है?', 'શું પહેલાં ક્યારેય કોઈએ તમારા આખા પરિવારને જોયો છે?'); }
 
   /* ---------- landing (v3.1): peacock hero, white score card, agents, tiles, proof band, vault ---------- */
   function petalDeco(cls) {
@@ -5255,7 +5260,7 @@ window.addEventListener('click', function (ev) {
     var mv = '<div class="v3strip"><span class="v3st"><b>' + (wk ? t(V.needs, { a: tx(Q.area[wk]) }) : tx(V.next)) + '</b><span>' + (a ? esc(a.title) : '') + '</span></span><span class="v3chip">' + sm.now + ' → ' + sm.next + '</span></div>';
     var card = '<div class="v3sc"><div class="v3sc-h"><span>' + esc(t(Q.scoreEy, { f: famName(p) })) + '</span><i>' + tx(V.smp) + '</i></div>' + bloom(sm, 280, false) + mv + '</div>';
     var hero = '<section class="v3hero">' + grain() + petalDeco('v3hdeco') + '<div class="lw v3hg"><div class="v3hc"><p class="v3eb"><i></i>' + tx(LP.eyebrow[BRANCH]) + '</p><h1>' + tx(V.h1) + '</h1>' +
-      '<p class="v3hs">' + tx(W.sub) + ' ' + tx(V.sub2) + '</p><button class="v3cta heroBtn" data-a="go" data-v="1">' + tx(W.cta) + icon('arrow') + '</button><p class="v3fine">' + tx(W.cap) + '</p>' +
+      '<p class="v3hs">' + tx(V.expl[BRANCH] || V.expl.biz) + '</p><button class="v3cta heroBtn" data-a="go" data-v="1">' + tx(W.cta) + icon('arrow') + '</button><p class="v3fine">' + tx(W.cap) + '</p>' +
       '<div class="v3proof">' + V.pr.map(function (x) { return '<div><b>' + x[0] + '</b><span>' + tx(x[1]) + '</span></div>'; }).join('') + '</div></div>' + card + '</div></section>';
     var IK = ['check', 'shield', 'heart'], TG = [['Keeper', 'Checkup'], ['Cover', 'Credit'], ['Claims']];
     var ag = '<section class="v3sec2" id="s-agents"><div class="lw"><div class="v3sh"><h2>' + tx(W.agH) + '</h2><p>' + tx(V.adv2) + '</p></div><div class="v3three">' + [0, 1, 2].map(function (i) {
@@ -5269,7 +5274,7 @@ window.addEventListener('click', function (ev) {
     var proof = c ? '<section class="v3band" id="s-claims">' + grain() + '<div class="lw v3bg"><div><p class="v3eb"><i></i>' + tx(W.proofH) + '</p><h2>' + t(V.clH, { r: money(c.r) }) + '</h2><p class="v3bs">' + t(V.clS, { b: money(c.B) }) + '</p></div>' +
       '<div class="v3stats"><div><span>' + tx(W.bill) + '</span><b>' + money(c.B) + '</b></div><div class="hi"><span>' + tx(W.won) + '</span><b>' + money(c.r) + '</b></div><div><span>' + tx(W.closed) + '</span><b>' + tx(W.day9) + '</b></div></div></div></section>' : '';
     var vault = '<section class="v3sec2" id="s-vault"><div class="lw"><div class="v3vault"><div><h3>' + tx(V.vH) + '</h3><p>' + tx(V.vS) + '</p></div><button class="primary v3vbtn" data-a="vault">' + tx(W.vaultGo) + icon('arrow') + '</button></div></div></section>';
-    var foot = '<footer class="v3foot"><div class="lw"><b>' + tx(LP.tagline) + '</b><span>' + tx(LP.foot) + '</span></div></footer>';
+    var foot = '<footer class="v3foot"><div class="lw"><b>' + tx(V.tag) + '</b><span>' + tx(LP.foot) + '</span></div></footer>';
     return '<div class="v3l">' + hero + ag + know + proof + vault + foot + '</div>';
   };
 
