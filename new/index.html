@@ -1504,7 +1504,7 @@ h1, .v6h { font-size: 34px; line-height: 1.1; }
 .v3disc { background: #FFFFFF; box-shadow: var(--disc); width: calc(var(--bs) * .43); height: calc(var(--bs) * .43); }
 
 /* ---------- Landing ---------- */
-main.wrap.s0 { max-width: none !important; padding: 0 0 40px !important; }
+main.wrap.s0:has(> .v3l) { max-width: none !important; padding: 0 0 40px !important; }
 main.wrap.s0 > .v3l { display: block; }
 .v3l .lw { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
 .v3grain { position: absolute; inset: 0; pointer-events: none; opacity: .14; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
@@ -1635,6 +1635,27 @@ body.v3pk main.wrap { isolation: isolate; }
 /* Disabled primary per the brand book: surface-sunk with control-border label, no extra fading */
 .primary:disabled, .primary[disabled], button.nextbtn:disabled { opacity: 1 !important; background: #F3F7F6 !important; color: #57696A !important; border: 1.5px dashed #ACCBCE !important; }
 .bottom, .v6bottom { background: #FFFFFF !important; }
+/* Peacock tops for journeys, claims, vault and the chooser */
+.v3top .hrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.v3top .hrow h2, .v3top .cj-h { font-size: 30px !important; line-height: 1.1; letter-spacing: -.03em; color: #FFFFFF !important; display: flex; align-items: center; gap: 10px; }
+.v3top .cj-h .ic { color: #E9D3A0; width: 28px; height: 28px; }
+.v3top .ghost, .v3top .ghost.sm { color: #FFFFFF !important; }
+.v3top .aby, .v3top .astrip { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; background: transparent !important; border: 0 !important; padding: 0 !important; }
+.v3top .aby span:not(.agchip), .v3top .astrip span:not(.agchip) { color: #CFE3E5; font-size: 15px; }
+.v3top .agchip { background: rgba(255, 255, 255, .14) !important; color: #FFFFFF !important; }
+.v3top .agchip .pdot { background: #E9D3A0 !important; }
+.v3top .jsteps { display: flex; gap: 6px; flex-wrap: wrap; background: transparent !important; border: 0 !important; margin-top: 4px; }
+.v3top .jsteps > span { background: rgba(255, 255, 255, .12) !important; color: #CFE3E5 !important; border: 0 !important; padding: 7px 13px; font-weight: 600; font-size: 14px; }
+.v3top .jsteps > span.on { background: #FFFFFF !important; color: #074951 !important; }
+.v3top .jsteps > span.done { background: rgba(255, 255, 255, .24) !important; color: #FFFFFF !important; }
+.v3top .hint { color: #CFE3E5 !important; }
+.v3top .pk-head { display: flex; flex-direction: column; gap: 10px; }
+.v3top .pk-head h1 { color: #FFFFFF !important; font-size: 34px; }
+.v3top .pk-head .eyebrow { color: #E9D3A0 !important; font-weight: 700; }
+.v3top .pk-head .lede { color: #CFE3E5 !important; font-size: 17px; }
+body.v3pk .abar, body.v3pk .abar-in { background: #074951 !important; border-color: #074951 !important; }
+body.v3pk .abar .agchip, body.v3pk .abar span { background: rgba(255, 255, 255, .1) !important; color: #FFFFFF !important; border-color: rgba(255, 255, 255, .18) !important; }
+body.v3pk .abar .pdot { background: #E9D3A0 !important; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -5300,7 +5321,7 @@ window.addEventListener('click', function (ev) {
       Array.prototype.forEach.call(els, function (el) { el.textContent = Math.round(+el.getAttribute('data-count') * e); });
       if (k < 1) requestAnimationFrame(step); })(t0);
   }
-  var TOPSEL = ['v6ey', 'v6h', 'v6h2', 'v3ttl', 'v6sub', 'v6lead', 'v3ring', 'eyebrow', 'overline', 'lede', 'lead'], CARDSEL = ['v3panel', 'v6lead-card'];
+  var TOPSEL = ['v6ey', 'v6h', 'v6h2', 'v3ttl', 'v6sub', 'v6lead', 'v3ring', 'eyebrow', 'overline', 'lede', 'lead', 'hrow', 'aby', 'jsteps', 'hint', 'astrip', 'pk-head'], CARDSEL = ['v3panel', 'v6lead-card'];
   function isTop(el) {
     if (/^H[12]$/.test(el.tagName)) return true;
     return TOPSEL.some(function (c) { return el.classList.contains(c); });
