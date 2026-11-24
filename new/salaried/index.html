@@ -1498,6 +1498,29 @@ body:has(.v6move) .v6bottom .nextbtn { background: #FFFFFF !important; color: #1
 .pk-ic, .pk-biz .pk-ic, .pk-biz .pk-ic.sm2 { background: #E9F1F2 !important; color: #0A6670 !important; }
 .v3land b, .l6score.v3land b { color: #0A6670 !important; }
 .v6meet .v6ey, .v6move .v6ey:first-child { display: none; }
+
+/* Fixes and punch, 24 Nov */
+.mpet { width: 22px; height: 22px; flex: none; display: block; }
+.bloom { max-width: none; }
+.v3deco { max-width: none; }
+.top { background: #FFFFFF !important; }
+.v3panel { margin: 8px -8px 0; padding: 22px 16px 22px; border-radius: 30px; background: #E9F1F2; position: relative; overflow: hidden; }
+.v3panel .v6h, .v3panel .v3ttl { text-align: center; }
+.v3panel .v3disc { background: #FFFFFF; }
+.v3panel .v3dash span { background: #FFFFFF; }
+.v3panel .blab small { color: #4A5C5D; }
+.v3score .v3panel .v6h { font-size: 24px; margin: 0; }
+.v3home .v3panel { margin-top: 18px; }
+/* landing hero on a peacock-tint band, the sample card floating on it */
+.wrap > section.hero.l6hero, .l6hero { background: #E9F1F2 !important; border-radius: 32px !important; padding: 32px 22px !important; margin-top: 12px; }
+.l6hero .eyebrow { color: #074951 !important; }
+.l6score.v3land { box-shadow: 0 24px 44px -26px rgba(10, 70, 78, .55) !important; border: 0 !important; }
+@media (min-width: 900px) { .wrap > section.hero.l6hero, .l6hero { padding: 48px 44px !important; } }
+/* flow pages: soft tinted ground so cards stand off it */
+body.v6flow main.wrap { background: transparent; }
+.v6p, .v6card:not(.v6lead-card):not(.v6read) { box-shadow: 0 10px 24px -18px rgba(10, 60, 64, .5); }
+.nethero .overline, .nethero span, .nethero small { color: #57696A !important; }
+.nethero b, .nethero strong, .nethero .big { color: #12201F !important; }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -5043,7 +5066,7 @@ window.addEventListener('click', function (ev) {
     var ghosts = K6.map(function (k, i) {
       return A[k].v < 60 ? '<ellipse class="ghost" cx="150" cy="94" rx="36" ry="56" transform="rotate(' + (i * 60) + ' 150 150)"/>' : '';
     }).join('');
-    return '<svg class="bloom" role="img" aria-label="' + esc(aria) + '" viewBox="0 0 300 300"><g class="breathe">' + ghosts + '<g class="petals">' + petals + '</g></g></svg>';
+    return '<svg class="bloom" width="300" height="300" role="img" aria-label="' + esc(aria) + '" viewBox="0 0 300 300"><g class="breathe">' + ghosts + '<g class="petals">' + petals + '</g></g></svg>';
   }
   function weakOf(A) { return K6.filter(function (k) { return A[k].v < 60; }).sort(function (a, b) { return A[a].v - A[b].v; }); }
   function ariaOf(now, A) {
@@ -5063,7 +5086,7 @@ window.addEventListener('click', function (ev) {
       '<div class="v3disc"><span class="v3num" data-count="' + sm.now + '">' + sm.now + '</span><small>' + tx(V.of100) + '</small></div>' + lab + '</div>';
   }
   function dashPills(A) { var w = weakOf(A); return w.length ? '<div class="v3dash">' + w.map(function (k) { return '<span>' + tx(Q.area[k]) + '</span>'; }).join('') + '</div>' : ''; }
-  function miniPetal(st) { return '<svg class="mpet ' + (st === 'ok' ? 'ok' : 'w') + '" viewBox="0 0 22 22" aria-hidden="true"><ellipse cx="11" cy="11" rx="5.5" ry="9" transform="rotate(35 11 11)"/></svg>'; }
+  function miniPetal(st) { return '<svg class="mpet ' + (st === 'ok' ? 'ok' : 'w') + '" width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><ellipse cx="11" cy="11" rx="5.5" ry="9" transform="rotate(35 11 11)"/></svg>'; }
   function pill(st) { return '<span class="v6pill v6-' + st + '">' + tx(Q.st[st]) + '</span>'; }
   function famName(p) { var n = tx(p.name).split(' '); return t(Q.fam, { n: n[n.length - 1] }); }
   window.NOVBLOOM = bloom;
@@ -5084,8 +5107,8 @@ window.addEventListener('click', function (ev) {
   SCR[5] = function () {
     var m = model(), p = m.p, s = m.s, sm = NS.model(p, s, m.e), A = sm.A, sel = selFiles(s), gap = K6.some(function (k) { return A[k].st === 'gap'; });
     var order = K6.slice().sort(function (a, b) { return A[a].v - A[b].v; });
-    return '<section class="v6 v3score"><h1 class="v6h">' + esc(t(Q.scoreEy, { f: famName(p) })) + '</h1>' + bloom(sm, 220, true) +
-      '<p class="v6sub v3lift">' + t(gap ? Q.holds : Q.lift, { n: '<b>' + sm.next + '</b>' }) + '</p>' +
+    return '<section class="v6 v3score"><div class="v3panel"><h1 class="v6h">' + esc(t(Q.scoreEy, { f: famName(p) })) + '</h1>' + bloom(sm, 220, true) +
+      '<p class="v6sub v3lift">' + t(gap ? Q.holds : Q.lift, { n: '<b>' + sm.next + '</b>' }) + '</p></div>' +
       '<div class="v3sec"><b>' + tx(V.stand) + '</b><span>' + tx(V.weakest) + '</span></div><div class="v3rows">' + order.map(function (k) {
         return '<div class="v3row">' + miniPetal(A[k].st) + '<span class="v3rt"><b>' + tx(Q.area[k]) + '</b><small>' + esc(A[k].line) + '</small></span><strong>' + A[k].v + '</strong>' + pill(A[k].st) +
           '<i class="v3track"><b class="' + (A[k].v < 60 ? 'w' : '') + '" style="width:' + A[k].v + '%"></b></i></div>'; }).join('') + '</div>' +
@@ -5108,11 +5131,11 @@ window.addEventListener('click', function (ev) {
     var m = model(), p = m.p, s = m.s, sm = NS.model(p, s, m.e), A = sm.A, a = sm.acts[0], n = weakOf(A).length, G = window.NOVAG, first = tx(p.first);
     var j = a ? journeyFor(a.k, s) : null;
     var old = _s9(), wa = (old.match(/<div class="v6wa">[\s\S]*?<\/small><\/div>/) || [''])[0], up = (old.match(/<p class="v6ey">[^<]*<\/p><div class="v6rows">[\s\S]*?<\/div><\/div>/) || [''])[0];
-    var card = a ? '<section class="v3move"><svg class="v3deco" viewBox="0 0 200 200" aria-hidden="true">' + [0, 72, 144, 216, 288].map(function (r) { return '<ellipse cx="100" cy="60" rx="26" ry="42" transform="rotate(' + r + ' 100 100)"/>'; }).join('') + '</svg>' +
+    var card = a ? '<section class="v3move"><svg class="v3deco" width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">' + [0, 72, 144, 216, 288].map(function (r) { return '<ellipse cx="100" cy="60" rx="26" ry="42" transform="rotate(' + r + ' 100 100)"/>'; }).join('') + '</svg>' +
       '<span class="v3mk">' + tx(V.next) + '</span><p class="v3mt">' + esc(a.title) + '</p>' + (a.impact ? '<p class="v3ms">' + esc(a.impact) + '</p>' : '') +
       '<button class="v3wbtn" data-a="' + (j ? 'journey' : 'toast') + '" data-v="' + (j || 'demoToast') + '">' + tx(V.fix) + (a.gain ? ' <span>· ' + t(V.pts, { n: a.gain }) + '</span>' : '') + '</button></section>' : '';
-    return '<section class="v6 v6close close v3home"><h1 class="v3ttl">' + t(V.hi, { f: esc(first) }) + '</h1><p class="v6sub">' + tx(V.hiSub) + '</p>' + bloom(sm, 280, false) +
-      '<p class="v3cap">' + (n === 1 ? tx(V.sixYou1) : n ? t(V.sixYou, { n: n }) : tx(V.allFine)) + '</p>' + dashPills(A) + card + up +
+    return '<section class="v6 v6close close v3home"><h1 class="v3ttl">' + t(V.hi, { f: esc(first) }) + '</h1><p class="v6sub">' + tx(V.hiSub) + '</p><div class="v3panel">' + bloom(sm, 260, false) +
+      '<p class="v3cap">' + (n === 1 ? tx(V.sixYou1) : n ? t(V.sixYou, { n: n }) : tx(V.allFine)) + '</p>' + dashPills(A) + '</div>' + card + up +
       '<p class="v6ey">' + t(V.waOn, { f: esc(first) }) + '</p>' + wa +
       '<button class="secondary v6big wa" data-a="toast" data-v="demoToast">' + icon('chat', 'sm') + tx(V.waSend) + '</button>' +
       '<button class="v6link" data-a="toast" data-v="talkToast">' + u('talk') + '</button>' + (G ? G.askHTML() : '') + '</section>';
