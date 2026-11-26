@@ -5263,7 +5263,7 @@ window.addEventListener('click', function (ev) {
     var card = '<div class="v3sc"><div class="v3sc-h"><span>' + esc(t(Q.scoreEy, { f: famName(p) })) + '</span><i>' + tx(V.smp) + '</i></div>' + bloom(sm, 280, false) + mv + '</div>';
     var hero = '<section class="v3hero">' + grain() + petalDeco('v3hdeco') + '<div class="lw v3hg"><div class="v3hc"><p class="v3eb"><i></i>' + tx(LP.eyebrow[BRANCH]) + '</p><h1>' + tx(V.h1) + '</h1>' +
       '<p class="v3hs v3tag">' + tx(V.tag) + '</p><button class="v3cta heroBtn" data-a="go" data-v="1">' + tx(W.cta) + icon('arrow') + '</button><p class="v3fine">' + tx(W.cap) + '</p>' +
-      '<div class="v3proof">' + V.pr.map(function (x) { return '<div><b>' + x[0] + '</b><span>' + tx(x[1]) + '</span></div>'; }).join('') + '</div></div>' + card + '</div></section>';
+      '</div>' + card + '</div></section>';
     var IK = ['check', 'shield', 'heart'], TG = [['Keeper', 'Checkup'], ['Cover', 'Credit'], ['Claims']];
     var ag = '<section class="v3sec2" id="s-agents"><div class="lw"><div class="v3sh"><h2>' + tx(W.agH) + '</h2><p>' + tx(V.adv2) + '</p></div><div class="v3three">' + [0, 1, 2].map(function (i) {
       return '<div class="v3step' + (i === 1 ? ' dk' : '') + '">' + (i === 1 ? petalDeco('v3sdeco') : '') + '<span class="v3sico">' + icon(IK[i]) + '</span><span class="v3n">0' + (i + 1) + '</span><h3>' + tx(V.jobN[i]) + '</h3><p>' + tx(V.jobs[i]) + '</p>' +
