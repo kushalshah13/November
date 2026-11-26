@@ -1668,6 +1668,25 @@ body.v3pk .abar .pdot { background: #E9D3A0 !important; }
 html[lang="hi"] .v3hero h1, html[lang="gu"] .v3hero h1 { line-height: 1.2; letter-spacing: -.01em; }
 .v3hs.v3tag { color: #FFFFFF; font-size: 22px; font-weight: 600; letter-spacing: -.01em; line-height: 1.3; }
 @media (max-width: 760px) { .v3hs.v3tag { font-size: 19px; } }
+/* UAT 26 Nov: champagne never on white; tap targets 48px; tiles fit; owes panel not beige */
+.v6jump .v6n.up { background: #E9F1F2 !important; color: #074951 !important; }
+.hbk { width: 48px !important; height: 48px !important; }
+button.quiet, button.ghost.sm, .vrow button, .vdoc button, [data-a="jpick"][data-s="2"], .tag[data-a], button.est, .v6est { min-height: 48px; display: inline-flex; align-items: center; }
+#pvbar a { display: inline; padding: 14px 0; }
+body.v3pk .abar button, body.v3pk .abar a { color: #FFFFFF !important; min-height: 48px; }
+.tone.t-owe { background: #F3F7F6 !important; }
+:root { --owe-bg: #F3F7F6; --owe-line: #E5EAE9; }
+@media (max-width: 760px) { .v3stats b { font-size: 20px; letter-spacing: -.02em; } .v3stats > div { padding: 12px; } }
+/* UAT 26 Nov (2): every tappable control at least 44px tall */
+main button:not(.v3p):not(.hbk), .sheet button, .lang button, .abar button, .agchip { min-height: 44px; }
+.lang button { min-width: 44px; }
+/* UAT 26 Nov (3): keep the phone header inside 390px; agent bar and table buttons 44px */
+.lang button { min-width: 36px !important; padding: 0 6px !important; }
+@media (max-width: 420px) { .top { gap: 6px !important; } .top .mark svg { max-width: 118px; height: auto; } }
+.abar-in, .abar [role="button"] { min-height: 44px; }
+td button, .cmp button, table button { min-height: 44px; }
+.top .secondary.sm, .top .chip, .top [data-a="branch"] { display: inline-flex; align-items: center; }
+@media (max-width: 760px) { td button, .cmp button, table button { min-height: 44px !important; } }
 </style>
 <div id="app"></div>
 <script>window.NOV_PATHS=true;</script>
@@ -2465,7 +2484,7 @@ var ACT = {
     why: { en: "So one bad year doesn't hit everything at once.", hi: 'ताकि एक बुरा साल सब कुछ एक साथ न डुबाए।', gu: 'જેથી એક ખરાબ વર્ષ બધું એકસાથે ન ડુબાડે.' }, imp: 'risk', effort: 1, time: 'm3' },
   goal: { t: { en: 'Put a plan behind the next big goal', hi: 'अगले बड़े लक्ष्य के लिए प्लान बनाएँ', gu: 'આગલા મોટા લક્ષ્ય માટે પ્લાન બનાવો' },
     why: { en: "Children's education, a home or retirement, with a monthly number.", hi: 'बच्चों की पढ़ाई, घर या रिटायरमेंट, एक मासिक रकम के साथ।', gu: 'બાળકોનું ભણતર, ઘર કે નિવૃત્તિ, એક માસિક રકમ સાથે.' }, imp: null, effort: 0, time: 'w2' },
-  retire: { t: { en: 'Turn {x} into a monthly income plan from 57', hi: '{x} को 57 के बाद की मासिक आय के प्लान में बदलें', gu: '{x} ને 57 પછીની માસિક આવકના પ્લાનમાં ફેરવો' },
+  retire: { t: { en: 'Turn {x} into a monthly income plan from age 57', hi: '{x} को 57 की उम्र के बाद की मासिक आय के प्लान में बदलें', gu: '{x} ને 57 વર્ષની ઉંમર પછીની માસિક આવકના પ્લાનમાં ફેરવો' },
     why: { en: "With a reserve set aside for parents' hospital bills.", hi: 'साथ में माता-पिता के अस्पताल ख़र्च का अलग रिज़र्व।', gu: 'સાથે માતા-પિતાના હોસ્પિટલ ખર્ચ માટે અલગ રિઝર્વ.' }, imp: 'plans', effort: 1, time: 'm1' },
   papers: { t: { en: 'Keep papers in one place and name a trusted contact', hi: 'कागज़ एक जगह रखें और एक भरोसेमंद व्यक्ति का नाम दें', gu: 'કાગળો એક જગ્યાએ રાખો અને એક ભરોસાપાત્ર વ્યક્તિનું નામ આપો' },
     why: { en: 'So the family knows where to look on a bad day.', hi: 'ताकि बुरे दिन परिवार को पता हो कि कहाँ देखना है।', gu: 'જેથી ખરાબ દિવસે પરિવારને ખબર હોય કે ક્યાં જોવું.' }, imp: null, effort: 0, time: 'w1' },
@@ -2490,7 +2509,7 @@ function actions(p, s, e) {
   }
   if (s.lapsed) add('fleet', s.lapsed * 30 * L, s.lapsed * 30 * L, { n: s.lapsed });
   if (s.branch === 'sal' && s.health === 0) add('empHealth', 20 * L, 10 * L);
-  else if (s.health < 15 * L) add('health', 25 * L - s.health, 25 * L - s.health);
+  else if (s.health < (s.branch === 'biz' ? 25 : 15) * L) add('health', 25 * L - s.health, 25 * L - s.health);
   if (s.parentsDep && !s.parentsIns) add('parents', 12 * L, 10 * L);
   if (e.leakage > 50000) add('reprice', e.leakage * 5, e.leakage * 5, { a: money(e.overpricedAmt) });
   if (s.homePledged) add('pledge', 0.1 * s.home, s.home);
@@ -2506,12 +2525,13 @@ function actions(p, s, e) {
   if (s.gaps.papers || s.gaps.trusted) add('papers', 0.5 * L, 0);
   if (s.cash > 12 * s.spend) add('idle', 0.03 * s.cash, 0);
   c.sort(function (a, b) { return b.rank - a.rank; });
-  var top = c.slice(0, 3);
+  var top = c.slice(0, 3), LIFT = ['lifeGap', 'stockCover', 'bizCover', 'fleet', 'empHealth', 'health', 'parents', 'reprice', 'pledge', 'reserve', 'trad', 'conc', 'retire', 'idle'];
   var fnd = SIG[p.sig] && SIG[p.sig].ok(s, e);
   if (fnd && p.sigAction && !top.some(function (a) { return a.k === p.sigAction; })) {
     var sa = c.filter(function (a) { return a.k === p.sigAction; })[0];
     if (sa) { top[2] = sa; top.sort(function (a, b) { return b.rank - a.rank; }); }
   }
+  if (!top.some(function (a) { return LIFT.indexOf(a.k) >= 0; })) { var la = c.filter(function (a) { return LIFT.indexOf(a.k) >= 0; })[0]; if (la) { var ri = -1; top.forEach(function (a, i) { if (a.k !== p.sigAction) ri = i; }); if (top.length < 3) top.push(la); else if (ri >= 0) top[ri] = la; } }
   return top.map(function (a) {
     var d = ACT[a.k], impKey = d.imp;
     /* Repricing quotes the same saving as November's pick in the comparison it opens */
@@ -3193,7 +3213,7 @@ function jCompare(j, m) {
   }).join('') +
     '<tr class="earnrow"><th class="lab" scope="row">' + tx(CU2.earns) + '</th>' + os.map(function (o, i) { return '<td class="' + (i === 0 ? 'pickcol' : '') + '">' + earnBand(o) + '</td>'; }).join('') + '</tr>' +
     '<tr class="actrow"><th class="lab"></th>' + os.map(function (o, i) {
-      return '<td class="' + (i === 0 ? 'pickcol' : '') + '"><button class="' + (i === 0 ? 'primary' : 'secondary') + ' sm" data-a="jpick" data-v="' + i + '" data-s="3">' + tx(loan ? CU2.applyWith : CU2.cont) + '</button><button class="quiet" data-a="jpick" data-v="' + i + '" data-s="2">' + tx(CU2.det) + '</button></td>'; }).join('') + '</tr>';
+      return '<td class="' + (i === 0 ? 'pickcol' : '') + '"><button class="secondary sm" data-a="jpick" data-v="' + i + '" data-s="3">' + tx(loan ? CU2.applyWith : CU2.cont) + '</button><button class="quiet" data-a="jpick" data-v="' + i + '" data-s="2">' + tx(CU2.det) + '</button></td>'; }).join('') + '</tr>';
   var ask = '<div class="ask"><p class="overline">' + tx(CU2.ask) + '</p><div class="askq">' + qs.map(function (q, i) {
     return '<button class="chip" data-a="jask" data-v="' + i + '" aria-pressed="' + (j.ask === i) + '">' + tx(q) + '</button>'; }).join('') + '</div>' +
     (j.ask != null ? '<div class="reply"><span class="rmark"><i></i></span><p>' + esc(answer(j, m, os, j.ask)) + '</p></div>' : '') + '</div>';
@@ -4623,7 +4643,7 @@ render = function () { _render3(); floatCheck(); };
     var goal = s.wealth.goal && (p.sig === 'corpus' || s.ageBand === '55+') ? 15 : 0;
     var m = s.liquid / s.spend, cv = Math.min(100, m / 6 * 100), wv = 100 - trad - conc - idle - goal;
     A.W = { v: 0.4 * cv + 0.6 * wv, line: cv < 60 ? t(Q.cM, { m: oneDec(m) }) : trad ? t(Q.wTrad, { n: s.policies }) : conc ? tx(Q.wConc) : goal ? tx(Q.wGoal) : idle ? tx(Q.wIdle) : tx(Q.wOk) };
-    AK.forEach(function (k) { A[k].v = Math.max(5, Math.min(100, Math.round(A[k].v))); A[k].st = A[k].v >= 75 ? 'ok' : A[k].v >= 50 ? 'look' : 'gap'; });
+    AK.forEach(function (k) { A[k].v = Math.max(5, Math.min(95, Math.round(A[k].v))); A[k].st = A[k].v >= 75 ? 'ok' : A[k].v >= 60 ? 'look' : 'gap'; });
     return A;
   }
   function total(A) { var x = 0; AK.forEach(function (k) { x += AW[k] * Math.log(A[k].v); }); return Math.round(Math.exp(x)); }
@@ -4648,7 +4668,7 @@ render = function () { _render3(); floatCheck(); };
   function scoreModel(p, s, e) {
     var A = areasOf(p, s, e), now = total(A), acts = actions(p, s, e).map(function (a) { var to = scoreAfter(p, s, a.k); return Object.assign({}, a, { to: to, gain: Math.max(0, to - now) }); });
     acts.sort(function (a, b) { return b.gain - a.gain; });
-    return { A: A, now: now, acts: acts, next: acts.length ? acts[0].to : now };
+    return { A: A, now: now, acts: acts, next: acts.reduce(function (m, a) { return Math.max(m, a.to); }, now) };
   }
   window.NOVSCORE = { model: scoreModel, areas: areasOf, total: total, Q: Q };
 
@@ -4775,17 +4795,18 @@ render = function () { _render3(); floatCheck(); };
       '<div class="v6jump"><span>' + tx(Q.score) + '</span><b class="v6n">' + sm.now + '</b>' + icon('arrow') + '<b class="v6n up">' + a.to + '</b>' + (a.impact ? '<small>' + esc(a.impact) + '</small>' : '') + '</div>' +
       (j ? '<button class="primary v6big" data-a="journey" data-v="' + j + '">' + u('cmpOpts') + icon('arrow') + '</button>' : '<button class="primary v6big" data-a="toast" data-v="demoToast">' + u('addPlan') + '</button>') + '</div>' +
       (rest.length ? '<p class="v6ey">' + tx(Q.then) + '</p><div class="v6rows">' + rest.map(function (x) { var jj = journeyFor(x.k, s);
-        return '<button class="v6row v6rowbtn" data-a="' + (jj ? 'journey' : 'toast') + '" data-v="' + (jj || 'demoToast') + '"><span><b>' + esc(x.title) + '</b></span><small class="v6pts">' + (x.gain ? t(Q.pts, { n: x.gain }) : '') + '</small></button>'; }).join('') + '</div>' : '') +
+        return '<button class="v6row v6rowbtn" data-a="' + (jj ? 'journey' : 'toast') + '" data-v="' + (jj || 'demoToast') + '"><span><b>' + esc(x.title) + '</b></span><small class="v6pts">' + (x.gain ? (x.gain === 1 ? tx(O('1 point up', '1 अंक ऊपर', '1 અંક ઉપર')) : t(Q.pts, { n: x.gain })) : '') + '</small></button>'; }).join('') + '</div>' : '') +
       (left ? '<p class="v6ey">' + tx(Q.left) + '</p><div class="v6rows"><div class="v6row"><span><b>' + esc(tx(LN[left.k] || LN.term)) + '</b><small>' + t(Q.leftS, { g: (Math.round((left.rate - left.mkt) * 100) / 100).toString() }) + '</small></span><span class="v6pill v6-leave">' + tx(Q.leaveIt) + '</span></div></div>' : '') + '</section>';
   };
   /* 9 What happens next */
   SCR[9] = function () {
     var m = model(), p = m.p, s = m.s, sm = scoreModel(p, s, m.e), A = sm.A, first = tx(p.first), a = sm.acts[0], G = window.NOVAG;
     var fine = AK.filter(function (k) { return A[k].st === 'ok'; }).map(function (k) { return tx(Q.area[k]).toLowerCase(); });
-    var gapK = AK.filter(function (k) { return A[k].st !== 'ok'; }).sort(function (x, y) { return A[x].v - A[y].v; })[0];
+    var gaps = AK.filter(function (k) { return A[k].st === 'gap'; }).sort(function (x, y) { return A[x].v - A[y].v; }), pd = S.pend && S.pend.pid === S.pid ? S.pend : null;
+    a = sm.acts.filter(function (x) { return !pd || x.k !== pd.k; })[0];
     return '<section class="v6 v6close close"><h1 class="v6h">' + t(Q.waH, { first: esc(first) }) + '</h1>' +
       '<div class="v6wa"><p><b>' + t(Q.waHi, { first: esc(first) }) + '</b></p><p>' + t(Q.waScore, { s: sm.now, t: sm.next }) + '</p>' +
-      (fine.length ? '<p>' + t(Q.waFine, { a: esc(fine.join(', ')) }) + '</p>' : '') + (gapK ? '<p>' + t(Q.waNeeds, { a: esc(LANG === 'en' ? A[gapK].line.charAt(0).toLowerCase() + A[gapK].line.slice(1) : A[gapK].line) }) + '</p>' : '') +
+      (fine.length ? '<p>' + t(Q.waFine, { a: esc(fine.join(', ')) }) + '</p>' : '') + (gaps.length ? '<p>' + t(Q.waNeeds, { a: esc(gaps.map(function (k) { return tx(Q.area[k]).toLowerCase(); }).join(', ')) }) + '</p>' : '') +
       (a ? '<p>' + t(Q.waFirst, { a: esc(a.title) }) + '</p>' : '') + '<small>' + tx(Q.waFwd) + '</small></div>' +
       '<p class="v6ey">' + tx(Q.up) + '</p><div class="v6rows"><div class="v6row"><span><b>' + tx(Q.up1) + '</b></span><em>' + tx(Q.up1d) + '</em></div><div class="v6row"><span><b>' + tx(Q.up2) + '</b></span><small>' + tx(Q.up2d) + '</small></div></div>' +
       '<button class="primary v6big wa" data-a="toast" data-v="demoToast">' + u('wa') + '</button>' +
@@ -4830,7 +4851,7 @@ render = function () { _render3(); floatCheck(); };
   Q.howGap = O('One big gap counts more', 'एक बड़ी कमी ज़्यादा गिनी जाती है', 'એક મોટી ખામી વધુ ગણાય છે');
   Q.howGapS = O('Areas multiply, they don’t just add. Good savings can’t hide an open risk.', 'बातें जुड़ती नहीं, गुणा होती हैं। अच्छी बचत खुला जोखिम छिपा नहीं सकती।', 'બાબતો ઉમેરાતી નથી, ગુણાય છે. સારી બચત ખુલ્લું જોખમ છુપાવી શકતી નથી.');
   Q.avg = O('Simple average', 'साधारण औसत', 'સાદી સરેરાશ'); Q.ours = O('Family score', 'परिवार का स्कोर', 'પરિવારનો સ્કોર');
-  Q.rules = [O('Moves only when a fact changes', 'सिर्फ़ तथ्य बदलने पर बदलता है', 'માત્ર હકીકત બદલાય ત્યારે બદલાય છે'), O('Never names a product', 'कभी कोई प्रोडक्ट नहीं सुझाता', 'ક્યારેય કોઈ પ્રોડક્ટ સૂચવતો નથી'), O('Weights checked against our advisors’ grading of 50+ families before launch', 'लॉन्च से पहले 50+ परिवारों पर हमारे सलाहकारों की जाँच से मिलाया जाएगा', 'લોન્ચ પહેલાં 50+ પરિવારો પર અમારા સલાહકારોની તપાસ સાથે મેળવાશે')];
+  Q.rules = [O('Moves only when a fact changes', 'सिर्फ़ तथ्य बदलने पर बदलता है', 'માત્ર હકીકત બદલાય ત્યારે બદલાય છે'), O('Never names a policy, loan or fund', 'कभी कोई पॉलिसी, लोन या फंड नहीं सुझाता', 'ક્યારેય કોઈ પોલિસી, લોન કે ફંડ સૂચવતો નથી'), O('Weights checked against our advisors’ grading of 50+ families before launch', 'लॉन्च से पहले 50+ परिवारों पर हमारे सलाहकारों की जाँच से मिलाया जाएगा', 'લોન્ચ પહેલાં 50+ પરિવારો પર અમારા સલાહકારોની તપાસ સાથે મેળવાશે')];
   U.v6how = Q.howL;
   function howSheet() {
     var m = model(), sm = scoreModel(m.p, m.s, m.e), A = sm.A, avg = Math.round(AK.reduce(function (x, k) { return x + AW[k] * A[k].v; }, 0));
@@ -4944,7 +4965,7 @@ var PK = {
     n: O('5 households · any age, any job', '5 परिवार · कोई भी उम्र, कोई भी नौकरी', '5 પરિવાર · કોઈ પણ ઉંમર, કોઈ પણ નોકરી'),
     tags: [O('Home loans', 'होम लोन', 'હોમ લોન'), O('Hospital and car claims', 'अस्पताल और कार क्लेम', 'હોસ્પિટલ અને કાર ક્લેમ'), O('Parents’ cover', 'माता-पिता का कवर', 'માતા-પિતાનું કવર')],
     go: O('Open salaried demo', 'नौकरीपेशा डेमो खोलें', 'નોકરિયાત ડેમો ખોલો') },
-  foot: O('Same product, two kinds of family. You can switch any time from the top bar.', 'एक ही प्रोडक्ट, दो तरह के परिवार। ऊपर से कभी भी बदल सकते हैं।', 'એક જ પ્રોડક્ટ, બે પ્રકારના પરિવાર. ઉપરથી ગમે ત્યારે બદલી શકો છો.'),
+  foot: O('Same November, two kinds of family. You can switch any time from the top bar.', 'एक ही November, दो तरह के परिवार। ऊपर से कभी भी बदल सकते हैं।', 'એક જ November, બે પ્રકારના પરિવાર. ઉપરથી ગમે ત્યારે બદલી શકો છો.'),
   pill: { biz: O('Business', 'बिज़नेस', 'બિઝનેસ'), sal: O('Salaried', 'नौकरीपेशा', 'નોકરિયાત') },
   switchTo: O('Switch demo', 'डेमो बदलें', 'ડેમો બદલો')
 };
@@ -5025,7 +5046,7 @@ window.addEventListener('hashchange', function () {
 
 /* Hosted-site analytics: PostHog, screen tracking, preview banner, end-of-journey survey. Only in the hosted build. */
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-var NOV_LOCAL = /^(localhost|127\.|file)/.test(location.hostname || 'file');
+var NOV_LOCAL = !/(^|\.)november\.finance$/.test(location.hostname || '');
 var NOV_OPTOUT = false; try { NOV_OPTOUT = localStorage.getItem('nov_optout') === '1'; } catch (e) {}
 if (NOV_OPTOUT) NOV_LOCAL = true;
 if (!NOV_LOCAL) posthog.init('phc_mepPsrAKFJXe8MhjqEBy7NuymhamCzUvzxE4YXyWFFHX', {
@@ -5045,7 +5066,7 @@ function screenKey() {
 
 /* preview banner */
 var PV = {
-  t: O('Product preview with fictional families, insurers and lenders. Nothing you type in the demo is stored.', 'प्रोडक्ट प्रीव्यू, काल्पनिक परिवार, बीमा कंपनियाँ और लेंडर। डेमो में आप जो भरते हैं वह सेव नहीं होता।', 'પ્રોડક્ટ પ્રીવ્યૂ, કાલ્પનિક પરિવાર, વીમા કંપનીઓ અને લેન્ડર. ડેમોમાં તમે જે ભરો છો તે સેવ થતું નથી.'),
+  t: O('A preview with fictional families, insurers and lenders. Nothing you type in the demo is stored.', 'एक झलक: काल्पनिक परिवार, बीमा कंपनियाँ और लेंडर। डेमो में आप जो भरते हैं वह सेव नहीं होता।', 'એક ઝલક: કાલ્પનિક પરિવાર, વીમા કંપનીઓ અને લેન્ડર. ડેમોમાં તમે જે ભરો છો તે સેવ થતું નથી.'),
   l: O('How we measure visits', 'हम विज़िट कैसे मापते हैं', 'અમે મુલાકાત કેવી રીતે માપીએ છીએ')
 };
 function banner() {
@@ -5184,7 +5205,7 @@ window.addEventListener('click', function (ev) {
     hi: O('Namaste, {f}.', 'नमस्ते, {f}।', 'નમસ્તે, {f}.'),
     hiSub: O('Here is your family, from today.', 'यह रहा आपका परिवार, आज से।', 'આ રહ્યો તમારો પરિવાર, આજથી.'),
     next: O('Your next move', 'आपका अगला कदम', 'તમારું આગલું પગલું'),
-    fix: O('Fix this', 'इसे ठीक करें', 'આ સુધારો'), pts: O('{n} points up', '{n} अंक ऊपर', '{n} અંક ઉપર'),
+    fix: O('Fix this', 'इसे ठीक करें', 'આ સુધારો'), pts: O('{n} points up', '{n} अंक ऊपर', '{n} અંક ઉપર'), pts1: O('1 point up', '1 अंक ऊपर', '1 અંક ઉપર'),
     waOn: O('This lands on {f}’s WhatsApp', 'यह {f} के WhatsApp पर आता है', 'આ {f} ના WhatsApp પર આવે છે'),
     waSend: O('Send it on WhatsApp', 'WhatsApp पर भेजें', 'WhatsApp પર મોકલો'),
     h1: O('Has anyone looked at <em>your whole family</em> before?', 'क्या पहले कभी किसी ने <em>आपके पूरे परिवार</em> को देखा है?', 'શું પહેલાં ક્યારેય કોઈએ <em>તમારા આખા પરિવાર</em>ને જોયો છે?'),
@@ -5280,12 +5301,22 @@ window.addEventListener('click', function (ev) {
     return '<div class="v3l">' + hero + ag + know + proof + vault + foot + '</div>';
   };
 
+  var VH = {
+    one: O('One gap holds it down. Fix it: {n}.', 'एक कमी स्कोर नीचे रखती है। ठीक करें: {n}।', 'એક ખામી સ્કોર નીચે રાખે છે. સુધારો: {n}.'),
+    many: O('{c} gaps hold it down. The first fix takes it to {n}.', '{c} कमियाँ स्कोर नीचे रखती हैं। पहला सुधार इसे {n} तक ले जाता है।', '{c} ખામીઓ સ્કોર નીચે રાખે છે. પહેલો સુધારો તેને {n} સુધી લઈ જાય છે.'),
+    none: O('Nothing urgent. Your moves keep it where it is.', 'कुछ ज़रूरी नहीं। आपके कदम इसे बनाए रखते हैं।', 'કંઈ તાત્કાલિક નથી. તમારાં પગલાં તેને જાળવી રાખે છે.')
+  };
+  function liftLine(A, sm) {
+    var c = K6.filter(function (k) { return A[k].st === 'gap'; }).length, n = '<b>' + sm.next + '</b>';
+    if (sm.next <= sm.now) return c ? t(c === 1 ? VH.one : VH.many, { c: c, n: n }).replace(/ (Fix it|ठीक करें|સુધારો): .*$/, '').replace(/ The first fix.*$/, '') : tx(VH.none);
+    return c === 1 ? t(VH.one, { n: n }) : c ? t(VH.many, { c: c, n: n }) : t(Q.lift, { n: n });
+  }
   /* ---------- 5 Family score: peacock top with the score card, then every part with a bar ---------- */
   SCR[5] = function () {
     var m = model(), p = m.p, s = m.s, sm = NS.model(p, s, m.e), A = sm.A, sel = selFiles(s), gap = K6.some(function (k) { return A[k].st === 'gap'; });
     var order = K6.slice().sort(function (a, b) { return A[a].v - A[b].v; });
     return '<section class="v6 v3score"><h1 class="v6h">' + esc(t(Q.scoreEy, { f: famName(p) })) + '</h1><div class="v3panel">' + bloom(sm, 210, true) +
-      '<p class="v6sub v3lift">' + t(gap ? Q.holds : Q.lift, { n: '<b>' + sm.next + '</b>' }) + '</p></div>' +
+      '<p class="v6sub v3lift">' + liftLine(A, sm) + '</p></div>' +
       '<div class="v3sec"><b>' + tx(V.stand) + '</b><span>' + tx(V.weakest) + '</span></div><div class="v3rows">' + order.map(function (k) {
         return '<div class="v3row">' + miniPetal(A[k].st) + '<span class="v3rt"><b>' + tx(Q.area[k]) + '</b><small>' + esc(A[k].line) + '</small></span><strong>' + A[k].v + '</strong>' + pill(A[k].st) +
           '<i class="v3track"><b class="' + (A[k].v < 60 ? 'w' : '') + '" style="width:' + A[k].v + '%"></b></i></div>'; }).join('') + '</div>' +
@@ -5309,8 +5340,13 @@ window.addEventListener('click', function (ev) {
     wa: O('We’ll tell you on WhatsApp the day it does.', 'जिस दिन होगा, हम WhatsApp पर बताएँगे।', 'જે દિવસે થશે, અમે WhatsApp પર જણાવીશું.'),
     now: O('Now', 'अभी', 'હમણાં'), after: O('On issue', 'जारी होने पर', 'જારી થતાં'), afterL: O('When live', 'लागू होने पर', 'લાગુ થતાં'),
     prog: O('In progress', 'चल रहा है', 'ચાલુ છે'),
-    home: O('{n} once this goes through', 'यह होते ही {n}', 'આ થતાં જ {n}')
+    home: O('{n} once this goes through', 'यह होते ही {n}', 'આ થતાં જ {n}'),
+    toHome: O('See your family', 'अपना परिवार देखें', 'તમારો પરિવાર જુઓ')
   };
+  document.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-a="jclose"]');
+    if (el && S.j && S.j.done && !S.j.direct && pendNow()) S.screen = 9;
+  }, true);
   function pendAct(m, type) {
     var sm = NS.model(m.p, m.s, m.e);
     return sm.acts.filter(function (a) { return journeyFor(a.k, m.s) === type && a.gain > 0; })[0] || null;
@@ -5329,18 +5365,19 @@ window.addEventListener('click', function (ev) {
     var card = '<div class="v3pend"><div class="v3pn"><span><small>' + tx(VP.now) + '</small><b>' + pd.from + '</b></span>' + icon('arrow') + '<span class="up"><small>' + tx(loan ? VP.afterL : VP.after) + '</small><b>' + pd.to + '</b></span></div>' +
       '<p><b>' + t(loan ? VP.onL : VP.on, { n: pd.to, ins: esc(ins) }) + '</b> ' + tx(VP.wa) + '</p></div>';
     var i = h.indexOf('</div>') + 6;
+    if (!j.direct) h = h.replace(tx(JU.backPlan), tx(VP.toHome));
     return h.slice(0, i) + card + h.slice(i);
   };
 
   /* ---------- 9 Close: the family's home screen from now on ---------- */
   var _s9 = SCR[9];
   SCR[9] = function () {
-    var m = model(), p = m.p, s = m.s, sm = NS.model(p, s, m.e), A = sm.A, pd = pendNow(), a = sm.acts.filter(function (x) { return !pd || x.k !== pd.k; })[0], n = weakOf(A).length, G = window.NOVAG, first = tx(p.first);
+    var m = model(), p = m.p, s = m.s, sm = NS.model(p, s, m.e), A = sm.A, pd = pendNow(), a = sm.acts.filter(function (x) { return !pd || (x.k !== pd.k && journeyFor(x.k, s) !== pd.type); })[0], n = weakOf(A).length, G = window.NOVAG, first = tx(p.first);
     var j = a ? journeyFor(a.k, s) : null;
     var old = _s9(), wa = (old.match(/<div class="v6wa">[\s\S]*?<\/small><\/div>/) || [''])[0], up = (old.match(/<p class="v6ey">[^<]*<\/p><div class="v6rows">[\s\S]*?<\/div><\/div>/) || [''])[0];
     var card = a ? '<section class="v3move"><svg class="v3deco" width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">' + [0, 72, 144, 216, 288].map(function (r) { return '<ellipse cx="100" cy="60" rx="26" ry="42" transform="rotate(' + r + ' 100 100)"/>'; }).join('') + '</svg>' +
       '<span class="v3mk">' + tx(V.next) + '</span><p class="v3mt">' + esc(a.title) + '</p>' + (a.impact ? '<p class="v3ms">' + esc(a.impact) + '</p>' : '') +
-      '<button class="v3wbtn" data-a="' + (j ? 'journey' : 'toast') + '" data-v="' + (j || 'demoToast') + '">' + tx(V.fix) + (a.gain ? ' <span>· ' + t(V.pts, { n: a.gain }) + '</span>' : '') + '</button></section>' : '';
+      '<button class="v3wbtn" data-a="' + (j ? 'journey' : 'toast') + '" data-v="' + (j || 'demoToast') + '">' + tx(V.fix) + (a.gain ? ' <span>· ' + (a.gain === 1 ? tx(V.pts1) : t(V.pts, { n: a.gain })) + '</span>' : '') + '</button></section>' : '';
     return '<section class="v6 v6close close v3home"><h1 class="v3ttl">' + t(V.hi, { f: esc(first) }) + '</h1><p class="v6sub">' + tx(V.hiSub) + '</p><div class="v3panel">' + bloom(sm, 250, false) +
       (pd ? '<p class="v3pchip"><span>' + tx(VP.prog) + '</span>' + esc(pd.title) + ' · <b>' + t(VP.home, { n: pd.to }) + '</b></p>' : '') +
       '<p class="v3cap">' + (n === 1 ? tx(V.sixYou1) : n ? t(V.sixYou, { n: n }) : tx(V.allFine)) + '</p>' + dashPills(A) + '</div>' + card + up +
